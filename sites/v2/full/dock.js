@@ -103,10 +103,12 @@
     addEventListener("touchstart", e => {
       if (e.target.closest(".dk")) return;
       if (!touchUI) return poke(3200);
-      const t = e.touches[0]; t0 = t && !e.target.closest(".sc, a, button") && t.clientY >= band.getBoundingClientRect().top ? [t.clientX, t.clientY] : null;
+      const t = e.touches[0]; t0 = t && !e.target.closest(".sc, a, button, input, select, label, summary") && t.clientY >= band.getBoundingClientRect().top ? [t.clientX, t.clientY, !body.classList.contains("dk-show")] : null;
     }, { passive: true });
+    // a tap that raises a hidden Dock must not also click it: WebKit sends the click after touchend, at the same point, onto the risen Dock.
+    // Only when the Dock really is up now (not over the hero, a film, a menu or landscape website mode), so other taps keep their click.
     if (touchUI) addEventListener("touchend", e => { const t = e.changedTouches[0];
-      if (t0 && t && Math.hypot(t.clientX - t0[0], t.clientY - t0[1]) < 12) poke(3200); t0 = null; }, { passive: true });
+      if (t0 && t && Math.hypot(t.clientX - t0[0], t.clientY - t0[1]) < 12) { poke(3200); if (t0[2] && e.cancelable && getComputedStyle(dock).pointerEvents !== "none") e.preventDefault(); } t0 = null; }, { passive: false });
     addEventListener("scroll", () => { if (!touchUI && !body.classList.contains("present")) poke(); }, { passive: true });
     let dockAt = -1e9;   // on main touch screens only a finger on the Dock counts as its scroll, not update() centring the current tile
     dock.addEventListener("touchstart", () => { dockAt = performance.now(); poke(4000); }, { passive: true });
