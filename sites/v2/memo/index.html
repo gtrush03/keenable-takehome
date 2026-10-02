@@ -96,6 +96,15 @@
   .memo-chrome .k-header { background: transparent; }
   .page a.src { color: var(--ink-2); }
   .who.why { margin-top: 12px; }
+  /* phone held sideways: the kit's landscape header; here the Letter page's own top gaps and a headline sized by height */
+  @media (orientation: landscape) and (max-height: 500px) {
+    /* Download PDF leaves its own row and sits at the right end of the Letter page's top line */
+    .tools { position: relative; z-index: 2; height: 0; padding: 0; width: auto; }
+    .tools a { position: absolute; top: 26px; right: 36px; height: 44px; display: inline-flex; align-items: center; }
+    .page .top { min-height: 44px; align-items: center; padding-right: 150px; }
+    .page { margin: 8px 16px; padding: 18px 20px; }
+    h1 { font-size: clamp(26px, 8svh, 32px); letter-spacing: 0; margin-top: 12px; }
+  }
 </style>
 <style>/* type rule: no negative tracking under 28px (overrides the kit's measured values on this page) */ :root { --k-ls-14: 0; --k-ls-16: 0; --k-ls-18: 0; --k-ls-mono: 0; }</style>
 <link rel="stylesheet" href="../nav/ios.css">

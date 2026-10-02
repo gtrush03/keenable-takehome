@@ -3,6 +3,8 @@
    Needs <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"> (ios.js adds viewport-fit if missing). */
 
 html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+/* the safe-area insets as variables, so QA can simulate a notch / home indicator by setting them */
+:root { --ios-sat: env(safe-area-inset-top, 0px); --ios-sar: env(safe-area-inset-right, 0px); --ios-sab: env(safe-area-inset-bottom, 0px); --ios-sal: env(safe-area-inset-left, 0px); }
 
 /* ---------- present mode: dynamic viewport height (fallback: --app-h from ios.js, then the page's own 100vh/100svh); no rubber-band ---------- */
 body.present main { height: var(--app-h, 100vh); height: 100dvh; }
@@ -11,22 +13,22 @@ body.present .slide { overscroll-behavior: contain; }
 
 /* ---------- safe areas ---------- */
 /* deck top bar (shared/deck.css + v2.css: fixed, var(--bar-h) tall, 0 clamp(12px, 2.4vw, 32px) side padding) */
-.topbar { padding-top: env(safe-area-inset-top); height: calc(var(--bar-h, 56px) + env(safe-area-inset-top));
-  padding-left: calc(clamp(12px, 2.4vw, 32px) + env(safe-area-inset-left)); padding-right: calc(clamp(12px, 2.4vw, 32px) + env(safe-area-inset-right)); }
+.topbar { padding-top: var(--ios-sat); height: calc(var(--bar-h, 56px) + var(--ios-sat));
+  padding-left: calc(clamp(12px, 2.4vw, 32px) + var(--ios-sal)); padding-right: calc(clamp(12px, 2.4vw, 32px) + var(--ios-sar)); }
 /* kit header (hub, films, map, index-map): sticky, 24px top padding; content columns keep clear of the notch in landscape */
-.k-header-bar { padding-top: calc(24px + env(safe-area-inset-top)); height: calc(var(--k-header-h, 76px) + env(safe-area-inset-top)); }
-.k-col, .k-wide { max-width: calc(100% - 32px - env(safe-area-inset-left) - env(safe-area-inset-right)); }
+.k-header-bar { padding-top: calc(24px + var(--ios-sat)); height: calc(var(--k-header-h, 76px) + var(--ios-sat)); }
+.k-col, .k-wide { max-width: calc(100% - 32px - var(--ios-sal) - var(--ios-sar)); }
 /* slide controls + counter */
-.sc { right: calc(clamp(16px, 2.4vw, 32px) + env(safe-area-inset-right)); bottom: calc(20px + env(safe-area-inset-bottom)); }
-body.film-on .sc { left: calc(clamp(12px, 2vw, 32px) + env(safe-area-inset-left)); right: calc(clamp(12px, 2vw, 32px) + env(safe-area-inset-right)); bottom: auto; }
-.counter { bottom: calc(12px + env(safe-area-inset-bottom)); }
-@media (max-width: 700px) { .sc { right: calc(12px + env(safe-area-inset-right)); bottom: calc(12px + env(safe-area-inset-bottom)); } }
+.sc { right: calc(clamp(16px, 2.4vw, 32px) + var(--ios-sar)); bottom: calc(20px + var(--ios-sab)); }
+body.film-on .sc { left: calc(clamp(12px, 2vw, 32px) + var(--ios-sal)); right: calc(clamp(12px, 2vw, 32px) + var(--ios-sar)); bottom: auto; }
+.counter { bottom: calc(12px + var(--ios-sab)); }
+@media (max-width: 700px) { .sc { right: calc(12px + var(--ios-sar)); bottom: calc(12px + var(--ios-sab)); } }
 /* film captions and controls: the KPlayer bar, the "Continue" call-out and the full-screen button */
-.kp-bar { padding-left: calc(16px + env(safe-area-inset-left)); padding-right: calc(16px + env(safe-area-inset-right)); padding-bottom: calc(10px + env(safe-area-inset-bottom)); }
-@container (max-width: 640px) { .kp-bar { padding-left: calc(6px + env(safe-area-inset-left)); padding-right: calc(6px + env(safe-area-inset-right)); padding-bottom: calc(4px + env(safe-area-inset-bottom)); } }
-.film-go { margin-right: env(safe-area-inset-right); margin-bottom: env(safe-area-inset-bottom); }
-.film-fs { margin-right: env(safe-area-inset-right); }
-.kp-overlay { padding: calc(56px + env(safe-area-inset-top)) calc(24px + env(safe-area-inset-right)) calc(24px + env(safe-area-inset-bottom)) calc(24px + env(safe-area-inset-left)); }
+.kp-bar { padding-left: calc(16px + var(--ios-sal)); padding-right: calc(16px + var(--ios-sar)); padding-bottom: calc(10px + var(--ios-sab)); }
+@container (max-width: 640px) { .kp-bar { padding-left: calc(6px + var(--ios-sal)); padding-right: calc(6px + var(--ios-sar)); padding-bottom: calc(4px + var(--ios-sab)); } }
+.film-go { margin-right: var(--ios-sar); margin-bottom: var(--ios-sab); }
+.film-fs { margin-right: var(--ios-sar); }
+.kp-overlay { padding: calc(56px + var(--ios-sat)) calc(24px + var(--ios-sar)) calc(24px + var(--ios-sab)) calc(24px + var(--ios-sal)); }
 
 /* ---------- touch: 44 pt tap targets, no hover-only affordances ---------- */
 @media (pointer: coarse) {
@@ -42,19 +44,17 @@ body.film-on .sc { left: calc(clamp(12px, 2vw, 32px) + env(safe-area-inset-left)
 }
 
 /* ---------- rotate prompt (portrait phones; deck and films pages) ---------- */
-.ios-rot { position: fixed; z-index: 2147482000; left: calc(12px + env(safe-area-inset-left)); right: calc(12px + env(safe-area-inset-right)); top: calc(12px + env(safe-area-inset-top));
-  display: flex; align-items: center; gap: 12px; padding: 12px 8px 12px 14px; border-radius: 12px; background: rgba(255, 255, 255, 0.96);
+.ios-rot { position: fixed; z-index: 2147482000; left: calc(12px + var(--ios-sal)); right: calc(12px + var(--ios-sar)); top: calc(12px + var(--ios-sat));
+  display: flex; align-items: center; gap: 12px; padding: 4px 4px 4px 14px; border-radius: 12px; background: rgba(255, 255, 255, 0.96);
   -webkit-backdrop-filter: blur(16px) saturate(1.5); backdrop-filter: blur(16px) saturate(1.5); box-shadow: 0 0 0 1px rgba(42, 42, 42, 0.08), 0 12px 32px rgba(0, 0, 0, 0.16);
   color: #2A2A2A; font: 300 15px/20px "Stack Sans Text", "Helvetica Neue", Arial, sans-serif; letter-spacing: -0.01em;
   transform: translateY(-8px); opacity: 0; transition: opacity .3s ease, transform .3s ease; }
 .ios-rot.in { transform: none; opacity: 1; }
 .ios-rot[hidden] { display: none; }
 .ios-rot > svg { flex: none; width: 40px; height: 40px; }
-.ios-rot .ios-rot-t { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
-.ios-rot b { font: 300 16px/20px "Stack Sans Headline", "Helvetica Neue", Arial, sans-serif; color: #0E0E0E; letter-spacing: -0.01em; }
+.ios-rot .ios-rot-t { flex: 1; min-width: 0; margin: 0; font: 300 16px/20px "Stack Sans Headline", "Helvetica Neue", Arial, sans-serif; color: #0E0E0E; letter-spacing: -0.01em; }
 .ios-rot button { all: unset; box-sizing: border-box; cursor: pointer; -webkit-tap-highlight-color: transparent; }
-.ios-rot .ios-rot-go { min-height: 44px; padding: 0 14px; border-radius: 12px; background: #EFF3FB; color: #2A2A2A; display: inline-flex; align-items: center; font: inherit; }
-.ios-rot .ios-rot-x { flex: none; align-self: flex-start; width: 44px; height: 44px; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; color: #646464; }
+.ios-rot .ios-rot-x { flex: none; width: 44px; height: 44px; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; color: #646464; }
 .ios-rot button:active { background: #E2E9F7; color: #005CFF; }
 .ios-rot button:focus-visible { outline: 2px solid #005CFF; outline-offset: 2px; }
 .ios-rot .ios-ph { transform-origin: 20px 20px; }
@@ -65,3 +65,51 @@ body.film-on .sc { left: calc(clamp(12px, 2vw, 32px) + env(safe-area-inset-left)
 @keyframes ios-rot { 0%, 22% { transform: rotate(0deg); } 48%, 74% { transform: rotate(-90deg); } 100% { transform: rotate(0deg); } }
 @keyframes ios-arc { 0%, 18% { opacity: 1; } 40%, 80% { opacity: .25; } 100% { opacity: 1; } }
 @media print { .ios-rot { display: none !important; } }
+
+/* ---------- landscape phone (≤500px tall, e.g. iPhone 734×343 with Safari's bars, 852×393 without) ----------
+   A thinner top bar, the ‹ n › controls inside it, slides padded clear of the notch, and (ios.js) each present-mode slide zoomed to fit. */
+@media (orientation: landscape) and (max-height: 500px) {
+  :root { --bar-h: 48px; --lp-l: max(var(--gutter), calc(var(--ios-sal) + 8px)); --lp-r: max(var(--gutter), calc(var(--ios-sar) + 8px)); }
+  .topbar { gap: 8px; }
+  .topbar .brand span, .topbar .brand .x { display: none; }   /* the wordmark alone links Home, as on a portrait phone */
+  .topbar .tools { gap: 6px; }
+  .topbar .rs-ret-bar { padding: 0 12px; }
+  .topbar .rs-ret-bar .rs-rl { display: none; }
+  .topbar .rs-ret-bar .rs-rs { display: inline; }
+  /* website mode: the first screen starts with content, not a tall header band */
+  .slide { padding: calc(var(--bar-h) + var(--ios-sat) + 20px) var(--lp-r) calc(28px + var(--ios-sab)) var(--lp-l); }
+  /* present mode: a slim frame; ios.js zooms the slide's content to fit what is left */
+  body.present .slide { padding: calc(var(--bar-h) + var(--ios-sat) + 10px) var(--lp-r) calc(12px + var(--ios-sab)) var(--lp-l); }
+  /* tighter rhythm between a slide's blocks (40px gaps are a desktop luxury at 343px tall), and charts no taller than the screen allows */
+  body.present .slide > .inner > :is(.eyebrow, .fx-step, .tk-req) { margin-bottom: 8px; }
+  body.present .slide > .inner > :is(figure, ol, ul, dl, table, blockquote, .c-compare, .ag-panel, .st-pair, .tb-grid, .cl-card, .q-score, .c-gate, .big) { margin-top: 14px; }
+  body.present .slide > .inner > :is(p.foot, p.lede, p.fx-key, p.tk-go, p.st-also, p.st-turn, p.fd-fix, p.tb-why, p.tb-bridge, p.big-label, p.fx-line, p.sx-logos, .cta, a.url, .q-run) { margin-top: 10px; }
+  body.present .slide .c-chart .chart svg { max-height: 210px; }
+  /* the densest slides: shorter rows, so they fit instead of scrolling */
+  body.present .slide .c-ix { padding-top: 30px; padding-bottom: 12px; }
+  body.present .slide .c-ix .ix-how { margin-bottom: 8px; }
+  body.present .slide .c-ix .ix-out { margin-top: 12px; }
+  body.present .slide .c-ix .ix-out .m { font-size: 48px; }
+  body.present .pp-list li { padding: 4px 0; }
+  body.present .tb-grid > div { padding-top: 5px; padding-bottom: 5px; }
+  body.present .tb-grid .tb-h { padding-top: 8px; }
+  body.present .pf-memo { padding: 10px 20px 8px; }
+  body.present .pf-memo li { padding: 5px 0; }
+  body.present .pf-memo li b { font-size: 32px; }
+  body.present #tk-grid .tk-cell, body.present #tk-grid .tk-cell + .tk-cell { padding: 8px 12px !important; }
+  body.present #tk-grid .tk-grid { gap: 6px; }
+  body.present #fx-p .fx-grid { gap: 6px; }
+  body.present #fx-p .fx-grid .cells { grid-template-columns: repeat(10, 30px); gap: 4px; }
+  body.present #fx-p .fx-grid .cells i { width: 30px; height: 30px; }
+  body.present #fx-p .fx-grid .row > b { font-size: 30px; }
+  body.present .ans-table { margin-top: 10px; }
+  body.present .ans-table thead, body.present .tk-ans h2 em, body.present .tk-ans .foot { display: none; }   /* as on a short portrait phone */
+  body.present .ans-table td { padding: 3px 14px 3px 0; line-height: 1.25; }
+  body.present #fx-flip .fx-rows > li:nth-child(n+2) { display: none; }   /* as on a portrait phone: one result row */
+  body.present .slide.ios-tall { justify-content: flex-start; }
+  /* ‹ n › sit in the top bar's free middle, always shown (they no longer float over the slide) */
+  body.present .sc { top: calc(var(--ios-sat) + (var(--bar-h) - 44px) / 2); bottom: auto; left: 50%; right: auto; transform: translateX(-50%); gap: 4px; opacity: 1; }
+  body.present .sc .sc-n, body.present .sc button.sc-n { height: 44px; padding: 0 8px; font-size: 14px; background: none; }
+  body.present .sc .nav-back { display: none; }   /* Safari's own back gesture and the browser Back cover it here */
+  body.present:has(#hero.cur) .sc { opacity: 0; pointer-events: none; }   /* the hero covers the top bar; its own Play button starts the deck */
+}

@@ -22,7 +22,7 @@ bun --env-file=.env.keys scripts/h2h/run.mjs --providers keenable,keenable_pubda
 bun --env-file=.env.keys scripts/h2h/run.mjs --merge --providers tavily,exa,parallel,linkup,firecrawl
 bun --env-file=.env.keys scripts/h2h/pit_judge.mjs           # blind LLM judge on the 7 events, JEV_CRITERIA labels → data/h2h/pit_llm.json
 bun scripts/h2h/summary.mjs                                   # data/h2h/SUMMARY.md
-bun sites/demo/build.ts && bun sites/demo/server.ts           # demo at http://127.0.0.1:7952/
+bun sites/demo/build.ts && bun sites/demo/server.ts
 ```
 - `node` is blocked in this shell; everything runs under bun. `--merge` keeps providers from the previous `latest_raw.json` (each keeps its own `ran_at`). `--charts` is now opt-in (data/charts belongs to the site lane).
 - New arms: `keenable_nofence` (control), `linkup` (toDate), `firecrawl` (tbs cd_max; free tier ≈10 req/min, paced at 0.15 rps), `perplexity` (search_before_date_filter; not run, needs a card).

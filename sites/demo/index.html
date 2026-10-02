@@ -280,7 +280,7 @@ html{scroll-padding-top:76px;scroll-behavior:smooth}
     <button class="btn" id="bReplay" title="Replay tonight's recorded run (works offline)">Replay</button>
     <button class="btn blue" id="bFull" title="All 7 events × every provider, live, then the scoreboard">Run the full test</button>
   </div>
-  <a class="back" id="backlink" href="http://127.0.0.1:7950/v2/" title="Back to the proposal site">← Proposal</a>
+  <a class="back" id="backlink" href="https://founding-gtm.trusynth.com/hub/" title="Back to the proposal site">← Proposal</a>
 </div></header>
 
 <main class="wrap">
@@ -333,7 +333,7 @@ html{scroll-padding-top:76px;scroll-behavior:smooth}
     <div class="cgrid">
       <div class="cc win"><h3>What the test showed</h3><div id="cWin"></div></div>
       <div class="cc lose"><h3>Where Keenable loses today</h3><div id="cLose"></div></div>
-      <div class="cc next"><h3>Next step</h3><p class="big">Send 50 of your queries → a verdict memo in 48 h.</p><p>Your queries and your event dates, every provider you use today, the same pre-registered rule plus a blind judge, latency from your region, cost at your volume. You get the raw results and a one-page VERDICT.md you can forward internally.</p><div class="cta"><button class="btn blue" id="bFull2">Run the full test yourself</button><a class="btn" href="http://127.0.0.1:7950/v2/" id="backlink2">← Back to the proposal</a></div></div>
+      <div class="cc next"><h3>Next step</h3><p class="big">Send 50 of your queries → a verdict memo in 48 h.</p><p>Your queries and your event dates, every provider you use today, the same pre-registered rule plus a blind judge, latency from your region, cost at your volume. You get the raw results and a one-page VERDICT.md you can forward internally.</p><div class="cta"><button class="btn blue" id="bFull2">Run the full test yourself</button><a class="btn" href="https://founding-gtm.trusynth.com/hub/" id="backlink2">← Back to the proposal</a></div></div>
     </div>
     <p class="cfoot" id="cFoot"></p>
   </section>
@@ -490,7 +490,7 @@ async function runOne(id, q) {
 function ready() { return (S.server?.providers || []).filter((p) => p.ready).map((p) => p.id); }
 
 $("#bLive").onclick = async () => {
-  if (!S.server) return toast("Live runs need the local server: bun sites/demo/server.ts → http://127.0.0.1:7952/");
+  if (!S.server) return toast("Live runs need the demo server: bun sites/demo/server.ts");
   S.scope = "event"; setMode("run", "Running live"); $("#bLive").disabled = true;
   const t0 = performance.now();
   await Promise.all(ready().map((id) => runOne(id, S.ev)));
@@ -510,7 +510,7 @@ $("#bReplay").onclick = async () => {
   REC.cells = orig; setMode("", `Recorded · ${REC.ran_at.slice(0, 10)}`); render();
 };
 $("#bFull").onclick = async () => {
-  if (!S.server) return toast("The full live test needs the local server: bun sites/demo/server.ts → http://127.0.0.1:7952/");
+  if (!S.server) return toast("The full live test needs the demo server: bun sites/demo/server.ts");
   const ids = ready(), jobs = [];
   for (const e of evs) for (const id of ids) jobs.push([id, e.q]);
   const total = jobs.length; let done = 0; const t0 = performance.now();

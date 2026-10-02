@@ -22,12 +22,12 @@ copyFileSync(join(DEMO, "../v2/kit/keenable.css"), join(OUT, "kit/keenable.css")
 writeFileSync(join(OUT, "index.html"), must(readFileSync(join(HERE, "own.html"), "utf8"), "__PROPOSAL__", PROPOSAL));
 
 let t = readFileSync(join(DEMO, "index.html"), "utf8");
-t = must(t, 'href="http://127.0.0.1:7950/v2/"', `href="${PROPOSAL}"`);
+t = must(t, 'href="https://founding-gtm.trusynth.com/hub/"', `href="${PROPOSAL}"`);
 t = must(t, '<nav class="steps" aria-label="Demo steps">', '<nav class="steps" aria-label="Demo steps">\n    <a href="../" style="color:var(--blue);font-weight:500">← Test your own event</a>');
 t = must(t, '<div class="right">', '<div class="right">\n    <a class="btn blue" href="../" style="display:inline-flex;align-items:center;text-decoration:none">Test your own event live</a>');
 t = must(t, "</style>", "#bLive,#bFull{display:none!important}\n</style>");
-t = must(t, 'toast("Live runs need the local server: bun sites/demo/server.ts → http://127.0.0.1:7952/")', 'location.href = "../"');
-t = must(t, 'toast("The full live test needs the local server: bun sites/demo/server.ts → http://127.0.0.1:7952/")', 'location.href = "../"');
+t = must(t, 'toast("Live runs need the demo server: bun sites/demo/server.ts")', 'location.href = "../"');
+t = must(t, 'toast("The full live test needs the demo server: bun sites/demo/server.ts")', 'location.href = "../"');
 t = must(t, "<title>Time Machine Head-to-Head</title>", "<title>Our test · George’s Keenable take-home</title>");
 t = must(t, "</main>", `</main>\n<p class="wrap" style="font-size:12.5px;color:var(--muted);padding-top:18px;padding-bottom:28px;border-top:1px solid var(--line);margin-top:24px">A take-home by George Trushevskiy for Keenable. Not an official Keenable site.</p>`);
 writeFileSync(join(OUT, "test/index.html"), t);

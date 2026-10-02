@@ -48,6 +48,90 @@
     ctas.append(go, links);
   }
   films.ad = { src: M + "ad.mp4", poster: M + "ad.jpg", title: "Rex", chapters: "ad", eyebrow: "The ad · 0:41" };
+  /* George 2 Oct (~08:00Z): "once video is over have it auto move to the next slide". After real playback to the end, a small
+     "Next slide in 3 · Cancel" chip (role=status) counts down on the film slide, then the deck moves on the way Continue → does
+     (present: Deck.show; website: smooth scroll). No advance after a seek into the last 1.5 s or a resume seek. Cancel, any key,
+     a tap on the player, playing again or leaving the slide stops it. Full screen is exited first. resume.js has already saved
+     on 'ended' (capture, synchronous) before the chip appears. /films/ has no deck and never loads this file. */
+  const AN_SECS = 3, AN_TAIL = 1.5;
+  function autoNext(s, kp) {
+    const v = kp.video, box = s.querySelector(".film-full") || s;
+    if (!document.getElementById("an-css")) {
+      const st = document.createElement("style"); st.id = "an-css";
+      st.textContent = `.an-chip{position:absolute;z-index:8;display:inline-flex;align-items:center;gap:12px;box-sizing:border-box;max-width:calc(100% - 32px);min-height:52px;padding:4px 4px 4px 16px;border-radius:12px;background:rgba(20,20,20,.88);color:#fff;font:400 15px/1.2 "Stack Sans Text",system-ui,sans-serif;letter-spacing:0;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 0 0 1px rgba(255,255,255,.14);animation:anIn .25s ease both}
+.an-chip .an-t{white-space:nowrap}.an-chip b{font-weight:500;font-variant-numeric:tabular-nums;color:#74A6FF}
+.an-chip .an-x{min-width:44px;min-height:44px;padding:0 14px;border:0;border-radius:8px;background:rgba(255,255,255,.14);color:#fff;font:inherit;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.an-chip .an-x:hover{background:rgba(255,255,255,.24)}.an-chip .an-x:focus-visible{outline:2px solid #005CFF;outline-offset:2px}
+@keyframes anIn{from{opacity:0;transform:translateY(6px)}}@media (prefers-reduced-motion:reduce){.an-chip{animation:none}}@media print{.an-chip{display:none!important}}`;
+      document.head.append(st);
+    }
+    let runFrom = 0, chip = null, tick = 0, left = 0;
+    const isP = () => document.body.classList.contains("present");
+    const idx = () => Deck.slides.indexOf(s);
+    // where the current run of playback started: a seek (scrubber, J/L, resume) moves it; playing again after the end restarts it at 0
+    v.addEventListener("seeking", () => { runFrom = v.currentTime; });
+    v.addEventListener("play", () => { runFrom = v.ended || v.currentTime >= (v.duration || Infinity) - 0.1 ? 0 : v.currentTime; stop(); });
+    const onScreen = () => {
+      if (document.hidden) return false;
+      if (isP()) return Deck.slides[Deck.cur] === s;
+      const r = s.getBoundingClientRect(), h = Math.min(r.bottom, innerHeight) - Math.max(r.top, 0);
+      return h >= Math.min(r.height, innerHeight) * 0.5;
+    };
+    const exitFs = () => {
+      try {
+        if (v.webkitDisplayingFullscreen && v.webkitExitFullscreen) v.webkitExitFullscreen();
+        const f = document.fullscreenElement || document.webkitFullscreenElement;
+        if (f && s.contains(f)) { const p = (document.exitFullscreen || document.webkitExitFullscreen).call(document); if (p && p.catch) p.catch(() => {}); }
+      } catch (e) {}
+    };
+    const stop = () => {
+      clearInterval(tick); tick = 0;
+      if (chip) { chip.remove(); chip = null; }
+      kp.el.removeEventListener("pointerdown", stop, true); document.removeEventListener("slide:in", onSlide); document.removeEventListener("visibilitychange", onVis);
+    };
+    const onSlide = (e) => { if (isP() && e.target !== s) stop(); };   // website mode checks the view on each tick instead
+    const onVis = () => { if (document.hidden) stop(); };
+    // any key stops it: keydown (registered at mount, before the film keys that stop propagation) and keyup as the backstop
+    ["keydown", "keyup"].forEach(t => addEventListener(t, () => { if (chip) stop(); }, true));
+    const go = () => {
+      const b = s.querySelector("[data-film-next]"); if (b) { b.click(); return; }   // Continue →: Deck.show in present mode, smooth scroll on the website
+      const i = idx(); if (isP()) Deck.show(i + 1); else { const n = Deck.slides[i + 1]; if (n) n.scrollIntoView({ behavior: "smooth", block: "start" }); }
+    };
+    // place the chip clear of the player controls, Continue →, Full screen, the big button, the title and the deck's top bar
+    const place = () => {
+      if (!chip) return;
+      const B = box.getBoundingClientRect(), O = (chip.offsetParent || box).getBoundingClientRect(), cw = chip.offsetWidth, ch = chip.offsetHeight, pad = 16;
+      const R = (el) => { if (!el || getComputedStyle(el).display === "none") return null; const r = el.getBoundingClientRect(); return r.width && r.height ? r : null; };
+      const bar = R(kp.el.querySelector(".kp-bar")), goB = R(s.querySelector("[data-film-next]")), fsB = R(s.querySelector("[data-film-fs]")),
+        big = R(kp.el.querySelector(".kp-big")), top = R(kp.el.querySelector(".kp-top")), tb = R(document.querySelector(".topbar"));
+      const avoid = [bar, goB, fsB, big, top, tb, ...[...kp.el.querySelectorAll(".kp-nav, .kp-keys" + (kp.el.classList.contains("kp-list-open") ? ", .kp-chapters" : ""))].map(R)].filter(Boolean);
+      const above = Math.max(bar ? B.bottom - bar.top : 0, goB ? B.bottom - goB.top : 0) + 12;
+      const right = goB ? Math.max(pad, B.right - goB.right) : pad, y = B.height - above - ch;
+      const hit = (c) => avoid.some(r => !(B.left + c.x + cw <= r.left || B.left + c.x >= r.right || B.top + c.y + ch <= r.top || B.top + c.y >= r.bottom));
+      const fits = (c) => c.x >= 0 && c.y >= 0 && c.x + cw <= B.width && c.y + ch <= B.height;
+      // right above Continue → first; else the same column higher up, then centred, then on the left (8 px steps upward)
+      const cands = [];
+      for (const x of [B.width - right - cw, (B.width - cw) / 2, pad]) for (let yy = y; yy >= 8; yy -= 8) cands.push({ x, y: yy });
+      const c = cands.find(c => fits(c) && !hit(c)) || cands.find(fits) || { x: B.width - right - cw, y };
+      chip.style.left = Math.round(B.left - O.left + c.x) + "px"; chip.style.top = Math.round(B.top - O.top + c.y) + "px";
+    };
+    v.addEventListener("ended", () => {
+      const i = idx();
+      if (!(v.duration - runFrom >= AN_TAIL) || i < 0 || i >= Deck.slides.length - 1 || !onScreen()) return;   // real playback to the end only
+      exitFs(); stop(); left = AN_SECS;
+      chip = document.createElement("div"); chip.className = "an-chip"; chip.setAttribute("role", "status"); chip.setAttribute("aria-atomic", "true");
+      chip.innerHTML = `<span class="an-t">Next slide in <b>${left}</b></span><button type="button" class="an-x">Cancel</button>`;
+      chip.querySelector(".an-x").addEventListener("click", (e) => { e.stopPropagation(); stop(); });
+      box.append(chip); place(); setTimeout(place, 450);
+      kp.el.addEventListener("pointerdown", stop, true); document.addEventListener("slide:in", onSlide); document.addEventListener("visibilitychange", onVis);
+      tick = setInterval(() => {
+        if (!chip || !v.ended || !onScreen()) return stop();
+        left -= 1;
+        if (left > 0) { chip.querySelector("b").textContent = left; return; }
+        stop(); go();
+      }, 1000);
+    });
+  }
   document.querySelectorAll(".kplayer[data-film]").forEach(el => {
     const f = films[el.dataset.film]; if (!f) return;
     const s = el.closest(".slide.focus");
@@ -55,6 +139,7 @@
     const nav = s && { prev: () => Deck.show(Deck.slides.indexOf(s) - 1), next: () => Deck.show(Deck.slides.indexOf(s) + 1), prevLabel: "Previous slide", nextLabel: "Next slide" };
     const kp = KPlayer.mount(el, s ? Object.assign({ fill: true, nav }, f) : f);
     if (s) { s._kp = kp; const sc = kp.el.querySelector(".kp-scrub"); if (sc) sc.setAttribute("data-noswipe", ""); kp.video.addEventListener("ended", () => { s.classList.add("ended"); const b = s.querySelector("[data-film-next]"); if (b) b.focus({ preventScroll: true }); }); kp.video.addEventListener("play", () => s.classList.remove("ended")); }
+    if (s) autoNext(s, kp);   // George 2 Oct: after the film ends, count down and move to the next slide
   });
 })();
 /* leaving a film slide pauses its film, so no audio plays from a hidden slide */

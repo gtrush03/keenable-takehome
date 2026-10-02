@@ -40,10 +40,12 @@ function heroMotion(root) {
   let lastKey = "";
   function draw() {
     const r = root.getBoundingClientRect(); if (!r.height) return;
+    if (r.width > 700 && r.height > 500) return drawWide(r);   // George 2 Oct: desktop gets the full-bleed piece; phones keep the band
     const head = (copy.firstElementChild || copy).getBoundingClientRect();
     const phone = r.width <= 700, top = parseFloat(getComputedStyle(root).paddingTop) + (phone ? 44 : 28);
     const W = Math.round(r.width), H = Math.round(head.top - r.top - (phone ? 28 : 40) - top);
     const key = W + "x" + H; if (key === lastKey) return; lastKey = key;
+    box.classList.remove("wide"); root.querySelector(".kp-hero-shade").after(box);
     box.style.top = top + "px"; box.style.height = Math.max(0, H) + "px";
     if (H < 110) { box.innerHTML = ""; return; }
     const pad = Math.min(88, Math.max(20, W * 0.06)), base = H - 10, R = Math.max(15, Math.min(38, H * 0.11)), cy = R + 4;
@@ -69,16 +71,66 @@ function heroMotion(root) {
       <g><animateTransform attributeName="transform" type="translate" values="${xa} 0;${xb} 0;${xa} 0" ${T}/>
         <g fill="none" stroke="rgba(255,255,255,.05)" stroke-width="1">${rings}</g>
         <path d="M0 ${cy + R}V${base}" stroke="#005CFF" stroke-width="2"/><circle cx="0" cy="${base}" r="4" fill="#005CFF"/>
-        <circle cx="0" cy="${cy}" r="${R}" fill="#141414" stroke="rgba(255,255,255,.55)" stroke-width="1.4"/>
+        <circle cx="0" cy="${cy}" r="${R}" fill="#000" stroke="rgba(255,255,255,.55)" stroke-width="1.4"/>
         <g stroke="rgba(255,255,255,.5)" stroke-width="1.2" stroke-linecap="round">${ticks}</g>
         <path d="M0 ${cy}V${(cy - R * 0.5).toFixed(1)}" stroke="#fff" stroke-width="2" stroke-linecap="round"><animateTransform attributeName="transform" type="rotate" values="0 0 ${cy};-60 0 ${cy};0 0 ${cy}" ${T}/></path>
         <path d="M0 ${cy}V${(cy - R * 0.74).toFixed(1)}" stroke="#005CFF" stroke-width="1.6" stroke-linecap="round"><animateTransform attributeName="transform" type="rotate" values="0 0 ${cy};-720 0 ${cy};0 0 ${cy}" ${T}/></path>
         <circle cx="0" cy="${cy}" r="2.4" fill="#fff"/></g></svg>`;
     if (reduce) box.firstElementChild.pauseAnimations();
   }
+  // Desktop (George, 2 Oct): a full-bleed chart on black, behind the shade. Candles across the whole width; the blue cutoff line and its clock
+  // run the full height. Left of the line (before the cutoff) is lit, right of it is a ghost. No text, no video.
+  // First second: the candles rise in and the line slides in from the right edge; then a calm 18 s sweep back and forth.
+  // Reduced motion: the same composition, drawn still with the line at 78% of the width.
+  function drawWide(r) {
+    const W = Math.round(r.width), H = Math.round(r.height), key = "w" + W + "x" + H; if (key === lastKey) return; lastKey = key;
+    box.classList.add("wide"); root.querySelector(".kp-hero-shade").before(box);
+    box.style.top = "0px"; box.style.height = H + "px";
+    const bar = parseFloat(getComputedStyle(root).paddingTop) || 60;
+    const R = 30, cy = bar + 34 + R, top = cy + R + 70, bot = H - 64;
+    const n = Math.max(18, Math.round(W / 42)), step = W / n, bw = Math.max(6, Math.min(16, step * 0.38));
+    const Y = t => bot - (bot - top) * t;
+    let s = 11; const rnd = () => (s = (s * 9301 + 49297) % 233280) / 233280;
+    let v = 0.5, ghost = "", up = "", dn = "", grid = "", area = `M0 ${bot}`;
+    for (let i = 0; i < n; i++) {   // a slow wave across the full height, with noise, so the candles fill the field
+      const x = step * (i + 0.5), o = v;
+      v = Math.min(0.94, Math.max(0.06, 0.5 + 0.32 * Math.sin(i * 0.2 + 0.4) + 0.1 * Math.sin(i * 0.67) + (rnd() - 0.5) * 0.14));
+      const hi = Math.min(1, Math.max(o, v) + 0.02 + 0.07 * rnd()), lo = Math.max(0, Math.min(o, v) - 0.02 - 0.07 * rnd());
+      const yt = Y(Math.max(o, v)), bh = Math.max(3, Y(Math.min(o, v)) - yt);
+      const c = `<path d="M${x.toFixed(1)} ${Y(hi).toFixed(1)}V${Y(lo).toFixed(1)}"/><rect x="${(x - bw / 2).toFixed(1)}" y="${yt.toFixed(1)}" width="${bw.toFixed(1)}" height="${bh.toFixed(1)}" rx="1.5"/>`;
+      ghost += c; if (v >= o) up += c; else dn += c;
+      area += `L${x.toFixed(1)} ${Y(v).toFixed(1)}`;
+    }
+    area += `L${W} ${Y(v).toFixed(1)}L${W} ${bot}Z`;   // the lit side also gets a soft blue area under the closes
+    for (let k = 0; k <= 4; k++) grid += `<path d="M0 ${Y(k / 4).toFixed(1)}H${W}"/>`;
+    let ticks = ""; for (let k = 0; k < 12; k++) { const a = k * Math.PI / 6, r1 = R * (k % 3 ? 0.8 : 0.66); ticks += `<path d="M${(Math.sin(a) * r1).toFixed(1)} ${(cy - Math.cos(a) * r1).toFixed(1)}L${(Math.sin(a) * R * 0.9).toFixed(1)} ${(cy - Math.cos(a) * R * 0.9).toFixed(1)}"/>`; }
+    const xa = Math.round(W * 0.86), xb = Math.round(W * 0.6), pos = reduce ? Math.round(W * 0.78) : xa;
+    // start: the clock rewinds from "now" (the right edge) to the cutoff at 60% in 1.6 s, unlighting the future as it goes; then 60% ↔ 86%, so the lit side stays in the open right half
+    const IN = `dur="1.6s" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines="0.45 0 0.25 1"`;
+    const L = `begin="1.6s" dur="18s" repeatCount="indefinite" calcMode="spline" keyTimes="0;0.5;1" keySplines="0.6 0 0.4 1;0.6 0 0.4 1"`;
+    const anim = t => reduce ? "" : t;
+    box.innerHTML = `<svg xmlns="${NS}" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}">
+      <defs><clipPath id="hmLit"><rect x="0" y="0" width="${pos}" height="${H}">${anim(`<animate attributeName="width" values="${W};${xb}" ${IN}/><animate attributeName="width" values="${xb};${xa};${xb}" ${L}/>`)}</rect></clipPath>
+        <linearGradient id="hmGlow" x1="0" x2="1" y1="0" y2="0"><stop offset="0" stop-color="#005CFF" stop-opacity="0"/><stop offset="1" stop-color="#005CFF" stop-opacity=".32"/></linearGradient>
+        <linearGradient id="hmArea" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#005CFF" stop-opacity=".42"/><stop offset="1" stop-color="#005CFF" stop-opacity="0"/></linearGradient></defs>
+      <g fill="none" stroke="rgba(255,255,255,.05)" stroke-width="1">${grid}</g>
+      <g>${anim(`<animate attributeName="opacity" values="0;1" dur="1.2s" fill="freeze"/><animateTransform attributeName="transform" type="translate" values="0 28;0 0" ${IN}/>`)}
+        <g fill="none" stroke="rgba(116,166,255,.26)" stroke-width="1.3">${ghost}</g>
+        <g clip-path="url(#hmLit)"><path d="${area}" fill="url(#hmArea)"/><g stroke="#74A6FF" stroke-width="1.6"><g fill="rgba(116,166,255,.16)">${up}</g><g fill="#005CFF">${dn}</g></g></g></g>
+      <g transform="translate(${pos} 0)">${anim(`<animateTransform attributeName="transform" type="translate" values="${W} 0;${xb} 0" ${IN}/><animateTransform attributeName="transform" type="translate" values="${xb} 0;${xa} 0;${xb} 0" ${L}/>`)}
+        <rect x="-420" y="0" width="420" height="${H}" fill="url(#hmGlow)"/>
+        <path d="M0 ${cy + R}V${H}" stroke="#005CFF" stroke-width="2"/>
+        <circle cx="0" cy="${cy}" r="${R * 2.2}" fill="none" stroke="rgba(116,166,255,.12)"/>
+        <circle cx="0" cy="${cy}" r="${R}" fill="#000" stroke="rgba(255,255,255,.7)" stroke-width="1.4"/>
+        <g stroke="rgba(255,255,255,.6)" stroke-width="1.2" stroke-linecap="round">${ticks}</g>
+        <path d="M0 ${cy}V${(cy - R * 0.5).toFixed(1)}" stroke="#fff" stroke-width="2.2" stroke-linecap="round" transform="rotate(${reduce ? -35 : 0} 0 ${cy})">${anim(`<animateTransform attributeName="transform" type="rotate" values="0 0 ${cy};-60 0 ${cy};0 0 ${cy}" ${L}/>`)}</path>
+        <path d="M0 ${cy}V${(cy - R * 0.76).toFixed(1)}" stroke="#74A6FF" stroke-width="1.8" stroke-linecap="round" transform="rotate(${reduce ? -250 : 0} 0 ${cy})">${anim(`<animateTransform attributeName="transform" type="rotate" values="360 0 ${cy};0 0 ${cy}" ${IN}/><animateTransform attributeName="transform" type="rotate" values="0 0 ${cy};-720 0 ${cy};0 0 ${cy}" ${L}/>`)}</path>
+        <circle cx="0" cy="${cy}" r="2.6" fill="#fff"/></g></svg>`;
+  }
   let tm = 0; const later = () => { clearTimeout(tm); tm = setTimeout(draw, 120); };
   addEventListener("resize", later); (document.fonts ? document.fonts.ready : Promise.resolve()).then(later);
-  root.closest(".slide")?.addEventListener("slide:in", later); later();
+  root.closest(".slide")?.addEventListener("slide:in", () => { const sv = box.firstElementChild; if (!reduce && box.classList.contains("wide") && sv && sv.setCurrentTime) sv.setCurrentTime(0); later(); });   // the start animation replays on every return to the hero
+  later();
   if ("ResizeObserver" in window) new ResizeObserver(later).observe(root);
 }
 
@@ -93,8 +145,11 @@ function heroMotion(root) {
   };
   const slot = document.querySelector("[data-kp-hero]");
   if (slot) {
+    // George, 2 Oct: the desktop hero gets its muted loop back (KPlayer's default hero-loop.mp4); phones (portrait and landscape, same
+    // 700 × 500 line as drawWide) and reduced motion keep loopSrc: false, so nothing downloads there. Decided once at load.
+    const wideLoop = matchMedia("(min-width: 701px) and (min-height: 501px)").matches && !matchMedia("(prefers-reduced-motion: reduce)").matches;
     const h = KPlayer.hero(slot, {
-      loopSrc: false,   // KPlayer 1.5: no film-frame loop (George #17: no readable text behind the hero); nothing downloads
+      loopSrc: wideLoop ? undefined : false,
       titleHtml: "Search, with a clock.<br><em>Galactica.</em>",
       sub: "George Trushevskiy · Founding GTM take-home for Keenable. I didn’t pitch your product: I ran it, tested it, and brought back the bug.",
       films: [],
@@ -113,8 +168,95 @@ function heroMotion(root) {
     // George #17: the film-frame loop carried readable text (headlines, "0/60", dates) into the hero, so it is replaced by a
     // drawn timeline with no text at all: candles, a clock, and the blue cutoff line sweeping back to the day before
     heroMotion(h.el);
+    // the drawn timeline is the fallback on desktop: it steps aside once the loop is actually playing, and stays if it never does
+    const bg = h.el.querySelector(".kp-hero-bg");
+    if (wideLoop && bg) bg.addEventListener("playing", () => h.el.closest("#hero")?.classList.add("hero-video"), { once: true });
   }
   films.ad = { src: M + "ad.mp4", poster: M + "ad.jpg", title: "Rex", chapters: "ad", eyebrow: "The ad · 0:41" };
+  /* George 2 Oct (~08:00Z): "once video is over have it auto move to the next slide". After real playback to the end, a small
+     "Next slide in 3 · Cancel" chip (role=status) counts down on the film slide, then the deck moves on the way Continue → does
+     (present: Deck.show; website: smooth scroll). No advance after a seek into the last 1.5 s or a resume seek. Cancel, any key,
+     a tap on the player, playing again or leaving the slide stops it. Full screen is exited first. resume.js has already saved
+     on 'ended' (capture, synchronous) before the chip appears. /films/ has no deck and never loads this file. */
+  const AN_SECS = 3, AN_TAIL = 1.5;
+  function autoNext(s, kp) {
+    const v = kp.video, box = s.querySelector(".film-full") || s;
+    if (!document.getElementById("an-css")) {
+      const st = document.createElement("style"); st.id = "an-css";
+      st.textContent = `.an-chip{position:absolute;z-index:8;display:inline-flex;align-items:center;gap:12px;box-sizing:border-box;max-width:calc(100% - 32px);min-height:52px;padding:4px 4px 4px 16px;border-radius:12px;background:rgba(20,20,20,.88);color:#fff;font:400 15px/1.2 "Stack Sans Text",system-ui,sans-serif;letter-spacing:0;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);box-shadow:0 0 0 1px rgba(255,255,255,.14);animation:anIn .25s ease both}
+.an-chip .an-t{white-space:nowrap}.an-chip b{font-weight:500;font-variant-numeric:tabular-nums;color:#74A6FF}
+.an-chip .an-x{min-width:44px;min-height:44px;padding:0 14px;border:0;border-radius:8px;background:rgba(255,255,255,.14);color:#fff;font:inherit;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.an-chip .an-x:hover{background:rgba(255,255,255,.24)}.an-chip .an-x:focus-visible{outline:2px solid #005CFF;outline-offset:2px}
+@keyframes anIn{from{opacity:0;transform:translateY(6px)}}@media (prefers-reduced-motion:reduce){.an-chip{animation:none}}@media print{.an-chip{display:none!important}}`;
+      document.head.append(st);
+    }
+    let runFrom = 0, chip = null, tick = 0, left = 0;
+    const isP = () => document.body.classList.contains("present");
+    const idx = () => Deck.slides.indexOf(s);
+    // where the current run of playback started: a seek (scrubber, J/L, resume) moves it; playing again after the end restarts it at 0
+    v.addEventListener("seeking", () => { runFrom = v.currentTime; });
+    v.addEventListener("play", () => { runFrom = v.ended || v.currentTime >= (v.duration || Infinity) - 0.1 ? 0 : v.currentTime; stop(); });
+    const onScreen = () => {
+      if (document.hidden) return false;
+      if (isP()) return Deck.slides[Deck.cur] === s;
+      const r = s.getBoundingClientRect(), h = Math.min(r.bottom, innerHeight) - Math.max(r.top, 0);
+      return h >= Math.min(r.height, innerHeight) * 0.5;
+    };
+    const exitFs = () => {
+      try {
+        if (v.webkitDisplayingFullscreen && v.webkitExitFullscreen) v.webkitExitFullscreen();
+        const f = document.fullscreenElement || document.webkitFullscreenElement;
+        if (f && s.contains(f)) { const p = (document.exitFullscreen || document.webkitExitFullscreen).call(document); if (p && p.catch) p.catch(() => {}); }
+      } catch (e) {}
+    };
+    const stop = () => {
+      clearInterval(tick); tick = 0;
+      if (chip) { chip.remove(); chip = null; }
+      kp.el.removeEventListener("pointerdown", stop, true); document.removeEventListener("slide:in", onSlide); document.removeEventListener("visibilitychange", onVis);
+    };
+    const onSlide = (e) => { if (isP() && e.target !== s) stop(); };   // website mode checks the view on each tick instead
+    const onVis = () => { if (document.hidden) stop(); };
+    // any key stops it: keydown (registered at mount, before the film keys that stop propagation) and keyup as the backstop
+    ["keydown", "keyup"].forEach(t => addEventListener(t, () => { if (chip) stop(); }, true));
+    const go = () => {
+      const b = s.querySelector("[data-film-next]"); if (b) { b.click(); return; }   // Continue →: Deck.show in present mode, smooth scroll on the website
+      const i = idx(); if (isP()) Deck.show(i + 1); else { const n = Deck.slides[i + 1]; if (n) n.scrollIntoView({ behavior: "smooth", block: "start" }); }
+    };
+    // place the chip clear of the player controls, Continue →, Full screen, the big button, the title and the deck's top bar
+    const place = () => {
+      if (!chip) return;
+      const B = box.getBoundingClientRect(), O = (chip.offsetParent || box).getBoundingClientRect(), cw = chip.offsetWidth, ch = chip.offsetHeight, pad = 16;
+      const R = (el) => { if (!el || getComputedStyle(el).display === "none") return null; const r = el.getBoundingClientRect(); return r.width && r.height ? r : null; };
+      const bar = R(kp.el.querySelector(".kp-bar")), goB = R(s.querySelector("[data-film-next]")), fsB = R(s.querySelector("[data-film-fs]")),
+        big = R(kp.el.querySelector(".kp-big")), top = R(kp.el.querySelector(".kp-top")), tb = R(document.querySelector(".topbar"));
+      const avoid = [bar, goB, fsB, big, top, tb, ...[...kp.el.querySelectorAll(".kp-nav, .kp-keys" + (kp.el.classList.contains("kp-list-open") ? ", .kp-chapters" : ""))].map(R)].filter(Boolean);
+      const above = Math.max(bar ? B.bottom - bar.top : 0, goB ? B.bottom - goB.top : 0) + 12;
+      const right = goB ? Math.max(pad, B.right - goB.right) : pad, y = B.height - above - ch;
+      const hit = (c) => avoid.some(r => !(B.left + c.x + cw <= r.left || B.left + c.x >= r.right || B.top + c.y + ch <= r.top || B.top + c.y >= r.bottom));
+      const fits = (c) => c.x >= 0 && c.y >= 0 && c.x + cw <= B.width && c.y + ch <= B.height;
+      // right above Continue → first; else the same column higher up, then centred, then on the left (8 px steps upward)
+      const cands = [];
+      for (const x of [B.width - right - cw, (B.width - cw) / 2, pad]) for (let yy = y; yy >= 8; yy -= 8) cands.push({ x, y: yy });
+      const c = cands.find(c => fits(c) && !hit(c)) || cands.find(fits) || { x: B.width - right - cw, y };
+      chip.style.left = Math.round(B.left - O.left + c.x) + "px"; chip.style.top = Math.round(B.top - O.top + c.y) + "px";
+    };
+    v.addEventListener("ended", () => {
+      const i = idx();
+      if (!(v.duration - runFrom >= AN_TAIL) || i < 0 || i >= Deck.slides.length - 1 || !onScreen()) return;   // real playback to the end only
+      exitFs(); stop(); left = AN_SECS;
+      chip = document.createElement("div"); chip.className = "an-chip"; chip.setAttribute("role", "status"); chip.setAttribute("aria-atomic", "true");
+      chip.innerHTML = `<span class="an-t">Next slide in <b>${left}</b></span><button type="button" class="an-x">Cancel</button>`;
+      chip.querySelector(".an-x").addEventListener("click", (e) => { e.stopPropagation(); stop(); });
+      box.append(chip); place(); setTimeout(place, 450);
+      kp.el.addEventListener("pointerdown", stop, true); document.addEventListener("slide:in", onSlide); document.addEventListener("visibilitychange", onVis);
+      tick = setInterval(() => {
+        if (!chip || !v.ended || !onScreen()) return stop();
+        left -= 1;
+        if (left > 0) { chip.querySelector("b").textContent = left; return; }
+        stop(); go();
+      }, 1000);
+    });
+  }
   document.querySelectorAll(".kplayer[data-film]").forEach(el => {
     const f = films[el.dataset.film]; if (!f) return;
     const s = el.closest(".slide.focus");
@@ -122,6 +264,7 @@ function heroMotion(root) {
     const nav = s && { prev: () => Deck.show(Deck.slides.indexOf(s) - 1), next: () => Deck.show(Deck.slides.indexOf(s) + 1), prevLabel: "Previous slide", nextLabel: "Next slide" };
     const kp = KPlayer.mount(el, s ? Object.assign({ fill: true, nav }, f) : f);
     if (s) { s._kp = kp; const sc = kp.el.querySelector(".kp-scrub"); if (sc) sc.setAttribute("data-noswipe", ""); kp.video.addEventListener("ended", () => { s.classList.add("ended"); const b = s.querySelector("[data-film-next]"); if (b) b.focus({ preventScroll: true }); }); kp.video.addEventListener("play", () => s.classList.remove("ended")); }
+    if (s) autoNext(s, kp);   // George 2 Oct: after the film ends, count down and move to the next slide
   });
 })();
 /* leaving a film slide pauses its film, so no audio plays from a hidden slide */

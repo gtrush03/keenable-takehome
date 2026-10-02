@@ -58,7 +58,7 @@ body.rs-docked{padding-bottom:calc(76px + env(safe-area-inset-bottom))}
 
   // ---------- deck: save, menu row, resume ----------
   const rel = location.pathname.slice(new URL(ROOT).pathname.length);
-  const deck = /^(index\.html)?$/.test(rel) ? "main" : rel === "full.html" ? "full" : null;
+  const deck = /^(index\.html)?$/.test(rel) ? "main" : /^full(\.html)?$/.test(rel) ? "full" : null;
   let resuming = null;   // {s, time, until}: pause the film that the deck auto-starts, then seek it
   const D = window.Deck;
   if (store && deck && D) {

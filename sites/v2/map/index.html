@@ -59,6 +59,14 @@
     .req-go { grid-column: 2; }
     .req-ask { font-size: 18px; }
   }
+  /* phone held sideways: the kit's landscape header + type; here only the page's own gaps */
+  @media (orientation: landscape) and (max-height: 500px) {
+    .map { padding-top: 16px; padding-bottom: 32px; }
+    body.k .map-h1 { margin: 6px 0 16px; }
+    .grp .k-panel__head { margin-bottom: 12px; gap: 10px; }
+    .req { grid-template-columns: 28px minmax(0, 1fr) auto; padding: 10px 14px; }
+    .req-go { grid-column: auto; min-height: 44px; display: inline-flex; align-items: center; }
+  }
 </style>
 <style>/* type rule: no negative tracking under 28px (overrides the kit's measured values on this page) */ :root { --k-ls-14: 0; --k-ls-16: 0; --k-ls-18: 0; --k-ls-mono: 0; }</style>
 <link rel="stylesheet" href="../nav/peek.css">

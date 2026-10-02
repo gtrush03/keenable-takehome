@@ -72,7 +72,7 @@
     const FALLBACK = [["opening", "hero"], ["fintech", "film-fintech"], ["bridge", "two-buyers"], ["galactica", "film-galactica"], ["findings", "findings"], ["fun", "film-ad"], ["sell", "proof-ch"], ["why", "why"], ["ask", "ask-found"], ["sources", "sources"]];
     const renderExt = (list, labels) => {
       // #21: "Original 25" sits next to "Extended version"; on original25.html itself that slot returns to the main presentation instead
-      const o25 = /original25\.html$/.test(location.pathname);
+      const o25 = /original25(\.html)?$/.test(location.pathname);
       const second = o25 ? `<a class="toc-ext-h" data-rs-main href="${at("../")}?present=1">Main presentation ${ic("arrow-right", "tic-blue")}</a>` : `<a class="toc-ext-h" href="${at("../original25.html")}">Original 25 ${ic("arrow-right", "tic-blue")}</a>`;
       extEl.innerHTML = `<p class="toc-ext-hs"><a class="toc-ext-h" href="${FULL}">Extended version ${ic("arrow-right", "tic-blue")}</a>${second}</p><p class="toc-ext-sub">Extended: the full ${list.n || 102}-slide deck, frozen. Original 25: the 25-slide original. Every chapter of the extended version:</p><ol class="toc-ext-ch">${list.map(([ch, id], k) => `<li><a href="${FULL}#${encodeURIComponent(id)}" data-ch="${esc(ch)}"><i>${k + 1}</i>${esc(labels[ch] || label(ch))}</a></li>`).join("")}</ol>`;
     };

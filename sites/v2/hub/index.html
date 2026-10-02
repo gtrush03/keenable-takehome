@@ -50,6 +50,12 @@
     .hub-lead { font-size: 17px; line-height: 23px; margin: 18px 0 22px; }
     .k-cta-row { flex-wrap: wrap; }
   }
+  /* phone held sideways: the kit's landscape header + type; here only the page's own gaps */
+  @media (orientation: landscape) and (max-height: 500px) {
+    .hub { padding-top: 16px; padding-bottom: 32px; }
+    .hub-lead { margin: 10px 0 14px; }
+    .hub-sound { margin-top: 10px; }
+  }
 </style>
 <style>/* type rule: no negative tracking under 28px (overrides the kit's measured values on this page) */ :root { --k-ls-14: 0; --k-ls-16: 0; --k-ls-18: 0; --k-ls-mono: 0; }</style>
 <link rel="stylesheet" href="../nav/peek.css">

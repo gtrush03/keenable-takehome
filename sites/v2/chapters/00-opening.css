@@ -189,11 +189,19 @@ body.claims span.op-claim { display: inline !important; }
 
 /* George #17: the hero background is a drawn timeline (00-opening.js heroMotion) with no readable text; the film-frame loop is hidden.
    It sits in the band between the top bar and the headline, so nothing moves behind the headline or the body. */
-#hero .kp-hero-bg { display: none; }
+@media (max-width: 700px) { #hero .kp-hero-bg { display: none; } }   /* George, 2 Oct: desktop shows the muted loop again (00-opening.js wideLoop) */
 #hero .hero-motion { position: absolute; left: 0; right: 0; pointer-events: none; opacity: .85;
   -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent); mask-image: linear-gradient(to bottom, #000 70%, transparent); }
 #hero .hero-motion svg { display: block; width: 100%; height: 100%; }
 @media (max-width: 700px) { #hero .hero-motion { opacity: .6; } }
+/* George, 2 Oct: the hero is black at every size (the player's #202020 read brown on a MacBook Pro), and the shade is black too.
+   On desktop the drawn chart is full-bleed (.hero-motion.wide, placed before the shade in the DOM), so the left and bottom shade keeps
+   the title, sub and buttons on near-black while the right half shows the chart at full strength. */
+#hero .kp-hero { background: #000; }
+#hero .kp-hero-shade { background: linear-gradient(90deg, rgba(0,0,0,.96) 0%, rgba(0,0,0,.9) 36%, rgba(0,0,0,.45) 56%, rgba(0,0,0,0) 78%),
+  linear-gradient(to top, rgba(0,0,0,.9) 0%, rgba(0,0,0,0) 40%); }
+#hero .hero-motion.wide { opacity: 1; -webkit-mask-image: none; mask-image: none; }
+@media (min-width: 701px) { #hero.hero-video .hero-motion { display: none; } }   /* the chart is only the fallback once the loop plays */
 
 /* iPhone landscape (film-galactica QA, #15): the hero copy was bottom-aligned and taller than the screen, so the h1 sat above it
    (top −29px) under the top bar. The copy now overflows downward, never upward; on short landscape screens it is compacted and the

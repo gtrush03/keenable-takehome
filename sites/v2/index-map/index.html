@@ -23,7 +23,13 @@
 <link rel="stylesheet" href="../kit/keenable.css">
 <link rel="stylesheet" href="map.css">
 <link rel="stylesheet" href="../nav/ios.css">
-<style>@media (max-width: 900px) { body .k-header-bar { height: auto; padding: calc(16px + env(safe-area-inset-top)) 0 8px; } } /* 2-row header: beats ios.css fixed height */</style>
+<style>@media (max-width: 900px) { body .k-header-bar { height: auto; padding: calc(16px + env(safe-area-inset-top)) 0 8px; } } /* 2-row header: beats ios.css fixed height */
+@media (orientation: landscape) and (max-height: 500px) { /* phone held sideways: the kit sets the header and type; here Download sits beside the title and the map starts on screen 1 */
+  .im-hero { padding-top: 12px; }
+  .im-head { flex-direction: row; align-items: flex-start; gap: 16px; }
+  .im-lead { font-size: 15px; line-height: 20px; margin-top: 8px; max-width: none; }
+  .im-legend { margin-top: 10px; gap: 4px 16px; }
+  .im-wrap { padding-top: 8px; } }</style>
 <script src="../nav/ios.js" defer></script>
 </head>
 <body class="k">
