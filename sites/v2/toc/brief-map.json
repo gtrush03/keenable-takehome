@@ -1,0 +1,464 @@
+[
+  {
+    "id": "choice",
+    "option": "both",
+    "group": "General",
+    "requirement": "Pick Option 1 or Option 2.",
+    "req": "Pick Option 1 or Option 2.",
+    "title": "General · Pick Option 1 or Option 2",
+    "short": "Pick Option 1 or Option 2",
+    "status": "done",
+    "answer": "Both answered. Lead with fintech; Galactica is the second product.",
+    "proof": [
+      {
+        "label": "acquired_at on 1,209/1,209 docs",
+        "href": "research/galactica_estimates.md"
+      }
+    ],
+    "proof_path": "research/galactica_estimates.md",
+    "slide": "tk-bridge",
+    "slide_no": 9,
+    "slides": [
+      "tk-bridge"
+    ]
+  },
+  {
+    "id": "grounding-data",
+    "option": "both",
+    "group": "General",
+    "requirement": "Ground with real feedback: real data.",
+    "req": "Ground with real feedback: real data.",
+    "title": "General · Ground with real feedback: real data",
+    "short": "Ground with real feedback: real data",
+    "status": "done",
+    "answer": "Measured on Keenable’s live API and seven rivals, 1 Oct 2026 (MEASURED).",
+    "proof": [
+      {
+        "label": "Six replays identical",
+        "href": "data/fintech_repro.json"
+      }
+    ],
+    "proof_path": "data/fintech_repro.json",
+    "slide": "fx-h2h",
+    "slide_no": 5,
+    "slides": [
+      "fx-h2h"
+    ]
+  },
+  {
+    "id": "grounding-product",
+    "option": "both",
+    "group": "General",
+    "requirement": "Ground with real feedback: the product.",
+    "req": "Ground with real feedback: the product.",
+    "title": "General · Ground with real feedback: the product",
+    "short": "Ground with real feedback: the product",
+    "status": "done",
+    "answer": "Found a bug: 1/60 fenced results served later text (MEASURED).",
+    "proof": [
+      {
+        "label": "Finding #1: 1/60 later text",
+        "href": "research/g9_product_feedback.md"
+      }
+    ],
+    "proof_path": "research/g9_product_feedback.md",
+    "slide": "fd-bug",
+    "slide_no": 8,
+    "slides": [
+      "fd-bug"
+    ]
+  },
+  {
+    "id": "grounding-people",
+    "option": "both",
+    "group": "General",
+    "requirement": "Ground with real feedback: practitioners.",
+    "req": "Ground with real feedback: practitioners.",
+    "title": "General · Ground with real feedback: practitioners",
+    "short": "Ground with real feedback: practitioners",
+    "status": "partly",
+    "answer": "Partial: no practitioner conversations yet; no one contacted so far.",
+    "proof": [
+      {
+        "label": "Named targets, public titles",
+        "href": "data/public_people.json"
+      }
+    ],
+    "proof_path": "data/public_people.json",
+    "slide": "ask",
+    "slide_no": 18,
+    "slides": [
+      "ask"
+    ]
+  },
+  {
+    "id": "o2-vertical",
+    "option": "2",
+    "group": "Option 2 · Fintech search",
+    "requirement": "Pick one vertical.",
+    "req": "Pick one vertical.",
+    "title": "Option 2 · Fintech search · Pick one vertical",
+    "short": "Pick one vertical",
+    "status": "done",
+    "answer": "Fintech: backtests and adverse-media screens that read the live web.",
+    "proof": [
+      {
+        "label": "33 of 60 state the outcome",
+        "href": "data/fintech_judged.json"
+      }
+    ],
+    "proof_path": "data/fintech_judged.json",
+    "slide": "film-fintech",
+    "slide_no": 2,
+    "slides": [
+      "film-fintech"
+    ]
+  },
+  {
+    "id": "o2-today",
+    "option": "2",
+    "group": "Option 2 · Fintech search",
+    "requirement": "Sales thesis: what these companies do with web search today.",
+    "req": "Sales thesis: what these companies do with web search today.",
+    "title": "Option 2 · Fintech search · Sales thesis: what these companies do with web search today",
+    "short": "Sales thesis: what these companies do with web search today",
+    "status": "done",
+    "answer": "Agents search the live web; 33/60 results already leak the outcome (MEASURED).",
+    "proof": [
+      {
+        "label": "33/60 unfenced state the outcome",
+        "href": "data/fintech_judged.json"
+      }
+    ],
+    "proof_path": "data/fintech_judged.json",
+    "slide": "tk-f-thesis",
+    "slide_no": 4,
+    "slides": [
+      "tk-f-thesis"
+    ],
+    "top_answer": "33/60 results leak the outcome today; Keenable 1/70 vs rivals 10–37 (of 67–70) (MEASURED)."
+  },
+  {
+    "id": "o2-cost",
+    "option": "2",
+    "group": "Option 2 · Fintech search",
+    "requirement": "Sales thesis: what it costs them.",
+    "req": "Sales thesis: what it costs them.",
+    "title": "Option 2 · Fintech search · Sales thesis: what it costs them",
+    "short": "Sales thesis: what it costs them",
+    "status": "done",
+    "answer": "$14–35 per 1K grounded calls; Bing Search API retired 2025 (CITED).",
+    "proof": [
+      {
+        "label": "Bing APIs retired 11 Aug 2025",
+        "href": "research/opt2_thesis.md"
+      }
+    ],
+    "proof_path": "research/opt2_thesis.md",
+    "slide": "tk-f-thesis",
+    "slide_no": 4,
+    "slides": [
+      "tk-f-thesis"
+    ]
+  },
+  {
+    "id": "o2-better",
+    "option": "2",
+    "group": "Option 2 · Fintech search",
+    "requirement": "Sales thesis: why Keenable is better.",
+    "req": "Sales thesis: why Keenable is better.",
+    "title": "Option 2 · Fintech search · Sales thesis: why Keenable is better",
+    "short": "Sales thesis: why Keenable is better",
+    "status": "done",
+    "answer": "Leaks: Keenable 1/70 vs rivals 10–37 (of 67–70); useful 0.4 → 4.3 (MEASURED).",
+    "proof": [
+      {
+        "label": "Leaks: Keenable 1/70, rivals 10–37",
+        "href": "data/h2h/latest_judged.json"
+      }
+    ],
+    "proof_path": "data/h2h/latest_judged.json",
+    "slide": "fx-h2h",
+    "slide_no": 5,
+    "slides": [
+      "fx-h2h"
+    ]
+  },
+  {
+    "id": "o2-targets",
+    "option": "2",
+    "group": "Option 2 · Fintech search",
+    "requirement": "5 targets in that vertical.",
+    "req": "5 targets in that vertical.",
+    "title": "Option 2 · Fintech search · 5 targets in that vertical",
+    "short": "5 targets in that vertical",
+    "status": "done",
+    "answer": "Balyasny, Hebbia, Rogo, Sardine, Bretton AI: targets, not customers.",
+    "proof": [
+      {
+        "label": "First five, canonical list",
+        "href": "research/first5_canonical.md"
+      }
+    ],
+    "proof_path": "research/first5_canonical.md",
+    "slide": "tk-f-targets",
+    "slide_no": 7,
+    "slides": [
+      "tk-f-targets"
+    ]
+  },
+  {
+    "id": "o2-people",
+    "option": "2",
+    "group": "Option 2 · Fintech search",
+    "requirement": "The exact people from your network you’d approach first.",
+    "req": "The exact people from your network you’d approach first.",
+    "title": "Option 2 · Fintech search · The exact people from your network you’d approach first",
+    "short": "The exact people from your network you’d approach first",
+    "status": "done",
+    "answer": "Five named people, second-degree (two to confirm); no intros yet.",
+    "proof": [
+      {
+        "label": "864 people at 119 accounts",
+        "href": "data/public_people.json"
+      }
+    ],
+    "proof_path": "data/public_people.json",
+    "slide": "tk-f-targets",
+    "slide_no": 7,
+    "slides": [
+      "tk-f-targets"
+    ]
+  },
+  {
+    "id": "o2-why",
+    "option": "2",
+    "group": "Option 2 · Fintech search",
+    "requirement": "…and why.",
+    "req": "…and why.",
+    "title": "Option 2 · Fintech search · …and why",
+    "short": "…and why",
+    "status": "done",
+    "answer": "Each owns a backtest or a screen where look-ahead costs money.",
+    "proof": [
+      {
+        "label": "One why-line per person",
+        "href": "research/first5_canonical.md"
+      }
+    ],
+    "proof_path": "research/first5_canonical.md",
+    "slide": "tk-f-targets",
+    "slide_no": 7,
+    "slides": [
+      "tk-f-targets"
+    ]
+  },
+  {
+    "id": "o2-demo",
+    "option": "2",
+    "group": "Option 2 · Fintech search",
+    "requirement": "Design the first-meeting demo for this vertical (example: test.keenable.ai/clay).",
+    "req": "Design the first-meeting demo for this vertical (example: test.keenable.ai/clay).",
+    "title": "Option 2 · Fintech search · Design the first-meeting demo for this vertical (example: test.keenable.ai/clay)",
+    "short": "Design the first-meeting demo for this vertical (example: test.keenable.ai/clay)",
+    "status": "done",
+    "answer": "SVB, the day before: flip the fence live; rivals side by side.",
+    "proof": [
+      {
+        "label": "Useful per top 10: 0.4/0.6/4.3",
+        "href": "data/fence_relevance.json"
+      }
+    ],
+    "proof_path": "data/fence_relevance.json",
+    "slide": "fx-flip",
+    "slide_no": 6,
+    "slides": [
+      "fx-flip"
+    ]
+  },
+  {
+    "id": "o1-collect",
+    "option": "1",
+    "group": "Option 1 · Galactica",
+    "requirement": "Sales thesis: how labs collect pretraining data today.",
+    "req": "Sales thesis: how labs collect pretraining data today.",
+    "title": "Option 1 · Galactica · Sales thesis: how labs collect pretraining data today",
+    "short": "Sales thesis: how labs collect pretraining data today",
+    "status": "done",
+    "answer": "Most share one crawl: ≥64% of LLMs studied used Common Crawl (CITED).",
+    "proof": [
+      {
+        "label": "≥64% of LLMs trained on CC",
+        "href": "research/v3_sources.md"
+      }
+    ],
+    "proof_path": "research/v3_sources.md",
+    "slide": "tk-g-thesis",
+    "slide_no": 11,
+    "slides": [
+      "tk-g-thesis"
+    ],
+    "top_answer": "Most labs share one crawl; 75.4% of 500 sampled pages had no URL match in any 2026 crawl (MEASURED)."
+  },
+  {
+    "id": "o1-cost",
+    "option": "1",
+    "group": "Option 1 · Galactica",
+    "requirement": "Sales thesis: what it costs them.",
+    "req": "Sales thesis: what it costs them.",
+    "title": "Option 1 · Galactica · Sales thesis: what it costs them",
+    "short": "Sales thesis: what it costs them",
+    "status": "done",
+    "answer": "Own crawl ≈ $6.7M/year midpoint vs $1–2M card (MODEL).",
+    "proof": [
+      {
+        "label": "Build $6.7M/year vs $1–2M card",
+        "href": "data/charts/opt1_build_vs_buy.json"
+      }
+    ],
+    "proof_path": "data/charts/opt1_build_vs_buy.json",
+    "slide": "tk-g-thesis",
+    "slide_no": 11,
+    "slides": [
+      "tk-g-thesis"
+    ]
+  },
+  {
+    "id": "o1-better",
+    "option": "1",
+    "group": "Option 1 · Galactica",
+    "requirement": "Sales thesis: why Keenable can be better.",
+    "req": "Sales thesis: why Keenable can be better.",
+    "title": "Option 1 · Galactica · Sales thesis: why Keenable can be better",
+    "short": "Sales thesis: why Keenable can be better",
+    "status": "done",
+    "answer": "75.4% of 500 sampled pages had no URL match in any 2026 crawl (MEASURED).",
+    "proof": [
+      {
+        "label": "75.4%: no 2026 URL match",
+        "href": "data/cc_overlap.json"
+      }
+    ],
+    "proof_path": "data/cc_overlap.json",
+    "slide": "tk-g-thesis",
+    "slide_no": 11,
+    "slides": [
+      "tk-g-thesis"
+    ]
+  },
+  {
+    "id": "o1-targets",
+    "option": "1",
+    "group": "Option 1 · Galactica",
+    "requirement": "5 companies.",
+    "req": "5 companies.",
+    "title": "Option 1 · Galactica · 5 companies",
+    "short": "5 companies",
+    "status": "done",
+    "answer": "NVIDIA + HF, DatologyAI, Arcee, Microsoft AI, AI21 (expansion): targets, not customers.",
+    "proof": [
+      {
+        "label": "First five; AI21 is expansion",
+        "href": "research/first5_canonical.md"
+      }
+    ],
+    "proof_path": "research/first5_canonical.md",
+    "slide": "tk-g-targets",
+    "slide_no": 13,
+    "slides": [
+      "tk-g-targets"
+    ]
+  },
+  {
+    "id": "o1-people",
+    "option": "1",
+    "group": "Option 1 · Galactica",
+    "requirement": "The exact people from your own network you’d approach first.",
+    "req": "The exact people from your own network you’d approach first.",
+    "title": "Option 1 · Galactica · The exact people from your own network you’d approach first",
+    "short": "The exact people from your own network you’d approach first",
+    "status": "done",
+    "answer": "Five named data owners; second-degree unless marked, Kliegl cold, no intros.",
+    "proof": [
+      {
+        "label": "864 people at 119 accounts",
+        "href": "data/public_people.json"
+      }
+    ],
+    "proof_path": "data/public_people.json",
+    "slide": "tk-g-targets",
+    "slide_no": 13,
+    "slides": [
+      "tk-g-targets"
+    ]
+  },
+  {
+    "id": "o1-why",
+    "option": "1",
+    "group": "Option 1 · Galactica",
+    "requirement": "…and why.",
+    "req": "…and why.",
+    "title": "Option 1 · Galactica · …and why",
+    "short": "…and why",
+    "status": "done",
+    "answer": "Each decides or curates what pretraining data a lab uses.",
+    "proof": [
+      {
+        "label": "One why-line per person",
+        "href": "research/first5_canonical.md"
+      }
+    ],
+    "proof_path": "research/first5_canonical.md",
+    "slide": "tk-g-targets",
+    "slide_no": 13,
+    "slides": [
+      "tk-g-targets"
+    ]
+  },
+  {
+    "id": "o1-card-structure",
+    "option": "1",
+    "group": "Option 1 · Galactica",
+    "requirement": "Improve the attached dataset card for a first customer meeting: structure.",
+    "req": "Improve the attached dataset card for a first customer meeting: structure.",
+    "title": "Option 1 · Galactica · Improve the attached dataset card for a first customer meeting: structure",
+    "short": "Improve the attached dataset card for a first customer meeting: structure",
+    "status": "done",
+    "answer": "Rebuilt around a data lead’s 30 questions; today’s card answers ~4.",
+    "proof": [
+      {
+        "label": "Card v2: 30 buyer questions",
+        "href": "research/opt1_card_v2.md"
+      }
+    ],
+    "proof_path": "research/opt1_card_v2.md",
+    "slide": "ga-card",
+    "slide_no": 12,
+    "slides": [
+      "ga-card"
+    ]
+  },
+  {
+    "id": "o1-card-stats",
+    "option": "1",
+    "group": "Option 1 · Galactica",
+    "requirement": "Placeholder answers to the missing questions and statistics.",
+    "req": "Placeholder answers to the missing questions and statistics.",
+    "title": "Option 1 · Galactica · Placeholder answers to the missing questions and statistics",
+    "short": "Placeholder answers to the missing questions and statistics",
+    "status": "done",
+    "answer": "10 unknowns estimated from 1,209 docs with 95% CIs (MEASURED).",
+    "proof": [
+      {
+        "label": "10 unknowns from 1,209 docs",
+        "href": "data/charts/ga_est_ten.json"
+      }
+    ],
+    "proof_path": "data/charts/ga_est_ten.json",
+    "slide": "ga-card",
+    "slide_no": 12,
+    "slides": [
+      "ga-card"
+    ]
+  }
+]

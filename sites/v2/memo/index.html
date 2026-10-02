@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en" data-theme="v2">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PROOF memo</title>
+<meta name="description" content="George Trushevskiy, Founding GTM for Keenable: the claim, three measured numbers, the PROOF method, both take-home options and the ask, on one page.">
+<link rel="icon" href="../brand/favicon-32.png">
+<link rel="apple-touch-icon" href="../brand/apple-touch-icon.png">
+<meta name="theme-color" content="#FAFAF7">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="George Trushevskiy · Founding GTM take-home for Keenable">
+<meta property="og:title" content="PROOF memo · Search, with a clock · Founding GTM take-home for Keenable">
+<meta property="og:description" content="George Trushevskiy ran Keenable on its live API, tested it and brought back the bug. Narrated films, a live demo and graded sources.">
+<meta property="og:url" content="https://founding-gtm.trusynth.com/v2/memo/">
+<meta property="og:image" content="https://founding-gtm.trusynth.com/v2/brand/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Search, with a clock. George Trushevskiy, Founding GTM take-home for Keenable.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="../v2.css">
+<link rel="stylesheet" href="../kit/keenable.css">
+<style>
+
+  /* One US-letter page (8.5 × 11 in = 816 × 1056 CSS px). Tokens come from v2.css. */
+  @page { size: letter; margin: 0; }
+  html, body { margin: 0; background: var(--bg-alt); }
+  body { font: 400 15px/1.42 var(--font-text); color: var(--ink); }
+  .page { width: 816px; min-height: 1056px; box-sizing: border-box; margin: 32px auto; padding: 36px 52px 30px; background: var(--paper); box-shadow: 0 1px 0 var(--line), 0 20px 50px rgba(0,0,0,.06); display: flex; flex-direction: column; }
+  .top { display: flex; justify-content: space-between; gap: 16px; font: 500 12.5px var(--font-mono); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); padding-bottom: 12px; border-bottom: 3px solid transparent; border-image: var(--accent-fill) 1; }
+  h1 { font: 400 44px/1.02 var(--font-display); letter-spacing: -0.015em; margin: 18px 0 8px; max-width: 22ch; }
+  h1 em { font-style: normal; color: var(--accent-text); }
+  .who { margin: 0; font-size: 15px; line-height: 1.45; color: var(--ink-2); max-width: 66ch; }
+  .who b { color: var(--ink); font-weight: 600; }
+  h2 { font: 600 12.5px var(--font-mono); letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); margin: 18px 0 6px; display: flex; align-items: center; gap: 10px; max-width: none; }
+  h2::before { content: ""; width: 22px; height: 3px; background: var(--accent); }
+  .nums { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1.5px solid var(--ink); }
+  .nums > div { padding: 10px 16px 0 0; }
+  .nums > div + div { padding-left: 16px; border-left: 1px solid var(--line); }
+  .nums .v { font: 400 42px/1 var(--font-display); letter-spacing: -0.01em; font-variant-numeric: lining-nums; display: inline-block; padding-bottom: 4px; border-bottom: 4px solid transparent; border-image: var(--accent-fill) 1; }
+  .nums p { margin: 6px 0 0; font-size: 13.5px; line-height: 1.38; }
+  .src { font: 400 12px var(--font-mono); color: var(--ink-2); border-bottom: 1px dotted var(--ink-3); text-decoration: none; }
+  .nums .src { display: inline-block; margin-top: 6px; }
+  ol.proof { list-style: none; margin: 0; padding: 0; border-top: 1.5px solid var(--ink); }
+  ol.proof li { display: grid; grid-template-columns: 30px 1fr; gap: 10px; padding: 4px 0; border-bottom: 1px solid var(--line); font-size: 14px; align-items: baseline; }
+  ol.proof li b.l { font: 400 22px/1 var(--font-display); }
+  ol.proof li strong { font-weight: 600; }
+  .opts { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1.5px solid var(--ink); }
+  .opts > div { padding: 8px 16px 0 0; font-size: 13.5px; line-height: 1.4; }
+  .opts > div + div { padding-left: 16px; border-left: 1px solid var(--line); }
+  .opts h3 { font: 400 20px/1.1 var(--font-display); margin: 0 0 6px; letter-spacing: 0; }
+  .opts p { margin: 0; }
+  .tag { font: 600 11.5px var(--font-mono); letter-spacing: .06em; background: var(--accent-soft); border: 1px solid var(--accent-border); padding: 0 4px; }
+  .ask { margin-top: auto; padding-top: 14px; }
+  .ask .box { background: var(--black); color: var(--paper); padding: 14px 22px; display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; }
+  .ask p.q { font: 400 28px/1.08 var(--font-display); margin: 0; max-width: 26ch; }
+  .ask p.q em { font-style: italic; }
+  .ask .c { font: 500 14px/1.6 var(--font-mono); text-align: right; white-space: nowrap; }
+  .ask .c a { color: var(--accent-on-dark); text-decoration: none; }
+  .fine { font-size: 12px; color: var(--ink-2); margin: 8px 0 0; }
+  .tools { width: 816px; margin: 0 auto; display: flex; justify-content: flex-end; gap: 8px; padding-top: 16px; }
+  .tools a { font: 500 14px var(--font-text); color: var(--ink); border: 1px solid var(--ink); padding: 9px 14px; text-decoration: none; background: var(--paper); }
+  @media screen and (max-width: 860px) {
+    .tools { width: auto; padding: 12px 16px 0; }
+    .page { width: auto; min-height: 0; margin: 12px 16px; padding: 24px 18px; }
+    h1 { font-size: 36px; }
+    .nums, .opts { grid-template-columns: 1fr; }
+    .nums > div + div, .opts > div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); margin-top: 10px; }
+    .ask .box { flex-direction: column; align-items: flex-start; }
+    .ask .c { text-align: left; white-space: normal; }
+  }
+  @media print {
+    html, body { background: var(--paper); }
+    .tools { display: none; }
+    .page { margin: 0; box-shadow: none; height: 1056px; overflow: hidden; }
+    * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+
+  /* page chrome on the kit (our links only); the kit hides .k-nav under 900px, so it becomes a scrolling second row here */
+  .k-nav a[aria-current="page"] { color: var(--k-blue); }
+  .k-announce { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 0 16px; }
+  @media (max-width: 900px) {
+    body .k-header-bar { height: auto; padding: calc(16px + env(safe-area-inset-top)) 0 8px; } /* beats nav/ios.css fixed 78px height: the nav wraps to a 2nd row here */
+    .k-header { height: auto; row-gap: 8px; }
+    .k-nav { display: flex; grid-column: 1 / -1; grid-row: 2; overflow-x: auto; gap: 4px; margin: 0 -12px; scrollbar-width: none; }
+    .k-nav::-webkit-scrollbar { display: none; }
+    .k-nav a { height: auto; padding: 8px 12px; }
+    .k-announce { font-size: 12px; }
+    .k-footer__grid { gap: 24px; }
+  }
+  @media print { .k-announce, .k-header-bar, .k-footer { display: none !important; } }
+
+  /* kit chrome on the memo: the page keeps its own Letter layout; the kit sets body.k to 300 weight and resets links */
+  body.k { font: 400 15px/1.42 var(--font-text); color: var(--ink); background: var(--bg-alt); }
+  .memo-chrome { background: #fff; }
+  .memo-chrome .k-header { background: transparent; }
+  .page a.src { color: var(--ink-2); }
+  .who.why { margin-top: 12px; }
+</style>
+<style>/* type rule: no negative tracking under 28px (overrides the kit's measured values on this page) */ :root { --k-ls-14: 0; --k-ls-16: 0; --k-ls-18: 0; --k-ls-mono: 0; }</style>
+<link rel="stylesheet" href="../nav/ios.css">
+<script src="../nav/ios.js" defer></script>
+</head>
+<body class="k">
+<div class="k-announce">Founding GTM take-home · George Trushevskiy · 1 Oct 2026</div>
+<div class="memo-chrome"><div class="k-header-bar"><header class="k-header k-col"><a class="k-logo" href="../hub/" aria-label="Home"><img src="../kit/assets/keenable-wordmark-ink.svg" alt="Keenable"><small>take-home</small></a><nav class="k-nav" aria-label="Site"><a href="../?present=1#film-fintech">Fintech</a><a href="../?present=1#film-galactica">Galactica</a><a href="../?present=1#tk-bridge">One timestamp</a><a href="../films/">Films</a><a href="../map/">Requirements</a></nav><a class="k-pill" href="#" data-demo-link target="_blank" rel="noopener">Demo</a></header></div>
+<nav class="tools"><a href="memo.pdf" download>Download PDF</a></nav>
+<article class="page">
+  <div class="top"><span>George Trushevskiy · Founding GTM · Keenable</span><span>1 Oct 2026</span></div>
+
+  <h1>I sell search the way labs buy it: <em>on their queries.</em></h1>
+  <h2>Fintech first, then labs: one timestamp</h2>
+  <div class="opts">
+    <div><h3>Fintech · search with a clock</h3><p>Quant heads of data need search fenced at the decision date. <code>query_time</code> fences by crawl date: 4.3 useful vs 0.4, 0 acquired after the cutoff, 1 confirmed content leak. Pilot: their events, 2 weeks.</p></div>
+    <div><h3>Galactica · same timestamp</h3><p>Lab data leads buy what Common Crawl lacks. A modelled 20B-docs/month build: $6.7M/yr <span class="tag">MODEL $2.3–20.2M: 13 cost lines, low to high inputs</span> vs $1–2M to buy (card price). <code>acquired_at</code> cuts eval windows.</p></div>
+  </div>
+
+  <h2>Findings: three numbers I measured on Keenable</h2>
+  <div class="nums">
+    <div><span class="v">4.3</span><p>useful pre-event results per top 10 with <code>query_time</code>; 0 acquired after the cutoff, 6/70 flagged as possible outcome leaks (1 confirmed). Date filter 0.6, no fence 0.4.</p><a class="src" href="../data/fence_relevance.json">data/fence_relevance.json</a></div>
+    <div><span class="v">75.4%</span><p>of 500 sampled Keenable pages have no URL match in Common Crawl's nine 2026 crawls (CI 71.4–79.0). URL overlap on a sample, not a share of new content.</p><a class="src" href="../data/cc_overlap.json">data/cc_overlap.json</a></div>
+    <div><span class="v">$0.006</span><p>per query passing the domain/snippet rule, at list price, kit fintech run; 26 tests pass. Rivals: one small run, 1 Oct.</p><a class="src" href="verdict-fintech.md">verdict-fintech.md</a></div>
+  </div>
+
+  <h2>How I’d sell it: PROOF</h2>
+  <ol class="proof">
+    <li><b class="l">P</b><span><strong>Pick the query that hurts, and the bar.</strong> 50 queries their agent sent last week; pass/fail signed first.</span></li>
+    <li><b class="l">R</b><span><strong>Run it in their harness.</strong> The kit drops into OpenAI, Anthropic or MCP tool calls; adding the as-of month lifted fresh useful results 2.1 to 4.1.</span></li>
+    <li><b class="l">O</b><span><strong>Open the evidence.</strong> A one-page verdict memo, caveats included; labels checked against a second model (Claude), 28/30, no human validation yet.</span></li>
+    <li><b class="l">O</b><span><strong>Order: size the deal.</strong> Measured volume × list price; Head of Revenue owns final terms.</span></li>
+    <li><b class="l">F</b><span><strong>Fan out, and feed back.</strong> Wins become platform templates (Fireworks next); misses reach product.</span></li>
+  </ol>
+
+  <p class="who why"><b>Why me.</b> Founder of TRU Synth, in San Francisco. I build agent products and sell them myself: <b>SynthOS</b>, an agent workspace; <b>Genie</b>, an agent service for JellyJelly; <b>Digital George</b>, built on cognee, a Keenable partner.</p>
+
+  <div class="ask">
+    <div class="box">
+      <p class="q">Send me one team's 50 queries. <em>Verdict memo in 48 hours.</em></p>
+      <div class="c"><a href="https://george.trusynth.com">george.trusynth.com</a><br>george@trusynth.com</div>
+    </div>
+    <p class="fine">Each finding links to its data file. Build-vs-buy: <a class="src" href="../research/opt1_thesis.md">opt1_thesis.md</a> (mid case; card price $1–2M a year). Verdict sizing at list price; final terms sit with Keenable.</p>
+  </div>
+</article>
+<div class="memo-chrome"><footer class="k-footer"><div class="k-col"><div class="k-footer__grid"><div><a href="../hub/" aria-label="Home"><img src="../kit/assets/keenable-wordmark-ink.svg" alt="Keenable" style="height:24px"></a></div><div><h6>The case</h6><a href="../?present=1#film-fintech">Fintech</a><a href="../?present=1#tk-bridge">One timestamp</a><a href="../?present=1#film-galactica">Galactica</a><a href="../full.html#findings">Findings</a></div><div><h6>Watch</h6><a href="../films/">Films</a><a href="#" data-demo-link target="_blank" rel="noopener">Live demo</a></div><div><h6>Read</h6><a href="../memo/">Memo</a><a href="../map/">Requirements</a><a href="../?present=1#sources">Sources</a><a href="../v2.pdf">PDF</a></div></div><p class="k-footer__legal">A take-home by George Trushevskiy for Keenable. Not an official Keenable site.</p></div></footer></div>
+<script src="../config.js"></script>
+<script src="../nav/resume.js"></script>
+</body>
+</html>

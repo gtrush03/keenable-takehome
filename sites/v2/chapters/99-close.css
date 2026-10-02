@@ -1,0 +1,36 @@
+/* 99-close: the three hero numbers, repeated under the ask. */
+.cl-nums { list-style: none; margin: 48px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1.5px solid var(--ink); max-width: none; }
+.cl-nums li { padding: var(--s3) var(--s4) 0 0; }
+.cl-nums li + li { padding-left: var(--s4); border-left: 1px solid var(--line); }
+.cl-nums b { display: block; font: 300 clamp(44px, 5vw, 88px)/1 var(--font-display); letter-spacing: -0.02em; font-stretch: 88%; color: var(--ink); font-variant-numeric: tabular-nums lining-nums; }
+.cl-nums span { display: block; font-size: var(--t-small); line-height: 1.35; color: var(--ink-2); margin-top: var(--s2); max-width: 30ch; }
+@media (max-width: 700px) {
+  .cl-nums { grid-template-columns: 1fr; margin-top: 28px; }
+  .cl-nums li, .cl-nums li + li { padding: 10px 0; border-left: 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 116px 1fr; gap: 12px; align-items: baseline; }
+  .cl-nums b { font-size: 32px; }
+  .cl-nums span { font-size: 16px; margin-top: 0; }
+}
+@media print {
+  .cl-nums { margin-top: 32px; }
+  .cl-nums b { font-size: 56px; }
+}
+/* conclusion chapter: three lines, what Keenable gets, the one next step */
+.cl .cl-nums b { font-weight: 200; letter-spacing: -0.04em; font-size: clamp(44px, 4.6vw, 84px); }
+.c-chapter.cl .cl-nums { border-top-color: rgba(255,255,255,.4); }
+.cl-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: var(--s4); }
+.cl-cta .btn.accent { font-size: 20px; min-height: 56px; padding: 0 26px; }
+@media (max-width: 700px) {
+  .cl .c-compare { margin-top: 14px; }
+  .cl .c-compare .k, .cl .c-compare .d { font-size: 14px; line-height: 1.25; }
+  .cl .c-compare .v { font-size: 34px; }
+  .cl .c-compare > div, .cl .c-compare > div + div { padding: 6px 8px 6px 0; }
+  .cl .c-compare .us { padding-left: 8px !important; }
+  .cl-cta .btn { flex: 1 1 100%; justify-content: center; }
+  .cl-cta .btn.accent { font-size: 17px; min-height: 48px; }
+  .cl .cl-nums b { font-size: 28px; }
+  .cl-nums li, .cl-nums li + li { grid-template-columns: 150px 1fr; }
+}
+@media print {
+  .cl-cta { display: none; }
+  .cl .cl-nums b { font-size: 60px; }
+}

@@ -1,0 +1,25 @@
+/* Lab deck: diagram sublabels stay at or above the 16px floor once the 1200-wide SVG scales into the print page. */
+.c-diagram .sub { font-size: 18.5px; }
+@media (max-width: 700px) {
+  .c-diagram { margin-top: 20px; }
+  .c-diagram svg.portrait { max-height: 42vh; }
+  .c-step .letter { font-size: 64px; }
+  .c-step .letter::after { height: 6px; margin-top: 8px; max-width: 64px; }
+  .c-step .letter small { display: none; }
+  .c-gate { margin-top: 20px; }
+  .c-gate .line { font-size: 17px; padding: 14px; }
+  .c-gate .meta { font-size: 15px; gap: 6px 16px; padding: 10px 14px; }
+  .c-diagram svg.portrait .sub { font-size: 24px; }
+  .c-compare .v { font-size: 40px; }
+  .c-compare .d { font-size: 15px; }
+  .c-compare > div, .c-compare > div + div { padding-top: 8px; padding-bottom: 8px; }
+}
+/* price ranges are long: keep each on one line */
+#price .c-compare .v { font-size: clamp(40px, 4.4vw, 88px); white-space: nowrap; }
+@media print { #price .c-compare .v { font-size: 68px; } }
+/* four measured columns: smaller values so each fits a quarter of the page */
+.lab-four .v { font-size: clamp(40px, 4.2vw, 84px); white-space: nowrap; }
+.lab-four > div { padding-right: 18px; } .lab-four > div + div { padding-left: 18px; }
+@media print { .lab-four .v { font-size: 64px; } }
+@media (max-width: 700px) { .lab-four .v { font-size: 34px; text-align: right; } .lab-four .v small { display: block; font-size: 14px; margin-top: 4px; } }
+@media (max-width: 700px) { .lab-four .d { display: none; } }

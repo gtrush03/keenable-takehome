@@ -1,0 +1,97 @@
+<section class="slide c-chapter" id="sources" data-chapter="sources" data-title="Evidence and sources">
+  <div class="inner">
+    <p class="eyebrow">Sources</p>
+    <h2 data-reveal>Sources, <em>graded.</em></h2>
+    <p class="lede" data-reveal>A: the paper, the law or the company’s own page. B: reputable press. My runs link to their data file.</p>
+  </div>
+</section>
+
+<section class="slide sx" id="sx-mine" data-chapter="sources" data-title="Sources · my own measurements">
+  <div class="inner">
+    <p class="eyebrow">Sources · my runs on the live API · 1 Oct 2026</p>
+    <h2 data-reveal>Five measurements, each with its raw file.</h2>
+    <ol class="sx-list" data-reveal>
+      <li><i class="g m">Run</i><b>33/60 → 0/60</b><span>leaks: no fence, then query_time</span><a class="src" href="data/fintech_judged.json">fintech_judged.json</a></li>
+      <li><i class="g m">Run</i><b>0.4 → 4.3</b><span>useful pre-event results per top 10; second model agrees 28/30</span><a class="src" href="data/fence_relevance.json">fence_relevance.json</a></li>
+      <li><i class="g m">Run</i><b>6/6</b><span>replays identical, same order</span><a class="src" href="data/fintech_repro.json">fintech_repro.json</a></li>
+      <li><i class="g m">Run</i><b>75.4%</b><span>of 500 sampled pages, no URL match in a 2026 CC crawl (CI 71.4–79.0)</span><a class="src" href="data/cc_overlap.json">cc_overlap.json</a></li>
+      <li><i class="g m">Run</i><b>10 estimates</b><span>card unknowns, from 1,209 docs, with 95% CIs</span><a class="src" href="data/charts/ga_est_ten.json">ga_est_ten.json</a></li>
+    </ol>
+    <p class="foot">Small samples; keyless endpoint, home network. Method: <a class="src" href="#appendix">appendix</a></p>
+  </div>
+</section>
+
+<section class="slide sx" id="sx-f1" data-chapter="sources" data-title="Sources · fintech, look-ahead bias">
+  <div class="inner">
+    <p class="eyebrow">Sources · fintech</p>
+    <h2 data-reveal>Researchers already measure the leak I sell against.</h2>
+    <ol class="sx-list" data-reveal>
+      <li><i class="g">A</i><b>~90%</b><span>GPT-4 hit rate on the first market reaction</span><a class="src" href="https://arxiv.org/abs/2304.07619">Lopez-Lira &amp; Tang · arXiv 2304.07619 · 2023</a></li>
+      <li><i class="g">A</i><b>“Large portion”</b><span>of LLM predictability may be look-ahead bias</span><a class="src" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5082861">Levy, Chicago Booth · SSRN 5082861 · 2024</a></li>
+      <li><i class="g">A</i><b>Mirage</b><span>backtest returns “evaporate” after the cutoff</span><a class="src" href="https://arxiv.org/abs/2510.07920">Li et al. · arXiv 2510.07920 · 2025</a></li>
+      <li><i class="g">A</i><b>Filters leak</b><span>date filters let post-cutoff pages through</span><a class="src" href="https://arxiv.org/abs/2602.17234">Zhang, Chen, Stadie · arXiv 2602.17234 · 2026</a></li>
+      <li class="us"><i class="g">A</i><b>The fix</b><span>time-filtered retrieval is half the fix; Keenable sells it</span><a class="src" href="https://arxiv.org/abs/2602.17234">Zhang, Chen, Stadie · arXiv 2602.17234 · 2026</a></li>
+    </ol>
+    <p class="foot">Counter-evidence: with time-fenced models the bias was modest (He et al., <a class="src" href="https://arxiv.org/abs/2502.21206">arXiv 2502.21206</a>). Fencing works.</p>
+  </div>
+</section>
+
+<section class="slide sx" id="sx-f2" data-chapter="sources" data-title="Sources · fintech, the search supply shock">
+  <div class="inner">
+    <p class="eyebrow">Sources · fintech</p>
+    <h2 data-reveal>The default search APIs are closing or in court.</h2>
+    <ol class="sx-list" data-reveal>
+      <li><i class="g">A</i><b>11 Aug 2025</b><span>Bing Search APIs retired</span><a class="src" href="https://learn.microsoft.com/en-us/lifecycle/announcements/bing-search-api-retirement">Microsoft Learn · lifecycle announcement</a></li>
+      <li><i class="g">A</i><b>No raw results</b><span>Bing’s successor returns no raw results</span><a class="src" href="https://learn.microsoft.com/en-us/azure/foundry-classic/agents/how-to/tools-classic/bing-grounding">Microsoft Learn · Grounding with Bing</a></li>
+      <li><i class="g">A</i><b>1 Jan 2027</b><span>Google Custom Search API shuts down</span><a class="src" href="https://developers.google.com/custom-search/v1/overview">Google for Developers</a></li>
+      <li><i class="g">A</i><b>$14 / 1K</b><span>Google grounding, after 5,000 free</span><a class="src" href="https://ai.google.dev/gemini-api/docs/pricing">ai.google.dev · Gemini API pricing</a></li>
+      <li><i class="g b">B</i><b>19 Dec 2025</b><span>Google sues SerpApi, the scraped layer under cheap search APIs</span><span class="src">Google v. SerpApi · N.D. Cal. 25-10826 · via MediaPost, Dec 2025</span></li>
+    </ol>
+    <p class="foot">List prices, 1 Oct 2026. Bing grounding $35 / 1K per <a class="src" href="https://ppc.land/microsoft-ends-bing-search-apis-on-august-11-alternative-costs-40-483-more/">PPC Land</a> (B/C) · Keenable: <a class="src" href="https://keenable.ai/pricing">keenable.ai/pricing</a></p>
+  </div>
+</section>
+
+<section class="slide sx" id="sx-g1" data-chapter="sources" data-title="Sources · Galactica, how labs get data">
+  <div class="inner">
+    <p class="eyebrow">Sources · Galactica</p>
+    <h2 data-reveal>Most labs share one crawl and keep a sliver of it.</h2>
+    <ol class="sx-list" data-reveal>
+      <li><i class="g">A</i><b>≥64%</b><span>of 47 LLMs (2019–2023) used Common Crawl</span><a class="src" href="https://www.mozillafoundation.org/en/research/library/generative-ai-training-data/">Baack · Mozilla Foundation · Feb 2024</a></li>
+      <li><i class="g">A</i><b>~1.3% kept</b><span>GPT-3: 45 TB filtered to 570 GB</span><a class="src" href="https://arxiv.org/abs/2005.14165">Brown et al. · arXiv 2005.14165 · 2020</a></li>
+      <li><i class="g">A</i><b>0.7B new</b><span>URLs in CC’s Aug 2026 crawl of 2.14B</span><a class="src" href="https://commoncrawl.org/blog/august-2026-crawl-archive-now-available">Common Crawl blog · 24 Aug 2026</a></li>
+      <li><i class="g">A</i><b>15T → 1.3T</b><span>FineWeb (96 snapshots) to its educational cut</span><a class="src" href="https://arxiv.org/abs/2406.17557">Penedo et al. · NeurIPS 2024</a></li>
+      <li class="us"><i class="g">A</i><b>2026–2032</b><span>public human text (~300T tokens) runs out</span><a class="src" href="https://epoch.ai/blog/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data">Villalobos et al. · Epoch AI · ICML 2024</a></li>
+    </ol>
+    <p class="foot">Against that: 75.4% of 500 sampled Keenable pages have no URL match in a 2026 crawl (my run, <a class="src" href="data/cc_overlap.json">cc_overlap.json</a>).</p>
+  </div>
+</section>
+
+<section class="slide sx" id="sx-g2" data-chapter="sources" data-title="Sources · Galactica, consent, cost, law">
+  <div class="inner">
+    <p class="eyebrow">Sources · Galactica</p>
+    <h2 data-reveal>The web is closing, and data now has a price.</h2>
+    <ol class="sx-list" data-reveal>
+      <li><i class="g">A</i><b>28%+</b><span>of C4’s key sources closed in one year (14,000 domains)</span><a class="src" href="https://arxiv.org/abs/2407.14933">Longpre et al. · Consent in Crisis · NeurIPS 2024</a></li>
+      <li><i class="g">A</i><b>1 Jul 2025</b><span>Cloudflare blocks AI crawlers by default</span><a class="src" href="https://www.cloudflare.com/press-releases/2025/cloudflare-just-changed-how-ai-crawlers-scrape-the-internet-at-large/">Cloudflare press release</a></li>
+      <li><i class="g">A</i><b>$203M</b><span>Reddit data licences at IPO, 2–3-year terms</span><a class="src" href="https://www.sec.gov/Archives/edgar/data/1713445/000162828024006294/reddits-1q423.htm">Reddit Form S-1 · SEC · Feb 2024</a></li>
+      <li><i class="g b">B</i><b>$1.5B</b><span>Anthropic settlement, ~$3,000 a book, approved 20 Jul 2026</span><a class="src" href="https://pearlcohen.com/federal-court-approves-1-5-billion-anthropic-copyright-settlement-largest-in-history">Pearl Cohen client alert · Jul 2026</a></li>
+      <li class="us"><i class="g b">B</i><b>Top 10%</b><span>of scraped domains listed in the EU summary, from 2 Aug 2025</span><a class="src" href="https://wilmerhale.com/en/insights/blogs/wilmerhale-privacy-and-cybersecurity-law/european-commission-releases-mandatory-template-for-public-disclosure-of-ai-training-data">EU AI Office template · via WilmerHale</a></li>
+    </ol>
+    <p class="foot">A dated, robots-checked slice is also the paperwork. Fintech: <a class="src" href="#sx-f1">look-ahead</a> · <a class="src" href="#sx-f2">search APIs</a></p>
+  </div>
+</section>
+
+<section class="slide sx" id="sx-k" data-chapter="sources" data-title="Sources · Keenable itself">
+  <div class="inner">
+    <p class="eyebrow">Sources · Keenable · 1 Oct 2026</p>
+    <h2 data-reveal>What Keenable says, and where it says it.</h2>
+    <ol class="sx-list" data-reveal>
+      <li><i class="g b">B</i><b>$26M</b><span>seed from Accel and Conviction; 100B+ documents</span><a class="src" href="https://techcrunch.com/2026/08/25/accel-backed-keenable-is-indexing-the-web-for-ai-agents/">TechCrunch · 25 Aug 2026</a></li>
+      <li><i class="g">A</i><b>Labs</b><span>“commercial contracts with multiple AI labs”, unnamed</span><a class="src" href="https://www.accel.com/news/our-seed-investment-in-keenable-search-infrastructure-for-better-ai-agents">Accel · seed post</a></li>
+      <li><i class="g b">B</i><b>Why now</b><span>Google and Microsoft are closing their search APIs</span><a class="src" href="https://techcrunch.com/2026/08/25/accel-backed-keenable-is-indexing-the-web-for-ai-agents/">TechCrunch, citing Accel</a></li>
+      <li class="us"><i class="g">A</i><b>query_time</b><span>“pages acquired after it are excluded”</span><a class="src" href="https://docs.keenable.ai/api-reference/search">docs.keenable.ai · search API</a></li>
+    </ol>
+    <p class="sx-logos" data-reveal><span class="sx-lk">Investors</span><span class="sx-lg"><img class="wm" src="brands/accel.svg" alt="Accel"></span><span class="sx-lg"><img class="wm" src="brands/conviction.png" alt="Conviction"></span><span class="sx-lk">Partners</span><span class="sx-lg"><img class="wm" src="brands/baseten.svg" alt="Baseten"><small>inference platform, 16 Sep</small></span><span class="sx-lg"><img class="wm" src="brands/cognee.svg" alt="cognee"><small>agent memory, 22 Sep</small></span></p>
+    <p class="foot">Investors and partners, not customers. Source: <a class="src" href="https://keenable.ai/blog">keenable.ai/blog</a>. Galactica figures (100B docs, +20B a month, $1–2M): take-home card.</p>
+  </div>
+</section>

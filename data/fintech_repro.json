@@ -1,0 +1,197 @@
+{
+ "first_run_at": "2026-10-01T11:49:26.698Z",
+ "rerun_at": "2026-10-01T11:57:06.939Z",
+ "rows": [
+  {
+   "q": "Microsoft Activision Blizzard acquisition closed",
+   "query_time": "2023-06-01",
+   "ms": 653,
+   "identical_order": true,
+   "overlap_of_10": 10,
+   "first": [
+    "https://ksnt.com/business/ap-business/uk-blocks-microsofts-activision-deal-over-competition-fears",
+    "https://msn.com/en-in/money/technology/call-of-duty-could-become-an-xbox-exclusive-after-the-microsoft-activision-deal-closes-e2-80-94-but-fans-on-playstation-can-rest-easy-for-now/ar-AASUknu",
+    "https://wreg.com/technology/ap-technology/eu-backs-microsoft-buying-call-of-duty-maker-activision-blizzard-but-the-69b-deal-is-still-at-risk",
+    "https://castanet.net/edition/news-story-357315-6-.htm",
+    "https://thisismoney.co.uk/money/markets/article-10415863/Microsoft-buys-Call-Duty-maker-Activision-Blizzard-50bn-deal.html?ico=mol_desktop_moneycars",
+    "https://saltwire.com/prince-edward-island/news/microsoft-to-buy-activision-blizzard-in-a-deal-at-687-billion-100681875",
+    "https://thefinancialexpress.com.bd/public/index.php/trade/microsoft-to-buy-activision-in-69b-metaverse-bet-1642564103",
+    "https://abcnews.go.com/Business/wireStory/microsoft-buys-activision-blizzard-687-billion-82324915",
+    "https://news.yahoo.com/microsoft-buys-activision-blizzard-video-190906603.html",
+    "https://aitopics.org/doc/news:BCCEB4ED"
+   ],
+   "rerun": [
+    "https://ksnt.com/business/ap-business/uk-blocks-microsofts-activision-deal-over-competition-fears",
+    "https://msn.com/en-in/money/technology/call-of-duty-could-become-an-xbox-exclusive-after-the-microsoft-activision-deal-closes-e2-80-94-but-fans-on-playstation-can-rest-easy-for-now/ar-AASUknu",
+    "https://wreg.com/technology/ap-technology/eu-backs-microsoft-buying-call-of-duty-maker-activision-blizzard-but-the-69b-deal-is-still-at-risk",
+    "https://castanet.net/edition/news-story-357315-6-.htm",
+    "https://thisismoney.co.uk/money/markets/article-10415863/Microsoft-buys-Call-Duty-maker-Activision-Blizzard-50bn-deal.html?ico=mol_desktop_moneycars",
+    "https://saltwire.com/prince-edward-island/news/microsoft-to-buy-activision-blizzard-in-a-deal-at-687-billion-100681875",
+    "https://thefinancialexpress.com.bd/public/index.php/trade/microsoft-to-buy-activision-in-69b-metaverse-bet-1642564103",
+    "https://abcnews.go.com/Business/wireStory/microsoft-buys-activision-blizzard-687-billion-82324915",
+    "https://news.yahoo.com/microsoft-buys-activision-blizzard-video-190906603.html",
+    "https://aitopics.org/doc/news:BCCEB4ED"
+   ]
+  },
+  {
+   "q": "Silicon Valley Bank deposit outflows",
+   "query_time": "2023-03-09",
+   "ms": 235,
+   "identical_order": true,
+   "overlap_of_10": 10,
+   "first": [
+    "https://docoh.com/company/719739/SIVB",
+    "https://depositaccounts.com/banks/silicon-valley-bank.html",
+    "https://usbanklocations.com/silicon-valley-bank.shtml",
+    "https://news.ycombinator.com/item?goto=news&id=23682511",
+    "https://svb.com/business-stage/seed",
+    "https://sec.gov/Archives/edgar/data/719739/000110465902003752/j4385_10q.htm",
+    "https://sec.gov/Archives/edgar/data/719739/000110465901500837/j0461_10q.htm",
+    "https://sec.gov/Archives/edgar/data/873044/000087304416000145/a12312015earningsrelease8-k.htm",
+    "https://sec.gov/Archives/edgar/data/719739/000110465905063169/a05-22416_110q.htm",
+    "https://app.researchpool.com/company/sivb-us78486q1013-svb-financial-group"
+   ],
+   "rerun": [
+    "https://docoh.com/company/719739/SIVB",
+    "https://depositaccounts.com/banks/silicon-valley-bank.html",
+    "https://usbanklocations.com/silicon-valley-bank.shtml",
+    "https://news.ycombinator.com/item?goto=news&id=23682511",
+    "https://svb.com/business-stage/seed",
+    "https://sec.gov/Archives/edgar/data/719739/000110465902003752/j4385_10q.htm",
+    "https://sec.gov/Archives/edgar/data/719739/000110465901500837/j0461_10q.htm",
+    "https://sec.gov/Archives/edgar/data/873044/000087304416000145/a12312015earningsrelease8-k.htm",
+    "https://sec.gov/Archives/edgar/data/719739/000110465905063169/a05-22416_110q.htm",
+    "https://app.researchpool.com/company/sivb-us78486q1013-svb-financial-group"
+   ]
+  },
+  {
+   "q": "Credit Suisse UBS merger",
+   "query_time": "2023-03-17",
+   "ms": 195,
+   "identical_order": true,
+   "overlap_of_10": 10,
+   "first": [
+    "https://isp.netscape.com/news/story/0002/20210625/KCN2E10HZ_2",
+    "https://reuters.com/article/credit-suisse-gp-ma-ubs-group/update-1-credit-suisse-ubs-held-tie-up-talks-backed-by-both-chairmen-bilanz-idUSL5N2GK4OF",
+    "https://globalcapital.com/article/k3fv47q0c21z/credit-suisse-ubs-ibank-merger-recommended",
+    "https://oann.com/credit-suisse-tie-up-takes-back-seat-as-ubs-board-meets",
+    "https://swissinfo.ch/eng/ubs-chairman-studies-feasibility-of-credit-suisse-deal/46032626",
+    "https://insurancenewsnet.com/oarticle/credit-suisse-mulling-business-overhaul-through-merger-deal-with-ubs",
+    "https://swissinfo.ch/eng/ubs-chairman-explores-merger-with-credit-suisse--report-says/46031922",
+    "https://themalaysianreserve.com/2020/09/15/ubs-chairman-to-explore-merger-with-credit-suisse",
+    "https://reuters.com/business/finance/exclusive-scandal-hit-credit-suisse-considers-creating-single-private-bank-2021-06-30",
+    "https://saltwire.com/nova-scotia/business/exclusive-scandal-hit-credit-suisse-considers-creating-single-private-bank-sources-100606164"
+   ],
+   "rerun": [
+    "https://isp.netscape.com/news/story/0002/20210625/KCN2E10HZ_2",
+    "https://reuters.com/article/credit-suisse-gp-ma-ubs-group/update-1-credit-suisse-ubs-held-tie-up-talks-backed-by-both-chairmen-bilanz-idUSL5N2GK4OF",
+    "https://globalcapital.com/article/k3fv47q0c21z/credit-suisse-ubs-ibank-merger-recommended",
+    "https://oann.com/credit-suisse-tie-up-takes-back-seat-as-ubs-board-meets",
+    "https://swissinfo.ch/eng/ubs-chairman-studies-feasibility-of-credit-suisse-deal/46032626",
+    "https://insurancenewsnet.com/oarticle/credit-suisse-mulling-business-overhaul-through-merger-deal-with-ubs",
+    "https://swissinfo.ch/eng/ubs-chairman-explores-merger-with-credit-suisse--report-says/46031922",
+    "https://themalaysianreserve.com/2020/09/15/ubs-chairman-to-explore-merger-with-credit-suisse",
+    "https://reuters.com/business/finance/exclusive-scandal-hit-credit-suisse-considers-creating-single-private-bank-2021-06-30",
+    "https://saltwire.com/nova-scotia/business/exclusive-scandal-hit-credit-suisse-considers-creating-single-private-bank-sources-100606164"
+   ]
+  },
+  {
+   "q": "FTX bankruptcy filing",
+   "query_time": "2022-11-08",
+   "ms": 217,
+   "identical_order": true,
+   "overlap_of_10": 10,
+   "first": [
+    "https://blockworks.co/tag/zac-prince",
+    "https://zawya.com/en/world/americas/crypto-exchange-ftx-has-a-few-billion-to-support-industry-bankman-fried-o5s9c56v",
+    "https://todaynewspost.com/news/startups/bankman-fried-founder-and-ceo-of-crypto-exchange-ftx-says-the-company-has-a-few-billion-to-support-the-embattled-crypto-industry-tech-news-startups-news",
+    "https://www.sec.gov/edgar/browse/?CIK=1820953",
+    "https://channelnewsasia.com/business/crypto-exchange-ftx-ordered-halt-false-and-misleading-claims-us-bank-regulator-2890166",
+    "https://oann.com/bankrupt-voyager-rebuffs-sam",
+    "https://medium.com/coinmonks/ftx-ceo-sam-bankman-fried-has-a-few-billion-for-bail-outs-derev-blog-ac117e25150",
+    "https://saltwire.com/nova-scotia/business/crypto-exchange-ftx-ordered-to-halt-false-and-misleading-claims-by-us-bank-regulator-100764859",
+    "https://breakinglatest.news/business/bankman-fried-prepares-funding-rounds-of-up-to-1-billion-for-its-ftx-here-is-how-much-the-crypto-giant-is-valued",
+    "https://tradingview.com/symbols/FTTUSD/history-timeline"
+   ],
+   "rerun": [
+    "https://blockworks.co/tag/zac-prince",
+    "https://zawya.com/en/world/americas/crypto-exchange-ftx-has-a-few-billion-to-support-industry-bankman-fried-o5s9c56v",
+    "https://todaynewspost.com/news/startups/bankman-fried-founder-and-ceo-of-crypto-exchange-ftx-says-the-company-has-a-few-billion-to-support-the-embattled-crypto-industry-tech-news-startups-news",
+    "https://www.sec.gov/edgar/browse/?CIK=1820953",
+    "https://channelnewsasia.com/business/crypto-exchange-ftx-ordered-halt-false-and-misleading-claims-us-bank-regulator-2890166",
+    "https://oann.com/bankrupt-voyager-rebuffs-sam",
+    "https://medium.com/coinmonks/ftx-ceo-sam-bankman-fried-has-a-few-billion-for-bail-outs-derev-blog-ac117e25150",
+    "https://saltwire.com/nova-scotia/business/crypto-exchange-ftx-ordered-to-halt-false-and-misleading-claims-by-us-bank-regulator-100764859",
+    "https://breakinglatest.news/business/bankman-fried-prepares-funding-rounds-of-up-to-1-billion-for-its-ftx-here-is-how-much-the-crypto-giant-is-valued",
+    "https://tradingview.com/symbols/FTTUSD/history-timeline"
+   ]
+  },
+  {
+   "q": "Nvidia market capitalization",
+   "query_time": "2022-12-01",
+   "ms": 231,
+   "identical_order": true,
+   "overlap_of_10": 10,
+   "first": [
+    "http://msn.com/en-us/money/stockdetails/nas-nvda/fi-a1yv52?form=PRFIEQ&symbol=NVDA",
+    "https://reuters.com/companies/NVDA.O",
+    "http://msn.com/en-ie/money/stockdetails/nas-nvda/fi-a1yv52",
+    "https://groww.in/stocks/us/NVDA",
+    "https://ph.investing.com/equities/nvidia-corp-ar",
+    "https://tickerreport.com/banking-finance/7370802/hyman-charles-d-has-732000-position-in-nvidia-co-nasdaqnvda.html",
+    "https://tickerreport.com/banking-finance/9015057/icapital-wealth-llc-purchases-shares-of-2348-nvidia-co-nasdaqnvda.html",
+    "https://tickerreport.com/banking-finance/7517800/brokerages-set-nvidia-co-nasdaqnvda-target-price-at-667-47.html",
+    "https://gurufocus.com/financials/NVDA?r=caf6fe0e0db70d936033da5461e60141",
+    "https://game-debate.com/news/29196/nvidia-is-now-worth-more-than-intel-as-they-recently-beat-the-cpu-giants-market-cap"
+   ],
+   "rerun": [
+    "http://msn.com/en-us/money/stockdetails/nas-nvda/fi-a1yv52?form=PRFIEQ&symbol=NVDA",
+    "https://reuters.com/companies/NVDA.O",
+    "http://msn.com/en-ie/money/stockdetails/nas-nvda/fi-a1yv52",
+    "https://groww.in/stocks/us/NVDA",
+    "https://ph.investing.com/equities/nvidia-corp-ar",
+    "https://tickerreport.com/banking-finance/7370802/hyman-charles-d-has-732000-position-in-nvidia-co-nasdaqnvda.html",
+    "https://tickerreport.com/banking-finance/9015057/icapital-wealth-llc-purchases-shares-of-2348-nvidia-co-nasdaqnvda.html",
+    "https://tickerreport.com/banking-finance/7517800/brokerages-set-nvidia-co-nasdaqnvda-target-price-at-667-47.html",
+    "https://gurufocus.com/financials/NVDA?r=caf6fe0e0db70d936033da5461e60141",
+    "https://game-debate.com/news/29196/nvidia-is-now-worth-more-than-intel-as-they-recently-beat-the-cpu-giants-market-cap"
+   ]
+  },
+  {
+   "q": "Sam Bankman-Fried sentenced years prison",
+   "query_time": "2024-03-27",
+   "ms": 216,
+   "identical_order": true,
+   "overlap_of_10": 10,
+   "first": [
+    "https://cbs19news.com/story/49942078/bankmanfried-convicted-of-defrauding-crypto-customers",
+    "https://wkrg.com/national/ap-no-nonsense-judge-takes-over-ftx-bankman-fried-criminal-case",
+    "https://outkick.com/super-fraudster-sam-bankman-fried-caught-using-vpn-under-house-arrest-claims-he-needed-it-to-watch-super-bowl-nfl-game-pass",
+    "https://wiki2.org/en/Sam_Bankman-Fried",
+    "https://wkrg.com/hill-politics/sam-bankman-fried-found-guilty-on-all-counts-as-jury-returns-swift-verdict",
+    "https://ultrasurfing.com/digital-world/bankman-fried-found-guilty-of-massive-crypto-fraud",
+    "https://news.yahoo.com/crypto-king-sam-bankman-fried-235522548.html",
+    "https://bollyinside.com/news/ftx-bankman-fried-criminal-case-now-being-handled-by-strict-judge",
+    "https://bdnews24.com/business/jnjewjw8y6",
+    "https://everettpost.com/business/sam-bankman-fried-found-guilty-in-federal-fraud-and-conspiracy-trial-could-face-110-years-in-prison"
+   ],
+   "rerun": [
+    "https://cbs19news.com/story/49942078/bankmanfried-convicted-of-defrauding-crypto-customers",
+    "https://wkrg.com/national/ap-no-nonsense-judge-takes-over-ftx-bankman-fried-criminal-case",
+    "https://outkick.com/super-fraudster-sam-bankman-fried-caught-using-vpn-under-house-arrest-claims-he-needed-it-to-watch-super-bowl-nfl-game-pass",
+    "https://wiki2.org/en/Sam_Bankman-Fried",
+    "https://wkrg.com/hill-politics/sam-bankman-fried-found-guilty-on-all-counts-as-jury-returns-swift-verdict",
+    "https://ultrasurfing.com/digital-world/bankman-fried-found-guilty-of-massive-crypto-fraud",
+    "https://news.yahoo.com/crypto-king-sam-bankman-fried-235522548.html",
+    "https://bollyinside.com/news/ftx-bankman-fried-criminal-case-now-being-handled-by-strict-judge",
+    "https://bdnews24.com/business/jnjewjw8y6",
+    "https://everettpost.com/business/sam-bankman-fried-found-guilty-in-federal-fraud-and-conspiracy-trial-could-face-110-years-in-prison"
+   ]
+  }
+ ],
+ "summary": {
+  "n": 6,
+  "identical_order": 6,
+  "mean_overlap": 10
+ }
+}

@@ -1,0 +1,134 @@
+{
+  "title": "Annotating Galactica's +20B docs/month — USD per month",
+  "label": "live Jev jev-1.13.0",
+  "type": "bar_range",
+  "unit": "USD/month",
+  "data": [
+    {
+      "method": "Jev on every doc (512-token window)",
+      "usd_month_low": 1102080,
+      "usd_month_mid": 1102080,
+      "usd_month_high": 1102080,
+      "how": "20B x (512 + 800 question tokens) x $42/Btok; output free",
+      "kind": "jev"
+    },
+    {
+      "method": "Jev on every doc (2000-token window)",
+      "usd_month_low": 2352000,
+      "usd_month_mid": 2352000,
+      "usd_month_high": 2352000,
+      "how": "20B x (2000 + 800 question tokens) x $42/Btok; output free",
+      "kind": "jev"
+    },
+    {
+      "method": "Jev on every doc (full fetched text, sample mean)",
+      "usd_month_low": 2414160,
+      "usd_month_mid": 2414160,
+      "usd_month_high": 2414160,
+      "how": "sample mean 2074 tokens/doc (capped by 8K-char fetch)",
+      "kind": "jev"
+    },
+    {
+      "method": "meta-llama/llama-3.3-70b-instruct annotator on every doc (FineWeb prompt, 512-token window)",
+      "usd_month_low": 2208000,
+      "usd_month_mid": 2756000,
+      "usd_month_high": 3088000,
+      "how": "prompt + 512 doc tokens in, <=100-word justification out (OpenRouter list prices)",
+      "kind": "llm"
+    },
+    {
+      "method": "openai/gpt-5-nano:batch annotator on every doc (FineWeb prompt, 512-token window)",
+      "usd_month_low": 696000,
+      "usd_month_mid": 1001000,
+      "usd_month_high": 1156000,
+      "how": "prompt + 512 doc tokens in, <=100-word justification out (OpenRouter list prices)",
+      "kind": "llm"
+    },
+    {
+      "method": "FineWeb-style BERT classifier on H100 (512-token window)",
+      "usd_month_low": 11837,
+      "usd_month_mid": 18534,
+      "usd_month_high": 25231,
+      "how": "6k H100-h per 15T tokens -> 4,096 H100-h/month x $2.89-$6.16",
+      "kind": "classifier"
+    },
+    {
+      "method": "fastText classifier on CPU (ASSUMPTION)",
+      "usd_month_low": 11,
+      "usd_month_mid": 50,
+      "usd_month_high": 278,
+      "how": "ASSUMPTION: 0.1-1 ms/doc/core x $0.02-0.05 per core-hour",
+      "kind": "classifier"
+    },
+    {
+      "method": "Cascade: classifier on all + Jev on the uncertain band",
+      "usd_month_low": 66941,
+      "usd_month_mid": 128742,
+      "usd_month_high": 245647,
+      "how": "H100 classifier on 20B + Jev (512 window) on 5-20% borderline docs (ASSUMPTION band)",
+      "kind": "cascade"
+    }
+  ],
+  "context": {
+    "galactica_list_price_usd_per_year": [
+      1000000.0,
+      2000000.0
+    ]
+  },
+  "sources": {
+    "jev_price_per_btok": "https://docs.typesafe.ai/models.md",
+    "openrouter_prices": "https://openrouter.ai/api/v1/models",
+    "h100_hourly": "https://www.runpod.io/pricing ; https://lambda.ai/pricing",
+    "fineweb_edu_method": "https://huggingface.co/datasets/HuggingFaceFW/fineweb-edu"
+  },
+  "assumptions": {
+    "fineweb_prompt_tokens": {
+      "value": 450,
+      "range": [
+        400,
+        520
+      ],
+      "why": "fineweb_edu_prompt.txt is ~1.9K chars of rubric = ~450 tokens at 4 chars/token."
+    },
+    "fineweb_output_tokens": {
+      "value": 130,
+      "range": [
+        60,
+        160
+      ],
+      "why": "Prompt asks for <=100-word justification + score line."
+    },
+    "fasttext_ms_per_doc_core": {
+      "value": 0.3,
+      "range": [
+        0.1,
+        1.0
+      ],
+      "why": "fastText linear classifier on CPU; not benchmarked here."
+    },
+    "cpu_core_hour_usd": {
+      "value": 0.03,
+      "range": [
+        0.02,
+        0.05
+      ],
+      "why": "Typical cloud vCPU-hour; no page fetched."
+    },
+    "uncertainty_band_share": {
+      "value": 0.1,
+      "range": [
+        0.05,
+        0.2
+      ],
+      "why": "Share of docs a cheap classifier leaves near the keep/drop threshold; tuned per customer."
+    },
+    "chars_per_token": {
+      "value": 4.0,
+      "range": [
+        3.5,
+        4.5
+      ],
+      "why": "No public Jev tokenizer. English web text averages ~4 chars/token on BPE tokenizers; live runs use usage.input_tokens instead."
+    }
+  }
+}

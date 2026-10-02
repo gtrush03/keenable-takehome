@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Founding GTM take-home · George Trushevskiy for Keenable</title>
+<meta name="description" content="George Trushevskiy's Founding GTM take-home for Keenable: the case, the films, the requirements map and the sources.">
+<link rel="icon" href="../brand/favicon-32.png">
+<link rel="apple-touch-icon" href="../brand/apple-touch-icon.png">
+<meta name="theme-color" content="#FAFAF7">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="George Trushevskiy · Founding GTM take-home for Keenable">
+<meta property="og:title" content="Search, with a clock · Founding GTM take-home for Keenable">
+<meta property="og:description" content="George Trushevskiy ran Keenable on its live API, tested it and brought back the bug. Narrated films, a live demo and graded sources.">
+<meta property="og:url" content="https://founding-gtm.trusynth.com/v2/hub/">
+<meta property="og:image" content="https://founding-gtm.trusynth.com/v2/brand/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Search, with a clock. George Trushevskiy, Founding GTM take-home for Keenable.">
+<meta name="twitter:card" content="summary_large_image">
+<script src="../config.js"></script>
+<link rel="stylesheet" href="../kit/keenable.css">
+<style>
+  /* page chrome on the kit (our links only); the kit hides .k-nav under 900px, so it becomes a scrolling second row here */
+  .k-nav a[aria-current="page"] { color: var(--k-blue); }
+  .k-announce { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 0 16px; }
+  @media (max-width: 900px) {
+    body .k-header-bar { height: auto; padding: calc(16px + env(safe-area-inset-top)) 0 8px; } /* beats nav/ios.css fixed 78px height: the nav wraps to a 2nd row here */
+    .k-header { height: auto; row-gap: 8px; }
+    .k-nav { display: flex; grid-column: 1 / -1; grid-row: 2; overflow-x: auto; gap: 4px; margin: 0 -12px; scrollbar-width: none; }
+    .k-nav::-webkit-scrollbar { display: none; }
+    .k-nav a { height: auto; padding: 8px 12px; }
+    .k-announce { font-size: 12px; }
+    .k-footer__grid { gap: 24px; }
+  }
+  @media print { .k-announce, .k-header-bar, .k-footer { display: none !important; } }
+
+  .hub { padding-bottom: 89px; }
+  .hub-h1 { font-size: 64px; line-height: 1; }
+  .hub-lead { margin: 28px 0 30px; max-width: 34em; }
+  .hub-cta { gap: 12px; flex-wrap: wrap; }
+  .hub-fine { margin: 0 0 12px; color: var(--k-muted); }
+  .hub-go1 { font-size: 18px; gap: 10px; }
+  .hub-go1 .hub-ico { margin-left: -2px; }
+  .hub-sound { display: flex; align-items: center; gap: 8px; margin: 16px 0 0; color: var(--k-muted); }
+  .hub-sound .hub-ico { flex: none; }
+  @media (max-width: 900px) {
+    .hub { padding-top: 40px; padding-bottom: 56px; }
+    .hub-h1 { font-size: 40px; }
+    .hub-lead { font-size: 17px; line-height: 23px; margin: 18px 0 22px; }
+    .k-cta-row { flex-wrap: wrap; }
+  }
+</style>
+<style>/* type rule: no negative tracking under 28px (overrides the kit's measured values on this page) */ :root { --k-ls-14: 0; --k-ls-16: 0; --k-ls-18: 0; --k-ls-mono: 0; }</style>
+<link rel="stylesheet" href="../nav/peek.css">
+<link rel="stylesheet" href="../nav/ios.css">
+<script src="../nav/ios.js" defer></script>
+</head>
+<body class="k">
+<div class="k-announce">Founding GTM take-home · George Trushevskiy · 1 Oct 2026</div>
+<div class="k-ground">
+<div class="k-header-bar"><header class="k-header k-col"><a class="k-logo" href="../hub/" aria-label="Home" aria-current="page"><img src="../kit/assets/keenable-wordmark-ink.svg" alt="Keenable"><small>take-home</small></a><nav class="k-nav" aria-label="Site"><a href="../">The case</a><a href="../films/">Films</a></nav><a class="k-pill" href="#" data-demo-link target="_blank" rel="noopener">Demo</a></header></div>
+<main class="k-col k-hero hub">
+  <h1 class="k-h1 hub-h1">Founding GTM take&#8209;home</h1>
+  <p class="k-lead hub-lead">One case: fintech search first, the same timestamp for labs second.</p>
+  <div class="k-cta-row hub-cta"><a class="k-btn k-btn--dark hub-go1" href="../?present=1"><svg class="hub-ico" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M6.5 4.6c0-.8.9-1.3 1.6-.9l7.6 4.6c.7.4.7 1.4 0 1.8l-7.6 4.6c-.7.4-1.6-.1-1.6-.9z" fill="currentColor"/></svg>Play presentation</a><a class="k-btn k-btn--soft hub-go1" href="../index-map/">Index</a></div>
+  <p class="k-small hub-sound"><svg class="hub-ico" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.6h2.7L10 4.6v10.8l-3.8-3H3.5z"/><path d="M13 7.3a3.8 3.8 0 0 1 0 5.4M15.3 5.2a6.8 6.8 0 0 1 0 9.6"/></svg>Sound on · 3 narrated films · about 17 min</p>
+</main>
+<footer class="k-footer"><div class="k-col"><p class="k-small hub-fine">Targets are people and companies I would approach. None has been contacted, and none is presented as a Keenable customer.</p><p class="k-footer__legal">A take-home by George Trushevskiy for Keenable. Not an official Keenable site.</p></div></footer>
+</div>
+<script src="../nav/peek.js"></script>
+<script src="../nav/history.js"></script>
+<script src="../nav/resume.js"></script>
+</body>
+</html>

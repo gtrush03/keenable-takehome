@@ -1,0 +1,71 @@
+/* 07-story: the human opening of each worked example (fx-story, fx-quote, ga-story). Linked by build.py like any chapter CSS. */
+.st-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--s4); margin-top: var(--s4); }
+.st-card { margin: 0; border: 1.5px solid var(--ink); background: #fff; padding: var(--s3) var(--s3) var(--s2); position: relative; display: flex; flex-direction: column; }
+.st-card.good { background: var(--accent-soft); border-color: var(--accent-deep); }
+.st-card.good::before { content: ""; position: absolute; left: -1.5px; right: -1.5px; top: -1.5px; height: 8px; background: var(--accent-fill); }
+.st-card figcaption b { display: block; font: 600 var(--t-label)/1.2 var(--font-mono); letter-spacing: .04em; text-transform: uppercase; color: var(--ink); }
+.st-card figcaption span { display: block; font-size: var(--t-small); color: var(--ink-2); margin-top: 4px; }
+.st-card ol { list-style: none; margin: var(--s2) 0 0; padding: 0; flex: 1; }
+.st-card li { padding: 12px 0; border-top: 1px solid var(--line); }
+.st-card .t { display: block; font: 300 clamp(20px, 1.75vw, 32px)/1.12 var(--font-display); color: var(--ink); }
+.st-card .m { display: block; font: 400 var(--t-label)/1.3 var(--font-mono); color: var(--ink-2); margin-top: 4px; }
+.st-card.bad .m { color: var(--bad); }
+.st-tag { margin: var(--s2) 0 0; padding-top: 10px; border-top: 1.5px solid currentColor; font: 600 var(--t-label)/1.2 var(--font-mono); letter-spacing: .04em; text-transform: uppercase; }
+.st-card.bad .st-tag { color: var(--bad); }
+.st-card.good .st-tag { color: var(--ink); }
+
+.st-q .c-quote { max-width: 1180px; margin-top: var(--s3); }
+.st-q .c-quote p { font-size: clamp(40px, 4.4vw, 84px); max-width: 24ch; }
+.st-q .c-quote cite { max-width: 70ch; }
+.st-also { font-size: var(--t-small); color: var(--ink-2); max-width: 62ch; margin: var(--s4) 0 0; line-height: 1.4; }
+.st-also b { color: var(--ink); }
+
+.st-beats { list-style: none; margin: var(--s4) 0 0; padding: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1.5px solid var(--ink); }
+.st-beats li { padding: var(--s3) var(--s3) var(--s2) 0; display: flex; flex-direction: column; gap: 10px; }
+.st-beats li + li { padding-left: var(--s3); border-left: 1px solid var(--line); }
+.st-beats b { font: 300 clamp(40px, 4vw, 76px)/1 var(--font-display); letter-spacing: -0.02em; font-variant-numeric: tabular-nums lining-nums; }
+.st-beats span { font-size: var(--t-small); line-height: 1.3; color: var(--ink); flex: 1; }
+.st-beats .src { font-size: var(--t-min); line-height: 1.3; border: 0; text-decoration: underline dotted; text-underline-offset: 3px; }
+.st-turn { font: 300 var(--t-h3)/1.15 var(--font-display); color: var(--ink); max-width: 40ch; margin: var(--s4) 0 0; }
+.st-turn b { font-weight: 400; background: linear-gradient(transparent 62%, var(--accent) 62%, var(--accent) 92%, transparent 92%); }
+
+@media (max-width: 700px) {
+  .st-pair { grid-template-columns: 1fr; gap: 14px; margin-top: 16px; }
+  .st-card { padding: 10px 12px 8px; }
+  .st-card figcaption span { display: none; }
+  .st-card ol { margin-top: 6px; }
+  .st-card li { padding: 5px 0; }
+  .st-card li:nth-child(3) { display: none; }
+  .st-card .t { font-size: 17px; }
+  .st-card .m, .st-card figcaption b, .st-tag { font-size: 14px; }
+  .st-tag { margin-top: 6px; padding-top: 6px; }
+  .st h2 { font-size: 32px; }
+  .st .foot { font-size: 14px; margin-top: 12px; }
+  .st-beats { grid-template-columns: 1fr 1fr; margin-top: 16px; }
+  .st-beats li, .st-beats li + li { padding: 8px 8px 8px 0; border-left: 0; gap: 4px; }
+  .st-beats li:nth-child(even) { padding-left: 10px; border-left: 1px solid var(--line); }
+  .st-beats b { font-size: 34px; }
+  .st-beats span { font-size: 14px; }
+  .st-beats .src { font-size: 14px; }
+  .st-turn { font-size: 21px; margin-top: 14px; }
+  .st-q .c-quote p { font-size: 34px; }
+  .st-also { font-size: 15px; margin-top: 18px; }
+}
+@media print {
+  .st h2 { font-size: 54px; }
+  .st-pair { margin-top: 24px; gap: 28px; }
+  .st-card { padding: 16px 20px 12px; }
+  .st-card li { padding: 7px 0; }
+  .st-card .t { font-size: 23px; }
+  .st-card .m, .st-card figcaption b, .st-tag { font-size: 16px; }
+  .st-card figcaption span { font-size: 18px; }
+  .st-tag { margin-top: 10px; padding-top: 8px; }
+  .st .foot { margin-top: 14px; font-size: 16px; }
+  .st-q .c-quote p { font-size: 58px; }
+  .st-also { font-size: 20px; margin-top: 24px; }
+  .st-beats { margin-top: 24px; }
+  .st-beats b { font-size: 52px; }
+  .st-beats span { font-size: 18px; }
+  .st-beats .src { font-size: 16px; }
+  .st-turn { font-size: 27px; margin-top: 12px; }
+}

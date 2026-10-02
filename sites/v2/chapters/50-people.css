@@ -1,0 +1,32 @@
+/* people lists: five rows, readable on a screen-share. Number · who (company, name, role) · why + path */
+.pp-list { list-style: none; margin: var(--s4) 0 0; padding: 0; border-top: 1.5px solid var(--ink); counter-reset: pp; }
+.pp-list li { counter-increment: pp; display: grid; grid-template-columns: 56px minmax(0, 1fr) minmax(0, 1.1fr); gap: var(--s4); align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--line); }
+.pp-list li::before { content: counter(pp); font: 300 clamp(28px, 2.4vw, 40px)/1 var(--font-display); color: var(--ink); }
+/* who: name on top, then company · role on one line */
+.pp-list li > div:first-child { display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 12px; }
+.pp-list .nm { order: -1; flex: 1 0 100%; font: 300 clamp(24px, 2.1vw, 36px)/1.1 var(--font-display); color: var(--ink); }
+.pp-list .co { font: 500 var(--t-label)/1.3 var(--font-mono); letter-spacing: .03em; text-transform: uppercase; color: var(--ink); margin-top: 6px; }
+.pp-list .rl { font-size: var(--t-label); color: var(--ink-2); line-height: 1.3; }
+.pp-list .rl::before { content: "· "; color: var(--ink-3); }
+.pp-list .wy { font-size: var(--t-small); color: var(--ink); line-height: 1.3; }
+.pp-list .pa { font: 400 var(--t-label) var(--font-mono); color: var(--ink-2); margin-top: 6px; }
+@media (max-width: 700px) {
+  .pp-list { margin-top: 14px; }
+  .pp-list li { grid-template-columns: 30px minmax(0, 1fr); gap: 2px 10px; padding: 8px 0; }
+  .pp-list li::before { font-size: 22px; grid-row: span 2; }
+  .pp-list .nm { font-size: 19px; }
+  .pp-list .wy { font-size: 14px; }
+  .pp-list .rl { display: none; }
+  .pp-list .co { font-size: 14px; }
+  .pp-list .pa { display: none; }
+  .pp-list .wy { grid-column: 2; }
+}
+@media print {
+  .pp-list { margin-top: 10px; }
+  .pp-list li { padding: 4px 0; gap: 14px; }
+  .pp-list .pa { margin-top: 0; }
+  .pp-list .nm { font-size: 24px; }
+}
+
+@media (max-width: 700px) { #pp-chain .portrait { max-height: 40vh; width: auto; margin: 0 auto; } }
+@media screen and (min-width: 701px) { #pp-galactica .pp-list li { padding-top: 8px; padding-bottom: 8px; } }

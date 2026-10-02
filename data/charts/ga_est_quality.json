@@ -1,0 +1,105 @@
+{
+ "title": "FineWeb-Edu-style score (live Jev), broad sample",
+ "label": "MEASURED",
+ "n": 600,
+ "hist_rounded": {
+  "0": 56,
+  "1": 144,
+  "2": 222,
+  "3": 163,
+  "4": 14,
+  "5": 1
+ },
+ "hist_floor": {
+  "0": 110,
+  "1": 195,
+  "2": 200,
+  "3": 91,
+  "4": 4
+ },
+ "hist_floor_note": "bins [0,1) [1,2) [2,3) [3,4) [4,5] of the expected score",
+ "share_ge2": {
+  "k": 295,
+  "n": 600,
+  "share": 0.4917,
+  "ci95": [
+   0.4518,
+   0.5316
+  ]
+ },
+ "share_ge3": {
+  "k": 95,
+  "n": 600,
+  "share": 0.1583,
+  "ci95": [
+   0.1313,
+   0.1897
+  ]
+ },
+ "tokens_ge3": {
+  "share": 0.1578,
+  "ci95": [
+   0.1138,
+   0.2052
+  ]
+ },
+ "by_query_type": {
+  "code": {
+   "n": 63,
+   "mean": 2.34,
+   "share_ge3": 0.048
+  },
+  "commerce": {
+   "n": 60,
+   "mean": 1.05,
+   "share_ge3": 0.0
+  },
+  "docs_misc": {
+   "n": 49,
+   "mean": 1.59,
+   "share_ge3": 0.0
+  },
+  "forums": {
+   "n": 60,
+   "mean": 1.35,
+   "share_ge3": 0.017
+  },
+  "long_tail": {
+   "n": 75,
+   "mean": 2.71,
+   "share_ge3": 0.4
+  },
+  "multilingual": {
+   "n": 113,
+   "mean": 1.63,
+   "share_ge3": 0.115
+  },
+  "navigational": {
+   "n": 57,
+   "mean": 1.67,
+   "share_ge3": 0.053
+  },
+  "news": {
+   "n": 60,
+   "mean": 1.72,
+   "share_ge3": 0.05
+  },
+  "reference": {
+   "n": 63,
+   "mean": 3.1,
+   "share_ge3": 0.667
+  }
+ },
+ "search_biased_share_ge3": {
+  "k": 69,
+  "n": 200,
+  "share": 0.345,
+  "ci95": [
+   0.2826,
+   0.4132
+  ]
+ },
+ "reference": "FineWeb-Edu threshold 3 removed 92% of FineWeb (HF card); i.e. ~8% of a CC-derived pool scores >= 3",
+ "source": "data/galactica_estimates.json",
+ "generated_at": "2026-10-01T19:00:00+00:00"
+}

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Keenable film player</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="player.css">
+<style>
+  :root { --ink: #2A2A2A; --ink-2: #646464; --blue: #005CFF; --grid: rgba(42,42,42,.05); }
+  html { background: #fff; }
+  body { margin: 0; color: var(--ink); font: 300 17px/1.45 "KP Text", system-ui, sans-serif;
+    background: #fff linear-gradient(to right, var(--grid) 1px, transparent 1px), linear-gradient(to bottom, var(--grid) 1px, transparent 1px); background-size: 96px 96px; }
+  .hero-slot { height: min(86vh, 900px); min-height: 520px; }
+  main { max-width: 1240px; margin: 0 auto; padding: 72px 16px 120px; }
+  section { margin: 0 0 88px; }
+  .eyebrow { font: 500 12px/1 "KP Mono", ui-monospace, monospace; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-2); margin: 0 0 14px; }
+  h2 { font: 300 clamp(28px, 4vw, 44px)/1.02 "KP Headline", system-ui, sans-serif; letter-spacing: -0.03em; margin: 0 0 20px; }
+  p { max-width: 62ch; color: var(--ink-2); margin: 0 0 24px; }
+  pre { background: #202020; color: #eaeaea; padding: 20px; overflow: auto; font: 400 13px/1.55 "KP Mono", ui-monospace, monospace; margin: 0; }
+  code b { color: #74A6FF; font-weight: 400; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .row > * { min-width: 0; }
+  @media (max-width: 860px) { .row { grid-template-columns: 1fr; } }
+  .keys { font: 400 13px/1.6 "KP Mono", ui-monospace, monospace; color: var(--ink-2); }
+</style>
+</head>
+<body>
+  <div class="hero-slot" id="hero"></div>
+  <main>
+    <section>
+      <div class="eyebrow">01 · Fintech film</div>
+      <h2>Search with a clock, for backtests.</h2>
+      <div id="p-fintech"></div>
+    </section>
+    <section>
+      <div class="eyebrow">02 · Galactica film</div>
+      <h2>Same timestamp, second product.</h2>
+      <div id="p-galactica"></div>
+    </section>
+    <section class="row">
+      <div>
+        <div class="eyebrow">Mount</div>
+<pre><code>&lt;link rel=&quot;stylesheet&quot; href=&quot;player/player.css&quot;&gt;
+&lt;script src=&quot;player/player.js&quot;&gt;&lt;/script&gt;
+
+KPlayer.<b>mount</b>(el, {
+  src: "media/fintech.mp4",
+  poster: "media/fintech.jpg",
+  title: "Search with a clock",
+  chapters: "fintech",   // or [{t, label}]
+  autoplayMuted: false, loop: false,
+  fill: false            // true = fill a sized slide
+});
+
+KPlayer.<b>hero</b>(el, {
+  loopSrc: "media/hero-loop.mp4",
+  poster: "media/fintech.jpg",
+  eyebrow: "A founding GTM take-home",
+  title: "Search with a clock.",
+  films: [{ label: "Watch the film",
+    src: "media/fintech.mp4",
+    poster: "media/fintech.jpg",
+    title: "Search with a clock",
+    chapters: "fintech" }]
+});
+
+KPlayer.<b>open</b>({ src, poster, title, chapters });</code></pre>
+      </div>
+      <div>
+        <div class="eyebrow">Keys</div>
+        <p class="keys">space / k: play, pause<br>j / l: back, forward 10 s<br>shift + &gt; / &lt;: speed 1× · 1.5× · 2× · hold the picture: 2×<br>f: full screen · m: mute · c: chapters<br>← / →: never taken by the player (slides)<br>Esc: close the chapter list or the overlay</p>
+        <div class="eyebrow">Media</div>
+        <p class="keys">media/fintech.mp4 · fintech.jpg<br>media/galactica.mp4 · galactica.jpg<br>media/hero-loop.mp4 (9.4 s, muted)<br>media/chapters.json</p>
+      </div>
+    </section>
+  </main>
+  <script src="player.js"></script>
+  <script>
+    const M = "../media/";
+    const films = {
+      fintech: { label: "Watch the film", length: "6:11", src: M + "fintech.mp4", poster: M + "fintech.jpg", title: "Search with a clock", eyebrow: "Fintech film", chapters: "fintech" },
+      galactica: { label: "Galactica film", length: "5:18", src: M + "galactica.mp4", poster: M + "galactica.jpg", title: "Galactica: same timestamp, second product", eyebrow: "Galactica film", chapters: "galactica" },
+    };
+    window.kpHero = KPlayer.hero("#hero", {
+      loopSrc: M + "hero-loop.mp4", poster: M + "fintech.jpg",
+      eyebrow: "Keenable · a founding GTM take-home by George Trushevskiy",
+      title: "Search with a clock.", sub: "Two films, built on Keenable's live API.",
+      films: [films.fintech, films.galactica],
+    });
+    window.kp = {
+      fintech: KPlayer.mount("#p-fintech", films.fintech),
+      galactica: KPlayer.mount("#p-galactica", films.galactica),
+    };
+  </script>
+</body>
+</html>

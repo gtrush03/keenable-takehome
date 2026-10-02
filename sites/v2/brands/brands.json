@@ -1,0 +1,318 @@
+[
+ {
+  "slug": "accel",
+  "name": "Accel",
+  "file": "accel.svg",
+  "source_url": "https://www.accel.com/ (inline header SVG)",
+  "kind": "svg",
+  "colors": "mono"
+ },
+ {
+  "slug": "anthropic",
+  "name": "Anthropic",
+  "file": "anthropic.svg",
+  "source_url": "https://www.anthropic.com/ (inline header SVG)",
+  "kind": "svg",
+  "colors": "mono"
+ },
+ {
+  "slug": "arcee",
+  "name": "Arcee AI",
+  "file": "arcee.svg",
+  "source_url": "https://www.arcee.ai/ (inline header SVG)",
+  "kind": "svg",
+  "colors": "mono"
+ },
+ {
+  "slug": "arxiv",
+  "name": "arXiv",
+  "file": "arxiv.svg",
+  "source_url": "https://arxiv.org/static/base/1.0.1/images/arxiv-logo-primary-light.svg",
+  "kind": "svg",
+  "colors": "color"
+ },
+ {
+  "slug": "balyasny",
+  "name": "Balyasny Asset Management",
+  "file": "balyasny.svg",
+  "source_url": "https://www.bamfunds.com/logos/Balyasny_Logo_White.svg",
+  "kind": "svg",
+  "colors": "mono",
+  "note": "white logo: needs a dark ground"
+ },
+ {
+  "slug": "baseten",
+  "name": "Baseten",
+  "file": "baseten.svg",
+  "source_url": "https://www.baseten.co/ (inline header SVG)",
+  "kind": "svg",
+  "colors": "mono"
+ },
+ {
+  "slug": "bretton",
+  "name": "Bretton AI",
+  "file": "bretton.svg",
+  "source_url": "https://bretton.ai/ (header home-link logo mark, inline SVG)",
+  "kind": "svg",
+  "colors": "color"
+ },
+ {
+  "slug": "brightwave",
+  "name": "Brightwave",
+  "file": "brightwave.svg",
+  "source_url": "https://www.brightwave.io/ (inline header SVG)",
+  "kind": "svg",
+  "colors": "mono"
+ },
+ {
+  "slug": "cloudflare",
+  "name": "Cloudflare",
+  "file": "cloudflare.svg",
+  "source_url": "https://www.cloudflare.com/ (inline header SVG)",
+  "kind": "svg",
+  "colors": "color"
+ },
+ {
+  "slug": "cognee",
+  "name": "cognee",
+  "file": "cognee.svg",
+  "source_url": "https://www.cognee.ai/ (inline header SVG)",
+  "kind": "svg",
+  "colors": "color"
+ },
+ {
+  "slug": "commoncrawl",
+  "name": "Common Crawl",
+  "file": "commoncrawl.svg",
+  "source_url": "https://cdn.prod.website-files.com/6479b8d98bf5dcb4a69c4f31/649b5869af56f6df617cfb1f_CC_Logo_Blue_Auto.svg",
+  "kind": "svg",
+  "colors": "color"
+ },
+ {
+  "slug": "conviction",
+  "name": "Conviction",
+  "file": "conviction.png",
+  "source_url": "https://www.conviction.com/applogo.png",
+  "kind": "png",
+  "colors": "color"
+ },
+ {
+  "slug": "datologyai",
+  "name": "DatologyAI",
+  "file": "datologyai.svg",
+  "source_url": "https://www.datologyai.com/api/media/file/datology_logomark.svg",
+  "kind": "svg",
+  "colors": "color"
+ },
+ {
+  "slug": "epochai",
+  "name": "Epoch AI",
+  "file": "epochai.svg",
+  "source_url": "https://epoch.ai/assets/logo/logo.svg",
+  "kind": "svg",
+  "colors": "color"
+ },
+ {
+  "slug": "essentialai",
+  "name": "Essential AI",
+  "file": "essentialai.svg",
+  "source_url": "https://www.essential.ai/essential-ai-logo.svg",
+  "kind": "svg",
+  "colors": "color"
+ },
+ {
+  "slug": "exa",
+  "name": "Exa",
+  "file": "exa.svg",
+  "source_url": "https://exa.ai/images/logo/exa-logo-blue.svg",
+  "kind": "svg",
+  "colors": "color"
+ },
+ {
+  "slug": "fdic",
+  "name": "FDIC",
+  "file": "fdic.svg",
+  "source_url": "https://www.fdic.gov/themes/custom/fdic_theme/fdic-logo-white-noseal.svg",
+  "kind": "svg",
+  "colors": "mono",
+  "note": "white logo: needs a dark ground"
+ },
+ {
+  "slug": "firecrawl",
+  "name": "Firecrawl",
+  "file": "firecrawl.svg",
+  "source_url": "https://www.firecrawl.dev/ (inline header SVG)",
+  "kind": "svg",
+  "colors": "mono"
+ },
+ {
+  "slug": "futuresearch",
+  "name": "FutureSearch",
+  "file": "futuresearch.png",
+  "source_url": "https://futuresearch.ai/futuresearch-logo.webp (official og/site logo, 1024x886 transparent; lossless webp\u2192png, pixels unchanged)",
+  "kind": "png",
+  "colors": "color"
+ },
+ {
+  "slug": "google",
+  "name": "Google",
+  "file": "google.svg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Google_2015_logo.svg",
+  "kind": "svg",
+  "colors": "color"
+ },
+ {
+  "slug": "hebbia",
+  "name": "Hebbia",
+  "file": "hebbia.svg",
+  "source_url": "https://www.hebbia.com/ (inline header SVG)",
+  "kind": "svg",
+  "colors": "mono"
+ },
+ {
+  "slug": "huggingface",
+  "name": "Hugging Face",
+  "file": "huggingface.svg",
+  "source_url": "https://huggingface.co/front/assets/huggingface_logo-noborder.svg",
+  "kind": "svg",
+  "colors": "color"
+ },
+ {
+  "slug": "keenable",
+  "name": "Keenable",
+  "file": "keenable.svg",
+  "source_url": "remotion/public/logo/keenable-wordmark-ink.svg (team copy of the keenable.ai header wordmark)",
+  "kind": "svg",
+  "colors": "color"
+ },
+ {
+  "slug": "linkup",
+  "name": "Linkup",
+  "file": "linkup.svg",
+  "source_url": "https://www.linkup.so/_next/static/immutable/media/logo-mark.0ik9azgcc90iz.svg",
+  "kind": "svg",
+  "colors": "mono"
+ },
+ {
+  "slug": "mangroup",
+  "name": "Man Group",
+  "file": "mangroup.svg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Man_Group_logo.svg",
+  "kind": "svg",
+  "colors": "color"
+ },
+ {
+  "slug": "nasdaq",
+  "name": "Nasdaq",
+  "file": "nasdaq.svg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:NASDAQ_Logo.svg",
+  "kind": "svg",
+  "colors": "color"
+ },
+ {
+  "slug": "newscorp",
+  "name": "News Corp",
+  "file": "newscorp.svg",
+  "source_url": "https://commons.wikimedia.org/wiki/File%3ANews%20Corp.%20logo.svg",
+  "kind": "svg",
+  "colors": "color"
+ },
+ {
+  "slug": "nvidia",
+  "name": "NVIDIA",
+  "file": "nvidia.svg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Nvidia_logo.svg",
+  "kind": "svg",
+  "colors": "mono"
+ },
+ {
+  "slug": "nytimes",
+  "name": "The New York Times",
+  "file": "nytimes.svg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:The_New_York_Times_logo.svg",
+  "kind": "svg",
+  "colors": "mono"
+ },
+ {
+  "slug": "openai",
+  "name": "OpenAI",
+  "file": "openai.svg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:OpenAI_Logo.svg",
+  "kind": "svg",
+  "colors": "mono"
+ },
+ {
+  "slug": "parallel",
+  "name": "Parallel",
+  "file": "parallel.svg",
+  "source_url": "https://parallel.ai/views/icons/logo-parallel.svg",
+  "kind": "svg",
+  "colors": "color"
+ },
+ {
+  "slug": "reddit",
+  "name": "Reddit",
+  "file": "reddit.svg",
+  "source_url": "https://commons.wikimedia.org/wiki/File:Reddit_logo.svg",
+  "kind": "svg",
+  "colors": "color"
+ },
+ {
+  "slug": "rogo",
+  "name": "Rogo",
+  "file": "rogo.svg",
+  "source_url": "https://rogo.com/ (header home-link logo, inline SVG)",
+  "kind": "svg",
+  "colors": "mono",
+  "note": "white logo: needs a dark ground"
+ },
+ {
+  "slug": "sardine",
+  "name": "Sardine",
+  "file": "sardine.svg",
+  "source_url": "https://www.sardine.ai/ (inline header SVG)",
+  "kind": "svg",
+  "colors": "mono"
+ },
+ {
+  "slug": "searchapi",
+  "name": "SearchAPI",
+  "file": "searchapi.svg",
+  "source_url": "https://www.searchapi.io/ (inline header SVG)",
+  "kind": "svg",
+  "colors": "mono"
+ },
+ {
+  "slug": "serper",
+  "name": "Serper",
+  "file": "serper.svg",
+  "source_url": "https://serper.dev/ (inline header SVG)",
+  "kind": "svg",
+  "colors": "color"
+ },
+ {
+  "slug": "tavily",
+  "name": "Tavily",
+  "file": "tavily.svg",
+  "source_url": "https://www.tavily.com/logos/tavily-full.svg",
+  "kind": "svg",
+  "colors": "color"
+ },
+ {
+  "slug": "twosigma",
+  "name": "Two Sigma",
+  "file": "twosigma.svg",
+  "source_url": "https://www.twosigma.com/wp-content/themes/tsmb/assets/public/img/logo.svg",
+  "kind": "svg",
+  "colors": "color"
+ },
+ {
+  "slug": "zyphra",
+  "name": "Zyphra",
+  "file": "zyphra.svg",
+  "source_url": "https://www.zyphra.com/ (header home-link wordmark, inline SVG)",
+  "kind": "svg",
+  "colors": "mono",
+  "note": "white logo: needs a dark ground"
+ }
+]

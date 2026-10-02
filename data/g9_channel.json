@@ -1,0 +1,3352 @@
+{
+  "_meta": {
+    "goal": "channel study",
+    "built": "2026-10-01",
+    "builder": "research/build_g9_channel.py",
+    "inputs": [
+      "research input: inference platforms",
+      "research input: agent frameworks",
+      "research input: resellers",
+      "research input: funnel benchmarks",
+      "kit/channel/out/demo_report.json"
+    ],
+    "rule": "Every number is sourced (url+date) or labelled ASSUMPTION with a range."
+  },
+  "channel_map": {
+    "inference_platforms": [
+      {
+        "platform": "Baseten (template)",
+        "category": "Inference cloud for open/custom models; Model APIs + Hosted Tools",
+        "hosted_tools_today": "YES. 'Baseten Hosted Tools' launched 2026-09-16: 'Hosted tool execution on the inference backend augments model capabilities and lowers latency.' Web search + fetch via header `x-baseten-server-tools: true`; roadmap adds code execution and browser use (Blaxel acquisition, 2026-09-10).",
+        "search_tool_today": "YES. Docs 'Web search': LLMs 'search the web, fetch pages, and use the results before responding'; tool selectors `baseten__PROVIDER__SEARCH` / `baseten__PROVIDER__FETCH` (Keenable: `baseten__keenable__search_web_pages`, `baseten__keenable__fetch_page_content`); 'Server-side tool execution is available as a rate limited preview for playground usage (25 RPM across all organizations)'; 'almost all Model APIs are supported'.",
+        "search_provider": "Exa, Keenable, Parallel, You.com ('Launching with Exa, Keenable, Parallel and You.com')",
+        "search_tool_price": "Exa ~$0.007/search + ~$0.001/URL fetch; Keenable $0.004/search + $0.001/fetch ($4 per 1,000 requests); Parallel ~$0.001/search + ~$0.001/fetch; You.com $0.005/search + $0.001/page. 'Baseten passes through each provider's cost with no markup.'",
+        "size_signals": [
+          {
+            "claim": "Series F",
+            "value": "$1.5B at $13B valuation; leads Altimeter, Conviction, Spark; 'revenue has grown 20x, and inference volume has grown 40x' over the last year",
+            "source_url": "https://www.baseten.co/blog/announcing-our-series-f/",
+            "date": "2026-06-22"
+          },
+          {
+            "claim": "Series E",
+            "value": "$300M at $5B; IVP + CapitalG; 'Inference volume grew 100x'",
+            "source_url": "https://www.baseten.co/blog/announcing-baseten-s-300m-series-e/",
+            "date": "2026-02-05"
+          },
+          {
+            "claim": "Total raised",
+            "value": "'Baseten has raised over $2 billion' (Blaxel acquisition post)",
+            "source_url": "https://www.baseten.co/blog/blaxel-is-joining-baseten-to-build-the-future-of-agentic-cloud/",
+            "date": "2026-09-10"
+          },
+          {
+            "claim": "Hosted Tools latency",
+            "value": "'agents running with our Hosted Tools saw a 15% decrease in end-to-end latency compared to client side tools'",
+            "source_url": "https://www.baseten.co/blog/introducing-baseten-hosted-tools/",
+            "date": "2026-09-16"
+          },
+          {
+            "claim": "OpenAI partnership",
+            "value": "OpenAI enterprise customers can apply OpenAI commitments to Baseten-served open models in Codex / Responses API",
+            "source_url": "https://www.baseten.co/blog/baseten-openai-partnership/",
+            "date": "2026-09-29"
+          }
+        ],
+        "decision_maker": {
+          "title": "Head of Product (co-author of Hosted Tools launch)",
+          "name_or_null": "Sai Maddali",
+          "source_url_or_null": "https://www.baseten.co/author/sai-maddali/"
+        },
+        "keenable_status": "LIVE PARTNER since 2026-09-16 ('Baseten is our first inference-platform partner'). Keenable billed via Baseten invoice: 'Baseten meters successful calls through SKU reporting from Keenable... Failed calls are not billed.' Keenable docs list Baseten as the only 'Inference Providers' integration.",
+        "notes": "Template for SP2: four search vendors side by side, pass-through pricing with no markup, single header opt-in, per-provider tool namespace, launch blog co-signed by Head of Product + Head of Product Marketing (Marylise Tauzia). Keenable is the cheapest full-search option on the shelf except Parallel.",
+        "sources": [
+          "https://keenable.ai/blog/keenable-partners-with-baseten",
+          "https://docs.keenable.ai/integrations/baseten",
+          "https://docs.keenable.ai/integrations",
+          "https://docs.baseten.co/inference/model-apis/web-search.md",
+          "https://www.baseten.co/blog/introducing-baseten-hosted-tools/",
+          "https://www.baseten.co/author/sai-maddali/",
+          "https://www.baseten.co/author/marylise-tauzia/",
+          "https://www.baseten.co/blog/announcing-our-series-f/",
+          "https://www.baseten.co/blog/announcing-baseten-s-300m-series-e/",
+          "https://www.baseten.co/blog/blaxel-is-joining-baseten-to-build-the-future-of-agentic-cloud/",
+          "https://www.baseten.co/blog/baseten-openai-partnership/",
+          "https://keenable.ai/blog/keenable-raised-26m-to-beat-google-in-the-agentic-search-market"
+        ]
+      },
+      {
+        "platform": "OpenRouter",
+        "category": "Multi-model API gateway / router (500+ models, 80+ providers); being acquired by Stripe (announced 2026-08-19)",
+        "hosted_tools_today": "YES, extensive. (a) 'web' plugin via `:online` suffix or `plugins:[{id:\"web\"}]`; (b) server tools `openrouter:web_search`, `openrouter:web_fetch` (2026-05-07), `openrouter:advisor`, `openrouter:subagent`, shell + Files API (2026-09-08, 'run commands in a hosted Linux container', '$0.0001 per active second'). Server tools 'execute server-side and return the result to the model without requiring any client-side implementation'.",
+        "search_tool_today": "YES. Doc: '`:online` is a shortcut for using the `web` plugin'; 'The web search plugin supports the following options for the `engine` parameter: `native`, `exa`, `firecrawl`, `parallel`, `perplexity`'; 'The web search plugin is powered by native search for Anthropic, Google, OpenAI, Perplexity, and SpaceXAI models.'; 'For other models, the web search plugin is powered by Exa.'; default max_results 5; 'Using web search will incur extra costs, even with free models.'",
+        "search_provider": "Exa (default for non-native models), Parallel, Perplexity, Firecrawl, plus lab-native engines (Anthropic/Google/OpenAI/Perplexity/SpaceXAI)",
+        "search_tool_price": "Exa: Instant/Fast/Auto $0.007/request, Deep Lite/Deep $0.012, Deep Reasoning $0.015, 'Includes up to 10 results, then $0.001 per additional result'; Parallel: Turbo/Fast $0.001/request, Basic/Advanced $0.005/request, +$0.001/extra result; Perplexity $0.005/request; Firecrawl uses your Firecrawl credits; Native 'passed through directly from the provider'. Server tool web_search: Exa $0.005/request, Parallel $0.005/request; web_fetch: OpenRouter free, Exa $0.001, Parallel $0.001. Original 2025-01-23 launch: Exa at '$4 per 1,000 web results'.",
+        "size_signals": [
+          {
+            "claim": "Series B",
+            "value": "$113M led by CapitalG; 5T -> 25T tokens/week over six months; 'on pace for >1 quadrillion tokens/yr'; 8M+ developers; 400+ models",
+            "source_url": "https://openrouter.ai/blog/announcements/series-b/",
+            "date": "2026-05-28"
+          },
+          {
+            "claim": "Stripe acquisition",
+            "value": "'10+ trillion tokens per day', 400+ models, 'over 10 million developers and companies', 90-person team; 'same mission, same name, same product, same roadmap'",
+            "source_url": "https://openrouter.ai/blog/announcements/openrouter-is-joining-stripe/",
+            "date": "2026-08-19"
+          },
+          {
+            "claim": "About page",
+            "value": "'500T+ Monthly tokens', '10M+ Global users', '80+ Providers', '500+ Models'",
+            "source_url": "https://openrouter.ai/about",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "Rankings",
+            "value": "'ranked by tokens processed through the OpenRouter API by millions of developers' (no aggregate shown)",
+            "source_url": "https://openrouter.ai/rankings",
+            "date": "2026-09-30"
+          }
+        ],
+        "decision_maker": {
+          "title": "Head of Product / owner of server tools & web plugin engines (post-Stripe: Stripe's OpenRouter team); name unverified (Stripe post signed 'Alex, Chris, Louis, and the OpenRouter team')",
+          "name_or_null": null,
+          "source_url_or_null": "https://openrouter.ai/blog/announcements/openrouter-is-joining-stripe/"
+        },
+        "keenable_status": "NOT hosted. Engines: native/Exa/Firecrawl/Parallel/Perplexity. Keenable absent from docs and the 2026-08-12 web-search benchmark post ('Tell us which engines or models we should benchmark next').",
+        "notes": "Fastest integration path: a sixth value for the `engine` parameter. Gate = their public BrowseComp-style benchmark against Exa/Parallel/Perplexity. Timing risk: Stripe close 'in the coming weeks' from Aug 19 may freeze vendor onboarding.",
+        "sources": [
+          "https://openrouter.ai/docs/features/web-search",
+          "https://openrouter.ai/blog/announcements/agentic-web-tools/",
+          "https://openrouter.ai/blog/announcements/introducing-web-search-via-the-api/",
+          "https://openrouter.ai/blog/announcements/web-search-benchmark/",
+          "https://openrouter.ai/blog/announcements/shell-tool/",
+          "https://openrouter.ai/blog/announcements/series-b/",
+          "https://openrouter.ai/blog/announcements/openrouter-is-joining-stripe/",
+          "https://openrouter.ai/about",
+          "https://openrouter.ai/rankings"
+        ]
+      },
+      {
+        "platform": "Together AI",
+        "category": "Open-model inference cloud + GPU clusters + fine-tuning",
+        "hosted_tools_today": "PARTIAL: hosted code execution only. 'Together code interpreter (TCI) enables you to execute Python code in a sandboxed environment'; 'TCI usage is billed at $0.03/session'. No hosted tool catalog.",
+        "search_tool_today": "NO. Function calling is client-executed: 'Pass function descriptions to the `tools` parameter, and the model returns `tool_calls` when it determines a function should be used. You then execute these functions and optionally pass the results back to the model'. Only search doc is a TurboSeek tutorial that 'pulls multiple sources from the web using Exa's API' with the developer's own EXA_API_KEY.",
+        "search_provider": "none hosted (tutorials use Exa; Open Deep Research reference app 'settled on Tavily')",
+        "search_tool_price": "n/a (TCI $0.03/session for comparison)",
+        "size_signals": [
+          {
+            "claim": "Series C",
+            "value": "$800M; Aramco Ventures, NVIDIA, Vista, General Catalyst, Salesforce Ventures et al.; '>500 MW of compute capacity'; 'thousands of customers'; customers Cognition, Decagon, ElevenLabs, Cursor, Suno",
+            "source_url": "https://www.together.ai/blog/announcing-our-series-c",
+            "date": "2026-07-01"
+          },
+          {
+            "claim": "Series B",
+            "value": "$305M (page exists; not fetched)",
+            "source_url": "https://www.together.ai/blog/together-ai-announcing-305m-series-b",
+            "date": "unknown"
+          },
+          {
+            "claim": "tokens/day, ARR",
+            "value": "unknown",
+            "source_url": "https://www.together.ai/blog",
+            "date": "2026-10-01"
+          }
+        ],
+        "decision_maker": {
+          "title": "Chief Product Officer; VP of Strategic Partnerships",
+          "name_or_null": "Charles Zedlewski (CPO); Arielle Fidel (VP Strategic Partnerships)",
+          "source_url_or_null": "https://www.together.ai/about"
+        },
+        "keenable_status": "NOT hosted; no search-vendor partnership. Exa/Tavily appear only in tutorials/sample apps.",
+        "notes": "Well-funded, already sells one per-use hosted tool (TCI) but has no tools framework in the API; longer product build than OpenRouter/Groq/Vercel.",
+        "sources": [
+          "https://docs.together.ai/docs/function-calling",
+          "https://docs.together.ai/docs/together-code-interpreter",
+          "https://docs.together.ai/docs/ai-search-engine",
+          "https://docs.together.ai/docs/agent-integrations",
+          "https://www.together.ai/blog/open-deep-research",
+          "https://www.together.ai/blog/announcing-our-series-c",
+          "https://www.together.ai/about"
+        ]
+      },
+      {
+        "platform": "Fireworks AI",
+        "category": "Inference cloud for open/custom models + 'Nexus' router/gateway",
+        "hosted_tools_today": "YES (new). Responses API built-in tools: 'web_search - let the model search the web', 'mcp', 'python' (server-executed), 'sse'; unsupported: code_interpreter, file_search, image_generation. Classic chat function calling is client-executed.",
+        "search_tool_today": "YES, provider-anonymous. 'Web search is built into Fireworks. When Claude Code calls its native `WebSearch` tool, Fireworks runs the search server-side and returns the results.' Works with Claude Code, Codex CLI/app, ChatGPT desktop and 'any Fireworks model'. 'Web search pricing will be published soon.'",
+        "search_provider": "unknown (backend not named in docs or Nexus launch post)",
+        "search_tool_price": "unknown ('Web search pricing will be published soon')",
+        "size_signals": [
+          {
+            "claim": "Series D",
+            "value": "$1.505B at $17.5B; 'annual revenue run rate over $1 billion'; 'More than 40 trillion tokens every day'",
+            "source_url": "https://fireworks.ai/blog/series-d-announcement",
+            "date": "2026-07-15"
+          },
+          {
+            "claim": "Series C",
+            "value": "$250M at $4B; 'annualized revenue has surpassed $280 million'; '>10 trillion tokens per day'; 'over 10,000 companies'",
+            "source_url": "https://fireworks.ai/blog/series-c",
+            "date": "2025-10-28"
+          },
+          {
+            "claim": "Nexus launch",
+            "value": "FireRouter + FireConnect + cost controls",
+            "source_url": "https://fireworks.ai/blog/fireworks-nexus",
+            "date": "2026-07-26"
+          }
+        ],
+        "decision_maker": {
+          "title": "Product lead for Nexus / Responses API hosted tools, or Head of Partnerships/BD; name unverified (no public leadership page; /about, /company 404)",
+          "name_or_null": null,
+          "source_url_or_null": null
+        },
+        "keenable_status": "NOT hosted. Live server-side web_search with undisclosed backend and unpublished price; no search-vendor partner post on blog.",
+        "notes": "Highest-urgency: backend/pricing decision is being made now; largest private-platform size signal ($17.5B, $1B+ ARR, 40T tokens/day). Keenable Frontier $1/1K at 100+ RPS, cloud & on-prem, matches Fireworks' 'own your intelligence' posture.",
+        "sources": [
+          "https://docs.fireworks.ai/nexus/web-search",
+          "https://docs.fireworks.ai/guides/response-api",
+          "https://docs.fireworks.ai/api-reference/post-responses",
+          "https://docs.fireworks.ai/guides/function-calling",
+          "https://fireworks.ai/blog/fireworks-nexus",
+          "https://fireworks.ai/blog/series-d-announcement",
+          "https://fireworks.ai/blog/series-c",
+          "https://fireworks.ai/pricing"
+        ]
+      },
+      {
+        "platform": "Groq (GroqCloud)",
+        "category": "LPU fast-inference cloud; re-capitalized 2026 after NVIDIA licensing deal",
+        "hosted_tools_today": "YES, narrowed. 'Built-in tools' execute 'entirely on Groq's servers' with 'zero orchestration' but only 'OpenAI's open-weight models support a subset of built-in tools' (gpt-oss-120b/20b); code execution 'powered by Foundry Labs (E2B)'; Remote MCP (beta) with examples Firecrawl, 'Parallel - Web search functionality', Exa MCP, Tavily MCP. Compound systems (groq/compound, compound-mini, which bundled generic web search) DEPRECATED: 'Both systems will be decommissioned on September 21, 2026.' Legacy /docs/compound, /docs/web-search, /docs/agentic-tooling now resolve to the deprecation page.",
+        "search_tool_today": "YES but GPT-OSS only: 'Browser search mimics human browsing behavior by navigating websites interactively, providing detailed results'; 'Browser search functionality is powered by Exa, a search engine designed for AI applications.'; enable with `tools:[{\"type\":\"browser_search\"}]`; 'Browser search is not compatible with structured outputs.'",
+        "search_provider": "Exa (browser_search). Compound-era generic web_search provider: unknown from current docs.",
+        "search_tool_price": "unknown (docs say 'see the Pricing page'; groq.com/pricing currently redirects to homepage)",
+        "size_signals": [
+          {
+            "claim": "Series A (new cap table)",
+            "value": "$350M at $3.5B led by Disruptive; 'more than six million developers'; 'generating trillions of tokens every week'; 13 data centers",
+            "source_url": "https://groq.com/newsroom/groq-closes-usd350-million-series-a-building-the-world-s-leading-ai-inference-cloud",
+            "date": "2026-08-17"
+          },
+          {
+            "claim": "$650M round",
+            "value": "led by Disruptive and Infinitum; 'over 5 million developers'; Rakesh Malhotra named CPO from Jul 2026",
+            "source_url": "https://groq.com/newsroom/groq-raises-usd650m-to-scale-its-ai-inference-cloud-business",
+            "date": "2026-06-22"
+          },
+          {
+            "claim": "NVIDIA licensing",
+            "value": "non-exclusive licensing; Jonathan Ross and Sunny Madra join NVIDIA; 'GroqCloud will continue to operate without interruption'",
+            "source_url": "https://groq.com/newsroom/groq-and-nvidia-enter-non-exclusive-inference-technology-licensing-agreement-to-accelerate-ai-inference-at-global-scale",
+            "date": "2025-12-24"
+          }
+        ],
+        "decision_maker": {
+          "title": "Chief Product Officer (owns GroqCloud platform incl. built-in tools)",
+          "name_or_null": "Rakesh Malhotra",
+          "source_url_or_null": "https://groq.com/newsroom/groq-raises-usd650m-to-scale-its-ai-inference-cloud-business"
+        },
+        "keenable_status": "NOT hosted. Current search vendor = Exa (browser_search). Parallel/Firecrawl/Exa/Tavily appear as remote-MCP examples only.",
+        "notes": "Open gap: generic web_search across Llama/Qwen models disappeared with Compound on 2026-09-21; only Exa-backed browser_search on GPT-OSS remains. Company mid-transition (dead pricing page) so cycles may be slow.",
+        "sources": [
+          "https://console.groq.com/docs/tool-use/built-in-tools",
+          "https://console.groq.com/docs/tool-use/built-in-tools/browser-search",
+          "https://console.groq.com/docs/tool-use/built-in-tools/code-execution",
+          "https://console.groq.com/docs/tool-use/remote-mcp",
+          "https://console.groq.com/docs/deprecations",
+          "https://console.groq.com/docs/changelog",
+          "https://groq.com/newsroom/groq-closes-usd350-million-series-a-building-the-world-s-leading-ai-inference-cloud",
+          "https://groq.com/newsroom/groq-raises-usd650m-to-scale-its-ai-inference-cloud-business"
+        ]
+      },
+      {
+        "platform": "Cerebras Inference Cloud",
+        "category": "Public wafer-scale chip company (NASDAQ: CBRS) + token inference API",
+        "hosted_tools_today": "NO. Client-side function calling only; no MCP/built-in/hosted tools page in docs index.",
+        "search_tool_today": "NO. 'Tool calling, also known as tool use or function calling, lets a model request functions that your application defines.' ... 'Your application executes each requested tool and returns the result to the model.' BYO-key integration guides exist for Exa ('ensure you have: Cerebras API Key [and] Exa API Key') and Parallel; cookbook 'search-agent' uses EXA_API_KEY.",
+        "search_provider": "none hosted (Exa + Parallel as BYO-key doc integrations)",
+        "search_tool_price": "n/a",
+        "size_signals": [
+          {
+            "claim": "Q2 2026 results",
+            "value": "GAAP revenue $180.1M (+74% YoY); core cloud revenue $127.7M (+287%); RPO $25.4B; FY26 core guide $880-890M",
+            "source_url": "https://www.nasdaq.com/press-release/cerebras-systems-fast-inference-cloud-business-nearly-quadruples-second-quarter-2026",
+            "date": "2026-08-12"
+          },
+          {
+            "claim": "FY2025 revenue (S-1/A)",
+            "value": "$509.99M (hardware $358.4M, cloud & other $151.6M); partner clouds incl. AWS Marketplace, Vercel AI Gateway, OpenRouter, Hugging Face",
+            "source_url": "https://www.sec.gov/Archives/edgar/data/2021728/000162828026033143/cerebras-sx1a2.htm",
+            "date": "2026-05-11"
+          },
+          {
+            "claim": "Market cap",
+            "value": "$42.31B; IPO 2026-05-14",
+            "source_url": "https://stockanalysis.com/stocks/cbrs/",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "tokens/day, developer count",
+            "value": "unknown",
+            "source_url": "https://www.sec.gov/Archives/edgar/data/2021728/000162828026033143/cerebras-sx1a2.htm",
+            "date": "2026-05-11"
+          }
+        ],
+        "decision_maker": {
+          "title": "SVP, AI Cloud (owns Inference Cloud); alt EVP Worldwide Partners",
+          "name_or_null": "Hagay Lupesko (SVP AI Cloud); Alan Chhabra (EVP Worldwide Partners)",
+          "source_url_or_null": "https://www.cerebras.ai/company"
+        },
+        "keenable_status": "NOT hosted; no announced search partnership. Exa and Parallel have docs mindshare (BYO key).",
+        "notes": "Strong fit: already markets 'build-your-own-Perplexity' / search-agent cookbooks but makes devs bring Exa/Parallel keys; a server-side tool mirrors Baseten exactly. Public company, partnership via SVP AI Cloud / Partners org.",
+        "sources": [
+          "https://inference-docs.cerebras.ai/capabilities/tool-use",
+          "https://inference-docs.cerebras.ai/llms.txt",
+          "https://inference-docs.cerebras.ai/integrations/exa.md",
+          "https://inference-docs.cerebras.ai/integrations/parallel.md",
+          "https://inference-docs.cerebras.ai/cookbook/agents/search-agent.md",
+          "https://www.cerebras.ai/company",
+          "https://www.sec.gov/Archives/edgar/data/2021728/000162828026033143/cerebras-sx1a2.htm",
+          "https://stockanalysis.com/stocks/cbrs/",
+          "https://www.nasdaq.com/press-release/cerebras-systems-fast-inference-cloud-business-nearly-quadruples-second-quarter-2026"
+        ]
+      },
+      {
+        "platform": "DeepInfra",
+        "category": "Private open-model inference cloud, pay-as-you-go",
+        "hosted_tools_today": "NO hosted tools. Has 'Hosted Agents' ('Fully managed virtual machines that run an open-source agent framework for you') and 'Sandboxes' ('Isolated Linux microVMs for running untrusted code'), neither with a web-search tool.",
+        "search_tool_today": "NO. 'Tool calling (also known as function calling) is the most important capability for building AI agents. It lets models decide when to invoke external tools - web search, code execution, database queries, API calls - and seamlessly weave the results into a final response.' Developer code executes the function.",
+        "search_provider": "none / unknown",
+        "search_tool_price": "n/a",
+        "size_signals": [
+          {
+            "claim": "ARR + tokens",
+            "value": "'$100 Million ARR', 22 trillion tokens/week, revenue +900% since start of 2026, 200+ models",
+            "source_url": "https://pulse2.com/deepinfra-surpasses-100-million-arr-and-22-trillion-tokens-per-week/",
+            "date": "2026-09-29"
+          },
+          {
+            "claim": "Series B",
+            "value": "$107M led by 500 Global and Georges Harik; NVIDIA, Felicis, Samsung Next et al.; '25x growth in token volume since Series A'",
+            "source_url": "https://deepinfra.com/series-b",
+            "date": "2026-05-04"
+          },
+          {
+            "claim": "developer count, valuation",
+            "value": "unknown",
+            "source_url": "https://deepinfra.com/",
+            "date": "2026-10-01"
+          }
+        ],
+        "decision_maker": {
+          "title": "Founder and CEO (no product/BD lead listed)",
+          "name_or_null": "Nikola Borisov",
+          "source_url_or_null": "https://deepinfra.com/about"
+        },
+        "keenable_status": "NOT hosted; no search-vendor partnership. Integrations are frameworks only.",
+        "notes": "Greenfield: zero hosted tools, founder-led, fast-growing, and their own tool-calling doc names 'web search' first. Approach CEO directly.",
+        "sources": [
+          "https://docs.deepinfra.com/chat/tool-calling.md",
+          "https://docs.deepinfra.com/agents/introduction.md",
+          "https://docs.deepinfra.com/sandboxes/overview.md",
+          "https://docs.deepinfra.com/llms.txt",
+          "https://deepinfra.com/series-b",
+          "https://deepinfra.com/about",
+          "https://pulse2.com/deepinfra-surpasses-100-million-arr-and-22-trillion-tokens-per-week/"
+        ]
+      },
+      {
+        "platform": "Nebius Token Factory (formerly AI Studio)",
+        "category": "Public neocloud (NASDAQ: NBIS) managed inference platform; owns Tavily (acquired Feb 2026)",
+        "hosted_tools_today": "PARTIAL/UNVERIFIED. Chat Completions = client-side function calling. Responses API OpenAPI spec (version 20260923) includes a `WebSearchTool` schema ('Search the Internet for sources related to the prompt.', types web_search / web_search_2025_08_26), FileSearch, CodeInterpreter, Mcp, and `max_tool_calls` for 'built-in tools' - no guide documents execution; schema appears to be an OpenAI-compatible copy.",
+        "search_tool_today": "NO documented hosted search. 'The model does not execute the functions itself. Instead, it outputs tool invocation instructions in an OpenAI-compatible function calling format. You are responsible for parsing these outputs and executing the corresponding functions on your backend or client side.' Tavily integration requires the developer's own key ('Create your Tavily API key').",
+        "search_provider": "Tavily (owned; 'Agentic Search: Tavily' in integrations overview; also 'Tools: Linkup')",
+        "search_tool_price": "n/a inside Token Factory (Tavily billed separately; 'keyless pay-per-search' launched Q2 2026, price not stated)",
+        "size_signals": [
+          {
+            "claim": "Q2 2026 results",
+            "value": "group revenue $582.3M (+454% YoY); ARR $3.0B; '$40 billion in customer commitments'; 'Inference workloads on Token Factory more than tripled in Q2'; 'Tavily's developer community has grown to more than 2.5 million developers'",
+            "source_url": "https://nebius.com/newsroom/nebius-reports-second-quarter-2026-financial-results",
+            "date": "2026-08-12"
+          },
+          {
+            "claim": "Tavily acquisition",
+            "value": "'Tavily is Joining Nebius'; ~$400M per Wikipedia",
+            "source_url": "https://www.tavily.com/blog/tavily-is-joining-nebius",
+            "date": "2026-02-10"
+          },
+          {
+            "claim": "Inferize acquisition",
+            "value": "cold-start/idle-GPU inference stack; $100-150M reported",
+            "source_url": "https://nebius.com/newsroom/nebius-acquires-inferize-to-strengthen-nebius-token-factorys-production-inference-stack",
+            "date": "2026-10-01"
+          }
+        ],
+        "decision_maker": {
+          "title": "Chief Business Officer; Token Factory GM name unverified",
+          "name_or_null": "Roman Chernin (CBO); Andrey Korolenko (Chief Infrastructure and Product Officer)",
+          "source_url_or_null": "https://nebius.com/about"
+        },
+        "keenable_status": "NOT hosted. Owns competing vendor Tavily ('pairing Token Factory's inference with the real-time web access that agents need'); lists Linkup too.",
+        "notes": "Lowest-probability: bought Tavily for exactly this; Responses-API web_search schema suggests a Tavily-backed built-in tool is on the roadmap. Only angle = second/benchmark provider.",
+        "sources": [
+          "https://docs.tokenfactory.nebius.com/ai-models-inference/function-calling.md",
+          "https://docs.tokenfactory.nebius.com/api-reference/inference/create-a-response.md",
+          "https://docs.tokenfactory.nebius.com/integrations/overview.md",
+          "https://docs.tokenfactory.nebius.com/integrations/search/tavily.md",
+          "https://nebius.com/newsroom/nebius-reports-second-quarter-2026-financial-results",
+          "https://assets.nebius.com/assets/a6ecfd85-a6cb-4967-8ef7-9a25bd261f9c/SHLQ226.pdf",
+          "https://www.tavily.com/blog/tavily-is-joining-nebius",
+          "https://nebius.com/about",
+          "https://en.wikipedia.org/wiki/Nebius_Group"
+        ]
+      },
+      {
+        "platform": "Lambda (Inference API)",
+        "category": "GPU neocloud; serverless Inference API being wound down",
+        "hosted_tools_today": "NO.",
+        "search_tool_today": "NO; product sunsetting: 'Run inference your way. As the Inference API winds down, you can continue deploying and scaling models seamlessly on NVIDIA GPU instances.' Docs page docs.lambda.ai/public-cloud/lambda-inference-api/ now redirects; no tool-calling docs.",
+        "search_provider": "none",
+        "search_tool_price": "n/a",
+        "size_signals": [
+          {
+            "claim": "Pre-IPO raise",
+            "value": "up to $3B at $12B+ valuation, IPO expected 2027 (terms not final)",
+            "source_url": "https://thenextweb.com/news/lambda-3bn-pre-ipo-round",
+            "date": "2026-08-25"
+          },
+          {
+            "claim": "Debt",
+            "value": "$926M senior secured TLB; 'serves tens of thousands of customers'",
+            "source_url": "https://lambda.ai/blog/lambda-closes-926-million-senior-secured-term-loan-b-facility",
+            "date": "2026-08-27"
+          },
+          {
+            "claim": "Anthropic capacity deal",
+            "value": "reported $35B cloud-capacity agreement",
+            "source_url": "https://www.techrepublic.com/article/news-anthropic-lambda-35-billion-cloud-deal/",
+            "date": "2026-09-01"
+          },
+          {
+            "claim": "revenue, tokens, wind-down date",
+            "value": "unknown",
+            "source_url": "https://lambda.ai/inference",
+            "date": "2026-10-01"
+          }
+        ],
+        "decision_maker": {
+          "title": "GM Public Cloud / Chief Product Officer",
+          "name_or_null": "Paul Zhao (GM Public Cloud); Michael Balaban (CPO)",
+          "source_url_or_null": "https://lambda.ai/leadership"
+        },
+        "keenable_status": "NOT hosted; no search partnership.",
+        "notes": "Skip: exiting the token-API business; no surface for a hosted tool unless relaunched.",
+        "sources": [
+          "https://docs.lambda.ai/public-cloud/lambda-inference-api/",
+          "https://docs.lambda.ai/",
+          "https://lambda.ai/inference",
+          "https://lambda.ai/pricing",
+          "https://lambda.ai/leadership",
+          "https://lambda.ai/blog/lambda-closes-926-million-senior-secured-term-loan-b-facility",
+          "https://thenextweb.com/news/lambda-3bn-pre-ipo-round",
+          "https://www.techrepublic.com/article/news-anthropic-lambda-35-billion-cloud-deal/"
+        ]
+      },
+      {
+        "platform": "Modal",
+        "category": "Serverless GPU platform; new token-billed 'Shared Endpoints' OpenAI-compatible inference API + Sandboxes",
+        "hosted_tools_today": "NO. Docs index has no hosted-tools/web-search pages. Shared Endpoints: 'serve a subset of models in the Modal Library from Modal-managed pools... Token rates are shown when you create an Endpoint'. Endpoint-integrations doc only says to pick 'an Endpoint whose model supports tool calling'.",
+        "search_tool_today": "NO. Sandboxes are 'secure containers for executing untrusted user or agent code on Modal' - no web-search mention.",
+        "search_provider": "none / unknown",
+        "search_tool_price": "n/a",
+        "size_signals": [
+          {
+            "claim": "New round (reported)",
+            "value": "~$750M at $15.75B post-money 'closing in coming weeks' (Bloomberg Sep 23 reported $15B talks); Series C $355M at $4.65B May 2026; ~$300M annualized revenue (secondary coverage)",
+            "source_url": "https://cryptobriefing.com/modal-labs-750m-funding-16b-valuation/",
+            "date": "2026-09-28"
+          },
+          {
+            "claim": "Company page",
+            "value": "'raised over $466M' (General Catalyst, Redpoint, Lux, Amplify, Creandum)",
+            "source_url": "https://modal.com/company",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "tokens/day, developer count",
+            "value": "unknown",
+            "source_url": "https://modal.com/docs/guide/shared-endpoints.md",
+            "date": "2026-10-01"
+          }
+        ],
+        "decision_maker": {
+          "title": "Co-founder/CEO; Shared Endpoints product lead name unverified",
+          "name_or_null": "Erik Bernhardsson (CEO)",
+          "source_url_or_null": "https://modal.com/company"
+        },
+        "keenable_status": "NOT hosted; no search partnership.",
+        "notes": "Good fit: just productised a token-billed API wired to coding agents (OpenCode/Codex/Claude Code), no tools yet, mega-round closing; Baseten parity is a lever.",
+        "sources": [
+          "https://modal.com/docs",
+          "https://modal.com/docs/guide/shared-endpoints.md",
+          "https://modal.com/docs/guide/endpoint-integrations.md",
+          "https://modal.com/docs/guide/sandboxes.md",
+          "https://modal.com/pricing",
+          "https://modal.com/company",
+          "https://cryptobriefing.com/modal-labs-750m-funding-16b-valuation/"
+        ]
+      },
+      {
+        "platform": "Replicate",
+        "category": "Model-hosting prediction API (50k+ models); acquired by Cloudflare (announced 2025-11-17)",
+        "hosted_tools_today": "NO. API is predictions.create over hosted models; remote MCP server exposes only Replicate API operations ('Search for models', 'Run models').",
+        "search_tool_today": "NO. 'Introducing our new search API' (2025-09-16) is MODEL search ('Find the best models and collections with a single API call'), not web search.",
+        "search_provider": "none / unknown",
+        "search_tool_price": "n/a",
+        "size_signals": [
+          {
+            "claim": "Acquired by Cloudflare",
+            "value": "announced 2025-11-17, 'expected closing: within two months', price undisclosed; '50,000+ production-ready models'",
+            "source_url": "https://www.cloudflare.com/press/press-releases/2025/cloudflare-to-acquire-replicate-to-build-the-most-seamless-ai-cloud-for-developers/",
+            "date": "2025-11-17"
+          },
+          {
+            "claim": "revenue, developers",
+            "value": "unknown",
+            "source_url": "https://replicate.com/about",
+            "date": "2026-10-01"
+          }
+        ],
+        "decision_maker": {
+          "title": "Cloudflare Developer Platform / Workers AI product leadership (post-acquisition); Replicate CEO",
+          "name_or_null": "Ben Firshman (Replicate CEO)",
+          "source_url_or_null": "https://www.cloudflare.com/press/press-releases/2025/cloudflare-to-acquire-replicate-to-build-the-most-seamless-ai-cloud-for-developers/"
+        },
+        "keenable_status": "NOT hosted; no search partnership.",
+        "notes": "Treat as a Cloudflare conversation; a hosted search tool would land in Workers AI / Agents SDK, not the legacy Replicate API.",
+        "sources": [
+          "https://replicate.com/docs",
+          "https://replicate.com/docs/reference/mcp",
+          "https://replicate.com/blog/new-search-api",
+          "https://replicate.com/blog/replicate-cloudflare",
+          "https://blog.cloudflare.com/replicate-joins-cloudflare/",
+          "https://www.cloudflare.com/press/press-releases/2025/cloudflare-to-acquire-replicate-to-build-the-most-seamless-ai-cloud-for-developers/"
+        ]
+      },
+      {
+        "platform": "Hyperbolic",
+        "category": "GPU cloud + dedicated model hosting; serverless inference API RETIRED",
+        "hosted_tools_today": "NO.",
+        "search_tool_today": "NO. Docs FAQ: 'No. The serverless inference API and the playground have been retired.' Recommended: 'Rent an on-demand GPU and run an open-source model with your own serving stack.'",
+        "search_provider": "none",
+        "search_tool_price": "n/a",
+        "size_signals": [
+          {
+            "claim": "Users",
+            "value": "'250,000+ engineers'",
+            "source_url": "https://hyperbolic.ai",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "Funding",
+            "value": "$19.73M total; Series A $12M (~2024); Chapter One, Polychain et al.",
+            "source_url": "https://www.cbinsights.com/company/hyperbolic-labs",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "revenue, tokens",
+            "value": "unknown",
+            "source_url": "https://hyperbolic.ai/blog",
+            "date": "2026-10-01"
+          }
+        ],
+        "decision_maker": {
+          "title": "CEO & Co-Founder",
+          "name_or_null": "Jasper Zhang (CEO); Yuchen Jin (CTO)",
+          "source_url_or_null": "https://hyperbolic.ai/about"
+        },
+        "keenable_status": "NOT hosted; no search partnership.",
+        "notes": "Deprioritize: no multi-tenant inference API to host a tool in.",
+        "sources": [
+          "https://hyperbolic.ai/docs/inference",
+          "https://hyperbolic.ai/docs/",
+          "https://hyperbolic.ai/blog/dedicated-inference-hosting",
+          "https://hyperbolic.ai",
+          "https://hyperbolic.ai/about",
+          "https://www.cbinsights.com/company/hyperbolic-labs"
+        ]
+      },
+      {
+        "platform": "SambaNova Cloud (SambaCloud)",
+        "category": "Custom-silicon (SN40L/SN50) fast inference API + on-prem racks",
+        "hosted_tools_today": "Unknown from docs (docs.sambanova.ai returns HTTP 403 Vercel Security Checkpoint). Blog: Responses API supports 'tool calls, streaming events, multi-step loops, and reasoning-aware pipelines' - developer-defined tools only.",
+        "search_tool_today": "None found. SambaCloud product page lists integrations 'CrewAI, Hugging Face, Cline, and AWS' and 'OpenAI compatible endpoints'; no web-search wording. Needs browser verification of docs.",
+        "search_provider": "none / unknown",
+        "search_tool_price": "n/a",
+        "size_signals": [
+          {
+            "claim": "Series F first close",
+            "value": "$1B at $11B post-money led by General Atlantic; JPMorganChase named as customer; prior Intel acquisition talks (~$1.6B) abandoned",
+            "source_url": "https://sambanova.ai/press/sambanova-completes-first-close-of-1b-financing-at-11b-valuation",
+            "date": "2026-07-08"
+          },
+          {
+            "claim": "Series E",
+            "value": "$350M+ led by Vista and Cambium, with Intel Capital; SN50 chip",
+            "source_url": "https://sambanova.ai/press/sambanova-unveils-fastest-chip-for-agentic-ai-collaborates-with-intel-and-raises-350m",
+            "date": "2026-02-24"
+          },
+          {
+            "claim": "revenue, developers, tokens",
+            "value": "unknown",
+            "source_url": "https://sambanova.ai/news",
+            "date": "2026-10-01"
+          }
+        ],
+        "decision_maker": {
+          "title": "Chief Customer & Solutions Officer (product strategy + corp dev); VP Product, Core Tech; Vice Chair Global Strategy & Partnerships",
+          "name_or_null": "Abhi Ingle (CC&SO); Anton McGonnell (VP Product, Core Tech); Mohsen Moazami (Vice Chair, Global Strategy & Partnerships)",
+          "source_url_or_null": "https://sambanova.ai/team"
+        },
+        "keenable_status": "NOT hosted; no search partnership (partners: Intel, Hume AI).",
+        "notes": "Best-capitalized private target with Responses API + 'agentic inference' positioning; closest analogue to Baseten. Verify function-calling docs in a real browser.",
+        "sources": [
+          "https://sambanova.ai/blog/build-faster-coding-agents-with-sambanovas-responses-api",
+          "https://sambanova.ai/products/sambacloud",
+          "https://sambanova.ai/team",
+          "https://sambanova.ai/press/sambanova-completes-first-close-of-1b-financing-at-11b-valuation",
+          "https://sambanova.ai/press/sambanova-unveils-fastest-chip-for-agentic-ai-collaborates-with-intel-and-raises-350m",
+          "https://techcrunch.com/2026/07/08/sambanova-draws-1b-at-11b-valuation-in-series-f-first-close/"
+        ]
+      },
+      {
+        "platform": "Novita AI",
+        "category": "Unified AI cloud: 200+ model APIs, GPU, Agent Sandbox, 'AI Search' resale",
+        "hosted_tools_today": "NO in-request hosted tools. Function calling is client-side ('`Function Calling` empowers AI models to interact with external tools and APIs...'; app executes the function). Agent Sandbox: 'Internet access is enabled in every sandbox by default' (raw egress).",
+        "search_tool_today": "YES as a standalone resold API, NOT a model-side tool. Pricing page 'AI Search' tab lists Exa (neuralSearch, deepSearch, deepReasoningSearch, answer, content*) and Tavily (basicSearch, advancedSearch, extract, mapping, crawl) endpoints.",
+        "search_provider": "Exa and Tavily (resold under Novita 'AI Search')",
+        "search_tool_price": "Exa neuralSearch $0.007/request, deepSearch $0.012, deepReasoningSearch $0.015, +$0.001/result beyond 10; Tavily basicSearch $0.008/request, advancedSearch $0.016, extract $0.0016-0.0032/url",
+        "size_signals": [
+          {
+            "claim": "Homepage",
+            "value": "'200+ AI models', '200ms latency', '99.5% uptime'; logos Hugging Face, Quora, OpenRouter, Fish Audio",
+            "source_url": "https://novita.ai",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "funding, revenue, tokens",
+            "value": "unknown",
+            "source_url": "https://blogs.novita.ai/",
+            "date": "2026-10-01"
+          }
+        ],
+        "decision_maker": {
+          "title": "Head of Model APIs product or Head of Partnerships/BD; name unverified (no team page)",
+          "name_or_null": null,
+          "source_url_or_null": null
+        },
+        "keenable_status": "NOT hosted. Already resells Exa and Tavily.",
+        "notes": "Search-aware but incumbents present; pitch = native in-request hosted tool + lower per-request price, or third 'AI Search' provider listing.",
+        "sources": [
+          "https://docs.novita.ai/guides/llm-function-calling.md",
+          "https://docs.novita.ai/guides/sandbox-internet-access.md",
+          "https://docs.novita.ai/llms.txt",
+          "https://novita.ai/pricing",
+          "https://novita.ai/models/search/exa",
+          "https://novita.ai/models/search/tavily",
+          "https://novita.ai",
+          "https://blogs.novita.ai/"
+        ]
+      },
+      {
+        "platform": "Featherless AI",
+        "category": "Serverless inference for 30k-40k+ HF models + Agent Marketplace / managed OpenClaw runtime",
+        "hosted_tools_today": "NO.",
+        "search_tool_today": "NO. 'Function calling enables AI models to interact with external systems and execute specific tasks' ... 'Your application then executes these functions and returns the results to the model.' Agent Marketplace runs agents 'on Featherless-managed cloud sandboxes'; no web-search tool named.",
+        "search_provider": "none",
+        "search_tool_price": "n/a",
+        "size_signals": [
+          {
+            "claim": "Series A",
+            "value": "$20M led by AMD Ventures and Airbus Ventures; '30,000+ open-source models served'; 'Fastest-growing inference partner in Hugging Face ecosystem'",
+            "source_url": "https://featherless.ai/blog/series-a",
+            "date": "2026-04-30"
+          },
+          {
+            "claim": "About page",
+            "value": "'6,000+ model creators hosted', '3,000+ builders sponsored'",
+            "source_url": "https://featherless.ai/about",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "revenue, tokens",
+            "value": "unknown",
+            "source_url": "https://featherless.ai",
+            "date": "2026-10-01"
+          }
+        ],
+        "decision_maker": {
+          "title": "Co-founder & CEO; Co-founder & COO for BD",
+          "name_or_null": "Eugene Cheah (CEO); Wesley George (COO)",
+          "source_url_or_null": "https://featherless.ai/about"
+        },
+        "keenable_status": "NOT hosted; no search partnership (partners: Daytona, Z.ai, AMD).",
+        "notes": "Small, founder-reachable, agent-runtime roadmap; a hosted search tool fits Managed OpenClaw agents.",
+        "sources": [
+          "https://featherless.ai/docs/tool-calling",
+          "https://featherless.ai/docs/agent-marketplace",
+          "https://featherless.ai/blog/series-a",
+          "https://featherless.ai/blog/open-source-ai-agents-now-have-a-home",
+          "https://featherless.ai/about",
+          "https://featherless.ai"
+        ]
+      },
+      {
+        "platform": "Parasail",
+        "category": "Inference cloud for AI-native startups; Chat Completions + Responses API; 40+ models",
+        "hosted_tools_today": "NO - explicitly.",
+        "search_tool_today": "NO - explicitly. Responses API compatibility table: 'Web search tool: Not currently available', 'File search tool: Not currently available', 'Computer use tool: Not currently available'; supported: 'Define tools with `tools` parameter'. 'Let Parasail models call your functions and tools via the Chat Completions and Responses APIs.'",
+        "search_provider": "none",
+        "search_tool_price": "n/a",
+        "size_signals": [
+          {
+            "claim": "Homepage",
+            "value": "'Trillions of Tokens served daily'; customers mem0, MiniMax, Venice, Elicit",
+            "source_url": "https://www.parasail.io",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "Footprint",
+            "value": "'40+ data centers across 15 countries'; d-Matrix partnership",
+            "source_url": "https://www.parasail.io/blog/parasail-d-matrix-accelerators",
+            "date": "2026-07-07"
+          },
+          {
+            "claim": "funding amount, revenue",
+            "value": "unknown (investors: Kindred, Touring, Samsung Next, Threshold et al.)",
+            "source_url": "https://www.parasail.io/about-us",
+            "date": "2026-10-01"
+          }
+        ],
+        "decision_maker": {
+          "title": "Co-Founder & CEO (ex-CPO Groq)",
+          "name_or_null": "Mike Henry (CEO); Tim Harris (Co-Founder)",
+          "source_url_or_null": "https://www.parasail.io/about-us"
+        },
+        "keenable_status": "NOT hosted; no search partnership.",
+        "notes": "Strong fit: a published gap row literally reading 'Web search tool: Not currently available' in an OpenAI-shaped Responses API; founder is an ex-Groq CPO.",
+        "sources": [
+          "https://docs.parasail.io/parasail-docs/products/overview/responses-api.md",
+          "https://docs.parasail.io/llms.txt",
+          "https://docs.parasail.io/parasail-docs/use-cases/agents-tool-calling.md",
+          "https://www.parasail.io",
+          "https://www.parasail.io/about-us",
+          "https://www.parasail.io/blog/parasail-d-matrix-accelerators"
+        ]
+      },
+      {
+        "platform": "Chutes (Bittensor SN64)",
+        "category": "Decentralized serverless inference marketplace; OpenAI/Anthropic-compatible gateway; TEE models",
+        "hosted_tools_today": "NO.",
+        "search_tool_today": "NO. 'Agents and Tools' guide: 'Allow models to call Python functions' and 'Execute each tool call' in client code. Agents hub advertises 'tool calling, JSON mode, structured outputs' only.",
+        "search_provider": "none",
+        "search_tool_price": "n/a",
+        "size_signals": [
+          {
+            "claim": "Homepage",
+            "value": "'Powering Trillions of Tokens per Month'",
+            "source_url": "https://chutes.ai",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "Catalog",
+            "value": "'14 TEE models with verification as of October 1, 2026'; 31 models; 6 models listed on OpenRouter",
+            "source_url": "https://chutes.ai/agents",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "funding, revenue",
+            "value": "unknown",
+            "source_url": "https://rayonlabs.ai",
+            "date": "2026-10-01"
+          }
+        ],
+        "decision_maker": {
+          "title": "Subnet owner / founding engineers at Rayon Labs; no public product or BD title; name unverified",
+          "name_or_null": null,
+          "source_url_or_null": null
+        },
+        "keenable_status": "NOT hosted; no search partnership.",
+        "notes": "Technically a fit but miner-executed inference complicates server-side tools; no public BD contact (support@chutes.ai / Discord).",
+        "sources": [
+          "https://chutes.ai/docs/guides/agents-and-tools",
+          "https://docs.chutes.ai",
+          "https://chutes.ai/agents",
+          "https://chutes.ai/pricing",
+          "https://chutes.ai/models",
+          "https://github.com/chutesai",
+          "https://openrouter.ai/provider/chutes"
+        ]
+      },
+      {
+        "platform": "Hugging Face Inference Providers",
+        "category": "Multi-provider model router / marketplace (18 partner providers incl. Baseten); HF billing, no markup",
+        "hosted_tools_today": "NO. Docs describe only model tasks; the only tool wording is 'Use Large language models with tool-calling capabilities' (client-side). Provider registration validates 'Tool calling support' of LLMs only.",
+        "search_tool_today": "NO. 'Tiny Agents' are 'a while loop built right on top of an MCP Client'; browsing via local Playwright MCP, not an HF-hosted tool.",
+        "search_provider": "none / unknown",
+        "search_tool_price": "n/a",
+        "size_signals": [
+          {
+            "claim": "Providers",
+            "value": "18 partner providers (Baseten, Cerebras, DeepInfra, Featherless, Fireworks, Groq, Novita, Replicate, Together...); '200+ models'; provider sort = 'total number of requests routed by HF over the last 7 days'",
+            "source_url": "https://huggingface.co/docs/inference-providers",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "Corporate",
+            "value": "$4.5B valuation (2023); 2025 revenue ~$150M; Nvidia agreed to acquire HF for ~$12.93B (Sep 2026, close expected H1 2027) - secondary source",
+            "source_url": "https://en.wikipedia.org/wiki/Hugging_Face",
+            "date": "2026-09"
+          }
+        ],
+        "decision_maker": {
+          "title": "Inference Providers / Hub product+engineering lead (CTO org); public reviewers on registration page",
+          "name_or_null": "Julien Chaumond (@julien-c, CTO); @Wauplin, @SBrandeis, @hanouticelina (reviewers)",
+          "source_url_or_null": "https://huggingface.co/docs/inference-providers/register-as-a-provider"
+        },
+        "keenable_status": "NOT hosted; no search partnership. Baseten is an HF provider but HF routes model tasks only.",
+        "notes": "Partnership path is model-task-shaped (task API schema, billing endpoint); a search tool would need a new task type. Nvidia acquisition pending = freeze risk. Low near-term fit.",
+        "sources": [
+          "https://huggingface.co/docs/inference-providers",
+          "https://huggingface.co/docs/inference-providers/pricing",
+          "https://huggingface.co/docs/inference-providers/register-as-a-provider",
+          "https://huggingface.co/blog/python-tiny-agents",
+          "https://en.wikipedia.org/wiki/Hugging_Face"
+        ]
+      },
+      {
+        "platform": "Mistral La Plateforme (Agents API)",
+        "category": "First-party model lab API with built-in connectors",
+        "hosted_tools_today": "YES. Built-in connectors: web search, code execution, image generation, document library, premium news; Studio connectors (2026-05-22) add GitHub, Gmail, Web Search with `requires_confirmation`.",
+        "search_tool_today": "YES. 'Websearch is the capability to browse the web in search of information'; `web_search` = 'A simple web search tool that enables access to a search engine'; `web_search_premium` = 'access to both a search engine and to news articles via integrated news provider verification'. 'They aren't supported in the Chat Completions API (/v1/chat/completions)'.",
+        "search_provider": "Brave (strong signal: doc example citations carry `\"source\": \"brave\"`; not an official statement)",
+        "search_tool_price": "Web Search $30 per 1K calls; Premium News $50 per 1K calls; Code Execution $30/1K; 'tool APIs are priced per call'",
+        "size_signals": [
+          {
+            "claim": "Series D",
+            "value": "EUR 3B at >EUR 21B post-money (Samsung-led per Wikipedia/Les Echos)",
+            "source_url": "https://mistral.ai/news/mistral-makes-sovereign-open-weight-ai-to-frontier/",
+            "date": "2026-09-08"
+          },
+          {
+            "claim": "Series C",
+            "value": "EUR 1.7B at EUR 11.7B post-money led by ASML",
+            "source_url": "https://mistral.ai/news/mistral-ai-raises-1-7-b-to-accelerate-technological-progress-with-ai",
+            "date": "2025-09-09"
+          },
+          {
+            "claim": "revenue, developer counts",
+            "value": "unknown",
+            "source_url": "https://en.wikipedia.org/wiki/Mistral_AI",
+            "date": "2026"
+          }
+        ],
+        "decision_maker": {
+          "title": "Product lead, Agents API / Studio connectors, or Head of Partnerships; name unverified",
+          "name_or_null": null,
+          "source_url_or_null": null
+        },
+        "keenable_status": "NOT hosted; no announced search-vendor partnership (Brave only as a source tag).",
+        "notes": "First-party search at $30/1K = 7.5x Keenable's $4/1K; pitch = cheaper independent backend. Mistral builds its own retrieval (Vespa 'Agentic Search' toolkit) so expect a long cycle; integration must emit `tool_reference` citations.",
+        "sources": [
+          "https://docs.mistral.ai/agents/connectors/websearch",
+          "https://mistral.ai/pricing/api",
+          "https://mistral.ai/pricing",
+          "https://mistral.ai/news/connectors",
+          "https://mistral.ai/news/agentic-search",
+          "https://mistral.ai/news/mistral-ai-raises-1-7-b-to-accelerate-technological-progress-with-ai",
+          "https://en.wikipedia.org/wiki/Mistral_AI"
+        ]
+      },
+      {
+        "platform": "xAI / SpaceXAI API",
+        "category": "First-party model lab API with server-side tools (Responses API)",
+        "hosted_tools_today": "YES. 'Server-side tools managed by SpaceXAI that execute automatically' - Web Search, X Search, Code Interpreter, Image Generation, Collections Search. 'Tool requests are priced based on two components: token usage and tool invocations.'",
+        "search_tool_today": "YES. `web_search` lets Grok 'search the web in real-time and browse web pages to find information'; allowed/excluded domains (max 5), image search. Legacy 'Live Search' guide URL now serves the Web Search tool page (superseded).",
+        "search_provider": "unknown (backend not named; X Search uses X's own posts/profiles)",
+        "search_tool_price": "Web Search $5 per 1K calls; X Search $5/1K posts, $10/1K profiles; Code Execution $5/1K; Collections Search $2.50/1K. Legacy $25/1K sources Live Search price: not found.",
+        "size_signals": [
+          {
+            "claim": "Corporate (secondary)",
+            "value": "xAI acquired by SpaceX Feb 2026 at $250B; 2025 revenue $3.2B, operating loss $6.4B (S-1); rebranded SpaceXAI Jul 2026",
+            "source_url": "https://en.wikipedia.org/wiki/XAI_(company)",
+            "date": "2026"
+          },
+          {
+            "claim": "Gateway share",
+            "value": "xAI = 10% of Vercel AI Gateway token volume (Apr 2026)",
+            "source_url": "https://vercel.com/blog/ai-gateway-production-index",
+            "date": "2026-05-12"
+          },
+          {
+            "claim": "developer counts",
+            "value": "unknown",
+            "source_url": "https://docs.x.ai/docs/overview",
+            "date": "2026-10-01"
+          }
+        ],
+        "decision_maker": {
+          "title": "Product lead, SpaceXAI API / developer platform (tools), or Head of API Partnerships; name unverified",
+          "name_or_null": null,
+          "source_url_or_null": null
+        },
+        "keenable_status": "NOT hosted; no search partnership (Keenable cites xAI angels among backers on keenable.ai).",
+        "notes": "First-party tool at $5/1K with X-data moat, org mid-merger. Lowest fit unless pitched as independent-index backend.",
+        "sources": [
+          "https://docs.x.ai/docs/guides/tools/overview",
+          "https://docs.x.ai/docs/pricing",
+          "https://docs.x.ai/docs/guides/live-search",
+          "https://en.wikipedia.org/wiki/XAI_(company)",
+          "https://vercel.com/blog/ai-gateway-production-index",
+          "https://keenable.ai/"
+        ]
+      },
+      {
+        "platform": "Cloudflare Workers AI / AI Gateway / Agents SDK",
+        "category": "Edge inference + multi-provider gateway (24 providers) + agent runtime; owns Replicate",
+        "hosted_tools_today": "PARTIAL. Workers AI: 'embedded function calling which allows you to execute function code alongside your inference calls'; no built-in web tools. Agents SDK ships browser automation, sandboxed code execution, AI Search (own data), MCP tools. Browser Run REST Quick Actions (/markdown, /scrape, /crawl...).",
+        "search_tool_today": "NO first-party public web search. AI Search = 'give it your data, and search it with natural language' (own content). AI Gateway proxies Parallel ('Parallel is a web API purpose-built for AIs...' Tasks/Search/FindAll APIs via gateway.ai.cloudflare.com/v1/{account}/{gateway}/parallel) and Perplexity as passthrough providers, not gateway-executed tools.",
+        "search_provider": "Parallel and Perplexity (proxied providers, BYOK); no Cloudflare-executed search",
+        "search_tool_price": "n/a (provider's own pricing). Browser Run: free 10 min/day; paid 10 h/mo then $0.09/h",
+        "size_signals": [
+          {
+            "claim": "AI Gateway requests",
+            "value": "'over 2 billion requests in just one year' (2023-24); no 2026 absolute figure found",
+            "source_url": "https://blog.cloudflare.com/billions-and-billions-of-logs-scaling-ai-gateway-with-the-cloudflare/",
+            "date": "2024-10-24"
+          },
+          {
+            "claim": "Platform unification",
+            "value": "AI Gateway + Workers AI unified control plane; unified billing; Auto Router launched 2026-09-30",
+            "source_url": "https://blog.cloudflare.com/workers-ai-gateway-unification/",
+            "date": "2026-08-07"
+          },
+          {
+            "claim": "Corporate",
+            "value": "2025 revenue $2.168B (secondary)",
+            "source_url": "https://en.wikipedia.org/wiki/Cloudflare",
+            "date": "2026"
+          }
+        ],
+        "decision_maker": {
+          "title": "Group PM, AI Gateway (Developer Platform) or Head of AI Partnerships; name unverified (blog author Michelle Chen on both major AI Gateway posts, title not shown)",
+          "name_or_null": null,
+          "source_url_or_null": "https://blog.cloudflare.com/workers-ai-gateway-unification/"
+        },
+        "keenable_status": "NOT hosted; Parallel and Perplexity are the only search/web vendors on the gateway. Keenable-via-Baseten already flows through (Baseten is a listed provider).",
+        "notes": "Two asks: become an AI Gateway provider like Parallel (docs-only passthrough), and/or a web-search tool in Agents SDK (gap today).",
+        "sources": [
+          "https://developers.cloudflare.com/workers-ai/features/function-calling/",
+          "https://developers.cloudflare.com/ai-gateway/usage/providers/",
+          "https://developers.cloudflare.com/ai-gateway/usage/providers/parallel/",
+          "https://developers.cloudflare.com/agents/",
+          "https://developers.cloudflare.com/browser-rendering/",
+          "https://developers.cloudflare.com/browser-rendering/platform/pricing/",
+          "https://developers.cloudflare.com/ai-search/",
+          "https://blog.cloudflare.com/workers-ai-gateway-unification/",
+          "https://blog.cloudflare.com/billions-and-billions-of-logs-scaling-ai-gateway-with-the-cloudflare/",
+          "https://en.wikipedia.org/wiki/Cloudflare"
+        ]
+      },
+      {
+        "platform": "Vercel AI Gateway (+ AI SDK)",
+        "category": "Multi-provider gateway with gateway-executed tools; AI SDK 2M+ downloads/week",
+        "hosted_tools_today": "YES. 'AI Gateway provides built-in search tools that let AI models access current web information and source-grounded data.' 'AI Gateway executes server tools internally.' AI SDK: 'This tool is executed by the AI Gateway' for gateway.tools.*",
+        "search_tool_today": "YES, two tiers. 'Search for all providers: Use Perplexity Search, Exa Search, Tako Search, Browserbase Search, or Parallel Search with any model regardless of provider.' 'Provider-specific search: Use native web search tools from Anthropic, OpenAI, Google, or SpaceXAI.' Chat Completions types vercel:exa_search, vercel:parallel_search, vercel:perplexity_search, vercel:tako_search, vercel:browserbase_search, vercel:browserbase_fetch.",
+        "search_provider": "Perplexity (2026-01-14), Parallel, Exa (2026-08-12, 'default web search for eve agents'), Tako (free through 2026-09-30), Browserbase Search + Fetch (2026-09-30). No own index.",
+        "search_tool_price": "Perplexity $5/1K requests; Exa $7/1K (up to 10 results, +$1/1K extra results); Parallel $5/1K (+$1/1K extra results); Tako $7/1K instant/fast, $12/1K deep; Browserbase Search $7/1K; Browserbase Fetch $1/1K raw (+$3/1K proxies, +$3/1K markdown/json). Gateway 'zero markup to provider token prices'.",
+        "size_signals": [
+          {
+            "claim": "Production index",
+            "value": "'AI Gateway serves tens of trillions of tokens across hundreds of models'; 'over 200,000+ unique teams'; agentic = 59% of tokens",
+            "source_url": "https://vercel.com/blog/ai-gateway-production-index",
+            "date": "2026-05-12"
+          },
+          {
+            "claim": "Sep 2026 index",
+            "value": "open-weight models 56% of token volume (from 7% Dec 2025); avg token price -23.2% in Aug",
+            "source_url": "https://vercel.com/blog/ai-gateway-production-index-september-2026",
+            "date": "2026-09-17"
+          },
+          {
+            "claim": "GA",
+            "value": "'AI SDK now sees more than 2 million downloads per week'",
+            "source_url": "https://vercel.com/blog/ai-gateway-is-now-generally-available",
+            "date": "2025-08-21"
+          },
+          {
+            "claim": "Series F",
+            "value": "$300M at $9.3B (Accel, GIC) - secondary",
+            "source_url": "https://en.wikipedia.org/wiki/Vercel",
+            "date": "2025-09"
+          }
+        ],
+        "decision_maker": {
+          "title": "Product lead, AI Gateway / AI SDK, or Head of AI Partnerships; name unverified (changelog authors Walter Korman - Software Engineer, Jerilyn Zheng, Josh Lipman, Zachary Chen, Shar Dara)",
+          "name_or_null": null,
+          "source_url_or_null": "https://vercel.com/changelog/ai-gateway-adds-browserbase-search-and-fetch-tools"
+        },
+        "keenable_status": "NOT hosted. Five search vendors onboarded in 2026 (Perplexity, Parallel, Exa, Tako, Browserbase) - repeatable pattern with 'free through <date>' promos.",
+        "notes": "Closest product shape to Baseten Hosted Tools; Keenable $4/1K undercuts every listed tool ($5-7/1K). Onboarding template is public: gateway.tools.<vendor>Search() + vercel:<vendor>_search + changelog + free period.",
+        "sources": [
+          "https://vercel.com/docs/ai-gateway/models-and-providers/web-search",
+          "https://vercel.com/docs/ai-gateway/inputs-and-tools/tool-use",
+          "https://ai-sdk.dev/providers/ai-sdk-providers/ai-gateway",
+          "https://vercel.com/changelog/ai-gateway-adds-browserbase-search-and-fetch-tools",
+          "https://vercel.com/changelog/exa-web-search-free-through-august-31-on-ai-gateway-and-eve",
+          "https://vercel.com/changelog/access-perplexity-web-search-on-vercel-ai-gateway-with-any-model",
+          "https://vercel.com/changelog/tako-search-is-free-on-ai-gateway-through-september-30th",
+          "https://vercel.com/blog/ai-gateway-production-index",
+          "https://vercel.com/blog/ai-gateway-production-index-september-2026",
+          "https://vercel.com/blog/ai-gateway-is-now-generally-available",
+          "https://en.wikipedia.org/wiki/Vercel"
+        ]
+      },
+      {
+        "platform": "AWS Bedrock / AgentCore / Nova",
+        "category": "Hyperscaler inference + agent platform; first-party web index",
+        "hosted_tools_today": "YES, three first-party AWS-hosted web search surfaces: (a) Nova 'Web Grounding' systemTool `nova_grounding`; (b) Bedrock 'Web Search' server-side tool for OpenAI GPT models on bedrock-mantle Responses endpoint; (c) AgentCore 'Web Search Tool' Gateway connector (`connectorId: \"web-search\"`), plus AgentCore Browser and Code Interpreter.",
+        "search_tool_today": "YES. AgentCore: 'It is a fully managed, MCP-compliant web search capability that lets your agents retrieve information from the web without any infrastructure overhead.' 'Many solutions that add web search to an agent are wrappers over a third-party search engine. Web Search Tool on Amazon Bedrock AgentCore is different - it is backed by a web index that Amazon builds and operates directly.' 'The index spans tens of billions of documents.' Bedrock: 'Web Search is hosted and built by AWS.' Nova: 'Your data never leaves AWS infrastructure.' AUP: 'You may not use Web Search Tool to ... build or populate a competing index or database.'",
+        "search_provider": "Amazon's own index ('web index that Amazon builds and operates directly')",
+        "search_tool_price": "AgentCore Web Search '$7 per 1,000 queries'; Bedrock Web Search (OpenAI models) ~$12/1K queries (derived from AWS pricing JSON, verify); Nova Web Grounding ~$30/1K requests (derived, verify); AgentCore Gateway $0.005/1K invocations",
+        "size_signals": [
+          {
+            "claim": "AWS AI run rate",
+            "value": "'Exceeded a $25 billion annual revenue run rate for AWS's AI business'; AWS sales $42.2B (+37%); 'hundreds of thousands of customers now use Bedrock'",
+            "source_url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results/default.aspx",
+            "date": "2026-07-30"
+          },
+          {
+            "claim": "Token volume",
+            "value": "unknown",
+            "source_url": "https://aws.amazon.com/bedrock/agentcore/",
+            "date": "2026-10-01"
+          }
+        ],
+        "decision_maker": {
+          "title": "GM / product lead, Amazon Bedrock AgentCore (Gateway & built-in tools); AWS Marketplace 'AI Agents and Tools' category lead; name unverified",
+          "name_or_null": null,
+          "source_url_or_null": null
+        },
+        "keenable_status": "NOT hosted. No third-party search-vendor partnership found; AWS docs explicitly position against 'wrappers over a third-party search engine'. Entry = AWS Marketplace 'AI Agents and Tools' (MCP server consumable via AgentCore Gateway).",
+        "notes": "Hardest hyperscaler: own index + three first-party tools + privacy pitch. Keenable $4/1K undercuts AgentCore $7/1K; realistic path is a Marketplace/AgentCore Gateway listing, not a native tool.",
+        "sources": [
+          "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-target-connector-web-search-tool.html",
+          "https://docs.aws.amazon.com/bedrock/latest/userguide/web-search.html",
+          "https://docs.aws.amazon.com/nova/latest/nova2-userguide/web-grounding.html",
+          "https://aws.amazon.com/bedrock/agentcore/pricing/",
+          "https://aws.amazon.com/bedrock/pricing/",
+          "https://aws.amazon.com/about-aws/whats-new/2025/10/web-grounding-ai-applications-amazon-nova-models/",
+          "https://aws.amazon.com/about-aws/whats-new/2026/09/amazon-bedrock-web-aws-govcloud/",
+          "https://aws.amazon.com/about-aws/whats-new/2025/07/ai-agents-tools-aws-marketplace/",
+          "https://aws.amazon.com/marketplace/solutions/ai-agents-and-tools",
+          "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results/default.aspx"
+        ]
+      },
+      {
+        "platform": "Microsoft Foundry (Azure AI Foundry) Agent Service",
+        "category": "Hyperscaler inference + agent platform; Bing-backed grounding; MCP 'Toolbox'",
+        "hosted_tools_today": "YES. Tools: MCP, Web search, Azure AI Search, Code interpreter, File search, OpenAPI, A2A, Browser automation, Grounding with Bing, Computer use, etc., exposed directly or via 'Toolbox' ('a single MCP-compatible endpoint that agents can consume across frameworks'). Classic agents retire 2027-03-31.",
+        "search_tool_today": "YES, three Bing-backed options. 'Web Search uses Grounding with Bing Search and Grounding with Bing Custom Search, which are First Party Consumption Services'; 'Customer data flows outside the Azure compliance boundary.' Grounding with Bing: 'uses Bing to search over public web data and return relevant chunks'; 'Transactions ... are counted by the number of tool calls per run.' Public Bing Search APIs 'were retired on 11th August 2025.'",
+        "search_provider": "Bing (Microsoft-owned)",
+        "search_tool_price": "Grounding with Bing Search $14 per 1,000 transactions (150 TPS, 1M/day); Grounding with Bing Custom Search $14/1K; 'Outputs are not directly accessible for use in other applications or programs.'",
+        "size_signals": [
+          {
+            "claim": "Foundry customers",
+            "value": "'We now have 100,000 Foundry customers, and revenue more than doubled year-over-year'; 'customers at a one trillion token annualized run rate increased 4X'; 'Agent 365 now has nearly 40 million agents registered'",
+            "source_url": "https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q4",
+            "date": "2026-07-29"
+          },
+          {
+            "claim": "Azure revenue",
+            "value": "'Azure revenue surpassed $100 billion for the first time' (FY26); +43% Q4",
+            "source_url": "https://www.microsoft.com/en-us/investor/earnings/fy-2026-q4/press-release-webcast",
+            "date": "2026-07-29"
+          }
+        ],
+        "decision_maker": {
+          "title": "Corporate Vice President, Microsoft Foundry; below: PM lead Foundry Agent Service tools/Toolbox + ISV tool catalog",
+          "name_or_null": "Yina Arenas (CVP, Microsoft Foundry)",
+          "source_url_or_null": "https://azure.microsoft.com/en-us/blog/author/yina-arenas/"
+        },
+        "keenable_status": "NOT hosted. Tavily already present: 'Tavily is featured in the Tools Catalog of Azure AI Foundry' and on Azure MCP Center (per Tavily docs). Classic non-Microsoft tools list: Auquan, Celonis, LexisNexis, Morningstar, Tripadvisor etc.",
+        "notes": "Most open hyperscaler to third-party tools (MCP-native Toolbox; Tavily precedent) but web grounding is a strategic Bing product. Pitch angle = compliance-boundary weakness + $14/1K vs $4/1K.",
+        "sources": [
+          "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/web-search",
+          "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/web-overview",
+          "https://learn.microsoft.com/en-us/azure/foundry/agents/how-to/tools/bing-tools",
+          "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/bing-grounding",
+          "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/overview",
+          "https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/toolbox-overview",
+          "https://www.microsoft.com/en-us/bing/apis/grounding-pricing",
+          "https://learn.microsoft.com/en-us/bing/search-apis/",
+          "https://www.microsoft.com/en-us/investor/events/fy-2026/earnings-fy-2026-q4",
+          "https://azure.microsoft.com/en-us/blog/author/yina-arenas/",
+          "https://docs.tavily.com/documentation/partnerships/azure"
+        ]
+      },
+      {
+        "platform": "Google Vertex AI / Gemini Enterprise Agent Platform (+ Gemini API)",
+        "category": "Hyperscaler inference + agent platform; Google Search grounding",
+        "hosted_tools_today": "YES. Server-side grounding tools: Grounding with Google Search, Web Grounding for Enterprise, Grounding with Google Maps, Grounding with your data (Vertex AI Search), plus Agent Platform runtime/gateway/memory.",
+        "search_tool_today": "YES. `google_search` tool: 'If you want to connect your model with world knowledge, a wide possible range of topics, or up-to-date information on the Internet, then use Grounding with Google Search.' Gemini 3: 'your project is billed for each search query that the model decides to execute'. Enterprise: 'The indexed content is a subset of what's available on Google Search and suitable for customers in highly-regulated industries'.",
+        "search_provider": "Google Search (own index)",
+        "search_tool_price": "Gemini 3: 5,000 Grounding Queries/month free, then '$14 per 1,000 Grounding Queries' (billing from 2026-01-05); Gemini 2.x: 1,500 prompts/day free (10,000 for 2.5 Pro), then '$35 per 1,000 Grounding Prompts'; Grounding with your data $2.50/1K; Vertex AI Search Standard $1.50/1K queries",
+        "size_signals": [
+          {
+            "claim": "API tokens",
+            "value": "'Our model APIs are now processing approximately 22 billion tokens per minute'; 'More than 9 million developers are building each month'; Cloud backlog $514B; 'Nearly 500 Cloud customers have each processed more than 1 trillion tokens'",
+            "source_url": "https://blog.google/company-news/inside-google/message-ceo/alphabet-earnings-q2-2026/",
+            "date": "2026-07-22"
+          },
+          {
+            "claim": "Direct API tokens",
+            "value": "'more than 16 billion tokens per minute via direct API use'",
+            "source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/cloud-next-2026-sundar-pichai/",
+            "date": "2026-04-22"
+          }
+        ],
+        "decision_maker": {
+          "title": "VP, Product Management, Gemini Enterprise (agent platform); Google Cloud Marketplace ISV lead for AI agents",
+          "name_or_null": "Michael Gerstenhaber (VP Product Management, Gemini Enterprise)",
+          "source_url_or_null": "https://cloud.google.com/blog/products/ai-machine-learning/the-new-gemini-enterprise-one-platform-for-agent-development"
+        },
+        "keenable_status": "NOT hosted; no third-party search-vendor partnership found (Tavily has a Google ADK integration page only).",
+        "notes": "Strongest first-party moat and lowest hyperscaler price ($14/1K, 5K free); native Keenable tool implausible; route = Marketplace/ADK/MCP listing. 'Web Grounding for Enterprise' shows a compliance-grade niche.",
+        "sources": [
+          "https://cloud.google.com/vertex-ai/generative-ai/pricing",
+          "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/grounding-with-google-search",
+          "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/grounding/web-grounding-enterprise",
+          "https://ai.google.dev/gemini-api/docs/google-search",
+          "https://ai.google.dev/gemini-api/docs/pricing",
+          "https://cloud.google.com/generative-ai-app-builder/pricing",
+          "https://blog.google/company-news/inside-google/message-ceo/alphabet-earnings-q2-2026/",
+          "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/cloud-next-2026-sundar-pichai/",
+          "https://cloud.google.com/blog/products/ai-machine-learning/the-new-gemini-enterprise-one-platform-for-agent-development",
+          "https://docs.cloud.google.com/marketplace/docs/partners/ai-agents"
+        ]
+      }
+    ],
+    "agent_frameworks": [
+      {
+        "framework": "LangChain / LangGraph",
+        "search_integrations": [
+          "Exa",
+          "Tavily",
+          "Parallel",
+          "Perplexity",
+          "Google Search",
+          "Amazon Bedrock AgentCore Web Search",
+          "BrightData SERP",
+          "Firecrawl",
+          "Linkup",
+          "SearchApi",
+          "SerpApi",
+          "You.com",
+          "Keenable",
+          "Diffbot",
+          "Apify",
+          "cloro",
+          "ContextSearch",
+          "Crawleo",
+          "CrustAPI",
+          "iFlow",
+          "Octen",
+          "Mixpeek",
+          "Nia",
+          "Nimble",
+          "Search1API",
+          "Scavio",
+          "SERPdive",
+          "TalorData",
+          "Webz",
+          "Xpoz",
+          "Querit"
+        ],
+        "keyless_default": "Keenable is the only row in the official web-search table marked 'Free keyless tier available'; langchain-community DuckDuckGoSearchRun (keyless) exists historically but was not re-verified this session",
+        "keenable_upstream": "merged",
+        "keenable_evidence_url": "https://docs.langchain.com/oss/python/integrations/tools",
+        "merged_integration_shape": "External partner package `langchain-keenable` (repo keenableai/langchain-keenable, PyPI) + row in the official tools table + packages.yml entry in langchain-ai/docs. Added by maintainer PR langchain-ai/docs#5214 (npentrel, 2026-07-30) after Keenable's own docs PR #4528 was closed under a new policy: external integrations get a table row linking to vendor docs, not an in-repo page. NOT in the langchain monorepo libs/partners (which holds only anthropic, chroma, deepseek, exa, fireworks, groq, huggingface, mistralai, nomic, ollama, openai, openrouter, perplexity, qdrant, typesafe, xai).",
+        "template_path_url": "https://github.com/langchain-ai/langchain/tree/master/libs/partners/exa",
+        "maintainers": {
+          "title": "LangChain partner-package code owners / docs maintainer",
+          "name_or_null": "@ccurme @mdrxy (CODEOWNERS /libs/partners/); @npentrel merged the Keenable docs row",
+          "source_url_or_null": "https://github.com/langchain-ai/langchain/blob/master/.github/CODEOWNERS"
+        },
+        "size_signals": [
+          {
+            "claim": "GitHub stars",
+            "value": 147351,
+            "source_url": "https://github.com/langchain-ai/langchain",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "GitHub stars",
+            "value": 42553,
+            "source_url": "https://github.com/langchain-ai/langgraph",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "langchain-exa PyPI monthly downloads (LangChain packages.yml)",
+            "value": 188000,
+            "source_url": "https://github.com/langchain-ai/docs/blob/main/packages.yml",
+            "date": "2026-09-07"
+          },
+          {
+            "claim": "langchain-keenable PyPI monthly downloads (LangChain packages.yml)",
+            "value": 242,
+            "source_url": "https://github.com/langchain-ai/docs/blob/main/packages.yml",
+            "date": "2026-09-07"
+          },
+          {
+            "claim": "npm downloads last month",
+            "value": 11908381,
+            "source_url": "https://api.npmjs.org/downloads/point/last-month/langchain",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "npm downloads last month",
+            "value": 3520717,
+            "source_url": "https://api.npmjs.org/downloads/point/last-month/@langchain/community",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "npm downloads last month",
+            "value": 381838,
+            "source_url": "https://api.npmjs.org/downloads/point/last-month/@langchain/tavily",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "npm downloads last month",
+            "value": 60642,
+            "source_url": "https://api.npmjs.org/downloads/point/last-month/@langchain/exa",
+            "date": "2026-10-01"
+          }
+        ],
+        "sources": [
+          "https://docs.langchain.com/oss/python/integrations/tools",
+          "https://github.com/langchain-ai/docs/pull/4528",
+          "https://github.com/langchain-ai/docs/pull/5214",
+          "https://github.com/langchain-ai/docs/blob/main/packages.yml",
+          "https://github.com/keenableai/langchain-keenable",
+          "https://pypi.org/project/langchain-keenable/"
+        ],
+        "notes": "Keenable's own docs PR #4528 (opened 2026-06-18) was closed 2026-07-30 by npentrel: 'we no longer add external integration docs to our docs and instead link out'. langchain-keenable 0.1.2 on PyPI, first release 2026-06-18. pypistats.org API returned HTTP 500/429 on three paced attempts on 2026-10-01; PyPI monthly figures unavailable except where LangChain's packages.yml records them."
+      },
+      {
+        "framework": "LlamaIndex",
+        "search_integrations": [
+          "Bing",
+          "Brave",
+          "DuckDuckGo",
+          "Exa",
+          "Google",
+          "Jina",
+          "Linkup",
+          "Parallel Web Systems",
+          "Serpex",
+          "Tavily",
+          "Valyu"
+        ],
+        "keyless_default": "llama-index-tools-duckduckgo (keyless DuckDuckGo tool spec in the monorepo)",
+        "keenable_upstream": "docs-only",
+        "keenable_evidence_url": "https://github.com/run-llama/llama_index/tree/main/llama-index-integrations/tools",
+        "merged_integration_shape": "A directory `llama-index-integrations/tools/llama-index-tools-<vendor>/` in the run-llama monorepo (pyproject + llama_index/tools/<vendor>/base.py ToolSpec + README), which also auto-lists on LlamaHub. Keenable instead publishes `llama-index-tools-keenable` from its own repo (keenableai/llama-index-tools-keenable, PyPI 0.1.3, first release 2026-06-19); no PR or issue mentioning Keenable exists in run-llama/llama_index.",
+        "template_path_url": "https://github.com/run-llama/llama_index/tree/main/llama-index-integrations/tools/llama-index-tools-tavily-research",
+        "maintainers": {
+          "title": "LlamaIndex integrations maintainers (run-llama) \u2014 no CODEOWNERS file",
+          "name_or_null": null,
+          "source_url_or_null": null
+        },
+        "size_signals": [
+          {
+            "claim": "GitHub stars",
+            "value": 52380,
+            "source_url": "https://github.com/run-llama/llama_index",
+            "date": "2026-10-01"
+          }
+        ],
+        "sources": [
+          "https://github.com/run-llama/llama_index/tree/main/llama-index-integrations/tools",
+          "https://github.com/keenableai/llama-index-tools-keenable",
+          "https://pypi.org/project/llama-index-tools-keenable/",
+          "https://docs.keenable.ai/integrations/llamaindex"
+        ],
+        "notes": "GitHub code search for 'keenable' in run-llama returned nothing; PR/issue search in run-llama/llama_index returned nothing. Easiest unclaimed monorepo slot in the list. pypistats.org API returned HTTP 500/429 on three paced attempts on 2026-10-01; PyPI monthly figures unavailable except where LangChain's packages.yml records them."
+      },
+      {
+        "framework": "Vercel AI SDK",
+        "search_integrations": [
+          "Exa (@exalabs/ai-sdk)",
+          "Parallel (@parallel-web/ai-sdk-tools)",
+          "Perplexity (@perplexity-ai/ai-sdk)",
+          "Tavily (@tavily/ai-sdk)",
+          "agentic (Exa etc.)",
+          "AI Tools Registry: websearch-perplexity/exa/firecrawl/brave",
+          "Smithery/Apify MCP marketplaces"
+        ],
+        "keyless_default": null,
+        "keenable_upstream": "absent",
+        "keenable_evidence_url": "https://github.com/vercel/ai/pull/19010",
+        "merged_integration_shape": "One entry in `content/tools-registry/registry.ts` (the 'Ready-to-use tool packages' list on ai-sdk.dev/docs/foundations/tools) pointing at a vendor-owned npm package. Keenable's `@keenable/ai-sdk` (npm 0.1.0, 2026-08-18) exists; PR vercel/ai#19010 adding the registry entry has been open since 2026-08-18, state 'blocked' \u2014 the only failing check is the Vercel preview deploy that needs a team member to authorize a fork build. Separate community registry ai-tools-registry.vercel.app lists Perplexity/Exa/Firecrawl/Brave, no Keenable.",
+        "template_path_url": "https://github.com/vercel/ai/blob/main/content/tools-registry/registry.ts",
+        "maintainers": {
+          "title": "AI SDK docs/registry maintainers (Vercel) \u2014 no CODEOWNERS",
+          "name_or_null": "@aayush-kapoor (cited in PR #19010 as having merged the last two registry entries; role unverified)",
+          "source_url_or_null": "https://github.com/vercel/ai/pull/19010"
+        },
+        "size_signals": [
+          {
+            "claim": "GitHub stars",
+            "value": 27072,
+            "source_url": "https://github.com/vercel/ai",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "npm downloads last month",
+            "value": 104622307,
+            "source_url": "https://api.npmjs.org/downloads/point/last-month/ai",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "npm downloads last month",
+            "value": 54574885,
+            "source_url": "https://api.npmjs.org/downloads/point/last-month/@ai-sdk/openai",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "npm downloads last month",
+            "value": 178233,
+            "source_url": "https://api.npmjs.org/downloads/point/last-month/@exalabs/ai-sdk",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "npm downloads last month",
+            "value": 1602966,
+            "source_url": "https://api.npmjs.org/downloads/point/last-month/@tavily/core",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "npm downloads last month",
+            "value": 30,
+            "source_url": "https://api.npmjs.org/downloads/point/last-month/@keenable/ai-sdk",
+            "date": "2026-10-01"
+          }
+        ],
+        "sources": [
+          "https://ai-sdk.dev/docs/foundations/tools",
+          "https://github.com/vercel/ai/pull/19010",
+          "https://ai-tools-registry.vercel.app",
+          "https://www.npmjs.com/package/@keenable/ai-sdk"
+        ],
+        "notes": "GitHub code search in vercel org: no 'keenable'. keenableai forked vercel/ai (pushed 2026-09-29). @keenable/ai-sdk npm maintainers: ilya.bogin, ilyagusev, grigorevp."
+      },
+      {
+        "framework": "Mastra",
+        "search_integrations": [
+          "Tavily (@mastra/tavily)",
+          "Firecrawl",
+          "Parallel",
+          "Bright Data",
+          "Perplexity",
+          "core webSearchTool (provider-managed via OpenAI/Anthropic/Gemini/xAI)"
+        ],
+        "keyless_default": "`webSearchTool` from @mastra/core/tools resolves to the active model provider's native search (no separate search key; model key only)",
+        "keenable_upstream": "docs-only",
+        "keenable_evidence_url": "https://github.com/mastra-ai/mastra/pull/18982",
+        "merged_integration_shape": "Mastra-authored `@mastra/<vendor>` package (createTool wrappers over the vendor SDK) + page under mastra.ai/integrations/tools/<vendor>. Keenable's PR #18982 (22 files, @mastra/keenable) was closed the same day (2026-07-06) by @wardpeet: 'We have decided not to add vendor-specific integrations like this directly to the main Mastra repository... publish @mastra/keenable under your own organization... we can direct people to it from the documentation'. Keenable then published `@keenable/mastra` (npm, 38 downloads/mo). Mastra has since shipped @mastra/tavily, @mastra/parallel etc. in-house, so the stated policy no longer matches the catalog \u2014 a reopen argument.",
+        "template_path_url": "https://mastra.ai/integrations/tools/tavily",
+        "maintainers": {
+          "title": "Mastra core code owners",
+          "name_or_null": "@abhiaiyer91 @wardpeet (CODEOWNERS *); wardpeet closed the Keenable PR",
+          "source_url_or_null": "https://github.com/mastra-ai/mastra/blob/main/.github/CODEOWNERS"
+        },
+        "size_signals": [
+          {
+            "claim": "GitHub stars",
+            "value": 28469,
+            "source_url": "https://github.com/mastra-ai/mastra",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "npm downloads last month",
+            "value": 6948130,
+            "source_url": "https://api.npmjs.org/downloads/point/last-month/@mastra/core",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "npm downloads last month",
+            "value": 2068772,
+            "source_url": "https://api.npmjs.org/downloads/point/last-month/@mastra/mcp",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "npm downloads last month",
+            "value": 38,
+            "source_url": "https://api.npmjs.org/downloads/point/last-month/@keenable/mastra",
+            "date": "2026-10-01"
+          }
+        ],
+        "sources": [
+          "https://mastra.ai/llms.txt",
+          "https://mastra.ai/integrations/tools/tavily",
+          "https://mastra.ai/docs/tools-mcp/overview",
+          "https://github.com/mastra-ai/mastra/pull/18982",
+          "https://www.npmjs.com/package/@keenable/mastra"
+        ],
+        "notes": "No 'keenable' in mastra-ai code search; no docs page links to @keenable/mastra despite wardpeet's offer."
+      },
+      {
+        "framework": "CrewAI",
+        "search_integrations": [
+          "Serper (SerperDevTool)",
+          "Brave",
+          "Exa",
+          "Linkup",
+          "Tavily (search/extract/research)",
+          "SerpApi",
+          "Serply",
+          "Firecrawl search",
+          "Parallel",
+          "Oxylabs Google SERP scraper",
+          "ScrapeGraph",
+          "WebsiteSearchTool (RAG)"
+        ],
+        "keyless_default": null,
+        "keenable_upstream": "absent",
+        "keenable_evidence_url": "https://github.com/crewAIInc/crewAI/pull/7570",
+        "merged_integration_shape": "Directory `lib/crewai-tools/src/crewai_tools/tools/<vendor>_tool/` in the crewAI monorepo (crewAI-tools repo is archived) + export in tools/__init__.py and crewai_tools/__init__.py + docs page under docs.crewai.com/en/tools/search-research. Keenable PR #7570 (KeenableSearchTool, 5 files) open since 2026-09-18; only CodeRabbit bot review so far. Keenable docs list CrewAI under 'Coming soon'.",
+        "template_path_url": "https://github.com/crewAIInc/crewAI/tree/main/lib/crewai-tools/src/crewai_tools/tools/tavily_search_tool",
+        "maintainers": {
+          "title": "crewAI maintainers \u2014 no CODEOWNERS file",
+          "name_or_null": null,
+          "source_url_or_null": null
+        },
+        "size_signals": [
+          {
+            "claim": "GitHub stars",
+            "value": 59257,
+            "source_url": "https://github.com/crewAIInc/crewAI",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "GitHub stars",
+            "value": 1477,
+            "source_url": "https://github.com/crewAIInc/crewAI-tools",
+            "date": "2026-10-01"
+          }
+        ],
+        "sources": [
+          "https://docs.crewai.com/en/tools/search-research/overview",
+          "https://docs.crewai.com/en/concepts/tools",
+          "https://github.com/crewAIInc/crewAI/tree/main/lib/crewai-tools/src/crewai_tools/tools",
+          "https://github.com/crewAIInc/crewAI/pull/7570",
+          "https://docs.keenable.ai/integrations"
+        ],
+        "notes": "Docs quick-start uses SerperDevTool with SERPER_API_KEY; no keyless search tool documented \u2014 Keenable would be the first. pypistats.org API returned HTTP 500/429 on three paced attempts on 2026-10-01; PyPI monthly figures unavailable except where LangChain's packages.yml records them."
+      },
+      {
+        "framework": "Letta",
+        "search_integrations": [
+          "Exa (built-in web_search)",
+          "Exa-optional fetch_webpage"
+        ],
+        "keyless_default": null,
+        "keenable_upstream": "absent",
+        "keenable_evidence_url": "https://docs.letta.com/guides/agents/web-search",
+        "merged_integration_shape": "unknown \u2014 Letta's web_search is a single built-in server tool hard-wired to Exa ('Works out of the box with the Letta API. Docker requires EXA_API_KEY'); docs expose no provider-swap mechanism. A Keenable integration would need a provider switch inside the built-in tool or a Letta-cloud deal; source path not located this session.",
+        "template_path_url": null,
+        "maintainers": {
+          "title": "Letta maintainers \u2014 no CODEOWNERS file",
+          "name_or_null": null,
+          "source_url_or_null": null
+        },
+        "size_signals": [
+          {
+            "claim": "GitHub stars",
+            "value": 24994,
+            "source_url": "https://github.com/letta-ai/letta",
+            "date": "2026-10-01"
+          }
+        ],
+        "sources": [
+          "https://docs.letta.com/guides/agents/web-search",
+          "https://docs.letta.com/guides/agents/prebuilt-tools"
+        ],
+        "notes": "Code search hit in letta-ai/letta-code was a false positive (identifier 'providerSmokeEnabled'). No PR/issue mentioning Keenable in letta-ai/letta. Keyless on Letta Cloud only because Letta pays Exa; self-hosters must bring EXA_API_KEY \u2014 that is the gap."
+      },
+      {
+        "framework": "Pipecat",
+        "search_integrations": [
+          "Keenable (services/keenable)",
+          "Perplexity (services/perplexity)",
+          "any MCP server via MCPClient"
+        ],
+        "keyless_default": "KeenableWebSearch (keyless 'pro' mode by default; API key unlocks 'realtime')",
+        "keenable_upstream": "merged",
+        "keenable_evidence_url": "https://github.com/pipecat-ai/pipecat/pull/4942",
+        "merged_integration_shape": "`src/pipecat/services/keenable/search.py` (KeenableWebSearch, wrapper over MCPClient) + optional extra `pipecat-ai[keenable]` in pyproject + example `examples/features/features-keenable-web-search.py` + release-eval scenarios + docs page. PR #4942 authored and merged by markbackman 2026-08-14 (approved by kompfner); shipped in 1.8.0 (CHANGELOG, 2026-08-26); latest release v1.12.0 (2026-09-26).",
+        "template_path_url": "https://github.com/pipecat-ai/pipecat/blob/main/src/pipecat/services/keenable/search.py",
+        "maintainers": {
+          "title": "Pipecat maintainers (Daily)",
+          "name_or_null": "markbackman (merged), kompfner (approved) \u2014 public PR #4942",
+          "source_url_or_null": "https://github.com/pipecat-ai/pipecat/pull/4942"
+        },
+        "size_signals": [
+          {
+            "claim": "GitHub stars",
+            "value": 16120,
+            "source_url": "https://github.com/pipecat-ai/pipecat",
+            "date": "2026-10-01"
+          }
+        ],
+        "sources": [
+          "https://github.com/pipecat-ai/pipecat/pull/4942",
+          "https://github.com/pipecat-ai/pipecat/blob/main/CHANGELOG.md",
+          "https://docs.pipecat.ai/api-reference/server/services/knowledge-retrieval/keenable",
+          "https://docs.keenable.ai/integrations/pipecat"
+        ],
+        "notes": "Keenable's own docs still say 'ships in Pipecat 1.8.0, which is not released yet' \u2014 stale; 1.8.0 shipped 2026-08-26 and pipecat is at 1.12.0. pipecat-ai/provider-watch-reports tracks Keenable as a provider (reports/keenable/tool/2026-09-14.md)."
+      },
+      {
+        "framework": "Agno",
+        "search_integrations": [
+          "DuckDuckGo",
+          "WebSearch (ddgs meta-search)",
+          "Exa",
+          "Tavily",
+          "Brave",
+          "Serper",
+          "SerpApi",
+          "Serply",
+          "SearchAPI",
+          "Linkup",
+          "Parallel",
+          "Perplexity",
+          "Valyu",
+          "You.com",
+          "Jina",
+          "Firecrawl",
+          "Google",
+          "Baidu",
+          "SearxNG",
+          "Scavio",
+          "Seltz",
+          "Sofya",
+          "Arxiv",
+          "HackerNews",
+          "Pubmed",
+          "Wikipedia"
+        ],
+        "keyless_default": "DuckDuckGoTools and WebSearchTools (ddgs, backend='auto') \u2014 keyless",
+        "keenable_upstream": "absent",
+        "keenable_evidence_url": "https://github.com/agno-agi/agno/pull/9558",
+        "merged_integration_shape": "Single toolkit file `libs/agno/agno/tools/<vendor>.py` + cookbook example + unit test + docs page under docs.agno.com/tools/toolkits/search. Keenable PR #9558 (KeenableTools, 3 files) open since 2026-08-14, labels 'first-time-contributor', 'missing-issue-link' (author opened issue #9559); last activity 2026-08-28; Greptile bot review only.",
+        "template_path_url": "https://github.com/agno-agi/agno/blob/main/libs/agno/agno/tools/tavily.py",
+        "maintainers": {
+          "title": "Agno maintainers \u2014 no CODEOWNERS file",
+          "name_or_null": null,
+          "source_url_or_null": null
+        },
+        "size_signals": [
+          {
+            "claim": "GitHub stars",
+            "value": 42454,
+            "source_url": "https://github.com/agno-agi/agno",
+            "date": "2026-10-01"
+          }
+        ],
+        "sources": [
+          "https://docs.agno.com/tools/toolkits/overview",
+          "https://github.com/agno-agi/agno/tree/main/libs/agno/agno/tools",
+          "https://github.com/agno-agi/agno/pull/9558"
+        ],
+        "notes": "Agno has the widest search-provider roster of any framework here (22 search toolkits in docs). pypistats.org API returned HTTP 500/429 on three paced attempts on 2026-10-01; PyPI monthly figures unavailable except where LangChain's packages.yml records them."
+      },
+      {
+        "framework": "smolagents (Hugging Face)",
+        "search_integrations": [
+          "DuckDuckGo (DuckDuckGoSearchTool)",
+          "Google via SerpApi/Serper (GoogleSearchTool)",
+          "Brave by default (ApiWebSearchTool)",
+          "WebSearchTool engines: duckduckgo (default), bing, exa",
+          "Wikipedia",
+          "VisitWebpageTool"
+        ],
+        "keyless_default": "DuckDuckGoSearchTool \u2014 in TOOL_MAPPING, auto-added with add_base_tools=True; WebSearchTool(engine='duckduckgo') also keyless",
+        "keenable_upstream": "absent",
+        "keenable_evidence_url": "https://github.com/huggingface/smolagents/pull/2522",
+        "merged_integration_shape": "New Tool class in `src/smolagents/default_tools.py` + entry in docs/source/en/reference/default_tools.md + tests/test_default_tools.py. Keenable PR #2522 (KeenableSearchTool, 3 files) open since 2026-07-14, state 'blocked'; author pinged @albertvillanova 2026-08-02 with no maintainer reply. Keenable docs list smolagents under 'Coming soon'.",
+        "template_path_url": "https://github.com/huggingface/smolagents/blob/main/src/smolagents/default_tools.py",
+        "maintainers": {
+          "title": "smolagents maintainers (Hugging Face) \u2014 no CODEOWNERS; albertvillanova pinged in PR",
+          "name_or_null": "albertvillanova (pinged as reviewer in PR #2522; role unverified)",
+          "source_url_or_null": "https://github.com/huggingface/smolagents/pull/2522"
+        },
+        "size_signals": [
+          {
+            "claim": "GitHub stars",
+            "value": 29619,
+            "source_url": "https://github.com/huggingface/smolagents",
+            "date": "2026-10-01"
+          }
+        ],
+        "sources": [
+          "https://huggingface.co/docs/smolagents/main/en/reference/default_tools",
+          "https://github.com/huggingface/smolagents/blob/main/src/smolagents/default_tools.py",
+          "https://github.com/huggingface/smolagents/pull/2522"
+        ],
+        "notes": "Verified in source: TOOL_MAPPING = {PythonInterpreterTool, DuckDuckGoSearchTool, VisitWebpageTool}; WebSearchTool.__init__(engine='duckduckgo'). pypistats.org API returned HTTP 500/429 on three paced attempts on 2026-10-01; PyPI monthly figures unavailable except where LangChain's packages.yml records them."
+      },
+      {
+        "framework": "OpenAI Agents SDK",
+        "search_integrations": [
+          "OpenAI hosted WebSearchTool (Responses API)",
+          "third parties only via @function_tool or HostedMCPTool / local MCP"
+        ],
+        "keyless_default": null,
+        "keenable_upstream": "absent",
+        "keenable_evidence_url": "https://openai.github.io/openai-agents-python/tools/",
+        "merged_integration_shape": "No third-party search provider slot: the SDK ships only OpenAI-hosted tools; integrations are function tools or MCP servers (Keenable's hosted MCP server fits HostedMCPTool). A 'merged' presence would be an example/cookbook entry, not a provider file.",
+        "template_path_url": null,
+        "maintainers": {
+          "title": "OpenAI SDKs team",
+          "name_or_null": "@seratch @rm-openai @openai/sdks-team (CODEOWNERS *)",
+          "source_url_or_null": "https://github.com/openai/openai-agents-python/blob/main/.github/CODEOWNERS"
+        },
+        "size_signals": [
+          {
+            "claim": "GitHub stars",
+            "value": 29797,
+            "source_url": "https://github.com/openai/openai-agents-python",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "GitHub stars",
+            "value": 3882,
+            "source_url": "https://github.com/openai/openai-agents-js",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "npm downloads last month",
+            "value": 7349457,
+            "source_url": "https://api.npmjs.org/downloads/point/last-month/@openai/agents",
+            "date": "2026-10-01"
+          }
+        ],
+        "sources": [
+          "https://openai.github.io/openai-agents-python/tools/",
+          "https://github.com/openai/openai-agents-python/blob/main/.github/CODEOWNERS"
+        ],
+        "notes": "No PR/issue mentioning Keenable in openai/openai-agents-python; GitHub code search in openai org: none. Keenable's ChatGPT plugin is a separate channel (OpenAI Plugins Directory per Keenable docs, not verified here)."
+      },
+      {
+        "framework": "Pydantic AI",
+        "search_integrations": [
+          "DuckDuckGo (common tool, keyless)",
+          "Tavily (common tool)",
+          "Exa (common tool deprecated \u2192 harness ExaSearch capability)",
+          "Web Fetch (keyless)",
+          "X search",
+          "builtin WebSearchTool (model-provider native)"
+        ],
+        "keyless_default": "duckduckgo_search_tool (pydantic-ai-slim[duckduckgo]) \u2014 keyless",
+        "keenable_upstream": "absent",
+        "keenable_evidence_url": "https://github.com/pydantic/pydantic-ai/pull/9079",
+        "merged_integration_shape": "A harness 'capability' package `src/pydantic_ai_harness/pydantic_ai_harness/<vendor>/_capability.py` + docs/harness/<vendor>-search.md + navigation entry. Keenable PR #9079 (KeenableSearch, 17 files) open since 2026-09-29 in the monorepo, reopened after pydantic-ai-harness#637 (opened 2026-08-17) was closed on repo migration. Maintainer mpfaffenberger wrote on #637: 'Let's keep this in-tree... happy to move it to a plugin later' and offered a demo slot. Bot review (Macroscope) currently 'Not approved'.",
+        "template_path_url": "https://github.com/pydantic/pydantic-ai/tree/main/src/pydantic_ai_harness/pydantic_ai_harness",
+        "maintainers": {
+          "title": "Pydantic AI harness maintainer (Pydantic)",
+          "name_or_null": "mpfaffenberger (public comments on pydantic-ai-harness#637 incl. demo invite) \u2014 no CODEOWNERS file",
+          "source_url_or_null": "https://github.com/pydantic/pydantic-ai-harness/pull/637"
+        },
+        "size_signals": [
+          {
+            "claim": "GitHub stars",
+            "value": 20312,
+            "source_url": "https://github.com/pydantic/pydantic-ai",
+            "date": "2026-10-01"
+          }
+        ],
+        "sources": [
+          "https://pydantic.dev/docs/ai/tools-toolsets/common-tools/",
+          "https://github.com/pydantic/pydantic-ai/tree/main/pydantic_ai_slim/pydantic_ai/common_tools",
+          "https://github.com/pydantic/pydantic-ai/pull/9079",
+          "https://github.com/pydantic/pydantic-ai-harness/pull/637",
+          "https://github.com/pydantic/pydantic-ai/pull/7543"
+        ],
+        "notes": "Warmest open thread of all frameworks: maintainer explicitly wants it in-tree. keenableai forked pydantic-ai (pushed 2026-10-01). pypistats.org API returned HTTP 500/429 on three paced attempts on 2026-10-01; PyPI monthly figures unavailable except where LangChain's packages.yml records them."
+      },
+      {
+        "framework": "Haystack",
+        "search_integrations": [
+          "Brave Search (deepset)",
+          "Tavily (deepset)",
+          "Firecrawl (deepset)",
+          "Jina (deepset)",
+          "DuckDuckGo (community)",
+          "Exa (community)",
+          "Apify (community)",
+          "Bright Data (community)",
+          "Keenable (community)"
+        ],
+        "keyless_default": "DuckDuckGo community integration (keyless) \u2014 listed in catalog, not re-verified; Keenable is also keyless",
+        "keenable_upstream": "merged",
+        "keenable_evidence_url": "https://github.com/deepset-ai/haystack-integrations/pull/527",
+        "merged_integration_shape": "Markdown catalog entry `integrations/keenable.md` in deepset-ai/haystack-integrations (type 'Data Ingestion', community-maintained) pointing at external package `keenable-haystack` (keenableai/keenable-haystack, PyPI 0.1.3). PR #527 merged 2026-07-09 by kacperlukawski; logo update PR #577 merged 2026-08-24. Not in deepset-ai/haystack core.",
+        "template_path_url": "https://github.com/deepset-ai/haystack-integrations/blob/main/integrations/keenable.md",
+        "maintainers": {
+          "title": "deepset DevRel (owns haystack-integrations catalog)",
+          "name_or_null": "@deepset-ai/devrel (CODEOWNERS *); kacperlukawski merged #527",
+          "source_url_or_null": "https://github.com/deepset-ai/haystack-integrations/blob/main/.github/CODEOWNERS"
+        },
+        "size_signals": [
+          {
+            "claim": "GitHub stars",
+            "value": 26637,
+            "source_url": "https://github.com/deepset-ai/haystack",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "integrations in Haystack catalog",
+            "value": 187,
+            "source_url": "https://haystack.deepset.ai/integrations",
+            "date": "2026-10-01"
+          }
+        ],
+        "sources": [
+          "https://haystack.deepset.ai/integrations?type=Web+Search",
+          "https://github.com/deepset-ai/haystack-integrations/pull/527",
+          "https://github.com/deepset-ai/haystack-integrations/blob/main/integrations/keenable.md",
+          "https://pypi.org/project/keenable-haystack/"
+        ],
+        "notes": "Catalog status 'community-maintained' vs 'maintained by deepset' (Tavily, Brave, Firecrawl, Jina are deepset-maintained in haystack-core-integrations). pypistats.org API returned HTTP 500/429 on three paced attempts on 2026-10-01; PyPI monthly figures unavailable except where LangChain's packages.yml records them."
+      },
+      {
+        "framework": "AutoGen / AG2",
+        "search_integrations": [
+          "AG2: DuckDuckGo, Tavily, Perplexity (ag2/tools/search), Google Search, YouTube, Wikipedia, Browser Use, Crawl4AI, TinyFish (docs)",
+          "AutoGen: no web-search provider in autogen_ext.tools (azure, code_execution, graphrag, http, langchain, mcp, semantic_kernel); MultimodalWebSurfer agent"
+        ],
+        "keyless_default": "AG2 DuckDuckGoSearchTool (ag2/tools/search/duckduckgo.py) \u2014 keyless per DDGS; AutoGen: none",
+        "keenable_upstream": "absent",
+        "keenable_evidence_url": "https://github.com/ag2ai/ag2/tree/main/ag2/tools/search",
+        "merged_integration_shape": "AG2: file `ag2/tools/search/<vendor>.py` + docs page under docs.ag2.ai/latest/docs/user-guide/reference-tools/. AutoGen (microsoft/autogen) is in maintenance mode ('will not receive new features', README) and redirects to Microsoft Agent Framework \u2014 not a target.",
+        "template_path_url": "https://github.com/ag2ai/ag2/blob/main/ag2/tools/search/tavily.py",
+        "maintainers": {
+          "title": "AG2 maintainers (partial CODEOWNERS by area)",
+          "name_or_null": "@marklysze (config/eval), @vvlrff (a2a/acp) per CODEOWNERS; search-tools owner unlisted",
+          "source_url_or_null": "https://github.com/ag2ai/ag2/blob/main/.github/CODEOWNERS"
+        },
+        "size_signals": [
+          {
+            "claim": "GitHub stars",
+            "value": 61247,
+            "source_url": "https://github.com/microsoft/autogen",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "GitHub stars",
+            "value": 4972,
+            "source_url": "https://github.com/ag2ai/ag2",
+            "date": "2026-10-01"
+          }
+        ],
+        "sources": [
+          "https://docs.ag2.ai/latest/docs/user-guide/reference-tools/",
+          "https://github.com/ag2ai/ag2/tree/main/ag2/tools/search",
+          "https://github.com/microsoft/autogen",
+          "https://github.com/microsoft/autogen/tree/main/python/packages/autogen-ext/src/autogen_ext/tools"
+        ],
+        "notes": "No Keenable PRs/issues in either repo. AutoGen last push 2026-04-15."
+      },
+      {
+        "framework": "Google ADK",
+        "search_integrations": [
+          "Google Search (Gemini grounding, google_search_tool)",
+          "Enterprise Web Search",
+          "Vertex AI Search",
+          "Discovery Engine search",
+          "load_web_page",
+          "third-party via LangchainTool / CrewaiTool wrappers and MCP"
+        ],
+        "keyless_default": null,
+        "keenable_upstream": "absent",
+        "keenable_evidence_url": "https://adk.dev/integrations/",
+        "merged_integration_shape": "No third-party search-provider slot in adk-python (tools dir has only Google-owned search tools plus LangchainTool/CrewaiTool/MCP wrappers). A presence would be an entry on the adk.dev integrations catalog (adk-docs repo, 'Search' category currently lists only Google Search and Enterprise Web Search) and/or an MCP sample.",
+        "template_path_url": "https://github.com/google/adk-python/tree/main/src/google/adk/tools",
+        "maintainers": {
+          "title": "ADK maintainers (Google) \u2014 no CODEOWNERS file",
+          "name_or_null": null,
+          "source_url_or_null": null
+        },
+        "size_signals": [
+          {
+            "claim": "GitHub stars",
+            "value": 21687,
+            "source_url": "https://github.com/google/adk-python",
+            "date": "2026-10-01"
+          }
+        ],
+        "sources": [
+          "https://adk.dev/integrations/",
+          "https://github.com/google/adk-python/tree/main/src/google/adk/tools"
+        ],
+        "notes": "keenableai forked google/adk-docs (pushed 2026-09-29) but no PR mentioning Keenable exists in google/adk-docs or google/adk-python yet."
+      },
+      {
+        "framework": "Semantic Kernel",
+        "search_integrations": [
+          "Python connectors: Brave, Google Search (+ Azure AI Search)",
+          ".NET Plugins.Web: Bing, Brave, Google, Tavily"
+        ],
+        "keyless_default": null,
+        "keenable_upstream": "absent",
+        "keenable_evidence_url": "https://github.com/microsoft/semantic-kernel/pull/14390",
+        "merged_integration_shape": ".NET: folder `dotnet/src/Plugins/Plugins.Web/<Vendor>/` (<Vendor>TextSearch.cs, request/response/result/options) + unit/integration tests + Concepts/Search sample; Python: `python/semantic_kernel/connectors/<vendor>.py`. Keenable Python PR #14390 closed 2026-09-28 by eavanvalkenburg: 'We are not adding new features to Semantic Kernel at the moment... create a feature request issue in microsoft/agent-framework'. .NET PR #14389 (15 files) still open.",
+        "template_path_url": "https://github.com/microsoft/semantic-kernel/tree/main/dotnet/src/Plugins/Plugins.Web/Tavily",
+        "maintainers": {
+          "title": "Semantic Kernel PR teams",
+          "name_or_null": "@microsoft/octo-semantickernel-pr-python, @microsoft/octo-semantickernel-pr-dotnet (CODEOWNERS); eavanvalkenburg closed the Python PR",
+          "source_url_or_null": "https://github.com/microsoft/semantic-kernel/blob/main/.github/CODEOWNERS"
+        },
+        "size_signals": [
+          {
+            "claim": "GitHub stars",
+            "value": 28620,
+            "source_url": "https://github.com/microsoft/semantic-kernel",
+            "date": "2026-10-01"
+          }
+        ],
+        "sources": [
+          "https://github.com/microsoft/semantic-kernel/tree/main/python/semantic_kernel/connectors",
+          "https://github.com/microsoft/semantic-kernel/tree/main/dotnet/src/Plugins/Plugins.Web",
+          "https://github.com/microsoft/semantic-kernel/pull/14390",
+          "https://github.com/microsoft/semantic-kernel/pull/14389"
+        ],
+        "notes": "Feature-frozen; effort should move to Microsoft Agent Framework. keenableai forked semantic-kernel (pushed 2026-09-19)."
+      },
+      {
+        "framework": "DSPy",
+        "search_integrations": [
+          "ColBERTv2 (public wiki17 abstracts endpoint used in tutorials)",
+          "dspy.Embeddings retriever",
+          "Databricks RM",
+          "Weaviate RM",
+          "arbitrary Python functions via dspy.Tool / MCP"
+        ],
+        "keyless_default": null,
+        "keenable_upstream": "absent",
+        "keenable_evidence_url": "https://github.com/stanfordnlp/dspy/tree/main/dspy/retrievers",
+        "merged_integration_shape": "No web-search provider registry. A presence would be a retriever module `dspy/retrievers/<vendor>_rm.py` (template databricks_rm.py) or a tutorial using a Keenable `dspy.Tool`.",
+        "template_path_url": "https://github.com/stanfordnlp/dspy/blob/main/dspy/retrievers/databricks_rm.py",
+        "maintainers": {
+          "title": "DSPy maintainers (Stanford NLP) \u2014 no CODEOWNERS file",
+          "name_or_null": null,
+          "source_url_or_null": null
+        },
+        "size_signals": [
+          {
+            "claim": "GitHub stars",
+            "value": 38448,
+            "source_url": "https://github.com/stanfordnlp/dspy",
+            "date": "2026-10-01"
+          }
+        ],
+        "sources": [
+          "https://dspy.ai/current/tutorials/agents/",
+          "https://github.com/stanfordnlp/dspy/tree/main/dspy/retrievers"
+        ],
+        "notes": "Agents tutorial search is dspy.ColBERTv2(url='http://20.102.90.50:2017/wiki17_abstracts') \u2014 not web search. No Keenable PRs/issues."
+      },
+      {
+        "framework": "Dify",
+        "search_integrations": [
+          "Keenable (marketplace plugin, verified by Dify)",
+          "other marketplace search plugins not enumerated this session"
+        ],
+        "keyless_default": "Keenable plugin works with an empty API-key field (verified on marketplace listing); other keyless plugins (e.g. DuckDuckGo) not verified this session",
+        "keenable_upstream": "merged",
+        "keenable_evidence_url": "https://github.com/langgenius/dify-plugins/pull/2582",
+        "merged_integration_shape": "Plugin package in the official langgenius/dify-plugins repo \u2192 published on marketplace.dify.ai/plugins/keenable/keenable (v0.1.3, 'Verified by Dify', security rating A, 09/08/2026). PRs #2582 (0.1.0, merged 2026-06-22), #2586, #2899 (merged by crazywoola 2026-08-18), #2938 (2026-08-23). Source repo keenableai/dify-plugin-keenable.",
+        "template_path_url": "https://marketplace.dify.ai/plugins/keenable/keenable",
+        "maintainers": {
+          "title": "Dify core/plugins maintainers",
+          "name_or_null": "@crazywoola @laipz8200 (dify CODEOWNERS *); crazywoola merged the Keenable plugin PRs",
+          "source_url_or_null": "https://github.com/langgenius/dify/blob/main/.github/CODEOWNERS"
+        },
+        "size_signals": [
+          {
+            "claim": "GitHub stars",
+            "value": 157660,
+            "source_url": "https://github.com/langgenius/dify",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "Dify marketplace install indicator for Keenable plugin",
+            "value": "368 (as rendered)",
+            "source_url": "https://marketplace.dify.ai/plugins/keenable/keenable",
+            "date": "2026-10-01"
+          }
+        ],
+        "sources": [
+          "https://marketplace.dify.ai/plugins/keenable/keenable",
+          "https://github.com/langgenius/dify-plugins/pull/2582",
+          "https://github.com/langgenius/dify-plugins/pull/2899",
+          "https://github.com/keenableai/dify-plugin-keenable"
+        ],
+        "notes": "Marketplace listing is the 'upstream' for Dify tools; Dify core repo has no 'keenable' (expected)."
+      },
+      {
+        "framework": "n8n",
+        "search_integrations": [
+          "built-in nodes: Google*, JinaAI, Perplexity",
+          "community nodes (npm n8n-nodes-*) incl. n8n-nodes-keenable"
+        ],
+        "keyless_default": null,
+        "keenable_upstream": "docs-only",
+        "keenable_evidence_url": "https://www.npmjs.com/package/n8n-nodes-keenable",
+        "merged_integration_shape": "Community node on npm (`n8n-nodes-keenable` 0.1.6, 2026-08-23, 66 downloads/mo) installable via Settings \u2192 Community Nodes. The upstream-equivalent is n8n's 'verified community node' status (appears in the nodes panel under 'More from the community'; submission via docs.n8n.io 'submit your node for verification'). No PR in n8n-io/n8n; n8n.io/integrations/keenable returns 404, so verified status is unconfirmed.",
+        "template_path_url": "https://docs.n8n.io/integrations/community-nodes/installation-and-management/install-verified-community-nodes.md",
+        "maintainers": {
+          "title": "n8n community-nodes / partnerships team (CODEOWNERS lists only internal teams)",
+          "name_or_null": null,
+          "source_url_or_null": "https://github.com/n8n-io/n8n/blob/master/.github/CODEOWNERS"
+        },
+        "size_signals": [
+          {
+            "claim": "GitHub stars",
+            "value": 206430,
+            "source_url": "https://github.com/n8n-io/n8n",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "npm downloads last month",
+            "value": 439851,
+            "source_url": "https://api.npmjs.org/downloads/point/last-month/n8n",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "npm downloads last month",
+            "value": 66,
+            "source_url": "https://api.npmjs.org/downloads/point/last-month/n8n-nodes-keenable",
+            "date": "2026-10-01"
+          }
+        ],
+        "sources": [
+          "https://www.npmjs.com/package/n8n-nodes-keenable",
+          "https://github.com/n8n-io/n8n/tree/master/packages/nodes-base/nodes",
+          "https://docs.n8n.io/integrations/community-nodes/installation-and-management/install-verified-community-nodes.md",
+          "https://docs.keenable.ai/integrations/n8n"
+        ],
+        "notes": "Verified-node status is the gap; it is a form submission, not a PR."
+      },
+      {
+        "framework": "LibreChat",
+        "search_integrations": [
+          "search: Serper, SearXNG, Tavily, Keenable",
+          "scrapers: Firecrawl, Tavily, Keenable",
+          "rerankers: Jina, Cohere, None"
+        ],
+        "keyless_default": "Keenable \u2014 the only search provider and scraper that needs no key (docs: 'Keyless web search with optional higher-rate authentication')",
+        "keenable_upstream": "merged",
+        "keenable_evidence_url": "https://github.com/danny-avila/LibreChat/pull/15288",
+        "merged_integration_shape": "Provider + scraper wired through api/server/services/Tools, PluginService, UserController, librechat.yaml `webSearch.searchProvider: keenable` / `scraperProvider: keenable`, and the backend package @librechat/agents (provider since 3.2.58, scraper since 3.3.5). danny-avila took Keenable's agents PR #434 and re-landed it as his own PR #15288 (35 files, merged 2026-08-27, 'I'm eager to try this'). Tag v0.8.8 cut 2026-10-01 (flagged prerelease). Docs PR LibreChat-AI/docs#737 by danny-avila open; Keenable's follow-up LibreChat PR #15020 open under security review.",
+        "template_path_url": "https://github.com/danny-avila/LibreChat/pull/15288/files",
+        "maintainers": {
+          "title": "LibreChat owner/maintainer",
+          "name_or_null": "danny-avila (CODEOWNERS; merged #15288)",
+          "source_url_or_null": "https://github.com/danny-avila/LibreChat/blob/main/.github/CODEOWNERS"
+        },
+        "size_signals": [
+          {
+            "claim": "GitHub stars",
+            "value": 45181,
+            "source_url": "https://github.com/danny-avila/LibreChat",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "npm downloads last month",
+            "value": 145518,
+            "source_url": "https://api.npmjs.org/downloads/point/last-month/@librechat/agents",
+            "date": "2026-10-01"
+          }
+        ],
+        "sources": [
+          "https://www.librechat.ai/docs/features/web_search",
+          "https://github.com/danny-avila/LibreChat/pull/15288",
+          "https://github.com/LibreChat-AI/agents/pull/434",
+          "https://github.com/LibreChat-AI/docs/pull/737",
+          "https://docs.keenable.ai/integrations/librechat"
+        ],
+        "notes": "Strongest merged integration: maintainer-championed, keyless default slot owned."
+      },
+      {
+        "framework": "Open WebUI",
+        "search_integrations": [
+          "Azure",
+          "Bing",
+          "Bocha",
+          "Brave",
+          "DuckDuckGo",
+          "Exa",
+          "External",
+          "Firecrawl",
+          "Google PSE",
+          "Jina",
+          "Kagi",
+          "Linkup",
+          "Microsoft Web IQ",
+          "Mojeek",
+          "Ollama",
+          "OpenSERP",
+          "Perplexity",
+          "SearchApi",
+          "SearXNG",
+          "SerpApi",
+          "Serper",
+          "SerpHouse",
+          "Serply",
+          "Serpstack",
+          "Sougou",
+          "Staan",
+          "Tavily",
+          "YaCy",
+          "Yandex",
+          "You.com (ydc)"
+        ],
+        "keyless_default": "duckduckgo.py (keyless); SearXNG/YaCy self-hosted",
+        "keenable_upstream": "absent",
+        "keenable_evidence_url": "https://github.com/open-webui/open-webui/pull/27170",
+        "merged_integration_shape": "Provider file `backend/open_webui/retrieval/web/<vendor>.py` + engine registration in retrieval/web/main.py + config/env (WEB_SEARCH_ENGINE) + admin UI option. Keenable PR #27170 (5 files) closed 2026-07-27 by tjbck with no stated reason (author asked why, no reply); duplicate #27169 auto-closed by owui-terminator bot.",
+        "template_path_url": "https://github.com/open-webui/open-webui/blob/main/backend/open_webui/retrieval/web/tavily.py",
+        "maintainers": {
+          "title": "Open WebUI owner",
+          "name_or_null": "tjbck (closed the Keenable PR; repo owner) \u2014 no CODEOWNERS file",
+          "source_url_or_null": "https://github.com/open-webui/open-webui/pull/27170"
+        },
+        "size_signals": [
+          {
+            "claim": "GitHub stars",
+            "value": 153708,
+            "source_url": "https://github.com/open-webui/open-webui",
+            "date": "2026-10-01"
+          }
+        ],
+        "sources": [
+          "https://github.com/open-webui/open-webui/tree/main/backend/open_webui/retrieval/web",
+          "https://github.com/open-webui/open-webui/pull/27170",
+          "https://github.com/open-webui/open-webui/pull/27169"
+        ],
+        "notes": "Highest-reach absent target but maintainer-gated; 30 engines already, so the sell is 'keyless and the DuckDuckGo scrape alternative'. keenableai forked open-webui again (pushed 2026-09-29)."
+      },
+      {
+        "framework": "Browser Use",
+        "search_integrations": [
+          "built-in `search` tool \u2014 queries DuckDuckGo, Google or Bing inside the browser"
+        ],
+        "keyless_default": "search via DuckDuckGo/Google/Bing in the controlled browser (keyless)",
+        "keenable_upstream": "absent",
+        "keenable_evidence_url": "https://docs.browser-use.com/customize/tools/available",
+        "merged_integration_shape": "unknown \u2014 no API-search provider registry; search is a browser action. A Keenable presence would be a custom tool or an MCP example; no template path identified.",
+        "template_path_url": null,
+        "maintainers": {
+          "title": "Browser Use maintainers \u2014 no CODEOWNERS file",
+          "name_or_null": null,
+          "source_url_or_null": null
+        },
+        "size_signals": [
+          {
+            "claim": "GitHub stars",
+            "value": 116898,
+            "source_url": "https://github.com/browser-use/browser-use",
+            "date": "2026-10-01"
+          },
+          {
+            "claim": "npm downloads last month",
+            "value": 7377,
+            "source_url": "https://api.npmjs.org/downloads/point/last-month/browser-use",
+            "date": "2026-10-01"
+          }
+        ],
+        "sources": [
+          "https://docs.browser-use.com/customize/tools/available"
+        ],
+        "notes": "No Keenable PRs/issues; code search in browser-use org: none."
+      },
+      {
+        "framework": "Microsoft Agent Framework",
+        "search_integrations": [
+          "Hosted web search from the model provider (OpenAI Responses/Chat Completion get_web_search_tool, Foundry HostedWebSearchTool); HarnessAgent adds it by default",
+          "third parties via function tools, local MCP or hosted MCP"
+        ],
+        "keyless_default": null,
+        "keenable_upstream": "absent",
+        "keenable_evidence_url": "https://learn.microsoft.com/en-us/agent-framework/agents/tools/web-search",
+        "merged_integration_shape": "unknown \u2014 no third-party search-provider slot in docs ('Web search is a hosted tool \u2014 the search is performed by the AI service'). Semantic Kernel maintainer eavanvalkenburg told Keenable (2026-09-28) to file a feature request in microsoft/agent-framework; none found yet. Likely shape: a sample under python/samples or dotnet/samples using Keenable's MCP server, or a provider-specific search tool registered via ChatOptions.Tools.",
+        "template_path_url": null,
+        "maintainers": {
+          "title": "Agent Framework code owners (Microsoft)",
+          "name_or_null": "@eavanvalkenburg @SergeyMenshykh @rogerbarreto @westey-m @moonbox3 @jpalvarezl @sophia-ramsey @TaoChenOSU @giles17 @baywet @peibekwe (CODEOWNERS *)",
+          "source_url_or_null": "https://github.com/microsoft/agent-framework/blob/main/.github/CODEOWNERS"
+        },
+        "size_signals": [
+          {
+            "claim": "GitHub stars",
+            "value": 13892,
+            "source_url": "https://github.com/microsoft/agent-framework",
+            "date": "2026-10-01"
+          }
+        ],
+        "sources": [
+          "https://learn.microsoft.com/en-us/agent-framework/agents/tools/web-search",
+          "https://learn.microsoft.com/en-us/agent-framework/integrations/by-component/model-providers/openai",
+          "https://github.com/microsoft/semantic-kernel/pull/14390",
+          "https://github.com/microsoft/agent-framework/blob/main/.github/CODEOWNERS"
+        ],
+        "notes": "Successor to AutoGen and SK; Keenable's two open microsoft/*-for-beginners PRs add MCP examples but not to the framework repo."
+      }
+    ],
+    "resellers_marketplaces": [
+      {
+        "channel": "AWS Marketplace (incl. 'AI Agents and Tools' category)",
+        "type": "cloud marketplace (SaaS listing, usage-metered billing, private offers)",
+        "search_vendors_listed": "unknown \u2014 AWS Marketplace search results are JavaScript-rendered; server-side fetches for tavily/exa/brave/perplexity/bright data/firecrawl/parallel/serpapi/serper/linkup/you.com returned 0 hits; Tavily and Bright Data own pages do not mention AWS Marketplace",
+        "keenable_listed": "not found (same JS limitation; no server-side hit for 'keenable')",
+        "how_listing_works": "Seller lists SaaS/AMI/container/API product; AWS bills on customer's AWS bill; pricing models: pay-as-you-go (usage dimensions), contract subscriptions, private offers (custom price/EULA), CPPO via channel partners. AI Agents and Tools category explicitly includes 'MCP servers, knowledge bases, guardrails, and web search tools' and 'connect to API-based agents and tools from AWS Marketplace with AgentCore Gateway'. Listing is free; fee deducted at disbursement.",
+        "fee": "Effective Jan 5, 2024: SaaS public offers 3%; AMI/container/ML 20%; AWS Data Exchange 3%; private offers 3% (<$1M TCV), 2% ($1M\u2013<$10M), 1.5% (>=$10M), all renewals 1.5%; CPPO +0.5% uplift; professional services 0.5% (0% in qualifying multi-product offer set); South Korea buyers +1% regional fee from 2025-04-01. Free products: no fee.",
+        "size_signals": "unknown (no public listing count on category page)",
+        "sources": [
+          "https://docs.aws.amazon.com/marketplace/latest/userguide/listing-fees.html",
+          "https://docs.aws.amazon.com/marketplace/latest/userguide/pricing.html",
+          "https://aws.amazon.com/marketplace/solutions/ai-agents-and-tools/"
+        ],
+        "notes": "Category page copy names 'web search tools' as a product type, so a search API is an explicit fit. Vendor presence must be verified in a browser (search UI is client-rendered)."
+      },
+      {
+        "channel": "Amazon Bedrock AgentCore Gateway",
+        "type": "agent tool gateway (not a billing channel itself)",
+        "search_vendors_listed": "none named in docs \u2014 Gateway 1-click integrations named are Salesforce, Slack, Jira, Asana, Zendesk",
+        "keenable_listed": "no",
+        "how_listing_works": "Gateway converts OpenAPI/Smithy/Lambda targets into MCP tools, fronts MCP/HTTP/A2A targets, with ingress/egress auth and semantic tool search. AWS Marketplace solutions page says buyers can 'connect to API-based agents and tools from AWS Marketplace with AgentCore Gateway' \u2014 i.e., a Marketplace SaaS/API listing is the on-ramp; Gateway itself has no listing fee for tool vendors.",
+        "fee": "n/a for vendors (AWS charges the customer for Gateway usage; Marketplace listing fee applies to the product listing)",
+        "size_signals": "unknown",
+        "sources": [
+          "https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway.html",
+          "https://aws.amazon.com/marketplace/solutions/ai-agents-and-tools/"
+        ],
+        "notes": "An OpenAPI spec for Keenable's search/fetch endpoints would make it Gateway-ready without an MCP dependency."
+      },
+      {
+        "channel": "Google Cloud Marketplace (+ Agent Garden / Agentspace, now 'Gemini Enterprise')",
+        "type": "cloud marketplace (SaaS listing with usage/flat-fee pricing, private offers)",
+        "search_vendors_listed": "unknown \u2014 console marketplace search requires login; not verifiable in this session",
+        "keenable_listed": "unknown (not verifiable without console login)",
+        "how_listing_works": "Vendor passes Google's product validation/business-case review for a 'standard revenue share'; SaaS products need consumption tracking (Producer API); private offers support usage and flat-fee SaaS pricing with installment/monthly schedules. Google docs list AI-agent hosting patterns (Pattern 8 fully hosted on Google Cloud; Pattern 9 hybrid).",
+        "fee": "Google's own docs do not publish the number (fee-schedule and 2024 blog URLs now 404). Secondary (Clazar, 2026): 3% standard; private offers 3% (<$1M), 2% ($1M\u2013<$10M), 1.5% (>=$10M); renewals/migrations 1.5%; BYOL 0%; variable 'Vendor Net Revenue Schedule' introduced April 2025.",
+        "size_signals": "unknown",
+        "sources": [
+          "https://docs.cloud.google.com/marketplace/docs/partners/get-started",
+          "https://docs.cloud.google.com/marketplace/docs/partners/offers",
+          "https://www.clazar.io/blog/google-cloud-marketplace-fees"
+        ],
+        "notes": "Agentspace/Agent Garden page now redirects to Gemini Enterprise; third-party search connectors not verifiable from the fetched (truncated) page. Fee figure is secondary-sourced; confirm against the Marketplace Vendor Agreement."
+      },
+      {
+        "channel": "Microsoft Azure Marketplace / Microsoft Foundry tools",
+        "type": "cloud marketplace (transactable SaaS, metered billing, private plans) + agent tool catalog",
+        "search_vendors_listed": "Azure Marketplace: unknown (not verifiable this session). Foundry Agent Service tools catalog: none of the search vendors; built-in 'Grounding with Bing Search' / 'Bing Custom Search'; third-party partner tools listed are Auquan, Celonis, InsureMO, LEGALFLY, LexisNexis, MiHCM, Morningstar, Trademo, Tripadvisor; any MCP endpoint can be attached via the 'MCP tool'.",
+        "keenable_listed": "no (not in Foundry tools catalog; Azure Marketplace unknown)",
+        "how_listing_works": "Transact SaaS offer via Partner Center: flat rate / per-user / usage-based with Marketplace metering service (up to 30 custom meter dimensions per offer, usage reported hourly); private plans; free trials 1\u2013180 days; publisher must use Entra ID + SaaS Fulfillment APIs. Foundry: agents attach tools; third-party tools appear as partner samples or via MCP tool.",
+        "fee": "3% standard store service fee on transactable offers (Microsoft keeps 3%, pays 97%); 50% discount on the fee for private-offer renewals; BYOL 0%.",
+        "size_signals": "unknown",
+        "sources": [
+          "https://learn.microsoft.com/en-us/partner-center/marketplace-offers/marketplace-commercial-transaction-capabilities-and-considerations",
+          "https://learn.microsoft.com/en-us/azure/ai-foundry/agents/how-to/tools/overview"
+        ],
+        "notes": "Foundry 'classic' agents retire 2027-03-31; new Foundry 'Toolbox' is the surface to target. Bing grounding is the incumbent web-search tool."
+      },
+      {
+        "channel": "Snowflake Marketplace",
+        "type": "data/app marketplace (paid listings, per-consumer pricing)",
+        "search_vendors_listed": "unknown (app.snowflake.com listings require login; Bright Data MCP page does not mention Snowflake)",
+        "keenable_listed": "unknown / not found",
+        "how_listing_works": "Full (non-trial) Snowflake account with billing address in an approved country; paid listings require approval from a Snowflake BD partner or Marketplace Operations case; 'Every private paid listing can have a price per consumer'. Native Apps can wrap external APIs.",
+        "fee": "unknown \u2014 not published on the provider docs fetched",
+        "size_signals": "unknown",
+        "sources": [
+          "https://docs.snowflake.com/en/collaboration/provider-becoming",
+          "https://docs.snowflake.com/en/collaboration/collaboration-listings-about"
+        ],
+        "notes": "Fit for Keenable is weak (data-sharing marketplace); would need a Native App wrapper with external access integration."
+      },
+      {
+        "channel": "Databricks Marketplace",
+        "type": "data/app marketplace",
+        "search_vendors_listed": "unknown \u2014 marketplace.databricks.com search is client-rendered (0 server-side hits for bright data/tavily/exa/firecrawl)",
+        "keenable_listed": "not found",
+        "how_listing_works": "Provider needs Databricks Premium+ account with Unity Catalog; public providers are approved through the Databricks Data Partner Program; private exchanges for members only.",
+        "fee": "unknown \u2014 not disclosed in provider docs fetched",
+        "size_signals": "unknown",
+        "sources": [
+          "https://docs.databricks.com/aws/en/marketplace/get-started-provider"
+        ],
+        "notes": "Low fit for a web search API."
+      },
+      {
+        "channel": "RapidAPI Hub",
+        "type": "API marketplace (subscription plans, metered overages)",
+        "search_vendors_listed": "unknown (not verified this session)",
+        "keenable_listed": "unknown",
+        "how_listing_works": "Provider lists API with free/paid plans via Hub Listing 'Monetize' tab; RapidAPI meters quota and bills subscribers; provider payouts.",
+        "fee": "unknown \u2014 commission not stated on the docs pages fetched (legacy pricing doc; monetization page empty)",
+        "size_signals": "unknown",
+        "sources": [
+          "https://docs.rapidapi.com/docs/hub-listing-monetize-tab",
+          "https://docs.rapidapi.com/docs/api-pricing"
+        ],
+        "notes": "Widely reported ~20% commission is NOT confirmed from a primary page in this session; treat as unknown."
+      },
+      {
+        "channel": "Official MCP Registry (registry.modelcontextprotocol.io)",
+        "type": "MCP registry (open, free)",
+        "search_vendors_listed": "Exa (ai.exa/exa), Tavily (io.github.tavily-ai/tavily-mcp + wrappers), Brave (ai.smithery/brave), Perplexity (ai.perplexity/mcp-server), Parallel (ai.parallel/search-mcp, ai.parallel/task-mcp), Serper (io.github.pipeworx-io/serper wrapper), SerpApi (io.github.serpapi/serpapi-mcp), Linkup (so.linkup.mcp/linkup-mcp-server), Bright Data (io.github.brightdata/brightdata-mcp), Firecrawl (io.github.firecrawl/firecrawl-mcp-server); You.com: 0 results",
+        "keenable_listed": "yes \u2014 ai.keenable/web-search ('Live web search and clean-markdown page fetch over the Keenable web index'), 3 versions returned",
+        "how_listing_works": "Publish server.json via the registry CLI/API under a verified namespace (DNS or GitHub); no billing.",
+        "fee": "none",
+        "size_signals": "unknown (API does not return total count)",
+        "sources": [
+          "https://registry.modelcontextprotocol.io/v0/servers?search=keenable",
+          "https://registry.modelcontextprotocol.io/v0/servers?search=exa"
+        ],
+        "notes": "Queried 2026-10-01 via the v0 API."
+      },
+      {
+        "channel": "Smithery",
+        "type": "MCP registry/hosting (free listing; remote hosted servers)",
+        "search_vendors_listed": "Exa (verified, useCount 9,181, created 2024-12-13), Tavily (verified, 1,575, created 2026-03-27), Brave (bySmithery, 119,026), Bright Data (300), Parallel (parallel/tasks, parallel/search), Linkup (213); Serper/Firecrawl/Perplexity surfaced only via aggregator servers (e.g. GroundRoute) in top results",
+        "keenable_listed": "yes \u2014 keenable/web-search 'Keenable Web Search', verified, remote, useCount 2,746, created 2026-06-18, homepage keenable.ai",
+        "how_listing_works": "Publish/connect a remote MCP server; Smithery proxies installs; no marketplace billing.",
+        "fee": "none",
+        "size_signals": "Keenable useCount 2,746 vs Exa 9,181, Tavily 1,575, Brave 119,026 (Smithery registry API, 2026-10-01)",
+        "sources": [
+          "https://registry.smithery.ai/servers?q=keenable",
+          "https://registry.smithery.ai/servers?q=exa"
+        ],
+        "notes": "Keenable already outranks Tavily on Smithery useCount; Brave's number is inflated by being a Smithery-built server."
+      },
+      {
+        "channel": "Glama",
+        "type": "MCP directory (free)",
+        "search_vendors_listed": "unknown (not individually checked)",
+        "keenable_listed": "yes \u2014 2 entries by keenableai: 'Keenable MCP' (Search, quality B, 63 weekly npm downloads, updated 8 days ago) and 'Keenable MCP Server' (official; Search, RAG Systems; 374 weekly npm downloads)",
+        "how_listing_works": "Auto-indexed from GitHub/npm; owners can claim.",
+        "fee": "none",
+        "size_signals": "94,650 servers in directory (2026-10-01)",
+        "sources": [
+          "https://glama.ai/mcp/servers?query=keenable"
+        ],
+        "notes": ""
+      },
+      {
+        "channel": "mcp.so",
+        "type": "MCP directory",
+        "search_vendors_listed": "unknown (client-rendered search)",
+        "keenable_listed": "unknown \u2014 search page returned no server-side hit; guessed server URL 404",
+        "how_listing_works": "Submit server page",
+        "fee": "unknown",
+        "size_signals": "unknown",
+        "sources": [
+          "https://mcp.so/search?q=keenable"
+        ],
+        "notes": "Verify in a browser."
+      },
+      {
+        "channel": "PulseMCP",
+        "type": "MCP directory (free)",
+        "search_vendors_listed": "unknown (not individually checked)",
+        "keenable_listed": "yes \u2014 'Keenable Web Search', classified official, released Jun 19, 2026",
+        "how_listing_works": "Directory indexing; official-repo classification",
+        "fee": "none",
+        "size_signals": "21,750+ servers (page title)",
+        "sources": [
+          "https://www.pulsemcp.com/servers?q=keenable"
+        ],
+        "notes": "v0beta API is being sunset; use /api v0.1."
+      },
+      {
+        "channel": "Docker MCP Catalog / docker/mcp-registry",
+        "type": "MCP catalog (containerized servers; free)",
+        "search_vendors_listed": "brave, brightdata, exa, firecrawl, perplexity-ask, tavily present in docker/mcp-registry servers/ (328 entries) and in Docker Hub 'mcp' namespace (245 images)",
+        "keenable_listed": "no \u2014 not among the 328 server directories",
+        "how_listing_works": "Open a PR to github.com/docker/mcp-registry with a server.yaml; Docker builds/signs the image.",
+        "fee": "none",
+        "size_signals": "328 registry entries; 245 published images",
+        "sources": [
+          "https://api.github.com/repos/docker/mcp-registry/contents/servers",
+          "https://hub.docker.com/v2/repositories/mcp/"
+        ],
+        "notes": "Clear gap: every major competitor is here, Keenable is not."
+      },
+      {
+        "channel": "GitHub MCP registry (github.com/mcp)",
+        "type": "MCP directory (Copilot one-click install)",
+        "search_vendors_listed": "brightdata/brightdata-mcp visible in default listing; others unknown (search requires login)",
+        "keenable_listed": "unknown \u2014 query page only echoes the search term; results require sign-in",
+        "how_listing_works": "Curated by GitHub from the official MCP registry / partner submissions",
+        "fee": "none",
+        "size_signals": "unknown",
+        "sources": [
+          "https://github.com/mcp?query=keenable"
+        ],
+        "notes": ""
+      },
+      {
+        "channel": "Claude connectors directory (claude.com/connectors)",
+        "type": "first-party connector directory (free listing via submission)",
+        "search_vendors_listed": "Exa, Tavily, Firecrawl have connector pages (/connectors/exa, /tavily, /firecrawl); no slug pages found for Bright Data, Perplexity, Parallel, Linkup, Serper, SerpApi, Brave, You.com",
+        "keenable_listed": "not found on 2026-10-01 \u2014 /connectors/keenable and variants 404; ?search=keenable returned nothing; task context says a SELECT connector is listed, so verify the exact slug/visibility",
+        "how_listing_works": "Submit via claude.com/docs/connectors/building/submission; remote MCP server with OAuth.",
+        "fee": "none stated",
+        "size_signals": "877 connectors; '340+' plugins",
+        "sources": [
+          "https://claude.com/connectors",
+          "https://claude.com/connectors/exa",
+          "https://claude.com/connectors/tavily",
+          "https://claude.com/connectors/firecrawl"
+        ],
+        "notes": "Discrepancy with the brief; could be an unlisted/hidden listing or a different name."
+      },
+      {
+        "channel": "OpenAI ChatGPT apps / plugins directory",
+        "type": "first-party app directory (Apps SDK, MCP-based)",
+        "search_vendors_listed": "unknown \u2014 chatgpt.com/apps returns 403 to fetchers",
+        "keenable_listed": "unknown (task context says listed; not verifiable here)",
+        "how_listing_works": "Plugins = skills + MCP server + optional UI; submit with verified individual/org identity; review for safety/privacy/reliability/originality. Commerce: 'plugins may conduct commerce only for physical goods'; cannot show subscription plans or upsell, so API credits cannot be sold in-directory.",
+        "fee": "no revenue share disclosed",
+        "size_signals": "unknown",
+        "sources": [
+          "https://developers.openai.com/apps-sdk/app-submission-guidelines",
+          "https://developers.openai.com/apps-sdk"
+        ],
+        "notes": "Distribution only; monetization must happen on keenable.ai."
+      },
+      {
+        "channel": "Cursor Marketplace + cursor.directory",
+        "type": "IDE plugin/MCP marketplace",
+        "search_vendors_listed": "Cursor Marketplace: Exa ('Web search and content extraction powered by Exa AI'), Firecrawl, Bright Data present; Tavily, Brave, Perplexity, Parallel not in visible snapshot",
+        "keenable_listed": "no (not in visible Cursor Marketplace snapshot); cursor.directory unverifiable (HTTP 429)",
+        "how_listing_works": "'Publish' link on cursor.com/marketplace; community servers on cursor.directory with 'Add to Cursor' deep links",
+        "fee": "none stated",
+        "size_signals": "200+ plugins and MCP servers (Cursor Marketplace)",
+        "sources": [
+          "https://cursor.com/marketplace",
+          "https://cursor.com/docs/context/mcp"
+        ],
+        "notes": ""
+      },
+      {
+        "channel": "Zapier",
+        "type": "automation app directory (free to publish)",
+        "search_vendors_listed": "Exa, Tavily, Firecrawl, Bright Data, Linkup app pages exist (HTTP 200); Brave, Perplexity, SerpApi, Serper slugs 404",
+        "keenable_listed": "no (zapier.com/apps/keenable/integrations 404)",
+        "how_listing_works": "Build on Zapier Developer Platform; 'Building a private or public integration ... is free'; 'no fees for sharing or publishing'; must meet Integration Ownership criteria to go public.",
+        "fee": "none",
+        "size_signals": "9,000+ integrations",
+        "sources": [
+          "https://docs.zapier.com/platform/quickstart/private-vs-public-integrations",
+          "https://zapier.com/apps/exa/integrations",
+          "https://zapier.com/apps/tavily/integrations"
+        ],
+        "notes": ""
+      },
+      {
+        "channel": "Make.com",
+        "type": "automation app directory",
+        "search_vendors_listed": "Tavily listed as 'Official Vendor' app with 4 modules (Crawl a Website, Extract Raw Content, Perform a Search, Make an API Call); Exa slug 404; others unknown",
+        "keenable_listed": "unknown (make.com returns 403 to curl; keenable slug not confirmed)",
+        "how_listing_works": "Partner-built app submitted to Make; vendor verification badge",
+        "fee": "unknown",
+        "size_signals": "unknown",
+        "sources": [
+          "https://www.make.com/en/integrations/tavily"
+        ],
+        "notes": ""
+      },
+      {
+        "channel": "Composio",
+        "type": "agent tool/MCP integration platform (BYO API key)",
+        "search_vendors_listed": "Exa, Tavily, Firecrawl, Perplexityai, SerpApi, Serper, Brightdata, Linkup toolkit pages exist; Brave 404",
+        "keenable_listed": "no (composio.dev/toolkits/keenable 404)",
+        "how_listing_works": "Composio wraps vendor APIs as toolkits/MCP servers; users bring their own vendor API key; Composio charges for its platform, not a resale take rate.",
+        "fee": "no reseller take rate (platform pricing applies to the developer)",
+        "size_signals": "unknown",
+        "sources": [
+          "https://composio.dev/toolkits/exa",
+          "https://composio.dev/toolkits/tavily"
+        ],
+        "notes": "All direct competitors are present; adding a Keenable toolkit is a distribution gap."
+      },
+      {
+        "channel": "Arcade.dev",
+        "type": "agent tool/MCP catalog",
+        "search_vendors_listed": "Exa API (starter integration), Tavily (partner integration), Nimble (partner); 'optimized' Google Search/News/Maps etc.",
+        "keenable_listed": "no",
+        "how_listing_works": "Arcade-built optimized toolkits, starter toolkits, and partner integrations; third parties can publish toolkits",
+        "fee": "unknown",
+        "size_signals": "unknown",
+        "sources": [
+          "https://docs.arcade.dev/en/resources/integrations"
+        ],
+        "notes": ""
+      },
+      {
+        "channel": "Pipedream (Connect)",
+        "type": "integration platform (BYO API key)",
+        "search_vendors_listed": "Exa, Tavily, Firecrawl, Perplexity, Bright Data, SerpApi, Linkup app pages exist; Brave, Serper slugs 404",
+        "keenable_listed": "no (pipedream.com/apps/keenable 404)",
+        "how_listing_works": "Community/partner-contributed app components in the public pipedream/pipedream repo; no resale billing",
+        "fee": "none (no take rate)",
+        "size_signals": "unknown",
+        "sources": [
+          "https://pipedream.com/apps/exa",
+          "https://pipedream.com/apps/tavily"
+        ],
+        "notes": ""
+      },
+      {
+        "channel": "Toolhouse",
+        "type": "agent runtime with built-in tools",
+        "search_vendors_listed": "none named \u2014 docs describe built-in web scraping/search capabilities, not a third-party store",
+        "keenable_listed": "no",
+        "how_listing_works": "Built-in capabilities auto-attached; external APIs via 'virtual computer' with uploaded API docs",
+        "fee": "unknown",
+        "size_signals": "unknown",
+        "sources": [
+          "https://docs.toolhouse.ai/"
+        ],
+        "notes": "Not a reseller channel in its current form."
+      },
+      {
+        "channel": "Cloudflare AI Gateway / Agents (MCP)",
+        "type": "LLM gateway + MCP hosting; not a reseller",
+        "search_vendors_listed": "none \u2014 AI Gateway supports model providers (Workers AI, Anthropic, Google Gemini, OpenAI, Replicate, ...); no web-search API routing",
+        "keenable_listed": "no",
+        "how_listing_works": "n/a (developers can host a remote MCP server on Workers; no directory billing)",
+        "fee": "n/a",
+        "size_signals": "unknown",
+        "sources": [
+          "https://developers.cloudflare.com/ai-gateway/"
+        ],
+        "notes": ""
+      },
+      {
+        "channel": "Vercel Marketplace",
+        "type": "developer marketplace with native (Vercel-billed) integrations",
+        "search_vendors_listed": "Exa ('Vercel Native'; 'Usage is tracked per-installation and billed through Vercel Marketplace'; prepaid credits with auto-recharge; 500+ installs), Firecrawl, Perplexity, Browserbase have listing pages; Tavily, Brave slugs resolve to generic marketplace page (not listed)",
+        "keenable_listed": "no (vercel.com/marketplace/keenable resolves to generic page)",
+        "how_listing_works": "Provider on Vercel Pro team implements the Native Integration server (billing plans, provisioning endpoints), applies to the Marketplace program, emails integrations@vercel.com for review; Vercel bills the customer and pays the provider.",
+        "fee": "unknown \u2014 revenue share not published",
+        "size_signals": "Exa listing shows 500+ installs",
+        "sources": [
+          "https://vercel.com/marketplace/exa",
+          "https://vercel.com/docs/integrations/create-integration/marketplace-product",
+          "https://vercel.com/marketplace/program"
+        ],
+        "notes": "Closest analog to a true usage-metered reseller for an AI search API; Exa is the precedent."
+      },
+      {
+        "channel": "Apify Store",
+        "type": "actor marketplace (rental / pay-per-result / pay-per-event)",
+        "search_vendors_listed": "unknown \u2014 store search is client-rendered (no reliable server-side hits)",
+        "keenable_listed": "no server-side hit for 'keenable'",
+        "how_listing_works": "Publish an Actor; monetize via rental, pay-per-result, or pay-per-event; Apify bills users.",
+        "fee": "Pay-per-event: developer receives 80% of revenue, Apify keeps 20% ('profit = (0.8 * revenue) - platform costs'); rental/PPR share not shown on fetched page",
+        "size_signals": "unknown",
+        "sources": [
+          "https://docs.apify.com/platform/actors/publishing/monetize/pricing-and-costs"
+        ],
+        "notes": "Apify also sells its own search tooling (RAG Web Browser, Apify MCP)."
+      },
+      {
+        "channel": "Clay integrations",
+        "type": "data-enrichment provider directory",
+        "search_vendors_listed": "Exa listed (/integrations/data-provider/exa); Bright Data listed as data provider; Tavily, Brave, Perplexity, Parallel, Serper, SerpApi, Linkup, Firecrawl not found",
+        "keenable_listed": "no",
+        "how_listing_works": "Clay-built provider integrations ('50+ built-in data providers'); vendors onboard via Clay partnerships (process not published)",
+        "fee": "unknown",
+        "size_signals": "50+ built-in data providers",
+        "sources": [
+          "https://www.clay.com/integrations"
+        ],
+        "notes": ""
+      }
+    ]
+  },
+  "sp2_target": {
+    "chosen": "Fireworks AI",
+    "weights": {
+      "fit": 0.3,
+      "reach": 0.25,
+      "gap": 0.3,
+      "warm": 0.15
+    },
+    "scores": [
+      {
+        "platform": "Fireworks AI",
+        "fit": 5,
+        "reach": 5,
+        "gap": 4,
+        "warm": 1,
+        "why": {
+          "fit": "Server-side web_search already live for Claude Code/Codex via FireConnect and in the Responses API, 'with any Fireworks model': Keenable is a backend swap, not a product build (docs.fireworks.ai/nexus/web-search; docs.fireworks.ai/guides/response-api, read 2026-10-01).",
+          "reach": "$1B+ revenue run rate, 40T+ tokens/day, $17.5B valuation (fireworks.ai/blog/series-d-announcement, 2026-07-15); 10,000+ companies (Series C, 2025-10-28).",
+          "gap": "Backend provider not named and 'Web search pricing will be published soon' (docs, 2026-10-01): the vendor and price decision is open or not yet public. Unknown whether a vendor is already signed.",
+          "warm": "No confirmed introduction path. Competitive pull instead: Baseten, its closest rival, launched Keenable-backed Hosted Tools 2026-09-16."
+        },
+        "weighted": 4.1
+      },
+      {
+        "platform": "OpenRouter",
+        "fit": 5,
+        "reach": 5,
+        "gap": 2,
+        "warm": 2,
+        "why": {
+          "fit": "Web plugin takes an `engine` enum (native, exa, firecrawl, parallel, perplexity): Keenable is one more value (openrouter.ai/docs/features/web-search).",
+          "reach": "10M+ developers, 10T+ tokens/day (openrouter.ai/blog/announcements/openrouter-is-joining-stripe, 2026-08-19).",
+          "gap": "Exa is the default for non-native models and Parallel already sells at $1/1K on the same shelf; Stripe acquisition close may freeze vendor onboarding.",
+          "warm": "George is a paying daily user (customer, not a contact)."
+        },
+        "weighted": 3.65
+      },
+      {
+        "platform": "Together AI",
+        "fit": 3,
+        "reach": 4,
+        "gap": 5,
+        "warm": 1,
+        "why": {
+          "fit": "No hosted-tool framework; only Together Code Interpreter ($0.03/session) is server-executed (docs.together.ai). Needs a product build.",
+          "reach": "$800M Series C, 'thousands of customers' (together.ai/blog/announcing-our-series-c, 2026-07-01).",
+          "gap": "No search tool at all; tutorials make developers bring an Exa or Tavily key.",
+          "warm": "Cold. Ce Zhang is already on the Galactica target list (research/targets.md), so one account, two products."
+        },
+        "weighted": 3.55
+      },
+      {
+        "platform": "Cerebras",
+        "fit": 4,
+        "reach": 4,
+        "gap": 4,
+        "warm": 1,
+        "why": {
+          "fit": "Speed brand matches Keenable realtime (~118 ms p50 on NEEDLE); cookbooks already build search agents.",
+          "reach": "Q2 2026 revenue $180.1M, core cloud $127.7M (+287%) (nasdaq.com press release, 2026-08-12).",
+          "gap": "No hosted tools; Exa and Parallel only as bring-your-own-key docs.",
+          "warm": "Cold."
+        },
+        "weighted": 3.55
+      },
+      {
+        "platform": "Vercel AI Gateway",
+        "fit": 4,
+        "reach": 4,
+        "gap": 3,
+        "warm": 2,
+        "why": {
+          "fit": "Gateway-executed search tools exist (vercel:<vendor>_search); public onboarding pattern (vercel.com/docs/ai-gateway/models-and-providers/web-search).",
+          "reach": "200,000+ teams, tens of trillions of tokens (vercel.com/blog/ai-gateway-production-index, 2026-05-12).",
+          "gap": "Five vendors onboarded in 2026 (Perplexity, Parallel, Exa, Tako, Browserbase) at $5-7/1K; Keenable at $4/1K would be the cheapest, but the shelf is crowded.",
+          "warm": "Investor overlap only: Accel led Keenable's seed and co-led Vercel's Series F (secondary source). Not a relationship."
+        },
+        "weighted": 3.4
+      },
+      {
+        "platform": "Parasail",
+        "fit": 4,
+        "reach": 2,
+        "gap": 5,
+        "warm": 1,
+        "why": {
+          "fit": "OpenAI-shaped Responses API",
+          "reach": "'Trillions of tokens served daily' (parasail.io), no revenue data.",
+          "gap": "Docs row reads 'Web search tool: Not currently available'.",
+          "warm": "Cold."
+        },
+        "weighted": 3.35
+      },
+      {
+        "platform": "DeepInfra",
+        "fit": 3,
+        "reach": 3,
+        "gap": 5,
+        "warm": 1,
+        "why": {
+          "fit": "No hosted tools; Hosted Agents and Sandboxes exist but without web search.",
+          "reach": "$100M ARR, 22T tokens/week (pulse2.com, 2026-09-29, secondary).",
+          "gap": "Greenfield.",
+          "warm": "Cold; founder-led (CEO Nikola Borisov, deepinfra.com/about)."
+        },
+        "weighted": 3.3
+      },
+      {
+        "platform": "Modal",
+        "fit": 3,
+        "reach": 3,
+        "gap": 5,
+        "warm": 1,
+        "why": {
+          "fit": "New token-billed Shared Endpoints, no tools yet.",
+          "reach": "~$300M annualized revenue (secondary), round at ~$15.75B reported.",
+          "gap": "No search.",
+          "warm": "Cold."
+        },
+        "weighted": 3.3
+      },
+      {
+        "platform": "Groq",
+        "fit": 3,
+        "reach": 4,
+        "gap": 4,
+        "warm": 1,
+        "why": {
+          "fit": "Built-in tools exist but only for GPT-OSS models; browser_search 'powered by Exa'.",
+          "reach": "6M+ developers (groq.com newsroom, 2026-08-17).",
+          "gap": "Compound (generic web search across Llama/Qwen) retired 2026-09-21: no search for most models.",
+          "warm": "Cold; company mid-transition (pricing page redirects)."
+        },
+        "weighted": 3.25
+      }
+    ]
+  },
+  "revenue_model": {
+    "platform": "Fireworks AI",
+    "tokens_per_day": {
+      "value": 40000000000000.0,
+      "claim": "More than 40 trillion tokens every day",
+      "source_url": "https://fireworks.ai/blog/series-d-announcement",
+      "date": "2026-07-15"
+    },
+    "prices": {
+      "frontier_1_per_1k": 1.0,
+      "passthrough_4_per_1k": 4.0
+    },
+    "ramp": {
+      "2026-11": 0,
+      "2026-12": 0,
+      "2027-01": 0.02,
+      "2027-02": 0.1,
+      "2027-03": 0.2,
+      "2027-04": 0.3,
+      "2027-05": 0.42,
+      "2027-06": 0.55,
+      "2027-07": 0.67,
+      "2027-08": 0.79,
+      "2027-09": 0.9,
+      "2027-10": 1.0
+    },
+    "formula": "searches/day = tokens/day x eligible share x searches per 1M eligible tokens / 1e6 x Keenable share",
+    "cases": {
+      "low": {
+        "inputs": {
+          "eligible": 0.05,
+          "rate": 0.3,
+          "share": 0.25
+        },
+        "steady_state_m12": {
+          "searches_per_day": 150000,
+          "avg_rps": 1.7,
+          "monthly_usd_at_1": 4500,
+          "annual_usd_at_1": 54750,
+          "annual_usd_at_4": 219000
+        },
+        "monthly_usd_at_1": [
+          0,
+          0,
+          90,
+          450,
+          900,
+          1350,
+          1890,
+          2475,
+          3015,
+          3555,
+          4050,
+          4500
+        ],
+        "first_12_months_usd_at_1": 22275
+      },
+      "mid": {
+        "inputs": {
+          "eligible": 0.12,
+          "rate": 1.0,
+          "share": 0.5
+        },
+        "steady_state_m12": {
+          "searches_per_day": 2400000,
+          "avg_rps": 27.8,
+          "monthly_usd_at_1": 72000,
+          "annual_usd_at_1": 876000,
+          "annual_usd_at_4": 3504000
+        },
+        "monthly_usd_at_1": [
+          0,
+          0,
+          1440,
+          7200,
+          14400,
+          21600,
+          30240,
+          39600,
+          48240,
+          56880,
+          64800,
+          72000
+        ],
+        "first_12_months_usd_at_1": 356400
+      },
+      "high": {
+        "inputs": {
+          "eligible": 0.25,
+          "rate": 3.0,
+          "share": 1.0
+        },
+        "steady_state_m12": {
+          "searches_per_day": 30000000,
+          "avg_rps": 347.2,
+          "monthly_usd_at_1": 900000,
+          "annual_usd_at_1": 10950000,
+          "annual_usd_at_4": 43800000
+        },
+        "monthly_usd_at_1": [
+          0,
+          0,
+          18000,
+          90000,
+          180000,
+          270000,
+          378000,
+          495000,
+          603000,
+          711000,
+          810000,
+          900000
+        ],
+        "first_12_months_usd_at_1": 4455000
+      }
+    },
+    "chart_12m": {
+      "type": "line",
+      "title": "Keenable revenue from the Fireworks hosted web_search line, first 12 months ($1/1K)",
+      "x": [
+        "2026-11",
+        "2026-12",
+        "2027-01",
+        "2027-02",
+        "2027-03",
+        "2027-04",
+        "2027-05",
+        "2027-06",
+        "2027-07",
+        "2027-08",
+        "2027-09",
+        "2027-10"
+      ],
+      "unit": "USD per month",
+      "series": [
+        {
+          "name": "low case",
+          "values": [
+            0,
+            0,
+            90,
+            450,
+            900,
+            1350,
+            1890,
+            2475,
+            3015,
+            3555,
+            4050,
+            4500
+          ]
+        },
+        {
+          "name": "mid case",
+          "values": [
+            0,
+            0,
+            1440,
+            7200,
+            14400,
+            21600,
+            30240,
+            39600,
+            48240,
+            56880,
+            64800,
+            72000
+          ]
+        },
+        {
+          "name": "high case",
+          "values": [
+            0,
+            0,
+            18000,
+            90000,
+            180000,
+            270000,
+            378000,
+            495000,
+            603000,
+            711000,
+            810000,
+            900000
+          ]
+        }
+      ],
+      "annotations": [
+        {
+          "x": "2027-01",
+          "label": "rate-limited preview"
+        },
+        {
+          "x": "2027-02",
+          "label": "GA + co-launch post"
+        }
+      ],
+      "note": "ASSUMPTION-driven; Fireworks token volume held flat at 40T/day (it grew 4x in the 9 months to Jul 2026, so flat is conservative)."
+    }
+  },
+  "funnel": {
+    "inputs": {
+      "signups_per_month": {
+        "low": 1000,
+        "mid": 2500,
+        "high": 5000,
+        "label": "ASSUMPTION: no public Keenable signup data; range spans a seed-stage API after a TechCrunch launch."
+      },
+      "activation": {
+        "low": 0.25,
+        "mid": 0.34,
+        "high": 0.45,
+        "source": "Lenny's Newsletter 2022: median 25%, average 34% (B2B SaaS median 30%, average 36%)",
+        "url": "https://www.lennysnewsletter.com/p/what-is-a-good-activation-rate"
+      },
+      "free_to_paid": {
+        "low": 0.03,
+        "mid": 0.05,
+        "high": 0.08,
+        "source": "Lenny/OpenView/Pendo 2023: developer-focused median 5%; freemium good 3-5%, great 6-8%",
+        "url": "https://www.lennysnewsletter.com/p/what-is-a-good-free-to-paid-conversion"
+      },
+      "arpa_month_usd": {
+        "low": 60,
+        "mid": 150,
+        "high": 300,
+        "label": "ASSUMPTION: 15K-100K billed requests/month above the free 100K at $4/1K."
+      },
+      "ndr": {
+        "low": 1.06,
+        "mid": 1.2,
+        "high": 1.25,
+        "source": "Twilio 106% (Q4 2024), Datadog ~120% (FY2025 10-K), Snowflake 125% (FY2026 10-K)",
+        "url": [
+          "https://www.twilio.com/en-us/press/releases/twilio-announces-fourth-quarter-and-full-year-2024-results",
+          "https://www.sec.gov/Archives/edgar/data/1561550/000162828026008819/ddog-20251231.htm",
+          "https://www.sec.gov/Archives/edgar/data/1640147/000164014726000008/snow-20260131.htm"
+        ]
+      }
+    },
+    "outputs": {
+      "low": {
+        "signups_per_month": 1000,
+        "activated_per_month": 250,
+        "paid_per_month": 30.0,
+        "free_requests_served_per_month_upper_bound": "3K accounts x <=100K",
+        "mrr_month12_usd": 22188,
+        "arr_run_rate_month12_usd": 266253
+      },
+      "mid": {
+        "signups_per_month": 2500,
+        "activated_per_month": 850,
+        "paid_per_month": 125.0,
+        "free_requests_served_per_month_upper_bound": "10K accounts x <=100K",
+        "mrr_month12_usd": 244946,
+        "arr_run_rate_month12_usd": 2939357
+      },
+      "high": {
+        "signups_per_month": 5000,
+        "activated_per_month": 2250,
+        "paid_per_month": 400.0,
+        "free_requests_served_per_month_upper_bound": "27K accounts x <=100K",
+        "mrr_month12_usd": 1598358,
+        "arr_run_rate_month12_usd": 19180293
+      }
+    },
+    "levers": [
+      {
+        "lever": "Keyless \u2192 keyed hand-off",
+        "mechanism": "Keyless calls carry X-Keenable-Title; aggregate titles weekly into a lead list and show an in-response 'get a key for 10 rps' hint when a title nears 1,000/h.",
+        "moves": "activation"
+      },
+      {
+        "lever": "Default slots in frameworks",
+        "mechanism": "LibreChat, Lightpanda and Pipecat already default to Keenable keyless; land Pydantic AI (#9079), smolagents (#2522), Agno (#9558). Each default turns installs into first calls without a signup.",
+        "moves": "top of funnel + activation"
+      },
+      {
+        "lever": "402 \u2192 checkout in one click",
+        "mechanism": "When credits run out the API returns HTTP 402 (docs.keenable.ai/credits); put a checkout URL in the 402 body and the MCP _meta so the agent's developer converts inside the terminal.",
+        "moves": "free_to_paid"
+      },
+      {
+        "lever": "PQL at RPS, not volume",
+        "mechanism": "Flag any org sustaining >5 rps or >50K requests/week; Founding GTM reaches out with a pilot offer. ProductLed 2025: PQL-led conversion averages 25% vs ~9% overall median.",
+        "moves": "free_to_paid, ARPA",
+        "source": "https://productled.com/blog/product-led-growth-benchmarks"
+      },
+      {
+        "lever": "Free tier shape",
+        "mechanism": "100K/month is 20x Bright Data MCP's 5K and 100x Tavily's 1,000 credits; it wins activation but can delay conversion. Test 100K free for search + a smaller fetch.live allowance before cutting volume.",
+        "moves": "free_to_paid"
+      },
+      {
+        "lever": "Platform pass-through as a funnel",
+        "mechanism": "Baseten/Fireworks users meet Keenable with no key; a 'powered by Keenable' line in tool results and docs gives a path to a direct key for teams that outgrow the platform shelf.",
+        "moves": "top of funnel"
+      }
+    ],
+    "benchmarks": [
+      {
+        "metric": "Activation rate (signup -> activation), median / average",
+        "value": "median 25%, average 34%",
+        "segment": "all products (500+ surveyed)",
+        "year": 2022,
+        "source_url": "https://www.lennysnewsletter.com/p/what-is-a-good-activation-rate",
+        "source_type": "secondary",
+        "notes": "Lenny's Newsletter survey, Oct 2022; 'good' = 60th percentile, 'great' = 80th percentile."
+      },
+      {
+        "metric": "Activation rate, B2B SaaS",
+        "value": "median 30%, average 36%; B2B enterprise ~40-50%; B2B prosumer ~35-45%; marketplaces/e-commerce 15-25%",
+        "segment": "B2B SaaS",
+        "year": 2022,
+        "source_url": "https://www.lennysnewsletter.com/p/what-is-a-good-activation-rate",
+        "source_type": "secondary",
+        "notes": "Same survey; no developer-tool-specific cut published."
+      },
+      {
+        "metric": "Free-to-paid conversion, freemium self-serve",
+        "value": "good 3-5%, great 6-8%",
+        "segment": "freemium, self-serve B2B SaaS",
+        "year": 2023,
+        "source_url": "https://www.lennysnewsletter.com/p/what-is-a-good-free-to-paid-conversion",
+        "source_type": "secondary",
+        "notes": "Survey of 1,000+ B2B SaaS products by Lenny Rachitsky, Kyle Poyar (OpenView) and Pendo, 2023."
+      },
+      {
+        "metric": "Free-to-paid conversion, freemium with sales-assist",
+        "value": "good 5-7%, great 10-15%",
+        "segment": "freemium + sales assist",
+        "year": 2023,
+        "source_url": "https://www.lennysnewsletter.com/p/what-is-a-good-free-to-paid-conversion",
+        "source_type": "secondary",
+        "notes": ""
+      },
+      {
+        "metric": "Free-to-paid conversion, free trial",
+        "value": "good 8-12%, great 15-25%",
+        "segment": "free trial products",
+        "year": 2023,
+        "source_url": "https://www.lennysnewsletter.com/p/what-is-a-good-free-to-paid-conversion",
+        "source_type": "secondary",
+        "notes": ""
+      },
+      {
+        "metric": "Free-to-paid conversion, developer-focused companies (median)",
+        "value": "5% median \u2014 'half that of companies that do not sell to developers'",
+        "segment": "developer tools / API products",
+        "year": 2023,
+        "source_url": "https://www.lennysnewsletter.com/p/what-is-a-good-free-to-paid-conversion",
+        "source_type": "secondary",
+        "notes": "Most directly applicable benchmark for Keenable's 100K-free-requests funnel."
+      },
+      {
+        "metric": "Free-to-paid distribution, freemium",
+        "value": "20% of products <2.5%; 33% at 2.5-5% (largest bucket); 15% >20%",
+        "segment": "freemium",
+        "year": 2023,
+        "source_url": "https://www.lennysnewsletter.com/p/what-is-a-good-free-to-paid-conversion",
+        "source_type": "secondary",
+        "notes": ""
+      },
+      {
+        "metric": "Free-to-paid distribution, free trial",
+        "value": "7% of products <2.5%; 24% at 7.5-10% (most common); 14% >=20%",
+        "segment": "free trial",
+        "year": 2023,
+        "source_url": "https://www.lennysnewsletter.com/p/what-is-a-good-free-to-paid-conversion",
+        "source_type": "secondary",
+        "notes": ""
+      },
+      {
+        "metric": "Free-to-paid conversion, overall median (PLG)",
+        "value": "~9% overall median; $1K-$5K ACV median 10%; sub-$1K ACV top quartile 24%; with PQLs avg 25% (30% at $1K-5K ACV, 39% at $5K-10K ACV)",
+        "segment": "PLG B2B SaaS (600+ companies)",
+        "year": 2025,
+        "source_url": "https://productled.com/blog/product-led-growth-benchmarks",
+        "source_type": "secondary",
+        "notes": "ProductLed survey published 2025-02-05."
+      },
+      {
+        "metric": "Visitor-to-signup conversion",
+        "value": "freemium 12% median; free trial ~5% (freemium '140% higher')",
+        "segment": "PLG B2B SaaS",
+        "year": 2025,
+        "source_url": "https://productled.com/blog/product-led-growth-benchmarks",
+        "source_type": "secondary",
+        "notes": "Only 34% of surveyed companies track activation."
+      },
+      {
+        "metric": "Usage-based pricing adoption among SaaS companies",
+        "value": "27% (2018) -> 46% (2022) -> 41% (2023); 17% testing UBP",
+        "segment": "private SaaS companies (700+ respondents in 2023; 3,000+ over six years)",
+        "year": 2023,
+        "source_url": "https://www.growthunhinged.com/p/the-state-of-usage-based-pricing",
+        "source_type": "secondary",
+        "notes": "OpenView 'State of Usage-Based Pricing' data as summarized by Kyle Poyar, post dated 2024-02-21. OpenView's original report pages now 404; the NDR-by-pricing-model cut was not recoverable this session."
+      },
+      {
+        "metric": "Hybrid / AI-credit pricing adoption",
+        "value": "hybrid pricing 37% (up from 25% a year earlier); AI credits 29% now, 33% plan to add in 6-12 months; 29% offer multiple pricing models (from 21%)",
+        "segment": "230 B2B software/AI companies",
+        "year": 2026,
+        "source_url": "https://www.growthunhinged.com/p/the-state-of-b2b-monetization-in-2026",
+        "source_type": "secondary",
+        "notes": "Growth Unhinged, 2026-05-13; 'not enough expansion revenue' cited as top challenge for flat-fee/seat-based companies."
+      },
+      {
+        "metric": "Net revenue retention, Snowflake",
+        "value": "126% as of January 31, 2025; 125% as of January 31, 2026",
+        "segment": "usage-based data cloud (public company)",
+        "year": 2026,
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1640147/000164014726000008/snow-20260131.htm",
+        "source_type": "primary",
+        "notes": "FY2025 figure from the Q4 FY2025 earnings release (https://investors.snowflake.com/news/news-details/2025/Snowflake-Reports-Financial-Results-for-the-Fourth-Quarter-and-Full-Year-of-Fiscal-2025/default.aspx); FY2026 figure from the 10-K filed 2026-03-20."
+      },
+      {
+        "metric": "Trailing 12-month dollar-based net retention, Datadog",
+        "value": "about 120% as of December 31, 2025; 'high-110%'s' as of December 31, 2024",
+        "segment": "usage-based observability (public company)",
+        "year": 2025,
+        "source_url": "https://www.sec.gov/Archives/edgar/data/1561550/000162828026008819/ddog-20251231.htm",
+        "source_type": "primary",
+        "notes": "10-K FY2025 (filed 2026-02-18): increase 'attributable to increased usage growth from existing customers'."
+      },
+      {
+        "metric": "Dollar-based net expansion rate, Twilio",
+        "value": "106% in Q4 2024; 102% in Q4 2023",
+        "segment": "usage-based communications API (public company)",
+        "year": 2024,
+        "source_url": "https://www.twilio.com/en-us/press/releases/twilio-announces-fourth-quarter-and-full-year-2024-results",
+        "source_type": "primary",
+        "notes": "Compares revenue from the same cohort of active customer accounts year over year."
+      },
+      {
+        "metric": "Share of free-tier API users who exceed the free tier / convert on overage",
+        "value": "unknown",
+        "segment": "developer API products (Stripe, Twilio, Algolia, Vercel, etc.)",
+        "year": null,
+        "source_url": "",
+        "source_type": "secondary",
+        "notes": "No public primary data found this session; company-specific funnel data for Stripe/Twilio/Algolia/Vercel is not disclosed. Closest proxy is the 5% developer-focused free-to-paid median (Lenny/Poyar/Pendo 2023)."
+      },
+      {
+        "metric": "Net dollar retention, usage-based vs non-usage-based SaaS (OpenView)",
+        "value": "unknown this session",
+        "segment": "private SaaS",
+        "year": null,
+        "source_url": "",
+        "source_type": "secondary",
+        "notes": "OpenView's report pages now 404 and web.archive.org is blocked for this tool; do not cite a number without re-sourcing."
+      },
+      {
+        "metric": "Competitor scale signal, Tavily (vendor claim)",
+        "value": "3M+ developers; 300M+ monthly requests; 99.99% uptime SLA; 180 ms p50 on /search",
+        "segment": "AI web search API",
+        "year": 2026,
+        "source_url": "https://www.tavily.com/",
+        "source_type": "primary",
+        "notes": "Self-reported marketing numbers; useful as a ceiling for category demand, not a funnel benchmark."
+      },
+      {
+        "metric": "Competitor free tier, Bright Data MCP",
+        "value": "5,000 MCP requests/month free",
+        "segment": "AI web data MCP",
+        "year": 2026,
+        "source_url": "https://brightdata.com/ai/mcp-server",
+        "source_type": "primary",
+        "notes": "Keenable's 100K/month free tier is 20x larger."
+      }
+    ],
+    "formula": "paid/month = signups x free_to_paid; MRR(m12) = sum over 12 cohorts of paid x ARPA x NDR^(age/12)"
+  },
+  "top10_channel_targets": [
+    {
+      "rank": 1,
+      "target": "Fireworks AI",
+      "type": "inference platform",
+      "play": "Become the named backend for its live server-side web_search before pricing is published.",
+      "evidence": "docs.fireworks.ai/nexus/web-search"
+    },
+    {
+      "rank": 2,
+      "target": "OpenRouter",
+      "type": "inference router",
+      "play": "Add `keenable` to the web plugin engine enum; enter their public web-search benchmark.",
+      "evidence": "openrouter.ai/docs/features/web-search ; openrouter.ai/blog/announcements/web-search-benchmark/"
+    },
+    {
+      "rank": 3,
+      "target": "Vercel AI Gateway",
+      "type": "gateway",
+      "play": "vercel:keenable_search as the cheapest gateway search tool ($4 vs $5-7/1K), launched with a free-through-date promo like Tako.",
+      "evidence": "vercel.com/docs/ai-gateway/models-and-providers/web-search"
+    },
+    {
+      "rank": 4,
+      "target": "Together AI",
+      "type": "inference platform",
+      "play": "First hosted tool after Code Interpreter; bundle with the Galactica conversation (same account).",
+      "evidence": "docs.together.ai/docs/function-calling ; research/targets.md"
+    },
+    {
+      "rank": 5,
+      "target": "Cerebras",
+      "type": "inference platform",
+      "play": "Replace bring-your-own Exa/Parallel cookbooks with a server-side tool that matches their speed story.",
+      "evidence": "inference-docs.cerebras.ai/integrations/exa.md"
+    },
+    {
+      "rank": 6,
+      "target": "Pydantic AI",
+      "type": "agent framework",
+      "play": "Get PR #9079 (KeenableSearch capability) merged; maintainer has asked for it in-tree.",
+      "evidence": "github.com/pydantic/pydantic-ai/pull/9079"
+    },
+    {
+      "rank": 7,
+      "target": "smolagents (Hugging Face)",
+      "type": "agent framework",
+      "play": "Unblock PR #2522 as the keyless alternative to the DuckDuckGo default tool.",
+      "evidence": "github.com/huggingface/smolagents/pull/2522"
+    },
+    {
+      "rank": 8,
+      "target": "Agno",
+      "type": "agent framework",
+      "play": "Close the missing items on PR #9558 (KeenableTools) and get it merged.",
+      "evidence": "github.com/agno-agi/agno/pull/9558"
+    },
+    {
+      "rank": 9,
+      "target": "Letta",
+      "type": "agent framework",
+      "play": "Keyless fallback for self-hosters, whose web_search is hard-wired to Exa and needs EXA_API_KEY.",
+      "evidence": "docs.letta.com/guides/agents/web-search"
+    },
+    {
+      "rank": 10,
+      "target": "Docker MCP Catalog",
+      "type": "MCP registry",
+      "play": "Add servers/keenable to docker/mcp-registry; Brave, Exa, Tavily, Firecrawl and Bright Data are already there.",
+      "evidence": "github.com/docker/mcp-registry"
+    }
+  ],
+  "demo": {
+    "_meta": {
+      "what": "SP2 search-side demo: platform-hosted web_search backed by Keenable",
+      "started": "2026-10-01T14:13:07.057Z",
+      "finished": "2026-10-01T14:13:36.681Z",
+      "endpoint": "https://api.keenable.ai/v1/search/public (keyless)",
+      "pacing": "kit pacer, <= 1.5 rps (rule: <= 2 rps)",
+      "queries": "kit/channel/queries.jsonl",
+      "caveats": [
+        "Latency is measured from this machine (Mac, residential/office network, US West unverified) to Keenable US East; a platform calling from its own cloud region sees lower network time.",
+        "Keyless tier only. The keyed tier and dedicated Frontier capacity were not measured.",
+        "expected_domain hit is a domain proxy for relevance, not a graded judgment."
+      ]
+    },
+    "by_mode": {
+      "realtime": {
+        "calls": 20,
+        "errors": 0,
+        "p50_ms": 230,
+        "p95_ms": 434,
+        "max_ms": 606,
+        "mean_results": 10,
+        "expected_domain_top3": "12/20",
+        "expected_domain_top10": "14/20",
+        "dated_share_mean": 0.69
+      },
+      "pro": {
+        "calls": 20,
+        "errors": 0,
+        "p50_ms": 240,
+        "p95_ms": 422,
+        "max_ms": 458,
+        "mean_results": 10,
+        "expected_domain_top3": "12/20",
+        "expected_domain_top10": "14/20",
+        "dated_share_mean": 0.69
+      }
+    },
+    "by_segment": {
+      "coding-agent/realtime": {
+        "calls": 8,
+        "p50_ms": 268,
+        "p95_ms": 606,
+        "expected_top10": "6/8"
+      },
+      "research-agent/realtime": {
+        "calls": 4,
+        "p50_ms": 230,
+        "p95_ms": 434,
+        "expected_top10": "3/4"
+      },
+      "freshness/realtime": {
+        "calls": 4,
+        "p50_ms": 225,
+        "p95_ms": 301,
+        "expected_top10": "3/4"
+      },
+      "factual-qa/realtime": {
+        "calls": 4,
+        "p50_ms": 206,
+        "p95_ms": 305,
+        "expected_top10": "2/4"
+      },
+      "coding-agent/pro": {
+        "calls": 8,
+        "p50_ms": 265,
+        "p95_ms": 422,
+        "expected_top10": "6/8"
+      },
+      "research-agent/pro": {
+        "calls": 4,
+        "p50_ms": 210,
+        "p95_ms": 458,
+        "expected_top10": "3/4"
+      },
+      "freshness/pro": {
+        "calls": 4,
+        "p50_ms": 194,
+        "p95_ms": 267,
+        "expected_top10": "3/4"
+      },
+      "factual-qa/pro": {
+        "calls": 4,
+        "p50_ms": 215,
+        "p95_ms": 263,
+        "expected_top10": "2/4"
+      }
+    },
+    "domain_controls": {
+      "allowed_fanout": {
+        "legs": 2,
+        "billed": 2,
+        "hosts": [
+          "docs.fireworks.ai",
+          "docs.together.ai"
+        ],
+        "ms": 173
+      },
+      "blocked_filter": {
+        "hosts": [
+          "angelinvestorsnetwork.com",
+          "aidb.digital",
+          "tamradar.com",
+          "aiflownews.com",
+          "venturepost.co"
+        ],
+        "contains_blocked": false,
+        "ms": 225
+      }
+    },
+    "billing": {
+      "realtime": {
+        "frontier": {
+          "tool_calls": 27,
+          "keenable_requests": 23,
+          "usd": 0.023,
+          "price_per_1k": 1
+        },
+        "payg": {
+          "tool_calls": 27,
+          "keenable_requests": 23,
+          "usd": 0.092,
+          "price_per_1k": 4
+        }
+      },
+      "pro": {
+        "frontier": {
+          "tool_calls": 20,
+          "keenable_requests": 20,
+          "usd": 0.02,
+          "price_per_1k": 1
+        },
+        "payg": {
+          "tool_calls": 20,
+          "keenable_requests": 20,
+          "usd": 0.08,
+          "price_per_1k": 4
+        }
+      }
+    },
+    "model_side": {
+      "status": "STUB (NEEDS KEY: FIREWORKS_API_KEY or OPENROUTER_API_KEY)",
+      "file": "kit/channel/out/transcript_STUB.md",
+      "real_tool_calls": [
+        {
+          "id": "srvtoolu_28",
+          "query": "inference platform hosted tools web search launch 2026",
+          "mode": "realtime",
+          "legs": 1,
+          "billed_keenable_requests": 1,
+          "cache_hits": 0,
+          "failed": 0,
+          "upstream_ms": 212,
+          "total_ms": 654,
+          "n": 5
+        },
+        {
+          "id": "srvtoolu_29",
+          "query": "Baseten Hosted Tools Keenable Exa Parallel You.com",
+          "mode": "realtime",
+          "legs": 1,
+          "billed_keenable_requests": 1,
+          "cache_hits": 0,
+          "failed": 0,
+          "upstream_ms": 260,
+          "total_ms": 716,
+          "n": 5
+        }
+      ]
+    }
+  }
+}

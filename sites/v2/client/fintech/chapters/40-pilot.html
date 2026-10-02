@@ -1,0 +1,55 @@
+<section class="slide" id="pilot" data-chapter="pilot" data-title="The 2-week pilot" data-src="research/opt2_demo_spec.md">
+  <div class="inner">
+    <p class="eyebrow">The pilot · 2 weeks · your harness</p>
+    <h2 data-reveal>200 of your events, run through your own agent.</h2>
+    <figure class="c-diagram" data-reveal aria-label="Your 200 events and decision dates go to Keenable with query_time set to each decision date, then to your agent and your judge, then a one-page verdict.">
+      <svg class="land" viewBox="0 0 1200 230" aria-hidden="true">
+        <defs><marker id="fxChev" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" stroke="#0B0B0B" stroke-width="1.6"/></marker>
+          <marker id="fxChevA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" style="stroke:var(--accent-deep)" stroke-width="2"/></marker></defs>
+        <g><rect class="box" x="1" y="1" width="270" height="228"/><text class="sub" x="20" y="44">YOU PICK</text><text class="lab" x="20" y="110">200 events and</text><text class="lab" x="20" y="140">decision dates</text></g>
+        <g><rect class="box hl" x="310" y="1" width="270" height="228"/><text class="sub hl" x="329" y="44">KEENABLE</text><text class="lab hl" x="329" y="110">query_time =</text><text class="lab hl" x="329" y="140">decision date</text></g>
+        <g><rect class="box" x="619" y="1" width="270" height="228"/><text class="sub" x="638" y="44">YOUR STACK</text><text class="lab" x="638" y="110">Your agent,</text><text class="lab" x="638" y="140">your judge</text></g>
+        <g><rect class="box" x="928" y="1" width="270" height="228"/><text class="sub" x="947" y="44">DAY 14</text><text class="lab" x="947" y="110">One-page verdict,</text><text class="lab" x="947" y="140">misses included</text></g>
+        <path class="arrow" d="M275 115 H302" marker-end="url(#fxChev)"/>
+        <path class="arrow hl" d="M584 115 H611" marker-end="url(#fxChevA)"/>
+        <path class="arrow" d="M893 115 H920" marker-end="url(#fxChev)"/>
+      </svg>
+      <svg class="portrait" viewBox="0 0 360 500" aria-hidden="true">
+        <defs><marker id="fxChevP" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" stroke="#0B0B0B" stroke-width="1.6"/></marker></defs>
+        <g><rect class="box" x="1" y="1" width="358" height="92"/><text class="sub" x="18" y="34">YOU PICK</text><text class="lab" x="18" y="70">200 events + dates</text></g>
+        <g><rect class="box hl" x="1" y="135" width="358" height="92"/><text class="sub hl" x="18" y="168">KEENABLE</text><text class="lab hl" x="18" y="204">query_time = date</text></g>
+        <g><rect class="box" x="1" y="269" width="358" height="92"/><text class="sub" x="18" y="302">YOUR STACK</text><text class="lab" x="18" y="338">Your agent and judge</text></g>
+        <g><rect class="box" x="1" y="403" width="358" height="92"/><text class="sub" x="18" y="436">DAY 14</text><text class="lab" x="18" y="472">One-page verdict</text></g>
+        <path class="arrow" d="M180 95 V127" marker-end="url(#fxChevP)"/><path class="arrow" d="M180 229 V261" marker-end="url(#fxChevP)"/><path class="arrow" d="M180 363 V395" marker-end="url(#fxChevP)"/>
+      </svg>
+    </figure>
+    <p class="foot">Runs in your notebook; nothing leaves your environment but the queries. Source: <a class="src" href="../../research/opt2_demo_spec.md">opt2_demo_spec.md</a></p>
+  </div>
+</section>
+
+<section class="slide c-step" id="gate" data-chapter="pilot" data-title="Pass/fail gate" data-src="research/opt2_demo_spec.md">
+  <div class="inner">
+    <div class="letter" aria-hidden="true">P<small>Written first</small></div>
+    <div>
+      <h2 data-reveal>Pass only if nothing from the future gets in.</h2>
+      <div class="c-gate" data-reveal>
+        <div class="line"><b>PASS IF</b> results acquired after the cutoff = 0<br><b>AND</b> results serving later page text = 0</div>
+        <div class="meta"><span>200 events · 2 weeks · $0</span><span>agreed: day 0</span><span>owner: your model-risk lead</span></div>
+      </div>
+      <p class="foot">PROPOSAL. $0 covers Keenable search only (100K free requests a month); your LLM, judge and staff time are not included. Source: <a class="src" href="../../research/opt2_demo_spec.md">opt2_demo_spec.md</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="slide" id="receipt" data-chapter="pilot" data-title="Evidence pack" data-src="data/fintech_repro.json">
+  <div class="inner">
+    <p class="eyebrow">Evidence pack for model risk</p>
+    <h2 data-reveal>Every answer ships a receipt you can replay.</h2>
+    <pre class="fx-receipt" data-reveal><span class="k">request</span>  {"query": "Microsoft Activision Blizzard acquisition closed",
+           "query_time": "2023-06-01"}
+<span class="k">results</span>  10 URLs, each with acquired_at
+<span class="k">sha256</span>   0acb8bc0282ff3fc830c…52afd8
+<span class="k">replay</span>   <b>6 of 6</b> requests: identical URLs, identical order</pre>
+    <p class="foot">Measured: identical after 8 minutes. The pilot replays at day 14. Source: <a class="src" href="../../data/fintech_repro.json">fintech_repro.json</a></p>
+  </div>
+</section>

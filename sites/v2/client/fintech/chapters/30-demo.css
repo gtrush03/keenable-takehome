@@ -1,0 +1,31 @@
+/* Fintech deck: the live query box (form, meter, compact result list). */
+.fx-live { padding-top: 48px; }
+.fx-form { display: grid; grid-template-columns: minmax(0, 15em) minmax(0, 1fr); gap: 12px 16px; align-items: center; }
+.fx-form select, .fx-form input[type=text], .fx-form input[type=date] { font: 400 var(--t-label) var(--font-text); min-height: 52px; padding: 0 14px; border: 1.5px solid var(--ink); background: #fff; color: var(--ink); border-radius: 0; min-width: 0; }
+.fx-form input[type=text] { font-family: var(--font-mono); font-size: var(--t-min); }
+.fx-tm { display: flex; align-items: center; gap: 12px; font: 500 var(--t-label) var(--font-mono); grid-column: 1 / 2; }
+.fx-tm input[type=checkbox] { width: 26px; height: 26px; accent-color: var(--accent); }
+.fx-form .btn { justify-self: start; min-height: 52px; font-size: var(--t-label); }
+.fx-meter { font: 400 var(--t-label) var(--font-mono); color: var(--ink-2); margin: var(--s3) 0 var(--s2); }
+.fx-meter b.ok { color: var(--good); } .fx-meter b.bad { color: var(--bad); }
+.fx-res { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.fx-res li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--s3); padding: 12px 0; border-bottom: 1px solid var(--line); font-size: var(--t-small); }
+.fx-res li .t { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: var(--ink); }
+.fx-res li .h { font: 400 var(--t-min) var(--font-mono); color: var(--ink-2); white-space: nowrap; }
+.fx-res li.late .h { color: var(--bad); }
+@media (max-width: 700px) {
+  .fx-form { grid-template-columns: 1fr; gap: 6px; }
+  .fx-form select, .fx-form input[type=text], .fx-form input[type=date] { font-size: 16px; padding: 0 8px; min-height: 44px; }
+  .fx-form .btn { min-height: 44px; font-size: 16px; }
+  .fx-live { padding-top: 36px; }
+  .fx-meter { margin: 6px 0 2px; }
+  .fx-res li:nth-child(n+3) { display: none; }
+  .fx-tm { font-size: 15px; }
+  .fx-form .btn { padding: 9px 14px; }
+  .fx-meter { font-size: 14px; margin: 8px 0 4px; }
+  .fx-res li { grid-template-columns: 1fr; gap: 0; padding: 4px 0; font-size: 15px; }
+  .fx-res li .h { font-size: 14px; }
+  .fx-res li:nth-child(n+4) { display: none; }
+}
+@media print { .fx-res li { font-size: 18px; padding: 6px 0; } .fx-meter { font-size: 17px; margin-top: 0; } }
+.fx-meter code { font-size: 1em; }

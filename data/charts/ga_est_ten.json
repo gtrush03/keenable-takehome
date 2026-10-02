@@ -1,0 +1,109 @@
+{
+ "title": "Ten formerly 'only Keenable' card items, estimated from a Keenable search sample",
+ "data": [
+  {
+   "q": "Q02",
+   "unknown": "Sampling policy",
+   "value": 63.9,
+   "unit": "%",
+   "says": "of docs come from a domain seen only once: a long-tail frontier",
+   "ci": "60.9–66.8%",
+   "n": 1009,
+   "tag": "MEASURED"
+  },
+  {
+   "q": "Q03",
+   "unknown": "Language coverage",
+   "value": 65.6,
+   "unit": "%",
+   "says": "of results to 20 non-English queries are non-English; Spanish, Portuguese and Polish got none",
+   "ci": "58.6–72.0%",
+   "n": 189,
+   "tag": "MEASURED"
+  },
+  {
+   "q": "Q04",
+   "unknown": "Exclusions",
+   "value": 6.8,
+   "unit": "%",
+   "says": "of indexed docs sit at URLs today's robots.txt closes to unnamed crawlers",
+   "ci": "1.1–14.2%",
+   "n": 504,
+   "tag": "MEASURED"
+  },
+  {
+   "q": "Q05",
+   "unknown": "AI-generated share",
+   "value": 3.7,
+   "unit": "%",
+   "prefix": "≥",
+   "says": "floor: Grok-written pages plus stock LLM phrases",
+   "ci": "2.7–5.0%",
+   "n": 1009,
+   "tag": "MEASURED floor"
+  },
+  {
+   "q": "Q11",
+   "unknown": "Error rates",
+   "value": 4.1,
+   "unit": "%",
+   "says": "thin (< 50 words) or boilerplate-dominant pages",
+   "ci": "3.0–5.5%",
+   "n": 1009,
+   "tag": "MEASURED"
+  },
+  {
+   "q": "Q17",
+   "unknown": "Toxicity and NSFW",
+   "value": 0,
+   "unit": "",
+   "says": "explicit adult pages after hand review of 11 lexicon flags",
+   "ci": "95% upper bound 0.25%",
+   "n": 1209,
+   "tag": "MEASURED"
+  },
+  {
+   "q": "Q18",
+   "unknown": "PII",
+   "value": 8.7,
+   "unit": "%",
+   "says": "of docs hold an email, phone, street address or IP; a scrub removes 0.07% of text",
+   "ci": "7.1–10.6%",
+   "n": 1009,
+   "tag": "MEASURED"
+  },
+  {
+   "q": "Q19–20",
+   "unknown": "AI-training opt-out",
+   "value": 15.7,
+   "unit": "%",
+   "says": "of docs sit on sites that opt out of AI training today",
+   "ci": "10.9–21.3%",
+   "n": 504,
+   "tag": "MEASURED"
+  },
+  {
+   "q": "Q21",
+   "unknown": "Licence exposure",
+   "value": 18.3,
+   "unit": "%",
+   "says": "news pages, the category in active copyright suits",
+   "ci": "15.4–21.6%",
+   "n": 600,
+   "tag": "MEASURED"
+  },
+  {
+   "q": "Q22",
+   "unknown": "GDPR footprint",
+   "value": 5.3,
+   "unit": "%",
+   "says": "of docs on EU/EEA country domains (a floor for EU origin)",
+   "ci": "4.1–6.9%",
+   "n": 1009,
+   "tag": "MEASURED floor"
+  }
+ ],
+ "caveat": "Search-results sample from Keenable's keyless /v1/search/public + /v1/fetch/public (indexed copy). Not a random draw of the index: every doc ranked top-10 for some query, which favours popular, well-linked, query-matching pages. 'broad' reduces topical bias; it does not remove ranking bias.",
+ "source": "data/galactica_estimates.json",
+ "generated_at": "2026-10-01T19:00:00+00:00"
+}

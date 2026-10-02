@@ -1,0 +1,22 @@
+# One-case slide order (George 23:08Z). build.py reorders sections by id and sets data-chapter to the group key.
+# Slides not listed follow the slide they followed in the chapter files.
+## opening
+hero agenda task tk-grid
+## fintech
+film-fintech fintech fx-story fx-p fx-fences fx-h2h fx-useful fx-flip tk-f-thesis tk-f-accounts tk-f-targets pp-fintech tk-f-demo fx-live fx-open fx-recipe fx-order fx-fan fx-screen fx-gate client-fintech
+## bridge
+two-buyers tk-bridge tk-clock
+## galactica
+film-galactica galactica ga-story ga-bridge ga-p ga-bar ga-r ga-tokens ga-quality ga-cost tk-g-thesis ga-card tk-g-card ga-optout tk-g-accounts tk-g-targets pp-galactica ga-order ga-jev ga-feedback
+## findings
+findings fd-bug fd-a fd-weak fd-b
+## fun
+film-ad
+## sell
+proof-ch proof pf-p pf-r pf-o1 pf-o2 pf-f people pp-net pp-platform pp-chain pp-weeks gtm q-plan q-kit q-terms q-channel q-product q-score quote client-fireworks outcomes oc-days oc-pilot
+## why
+why whoami numbers
+## ask
+ask-found ask-gets ask
+## sources
+sources sx-mine sx-f1 sx-f2 sx-g1 sx-g2 sx-k appendix ax-src-fence ax-src-fence-2 ax-src-more ax-src-more-2 ax-objections ax-objections-2 ax-caveats ax-caveats-2 ax-links

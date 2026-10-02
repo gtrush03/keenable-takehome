@@ -1,0 +1,24 @@
+/* Extended version: layout fixes from QA (2 Oct). Scoped to their slides only; loaded after full/dock.css.
+   Both defects already have a base fix in v2.css (≈ lines 721–724); this file only adds what was still missing. */
+
+/* #fx-order, phone: the cost chart is an SVG (shared charts) with right-anchored row labels ending at x=139 of a
+   420-wide viewBox. v2.css lets them overflow the SVG (17px, overflow visible), so nothing clips, but the longest
+   ("Backtest · Frontier") ran ~12px past the SVG's left edge and sat 4px from the screen edge (WebKit, iPhone 15 Pro).
+   A left pad pulls the chart in so that label lines up with the page's 16px gutter. */
+@media (max-width: 700px) {
+  #fx-order #fxCost { padding-left: 12px; }
+}
+
+/* #pf-r (query value running back under the "query" label) needs nothing here: the shared .pf-code rule already
+   hangs it (code padding-left: 11ch; labels pulled back with margin-left: -11ch). Checked at 1440 and 390, 2 Oct. */
+
+/* #fx-p, between the phone layout (≤700px, already fluid) and wide desktop: each row is a fixed 972px grid (260px label +
+   10 × 52px cells + 72px count), so iPhone landscape (734px) scrolled sideways to 1031px. Here the label column and the
+   cells shrink to fit; cells stay square and never grow past the desktop 52px. Screen only, so the print/PDF layout
+   keeps its own 34px cells. */
+@media screen and (min-width: 701px) and (max-width: 1180px) {
+  #fx-p .fx-grid .row { grid-template-columns: minmax(0, 180px) minmax(0, max-content) 56px; }
+  #fx-p .fx-grid .cells { grid-template-columns: repeat(10, minmax(0, 52px)); gap: 6px; }
+  #fx-p .fx-grid .cells i { width: auto; height: auto; aspect-ratio: 1; }
+  #fx-p .fx-grid .row > b { font-size: 36px; }
+}

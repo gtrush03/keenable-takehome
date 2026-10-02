@@ -1,0 +1,51 @@
+<section class="slide" id="integration" data-chapter="proof" data-title="Hosted-tool integration" data-src="research/g9_channel.md">
+  <div class="inner">
+    <p class="eyebrow">Integration · a backend swap, no product build</p>
+    <h2 data-reveal>Swap the backend. Your users change nothing.</h2>
+    <figure class="c-diagram" data-reveal aria-label="Claude Code, Codex or the Responses API call web_search. The Fireworks gateway runs the open model. A Keenable adapter translates domains, caches, and meters successful calls. Keenable's index answers. Results return in Anthropic or OpenAI shape.">
+      <svg class="land" viewBox="0 0 1200 230" aria-hidden="true">
+        <defs><marker id="fwChev" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" stroke="#0B0B0B" stroke-width="1.6"/></marker>
+          <marker id="fwChevA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" style="stroke:var(--accent-deep)" stroke-width="2"/></marker></defs>
+        <g><rect class="box" x="1" y="1" width="270" height="228"/><text class="sub" x="20" y="44">CLIENT</text><text class="lab" x="20" y="110">Claude Code,</text><text class="lab" x="20" y="140">Codex, Responses</text></g>
+        <g><rect class="box" x="310" y="1" width="270" height="228"/><text class="sub" x="329" y="44">FIREWORKS</text><text class="lab" x="329" y="110">Gateway: model</text><text class="lab" x="329" y="140">calls web_search</text></g>
+        <g><rect class="box hl" x="619" y="1" width="270" height="228"/><text class="sub hl" x="638" y="44">ADAPTER</text><text class="lab hl" x="638" y="110">Domains, cache,</text><text class="lab hl" x="638" y="140">meter success only</text></g>
+        <g><rect class="box" x="928" y="1" width="270" height="228"/><text class="sub" x="947" y="44">KEENABLE</text><text class="lab" x="947" y="110">Own index,</text><text class="lab" x="947" y="140">one org key</text></g>
+        <path class="arrow" d="M275 115 H302" marker-end="url(#fwChev)"/>
+        <path class="arrow hl" d="M584 115 H611" marker-end="url(#fwChevA)"/>
+        <path class="arrow" d="M893 115 H920" marker-end="url(#fwChev)"/>
+      </svg>
+      <svg class="portrait" viewBox="0 0 360 500" aria-hidden="true">
+        <defs><marker id="fwChevP" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" stroke="#0B0B0B" stroke-width="1.6"/></marker></defs>
+        <g><rect class="box" x="1" y="1" width="358" height="92"/><text class="sub" x="18" y="34">CLIENT</text><text class="lab" x="18" y="70">Claude Code, Codex</text></g>
+        <g><rect class="box" x="1" y="135" width="358" height="92"/><text class="sub" x="18" y="168">FIREWORKS</text><text class="lab" x="18" y="204">Gateway, web_search</text></g>
+        <g><rect class="box hl" x="1" y="269" width="358" height="92"/><text class="sub hl" x="18" y="302">ADAPTER</text><text class="lab hl" x="18" y="338">Cache, meter</text></g>
+        <g><rect class="box" x="1" y="403" width="358" height="92"/><text class="sub" x="18" y="436">KEENABLE</text><text class="lab" x="18" y="472">Own index</text></g>
+        <path class="arrow" d="M180 95 V127" marker-end="url(#fwChevP)"/><path class="arrow" d="M180 229 V261" marker-end="url(#fwChevP)"/><path class="arrow" d="M180 363 V395" marker-end="url(#fwChevP)"/>
+      </svg>
+    </figure>
+    <p class="foot">Failed calls and cache hits are not billed; end customers never hold a Keenable key. Source: <a class="src" href="../../research/g9_channel.md">g9_channel.md</a> §2.2</p>
+  </div>
+</section>
+
+<section class="slide" id="latency" data-chapter="proof" data-title="Latency" data-src="data/g9_channel.json">
+  <div class="inner">
+    <p class="eyebrow">20 agent queries × 2 modes · 0 errors · 1 Oct 2026</p>
+    <h2 data-reveal>From a laptop over WAN: p95 434 ms.</h2>
+    <div class="c-compare" style="--cols:3" data-reveal>
+      <div class="us"><p class="k">All queries · realtime</p><p class="v">434<small>ms p95 · p50 230</small></p><p class="d">well under a <b>1.5 s</b> tool timeout</p></div>
+      <div><p class="k">Coding-agent queries</p><p class="v">606<small>ms p95 · p50 268</small></p><p class="d">8 queries, slowest segment</p></div>
+      <div><p class="k">Cache replay</p><p class="v">0<small>ms · $0 billed</small></p><p class="d">5 repeats inside the TTL</p></div>
+    </div>
+    <p class="foot">Keyless tier, residential network to US East; latency from your region remains unmeasured. Source: <a class="src" href="../../data/g9_channel.json">g9_channel.json</a> (demo)</p>
+  </div>
+</section>
+
+<section class="slide c-big" id="misses" data-chapter="proof" data-title="Where it misses" data-src="research/g9_channel.md">
+  <div class="inner">
+    <p class="eyebrow">What your eval will find first</p>
+    <h2 data-reveal>Where it misses today: primary docs.</h2>
+    <div class="big" data-reveal><span class="acc">14</span><span class="of">/20</span></div>
+    <p class="big-label" data-reveal>queries with the expected domain in the top 10. Missed: nextjs.org, docs.pydantic.dev, sec.gov.</p>
+    <p class="foot">Domain proxy, not a graded judgment. Source: <a class="src" href="../../research/g9_channel.md">g9_channel.md</a> §4</p>
+  </div>
+</section>

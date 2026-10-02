@@ -1,0 +1,32 @@
+# v3 spine (George ruling #5; cut to the main flow by ruling #16, 1 Oct 00:47Z). Only these slides are in /v2/; every other
+# slide stays on disk and lives in the Extended version (full.html). In-page links to them point at full.html#id.
+# "## Section" lines (team-lead, 1 Oct 00:40Z) set data-chapter on the flow slides below them; keep them on any edit.
+
+## Start
+hero
+film-fintech
+tk-answers
+
+## Fintech · Option 2
+tk-f-thesis
+fx-h2h
+fx-flip
+tk-f-targets
+fd-bug
+
+## One timestamp
+tk-bridge
+
+## Galactica · Option 1
+film-galactica
+tk-g-thesis
+ga-card
+tk-g-targets
+
+## Close
+film-ad
+proof
+oc-days
+why
+ask
+sources

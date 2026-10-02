@@ -1,0 +1,10 @@
+
+arm                 verified   hit@3   p50/p95/p99 ms     PIT index/outcome/content-date   $/verified (list)
+keenable            22/40      0.275   704/1358/1422      0/1/1                            0.007
+keenable_realtime   22/40      0.275   728/1260/1498      0/1/1                            0.007
+tavily              37/40      0.4     2070/6893/20748    0/16/0                           0.009
+exa                 40/40      0.825   571/806/852        0/31/0                           0.017
+parallel            37/40      0.725   1158/3472/4108     0/24/22                          0.001  (1 errors)
+LLM judge: openrouter anthropic/claude-sonnet-5.5, 0 items
+
+wrote eval/out/fintech_rivals/results.jsonl, summary.json, blind_packet.json, VERDICT.md

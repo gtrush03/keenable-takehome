@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Requirements · George Trushevskiy for Keenable</title>
+<meta name="description" content="Every requirement in the Keenable take-home brief, and where it is met.">
+<link rel="icon" href="../brand/favicon-32.png">
+<link rel="apple-touch-icon" href="../brand/apple-touch-icon.png">
+<meta name="theme-color" content="#FAFAF7">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="George Trushevskiy · Founding GTM take-home for Keenable">
+<meta property="og:title" content="Requirements · Search, with a clock · Founding GTM take-home for Keenable">
+<meta property="og:description" content="George Trushevskiy ran Keenable on its live API, tested it and brought back the bug. Narrated films, a live demo and graded sources.">
+<meta property="og:url" content="https://founding-gtm.trusynth.com/v2/map/">
+<meta property="og:image" content="https://founding-gtm.trusynth.com/v2/brand/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Search, with a clock. George Trushevskiy, Founding GTM take-home for Keenable.">
+<meta name="twitter:card" content="summary_large_image">
+<script src="../config.js"></script>
+<link rel="stylesheet" href="../kit/keenable.css">
+<style>
+  /* page chrome on the kit (our links only); the kit hides .k-nav under 900px, so it becomes a scrolling second row here */
+  .k-nav a[aria-current="page"] { color: var(--k-blue); }
+  .k-announce { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 0 16px; }
+  @media (max-width: 900px) {
+    body .k-header-bar { height: auto; padding: calc(16px + env(safe-area-inset-top)) 0 8px; } /* beats nav/ios.css fixed 78px height: the nav wraps to a 2nd row here */
+    .k-header { height: auto; row-gap: 8px; }
+    .k-nav { display: flex; grid-column: 1 / -1; grid-row: 2; overflow-x: auto; gap: 4px; margin: 0 -12px; scrollbar-width: none; }
+    .k-nav::-webkit-scrollbar { display: none; }
+    .k-nav a { height: auto; padding: 8px 12px; }
+    .k-announce { font-size: 12px; }
+    .k-footer__grid { gap: 24px; }
+  }
+  @media print { .k-announce, .k-header-bar, .k-footer { display: none !important; } }
+
+  .map { padding-bottom: 89px; }
+  .map-h1 { margin: 20px 0 56px; }
+  .grp + .grp { margin-top: 26px; }
+  .grp .k-panel__head { margin-bottom: 20px; }
+  .lead-tag { color: var(--k-blue); margin-left: 10px; vertical-align: middle; }
+  .reqs { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  .req { display: grid; grid-template-columns: 36px minmax(0, 1fr) auto; gap: 16px; align-items: center; background: #fff; border-radius: var(--k-r-card); padding: 18px 22px; }
+  .req .k-step { border-color: var(--k-blue); color: var(--k-blue); }
+  .req .k-step.part { border-color: var(--k-orange); color: var(--k-orange); }
+  .req-t { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+  .req-ask { font-family: var(--k-head); font-weight: 300; font-size: 22px; line-height: 1.2; letter-spacing: normal; color: var(--k-ink); }
+  .req-go { font-size: 15px; font-weight: 400; color: var(--k-link); white-space: nowrap; }
+  .req-go:hover { color: var(--k-blue-hover); }
+  .map-fine { margin: 24px 0 0; }
+  @media (max-width: 900px) {
+    .map { padding-top: 40px; padding-bottom: 56px; }
+    .map-h1 { font-size: 36px; margin-bottom: 32px; }
+    .grp { padding: 14px; }
+    .grp .k-h2 { font-size: 24px; line-height: 1.15; }
+    .req { grid-template-columns: 28px minmax(0, 1fr); gap: 10px 12px; padding: 14px; }
+    .req .k-step { width: 28px; height: 28px; }
+    .req-go { grid-column: 2; }
+    .req-ask { font-size: 18px; }
+  }
+</style>
+<style>/* type rule: no negative tracking under 28px (overrides the kit's measured values on this page) */ :root { --k-ls-14: 0; --k-ls-16: 0; --k-ls-18: 0; --k-ls-mono: 0; }</style>
+<link rel="stylesheet" href="../nav/peek.css">
+<link rel="stylesheet" href="../nav/ios.css">
+<script src="../nav/ios.js" defer></script>
+</head>
+<body class="k">
+<div class="k-announce">Founding GTM take-home · George Trushevskiy · 1 Oct 2026</div>
+<div class="k-ground">
+<div class="k-header-bar"><header class="k-header k-col"><a class="k-logo" href="../hub/" aria-label="Home"><img src="../kit/assets/keenable-wordmark-ink.svg" alt="Keenable"><small>take-home</small></a><nav class="k-nav" aria-label="Site"><a href="../?present=1#film-fintech">Fintech</a><a href="../?present=1#film-galactica">Galactica</a><a href="../?present=1#tk-bridge">One timestamp</a><a href="../films/">Films</a><a href="../map/" aria-current="page">Requirements</a></nav><a class="k-pill" href="#" data-demo-link target="_blank" rel="noopener">Demo</a></header></div>
+<main class="k-col k-hero map">
+  <p class="k-label">Requirements</p>
+  <h1 class="k-h1 map-h1">Every requirement, and where it’s <span class="k-hand">met</span></h1>
+  <section class="k-panel grp" aria-label="Option 2, fintech">
+    <div class="k-panel__head"><span class="k-step">2</span><h2 class="k-h2">Option 2 · Fintech search <span class="k-label lead-tag">the lead</span></h2></div>
+    <ol class="reqs">
+      <li class="req"><span class="k-step" aria-label="Done">✓</span><span class="req-t"><span class="k-label">01 · Thesis</span><span class="req-ask">Pick one vertical and build the sales thesis.</span></span><a class="req-go" href="../?present=1#tk-f-thesis">Where it’s met →</a></li>
+      <li class="req"><span class="k-step" aria-label="Done">✓</span><span class="req-t"><span class="k-label">02 · Targets</span><span class="req-ask">5 targets and the people you’d approach first.</span><span class="k-card__sub">Balyasny · Hebbia · Rogo · Sardine · Bretton AI</span></span><a class="req-go" href="../?present=1#tk-f-targets">Where it’s met →</a></li>
+      <li class="req"><span class="k-step" aria-label="Done">✓</span><span class="req-t"><span class="k-label">03 · Demo</span><span class="req-ask">Design the first-meeting demo for this vertical.</span></span><a class="req-go" href="../?present=1#fx-flip">Where it’s met →</a></li>
+    </ol>
+  </section>
+  <section class="k-panel grp" aria-label="Option 1, Galactica">
+    <div class="k-panel__head"><span class="k-step">1</span><h2 class="k-h2">Option 1 · Galactica</h2></div>
+    <ol class="reqs">
+      <li class="req"><span class="k-step" aria-label="Done">✓</span><span class="req-t"><span class="k-label">04 · Thesis</span><span class="req-ask">How labs get pretraining data, what it costs, why Keenable.</span></span><a class="req-go" href="../?present=1#tk-g-thesis">Where it’s met →</a></li>
+      <li class="req"><span class="k-step" aria-label="Done">✓</span><span class="req-t"><span class="k-label">05 · Targets</span><span class="req-ask">5 companies and the people you’d approach first.</span><span class="k-card__sub">NVIDIA + Hugging Face (deal pending) · DatologyAI · Arcee AI · Microsoft AI · AI21 Labs (an expansion, not a cold target: it is on Keenable’s “In production” strip)</span></span><a class="req-go" href="../?present=1#tk-g-targets">Where it’s met →</a></li>
+      <li class="req"><span class="k-step" aria-label="Done">✓</span><span class="req-t"><span class="k-label">06 · Card</span><span class="req-ask">Improve the dataset card for a first customer meeting.</span></span><a class="req-go" href="../?present=1#ga-card">Where it’s met →</a></li>
+    </ol>
+  </section>
+  <section class="k-panel grp" aria-label="Both options">
+    <div class="k-panel__head"><span class="k-step">+</span><h2 class="k-h2">Both options</h2></div>
+    <ol class="reqs">
+      <li class="req"><span class="k-step part" aria-label="Partly">◐</span><span class="req-t"><span class="k-label">Both</span><span class="req-ask">Ground with real feedback.</span><span class="k-card__sub">Partly: product tested live, 7 rivals; no buyer interviews yet.</span></span><a class="req-go" href="../?present=1#fd-bug">Findings →</a></li>
+    </ol>
+  </section>
+  <p class="k-small map-fine">Asks are short forms of the take-home brief. Targets are people and companies I would approach. None has been contacted, and none is presented as a Keenable customer.</p>
+</main>
+<footer class="k-footer"><div class="k-col"><div class="k-footer__grid"><div><a href="../hub/" aria-label="Home"><img src="../kit/assets/keenable-wordmark-ink.svg" alt="Keenable" style="height:24px"></a></div><div><h6>The case</h6><a href="../?present=1#film-fintech">Fintech</a><a href="../?present=1#tk-bridge">One timestamp</a><a href="../?present=1#film-galactica">Galactica</a><a href="../full.html#findings">Findings</a></div><div><h6>Watch</h6><a href="../films/">Films</a><a href="#" data-demo-link target="_blank" rel="noopener">Live demo</a></div><div><h6>Read</h6><a href="../memo/">Memo</a><a href="../map/">Requirements</a><a href="../?present=1#sources">Sources</a><a href="../v2.pdf">PDF</a></div></div><p class="k-footer__legal">A take-home by George Trushevskiy for Keenable. Not an official Keenable site.</p></div></footer>
+</div>
+<script src="../nav/peek.js"></script>
+<script src="../nav/history.js"></script>
+<script src="../nav/resume.js"></script>
+</body>
+</html>

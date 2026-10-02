@@ -1,0 +1,575 @@
+{
+ "title": "Build vs buy: annual cost of a 20B-docs/month web corpus",
+ "units": "USD per year",
+ "buy": {
+  "low": 1000000.0,
+  "mid": 1500000.0,
+  "high": 2000000.0,
+  "usd_per_1B_docs_mid": 6250.0
+ },
+ "build": [
+  {
+   "scenario": "low",
+   "build_total_usd_yr": 2328000.0,
+   "build_infra_only_usd_yr": 336000,
+   "build_marginal_existing_team_usd_yr": 864000.0,
+   "build_usd_per_1B_docs": 9700.0,
+   "lines_k_per_month": {
+    "team": 150,
+    "legal_compliance_pii": 13,
+    "tooling_observability": 3,
+    "bandwidth": 1,
+    "crawl_compute": 5,
+    "proxies_antibot": 3,
+    "js_rendering": 4,
+    "parse_langid_filters": 3,
+    "quality_classifier_gpu": 0,
+    "dedup": 5,
+    "storage_raw_html_1mo": 4,
+    "storage_text_12mo": 3,
+    "delivery_egress": 0
+   }
+  },
+  {
+   "scenario": "mid",
+   "build_total_usd_yr": 6720000.0,
+   "build_infra_only_usd_yr": 1656000,
+   "build_marginal_existing_team_usd_yr": 3154000.0,
+   "build_usd_per_1B_docs": 28000.0,
+   "lines_k_per_month": {
+    "team": 379,
+    "legal_compliance_pii": 33,
+    "tooling_observability": 10,
+    "bandwidth": 1,
+    "crawl_compute": 13,
+    "proxies_antibot": 42,
+    "js_rendering": 16,
+    "parse_langid_filters": 10,
+    "quality_classifier_gpu": 6,
+    "dedup": 15,
+    "storage_raw_html_1mo": 17,
+    "storage_text_12mo": 12,
+    "delivery_egress": 6
+   }
+  },
+  {
+   "scenario": "high",
+   "build_total_usd_yr": 20208000.0,
+   "build_infra_only_usd_yr": 8052000,
+   "build_marginal_existing_team_usd_yr": 11250000.0,
+   "build_usd_per_1B_docs": 84200.0,
+   "lines_k_per_month": {
+    "team": 900,
+    "legal_compliance_pii": 83,
+    "tooling_observability": 30,
+    "bandwidth": 5,
+    "crawl_compute": 40,
+    "proxies_antibot": 300,
+    "js_rendering": 64,
+    "parse_langid_filters": 70,
+    "quality_classifier_gpu": 16,
+    "dedup": 50,
+    "storage_raw_html_1mo": 26,
+    "storage_text_12mo": 25,
+    "delivery_egress": 75
+   }
+  }
+ ],
+ "ratio_build_over_buy_mid": {
+  "low": 1.552,
+  "mid": 4.48,
+  "high": 13.472
+ },
+ "breakeven_price_usd_yr": {
+  "low": 2328000.0,
+  "mid": 6720000.0,
+  "high": 20208000.0
+ },
+ "breakeven_volume": {
+  "low": {
+   "docs_per_month": null,
+   "reason": "fixed cost alone $1.99M/yr >= buy $1.5M/yr; build never cheaper at any volume"
+  },
+  "mid": {
+   "docs_per_month": null,
+   "reason": "fixed cost alone $5.06M/yr >= buy $1.5M/yr; build never cheaper at any volume"
+  },
+  "high": {
+   "docs_per_month": null,
+   "reason": "fixed cost alone $12.16M/yr >= buy $1.5M/yr; build never cheaper at any volume"
+  }
+ },
+ "volume_curve": [
+  {
+   "docs_per_month": 1000000000.0,
+   "build_low_usd_yr": 2008800.0000000002,
+   "build_mid_usd_yr": 5146799.999999999,
+   "build_high_usd_yr": 12558599.999999998,
+   "buy_mid_usd_yr": 1500000.0
+  },
+  {
+   "docs_per_month": 2000000000.0,
+   "build_low_usd_yr": 2025600.0000000002,
+   "build_mid_usd_yr": 5229600.0,
+   "build_high_usd_yr": 12961199.999999998,
+   "buy_mid_usd_yr": 1500000.0
+  },
+  {
+   "docs_per_month": 5000000000.0,
+   "build_low_usd_yr": 2076000.0,
+   "build_mid_usd_yr": 5478000.0,
+   "build_high_usd_yr": 14169000.0,
+   "buy_mid_usd_yr": 1500000.0
+  },
+  {
+   "docs_per_month": 10000000000.0,
+   "build_low_usd_yr": 2160000.0,
+   "build_mid_usd_yr": 5892000.0,
+   "build_high_usd_yr": 16182000.0,
+   "buy_mid_usd_yr": 1500000.0
+  },
+  {
+   "docs_per_month": 15000000000.0,
+   "build_low_usd_yr": 2244000.0,
+   "build_mid_usd_yr": 6306000.0,
+   "build_high_usd_yr": 18195000.0,
+   "buy_mid_usd_yr": 1500000.0
+  },
+  {
+   "docs_per_month": 20000000000.0,
+   "build_low_usd_yr": 2328000.0,
+   "build_mid_usd_yr": 6720000.0,
+   "build_high_usd_yr": 20208000.0,
+   "buy_mid_usd_yr": 1500000.0
+  },
+  {
+   "docs_per_month": 30000000000.0,
+   "build_low_usd_yr": 2496000.0,
+   "build_mid_usd_yr": 7548000.0,
+   "build_high_usd_yr": 24234000.0,
+   "buy_mid_usd_yr": 1500000.0
+  },
+  {
+   "docs_per_month": 40000000000.0,
+   "build_low_usd_yr": 2664000.0,
+   "build_mid_usd_yr": 8376000.0,
+   "build_high_usd_yr": 28260000.0,
+   "buy_mid_usd_yr": 1500000.0
+  }
+ ],
+ "cumulative_36mo": [
+  {
+   "month": 0,
+   "buy_mid_cum_usd": 0.0,
+   "build_low_cum_usd": 0.0,
+   "build_low_docs_delivered": 0.0,
+   "build_mid_cum_usd": 0.0,
+   "build_mid_docs_delivered": 0.0,
+   "build_high_cum_usd": 0.0,
+   "build_high_docs_delivered": 0.0,
+   "buy_docs_delivered": 0.0
+  },
+  {
+   "month": 1,
+   "buy_mid_cum_usd": 125000.0,
+   "build_low_cum_usd": 194000.0,
+   "build_low_docs_delivered": 0.0,
+   "build_mid_cum_usd": 560000.0,
+   "build_mid_docs_delivered": 0.0,
+   "build_high_cum_usd": 1684000.0,
+   "build_high_docs_delivered": 0.0,
+   "buy_docs_delivered": 20000000000.0
+  },
+  {
+   "month": 2,
+   "buy_mid_cum_usd": 250000.0,
+   "build_low_cum_usd": 388000.0,
+   "build_low_docs_delivered": 0.0,
+   "build_mid_cum_usd": 1120000.0,
+   "build_mid_docs_delivered": 0.0,
+   "build_high_cum_usd": 3368000.0,
+   "build_high_docs_delivered": 0.0,
+   "buy_docs_delivered": 40000000000.0
+  },
+  {
+   "month": 3,
+   "buy_mid_cum_usd": 375000.0,
+   "build_low_cum_usd": 582000.0,
+   "build_low_docs_delivered": 0.0,
+   "build_mid_cum_usd": 1680000.0,
+   "build_mid_docs_delivered": 0.0,
+   "build_high_cum_usd": 5052000.0,
+   "build_high_docs_delivered": 0.0,
+   "buy_docs_delivered": 60000000000.0
+  },
+  {
+   "month": 4,
+   "buy_mid_cum_usd": 500000.0,
+   "build_low_cum_usd": 776000.0,
+   "build_low_docs_delivered": 0.0,
+   "build_mid_cum_usd": 2240000.0,
+   "build_mid_docs_delivered": 0.0,
+   "build_high_cum_usd": 6736000.0,
+   "build_high_docs_delivered": 0.0,
+   "buy_docs_delivered": 80000000000.0
+  },
+  {
+   "month": 5,
+   "buy_mid_cum_usd": 625000.0,
+   "build_low_cum_usd": 970000.0,
+   "build_low_docs_delivered": 20000000000.0,
+   "build_mid_cum_usd": 2800000.0,
+   "build_mid_docs_delivered": 0.0,
+   "build_high_cum_usd": 8420000.0,
+   "build_high_docs_delivered": 0.0,
+   "buy_docs_delivered": 100000000000.0
+  },
+  {
+   "month": 6,
+   "buy_mid_cum_usd": 750000.0,
+   "build_low_cum_usd": 1164000.0,
+   "build_low_docs_delivered": 40000000000.0,
+   "build_mid_cum_usd": 3360000.0,
+   "build_mid_docs_delivered": 0.0,
+   "build_high_cum_usd": 10104000.0,
+   "build_high_docs_delivered": 0.0,
+   "buy_docs_delivered": 120000000000.0
+  },
+  {
+   "month": 7,
+   "buy_mid_cum_usd": 875000.0,
+   "build_low_cum_usd": 1358000.0,
+   "build_low_docs_delivered": 60000000000.0,
+   "build_mid_cum_usd": 3920000.0,
+   "build_mid_docs_delivered": 0.0,
+   "build_high_cum_usd": 11788000.0,
+   "build_high_docs_delivered": 0.0,
+   "buy_docs_delivered": 140000000000.0
+  },
+  {
+   "month": 8,
+   "buy_mid_cum_usd": 1000000.0,
+   "build_low_cum_usd": 1552000.0,
+   "build_low_docs_delivered": 80000000000.0,
+   "build_mid_cum_usd": 4480000.0,
+   "build_mid_docs_delivered": 0.0,
+   "build_high_cum_usd": 13472000.0,
+   "build_high_docs_delivered": 0.0,
+   "buy_docs_delivered": 160000000000.0
+  },
+  {
+   "month": 9,
+   "buy_mid_cum_usd": 1125000.0,
+   "build_low_cum_usd": 1746000.0,
+   "build_low_docs_delivered": 100000000000.0,
+   "build_mid_cum_usd": 5040000.0,
+   "build_mid_docs_delivered": 20000000000.0,
+   "build_high_cum_usd": 15156000.0,
+   "build_high_docs_delivered": 0.0,
+   "buy_docs_delivered": 180000000000.0
+  },
+  {
+   "month": 10,
+   "buy_mid_cum_usd": 1250000.0,
+   "build_low_cum_usd": 1940000.0,
+   "build_low_docs_delivered": 120000000000.0,
+   "build_mid_cum_usd": 5600000.0,
+   "build_mid_docs_delivered": 40000000000.0,
+   "build_high_cum_usd": 16840000.0,
+   "build_high_docs_delivered": 0.0,
+   "buy_docs_delivered": 200000000000.0
+  },
+  {
+   "month": 11,
+   "buy_mid_cum_usd": 1375000.0,
+   "build_low_cum_usd": 2134000.0,
+   "build_low_docs_delivered": 140000000000.0,
+   "build_mid_cum_usd": 6160000.0,
+   "build_mid_docs_delivered": 60000000000.0,
+   "build_high_cum_usd": 18524000.0,
+   "build_high_docs_delivered": 0.0,
+   "buy_docs_delivered": 220000000000.0
+  },
+  {
+   "month": 12,
+   "buy_mid_cum_usd": 1500000.0,
+   "build_low_cum_usd": 2328000.0,
+   "build_low_docs_delivered": 160000000000.0,
+   "build_mid_cum_usd": 6720000.0,
+   "build_mid_docs_delivered": 80000000000.0,
+   "build_high_cum_usd": 20208000.0,
+   "build_high_docs_delivered": 0.0,
+   "buy_docs_delivered": 240000000000.0
+  },
+  {
+   "month": 13,
+   "buy_mid_cum_usd": 1625000.0,
+   "build_low_cum_usd": 2522000.0,
+   "build_low_docs_delivered": 180000000000.0,
+   "build_mid_cum_usd": 7280000.0,
+   "build_mid_docs_delivered": 100000000000.0,
+   "build_high_cum_usd": 21892000.0,
+   "build_high_docs_delivered": 0.0,
+   "buy_docs_delivered": 260000000000.0
+  },
+  {
+   "month": 14,
+   "buy_mid_cum_usd": 1750000.0,
+   "build_low_cum_usd": 2716000.0,
+   "build_low_docs_delivered": 200000000000.0,
+   "build_mid_cum_usd": 7840000.0,
+   "build_mid_docs_delivered": 120000000000.0,
+   "build_high_cum_usd": 23576000.0,
+   "build_high_docs_delivered": 0.0,
+   "buy_docs_delivered": 280000000000.0
+  },
+  {
+   "month": 15,
+   "buy_mid_cum_usd": 1875000.0,
+   "build_low_cum_usd": 2910000.0,
+   "build_low_docs_delivered": 220000000000.0,
+   "build_mid_cum_usd": 8400000.0,
+   "build_mid_docs_delivered": 140000000000.0,
+   "build_high_cum_usd": 25260000.0,
+   "build_high_docs_delivered": 20000000000.0,
+   "buy_docs_delivered": 300000000000.0
+  },
+  {
+   "month": 16,
+   "buy_mid_cum_usd": 2000000.0,
+   "build_low_cum_usd": 3104000.0,
+   "build_low_docs_delivered": 240000000000.0,
+   "build_mid_cum_usd": 8960000.0,
+   "build_mid_docs_delivered": 160000000000.0,
+   "build_high_cum_usd": 26944000.0,
+   "build_high_docs_delivered": 40000000000.0,
+   "buy_docs_delivered": 320000000000.0
+  },
+  {
+   "month": 17,
+   "buy_mid_cum_usd": 2125000.0,
+   "build_low_cum_usd": 3298000.0,
+   "build_low_docs_delivered": 260000000000.0,
+   "build_mid_cum_usd": 9520000.0,
+   "build_mid_docs_delivered": 180000000000.0,
+   "build_high_cum_usd": 28628000.0,
+   "build_high_docs_delivered": 60000000000.0,
+   "buy_docs_delivered": 340000000000.0
+  },
+  {
+   "month": 18,
+   "buy_mid_cum_usd": 2250000.0,
+   "build_low_cum_usd": 3492000.0,
+   "build_low_docs_delivered": 280000000000.0,
+   "build_mid_cum_usd": 10080000.0,
+   "build_mid_docs_delivered": 200000000000.0,
+   "build_high_cum_usd": 30312000.0,
+   "build_high_docs_delivered": 80000000000.0,
+   "buy_docs_delivered": 360000000000.0
+  },
+  {
+   "month": 19,
+   "buy_mid_cum_usd": 2375000.0,
+   "build_low_cum_usd": 3686000.0,
+   "build_low_docs_delivered": 300000000000.0,
+   "build_mid_cum_usd": 10640000.0,
+   "build_mid_docs_delivered": 220000000000.0,
+   "build_high_cum_usd": 31996000.0,
+   "build_high_docs_delivered": 100000000000.0,
+   "buy_docs_delivered": 380000000000.0
+  },
+  {
+   "month": 20,
+   "buy_mid_cum_usd": 2500000.0,
+   "build_low_cum_usd": 3880000.0,
+   "build_low_docs_delivered": 320000000000.0,
+   "build_mid_cum_usd": 11200000.0,
+   "build_mid_docs_delivered": 240000000000.0,
+   "build_high_cum_usd": 33680000.0,
+   "build_high_docs_delivered": 120000000000.0,
+   "buy_docs_delivered": 400000000000.0
+  },
+  {
+   "month": 21,
+   "buy_mid_cum_usd": 2625000.0,
+   "build_low_cum_usd": 4074000.0,
+   "build_low_docs_delivered": 340000000000.0,
+   "build_mid_cum_usd": 11760000.0,
+   "build_mid_docs_delivered": 260000000000.0,
+   "build_high_cum_usd": 35364000.0,
+   "build_high_docs_delivered": 140000000000.0,
+   "buy_docs_delivered": 420000000000.0
+  },
+  {
+   "month": 22,
+   "buy_mid_cum_usd": 2750000.0,
+   "build_low_cum_usd": 4268000.0,
+   "build_low_docs_delivered": 360000000000.0,
+   "build_mid_cum_usd": 12320000.0,
+   "build_mid_docs_delivered": 280000000000.0,
+   "build_high_cum_usd": 37048000.0,
+   "build_high_docs_delivered": 160000000000.0,
+   "buy_docs_delivered": 440000000000.0
+  },
+  {
+   "month": 23,
+   "buy_mid_cum_usd": 2875000.0,
+   "build_low_cum_usd": 4462000.0,
+   "build_low_docs_delivered": 380000000000.0,
+   "build_mid_cum_usd": 12880000.0,
+   "build_mid_docs_delivered": 300000000000.0,
+   "build_high_cum_usd": 38732000.0,
+   "build_high_docs_delivered": 180000000000.0,
+   "buy_docs_delivered": 460000000000.0
+  },
+  {
+   "month": 24,
+   "buy_mid_cum_usd": 3000000.0,
+   "build_low_cum_usd": 4656000.0,
+   "build_low_docs_delivered": 400000000000.0,
+   "build_mid_cum_usd": 13440000.0,
+   "build_mid_docs_delivered": 320000000000.0,
+   "build_high_cum_usd": 40416000.0,
+   "build_high_docs_delivered": 200000000000.0,
+   "buy_docs_delivered": 480000000000.0
+  },
+  {
+   "month": 25,
+   "buy_mid_cum_usd": 3125000.0,
+   "build_low_cum_usd": 4850000.0,
+   "build_low_docs_delivered": 420000000000.0,
+   "build_mid_cum_usd": 14000000.0,
+   "build_mid_docs_delivered": 340000000000.0,
+   "build_high_cum_usd": 42100000.0,
+   "build_high_docs_delivered": 220000000000.0,
+   "buy_docs_delivered": 500000000000.0
+  },
+  {
+   "month": 26,
+   "buy_mid_cum_usd": 3250000.0,
+   "build_low_cum_usd": 5044000.0,
+   "build_low_docs_delivered": 440000000000.0,
+   "build_mid_cum_usd": 14560000.0,
+   "build_mid_docs_delivered": 360000000000.0,
+   "build_high_cum_usd": 43784000.0,
+   "build_high_docs_delivered": 240000000000.0,
+   "buy_docs_delivered": 520000000000.0
+  },
+  {
+   "month": 27,
+   "buy_mid_cum_usd": 3375000.0,
+   "build_low_cum_usd": 5238000.0,
+   "build_low_docs_delivered": 460000000000.0,
+   "build_mid_cum_usd": 15120000.0,
+   "build_mid_docs_delivered": 380000000000.0,
+   "build_high_cum_usd": 45468000.0,
+   "build_high_docs_delivered": 260000000000.0,
+   "buy_docs_delivered": 540000000000.0
+  },
+  {
+   "month": 28,
+   "buy_mid_cum_usd": 3500000.0,
+   "build_low_cum_usd": 5432000.0,
+   "build_low_docs_delivered": 480000000000.0,
+   "build_mid_cum_usd": 15680000.0,
+   "build_mid_docs_delivered": 400000000000.0,
+   "build_high_cum_usd": 47152000.0,
+   "build_high_docs_delivered": 280000000000.0,
+   "buy_docs_delivered": 560000000000.0
+  },
+  {
+   "month": 29,
+   "buy_mid_cum_usd": 3625000.0,
+   "build_low_cum_usd": 5626000.0,
+   "build_low_docs_delivered": 500000000000.0,
+   "build_mid_cum_usd": 16240000.0,
+   "build_mid_docs_delivered": 420000000000.0,
+   "build_high_cum_usd": 48836000.0,
+   "build_high_docs_delivered": 300000000000.0,
+   "buy_docs_delivered": 580000000000.0
+  },
+  {
+   "month": 30,
+   "buy_mid_cum_usd": 3750000.0,
+   "build_low_cum_usd": 5820000.0,
+   "build_low_docs_delivered": 520000000000.0,
+   "build_mid_cum_usd": 16800000.0,
+   "build_mid_docs_delivered": 440000000000.0,
+   "build_high_cum_usd": 50520000.0,
+   "build_high_docs_delivered": 320000000000.0,
+   "buy_docs_delivered": 600000000000.0
+  },
+  {
+   "month": 31,
+   "buy_mid_cum_usd": 3875000.0,
+   "build_low_cum_usd": 6014000.0,
+   "build_low_docs_delivered": 540000000000.0,
+   "build_mid_cum_usd": 17360000.0,
+   "build_mid_docs_delivered": 460000000000.0,
+   "build_high_cum_usd": 52204000.0,
+   "build_high_docs_delivered": 340000000000.0,
+   "buy_docs_delivered": 620000000000.0
+  },
+  {
+   "month": 32,
+   "buy_mid_cum_usd": 4000000.0,
+   "build_low_cum_usd": 6208000.0,
+   "build_low_docs_delivered": 560000000000.0,
+   "build_mid_cum_usd": 17920000.0,
+   "build_mid_docs_delivered": 480000000000.0,
+   "build_high_cum_usd": 53888000.0,
+   "build_high_docs_delivered": 360000000000.0,
+   "buy_docs_delivered": 640000000000.0
+  },
+  {
+   "month": 33,
+   "buy_mid_cum_usd": 4125000.0,
+   "build_low_cum_usd": 6402000.0,
+   "build_low_docs_delivered": 580000000000.0,
+   "build_mid_cum_usd": 18480000.0,
+   "build_mid_docs_delivered": 500000000000.0,
+   "build_high_cum_usd": 55572000.0,
+   "build_high_docs_delivered": 380000000000.0,
+   "buy_docs_delivered": 660000000000.0
+  },
+  {
+   "month": 34,
+   "buy_mid_cum_usd": 4250000.0,
+   "build_low_cum_usd": 6596000.0,
+   "build_low_docs_delivered": 600000000000.0,
+   "build_mid_cum_usd": 19040000.0,
+   "build_mid_docs_delivered": 520000000000.0,
+   "build_high_cum_usd": 57256000.0,
+   "build_high_docs_delivered": 400000000000.0,
+   "buy_docs_delivered": 680000000000.0
+  },
+  {
+   "month": 35,
+   "buy_mid_cum_usd": 4375000.0,
+   "build_low_cum_usd": 6790000.0,
+   "build_low_docs_delivered": 620000000000.0,
+   "build_mid_cum_usd": 19600000.0,
+   "build_mid_docs_delivered": 540000000000.0,
+   "build_high_cum_usd": 58940000.0,
+   "build_high_docs_delivered": 420000000000.0,
+   "buy_docs_delivered": 700000000000.0
+  },
+  {
+   "month": 36,
+   "buy_mid_cum_usd": 4500000.0,
+   "build_low_cum_usd": 6984000.0,
+   "build_low_docs_delivered": 640000000000.0,
+   "build_mid_cum_usd": 20160000.0,
+   "build_mid_docs_delivered": 560000000000.0,
+   "build_high_cum_usd": 60624000.0,
+   "build_high_docs_delivered": 440000000000.0,
+   "buy_docs_delivered": 720000000000.0
+  }
+ ],
+ "time_to_first_dump_months": {
+  "low": 4,
+  "mid": 8,
+  "high": 14
+ },
+ "sources": "data/opt1_cost_model.json -> build.*, galactica.price_usd_per_year"
+}

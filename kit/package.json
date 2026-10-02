@@ -1,0 +1,32 @@
+{
+  "name": "keenable-stack-kit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Keenable in your stack in 15 minutes: tool adapters (OpenAI, Anthropic, MCP, Vercel AI SDK, LangChain.js) and a bring-your-own-benchmark eval runner.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "keenable-kit-mcp": "mcp/server.mjs"
+  },
+  "scripts": {
+    "test": "node --test --test-concurrency=1 --test-isolation=none \"test/*.test.mjs\"",
+    "test:offline": "KIT_OFFLINE=1 node --test --test-concurrency=1 --test-isolation=none \"test/*.test.mjs\"",
+    "eval": "node eval/run.mjs",
+    "eval:samples": "node eval/run.mjs --queries eval/sets/fintech.jsonl --providers keenable,keenable_realtime --out eval/out/fintech && node eval/run.mjs --queries eval/sets/agentic.csv --providers keenable,keenable_realtime --out eval/out/agentic",
+    "mcp": "node mcp/server.mjs"
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "^4.0.71",
+    "@ai-sdk/openai": "^4.0.83",
+    "@anthropic-ai/sdk": "^0.131.0",
+    "@langchain/anthropic": "^1.5.11",
+    "@langchain/core": "^1.2.14",
+    "@langchain/langgraph": "^1.4.18",
+    "@langchain/openai": "^1.6.1",
+    "ai": "^7.0.126",
+    "openai": "^7.25.0",
+    "zod": "^4.6.5"
+  }
+}

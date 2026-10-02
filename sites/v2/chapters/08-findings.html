@@ -1,0 +1,64 @@
+<section class="slide c-chapter" id="findings" data-chapter="findings" data-title="What I found in Keenable">
+  <div class="inner">
+    <p class="eyebrow">Chapter · What I found in Keenable</p>
+    <h2 data-reveal>18 findings from one day on the live API. <em>Five a buyer hits in the first meeting.</em></h2>
+    <p class="lede" data-reveal>Each one has its evidence file, what it costs a buyer and the fix I’d propose. That is how I’d work on the founding team: sell it, and bring back what breaks.</p>
+  </div>
+</section>
+
+<section class="slide fd" id="fd-bug" data-chapter="findings" data-title="Finding #1 · later text under query_time" data-src="data/fintech_run.json data/fintech_judged.json">
+  <div class="inner">
+    <p class="eyebrow">Finding #1 · severity A · MEASURED 1 Oct 2026</p>
+    <h2 data-reveal>The fence held. <em>One page served later text.</em></h2>
+    <div class="c-compare" style="--cols:3" data-reveal>
+      <div class="us"><p class="k">Later text, fenced</p><p class="v">1/60<small>blockworks.co, FTX</small></p><p class="d">cutoff <b>8 Nov 2022</b>, 0/60 acquired after it</p></div>
+      <div><p class="k">acquired_at</p><p class="v">2022<small>28 Jun 2022</small></p><p class="d">before the cutoff, so it passed</p></div>
+      <div><p class="k">published_at · snippet</p><p class="v">2024<small>6 Mar 2024</small></p><p class="d">“FTX, BlockFi score tentative <b>settlement agreement</b>”</p></div>
+    </div>
+    <p class="fd-fix" data-reveal><b>Fix</b><span>Serve the version from query_time, or drop it.</span></p>
+    <p class="foot">Sources: <a class="src" href="data/fintech_run.json">fintech_run.json</a> (FTX row) · <a class="src" href="research/g9_product_feedback.md">product feedback #1</a></p>
+  </div>
+</section>
+
+<section class="slide sx fd" id="fd-a" data-chapter="findings" data-title="Findings · severity A" data-src="research/g9_product_feedback.md">
+  <div class="inner">
+    <p class="eyebrow">Severity A · MEASURED</p>
+    <h2 data-reveal>Four more a buyer would hit on day one.</h2>
+    <ol class="sx-list" data-reveal>
+      <li><i class="g">#2</i><b>29/70</b><span>publish-date fences still leak. Fix: created_at + modified_at</span><a class="src" href="data/h2h/latest_judged.json">latest_judged.json</a></li>
+      <li><i class="g">#3</i><b>14/40</b><span>primary source in top 10. Fix: authority prior</span><a class="src" href="data/fintech_judged.json">fintech_judged.json</a></li>
+      <li><i class="g">#10</i><b>Q4 2026?</b><span>“early access” vs “live”. Fix: one status</span><a class="src" href="https://keenable.ai">keenable.ai</a></li>
+      <li class="us"><i class="g">#18</i><b>2/30</b><span>questions answerable from public Keenable facts. Fix: publish the card</span><a class="src" href="#ga-card">Galactica card</a></li>
+    </ol>
+    <p class="foot">A: first meeting. Draft, not sent. Source: <a class="src" href="research/g9_product_feedback.md">product feedback</a></p>
+  </div>
+</section>
+
+<section class="slide fd" id="fd-weak" data-chapter="findings" data-title="The weak spot · today’s questions" data-src="data/h2h/latest_judged.json data/fintech_site_probe.json">
+  <div class="inner">
+    <p class="eyebrow">The weak spot · MEASURED 1 Oct 2026</p>
+    <h2 data-reveal>Rivals rank primary sources higher. <em>Keenable has them.</em></h2>
+    <div class="c-compare" style="--cols:3" data-reveal>
+      <div><p class="k">Verified today · of 39</p><p class="v">23<small>Keenable</small></p><p class="d">Exa <b>39</b> · Google via Serper <b>38</b> · Tavily <b>37</b></p></div>
+      <div><p class="k">Primary source in top 10 · of 40</p><p class="v">14<small>Keenable</small></p><p class="d">Serper <b>39</b> · Exa <b>38</b>: ranking, not coverage</p></div>
+      <div class="us"><p class="k">Same index, site-restricted</p><p class="v">8/8<small>primary documents found</small></p><p class="d">FOMC, Apple 10-K, FinCEN, FATF</p></div>
+    </div>
+    <p class="fd-fix" data-reveal><b>Fix</b><span>An authority prior for regulator and filer domains.</span></p>
+    <p class="foot">Small n (40 queries). Sources: <a class="src" href="data/h2h/latest_judged.json">latest_judged.json</a> · <a class="src" href="data/fintech_site_probe.json">fintech_site_probe.json</a></p>
+  </div>
+</section>
+
+<section class="slide sx fd" id="fd-b" data-chapter="findings" data-title="Findings · severity B" data-src="research/g9_product_feedback.md data/needle_results.json data/fintech_repro.json">
+  <div class="inner">
+    <p class="eyebrow">Severity B · week 1–2 of a pilot · MEASURED</p>
+    <h2 data-reveal>Five a pilot would find. <em>Fix them first.</em></h2>
+    <ol class="sx-list" data-reveal>
+      <li class="us"><i class="g b">#5</i><b>47%</b><span>of 1,009 docs acquired in 30 days. Ask: first_seen_at</span><a class="src" href="#ga-feedback">Galactica feedback</a></li>
+      <li><i class="g b">#5</i><b>2001</b><span>earliest acquired_at. Fix: define it</span><a class="src" href="research/g9_product_feedback.md">feedback #5</a></li>
+      <li><i class="g b">#4</i><b>1,336 ms</b><span>pro p95 vs 169 ms realtime. Fix: p95 per mode</span><a class="src" href="data/needle_results.json">needle_results.json</a></li>
+      <li><i class="g b">#8</i><b>Copies</b><span>Wikipedia copies in top 10. Fix: dedup</span><a class="src" href="research/g9_product_feedback.md">feedback #8</a></li>
+      <li><i class="g b">#11</i><b>No hash</b><span>replay proves URLs, not text. Fix: content hash</span><a class="src" href="data/fintech_repro.json">fintech_repro.json</a></li>
+    </ol>
+    <p class="foot">More in the write-up: <a class="src" href="research/g9_product_feedback.md">product feedback</a></p>
+  </div>
+</section>

@@ -1,0 +1,20 @@
+<section class="slide" id="tool" data-chapter="demo" data-title="Try it: hosted tool" data-src="data/g9_channel.json">
+  <div class="inner">
+    <p class="eyebrow">The adapter's search side, live</p>
+    <h2 data-reveal>Run a coding-agent tool call through the adapter.</h2>
+    <figure class="c-ix fw-ix" data-ix="live">
+      <span class="ix-badge screen-only"><i></i><span>Try it · run it twice</span></span>
+      <span class="ix-badge print-only"><i></i><span>Printed state · recorded run 1 Oct 2026</span></span>
+      <form class="screen-only fw-form" id="fwForm">
+        <select id="fwQ" aria-label="Coding-agent query"></select>
+        <select id="fwDom" aria-label="Domain filter"><option value="0">no domain filter</option><option value="1">allowed_domains</option></select>
+        <button class="btn accent" id="fwGo" type="submit">Run tool call</button>
+      </form>
+      <pre class="fw-call screen-only" id="fwCall"></pre>
+      <ol class="fw-res screen-only" id="fwRes"></ol>
+      <p class="fw-ledger screen-only" id="fwLedger" aria-live="polite"></p>
+      <div class="print-only" id="fwPrint"></div>
+    </figure>
+    <p class="foot">Keyless endpoint, 1 request per call; billing is simulated at list price. The model side needs a Fireworks key. Source: <a class="src" href="../../data/g9_channel.json">g9_channel.json</a></p>
+  </div>
+</section>

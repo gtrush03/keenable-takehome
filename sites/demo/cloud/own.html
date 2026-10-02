@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Test your own event · George's Keenable take-home</title>
+<link rel="icon" href="keenable-mark-ee.svg" type="image/svg+xml">
+<link rel="stylesheet" href="kit/keenable.css">
+<style>
+/* page-specific layout on top of the 1:1 kit (kit/keenable.css); every colour/radius comes from its tokens */
+.own-form{display:grid;grid-template-columns:minmax(0,1fr) 172px;gap:8px}
+.own-form .full{grid-column:1/-1}
+.own-field{display:flex;flex-direction:column;gap:8px;min-width:0}
+.own-field input{height:48px;border:0;border-radius:var(--k-r-btn);background:#fff;padding:0 14px;font:300 18px/26px var(--k-text);letter-spacing:var(--k-ls-18);color:var(--k-ink);min-width:0;width:100%;outline:1px solid transparent;transition:outline-color var(--k-fast) var(--k-ease)}
+.own-field input:focus{outline:1px solid var(--k-blue)}
+.own-field input::placeholder{color:var(--k-muted)}
+.own-run{display:flex;gap:8px;align-items:center;margin-top:16px;flex-wrap:wrap}
+.own-run .k-btn{border:0;cursor:pointer;font-size:16px}
+.own-run .k-btn[disabled]{opacity:.5;cursor:wait}
+.own-presets{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px;align-items:center}
+.own-presets .k-chip{border:0;cursor:pointer;font-family:var(--k-text);color:var(--k-ink);gap:8px}
+.own-presets .k-chip:hover{background:var(--k-blue-tint)}
+.own-presets .k-chip small{font:400 12px var(--k-mono);color:var(--k-muted)}
+.own-summary{margin:0 0 8px}
+.own-summary .pt{white-space:nowrap}
+.own-summary .bad{color:#D7261E}.own-summary .good{color:#0E8A4A}
+.own-legend{display:flex;gap:16px;flex-wrap:wrap;margin:16px 0 24px}
+.own-legend i,.own-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#0E8A4A;flex:none}
+.own-legend i{margin-right:6px;vertical-align:1px}
+.own-dot.red,.own-legend i.red{background:#D7261E}.own-dot.grey,.own-legend i.grey{background:var(--k-hair)}
+.own-cols{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.own-col{background:var(--k-card);padding:var(--k-panel-pad);min-width:0}
+.own-col.keen{outline:1px solid var(--k-blue);outline-offset:-1px}
+.own-col .k-h3{margin-bottom:4px}
+.own-n{font:200 48px/48px var(--k-head);letter-spacing:var(--k-ls-48);margin:16px 0 4px}
+.own-n.bad{color:#D7261E}.own-n.good{color:#0E8A4A}
+.own-list{display:flex;flex-direction:column;gap:var(--k-card-gap);margin-top:16px}
+.own-res{flex-direction:row;gap:10px;align-items:flex-start}
+.own-res .own-dot{margin-top:7px}
+.own-res .b{min-width:0;flex:1}
+.own-res a.t{display:block;font-size:15px;line-height:20px;color:var(--k-ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.own-res a.t:hover{color:var(--k-link)}
+.own-meta{font:400 12px/16px var(--k-mono);letter-spacing:var(--k-ls-mono);color:var(--k-muted);margin-top:4px;display:flex;gap:8px;flex-wrap:wrap}
+.own-meta .after{color:#D7261E}.own-meta .word{color:#D7261E;background:#FDECEB;border-radius:4px;padding:0 5px}
+.own-res .s{font-size:13px;line-height:18px;color:var(--k-muted);margin-top:6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.own-msg{background:var(--k-card);padding:var(--k-panel-pad)}
+.own-msg a{color:var(--k-link)}
+.skel{height:76px;border-radius:var(--k-r-card);background:linear-gradient(90deg,#fff,#F7F9FD,#fff);background-size:200% 100%;animation:sh 1.2s infinite}
+@keyframes sh{to{background-position:-200% 0}}
+.own-honest a,.k-footer__legal a{color:var(--k-link)}
+.k-header .k-nav a.on{background:var(--k-card)}
+.k-announce{height:auto;min-height:var(--k-announce-h);padding:5px 16px;text-align:center}
+@media (max-width:1100px){.own-cols{grid-template-columns:1fr}}
+@media (max-width:640px){.own-summary{font-size:28px;line-height:34px}.own-summary .pt{display:block}.own-summary .sep{display:none}.own-form{grid-template-columns:1fr}.own-run .k-btn{flex:1;justify-content:center}.k-header .k-logo small{display:none}}
+</style>
+</head>
+<body class="k">
+<div class="k-announce"><a href="__PROPOSAL__">Founding GTM take-home · George Trushevskiy · not an official Keenable site</a></div>
+<div class="k-ground">
+  <div class="k-header-bar">
+    <header class="k-header k-col">
+      <a class="k-logo" href="./"><img src="keenable-wordmark-ink.svg" alt="Keenable"><small>take-home</small></a>
+      <nav class="k-nav" aria-label="Demo">
+        <a href="./" class="on">Your event</a><a href="test/">Our test · 7 rivals</a><a href="__PROPOSAL__films/">Films</a>
+      </nav>
+      <a class="k-pill" href="__PROPOSAL__">Proposal</a>
+    </header>
+  </div>
+
+  <section class="k-col k-hero">
+    <h1 class="k-h1">Test your own <span class="k-hand k-hand--lg">event</span></h1>
+    <p class="k-lead" style="margin:28px 0 40px">Pick a past event and the day before it. Your question runs live on Keenable three ways: no date fence, a published-date filter (how most search APIs fence), and <span class="k-mono">query_time</span>, which returns the web only as Keenable had collected it before your date.</p>
+
+    <form class="k-panel" id="f" autocomplete="off">
+      <div class="own-form">
+        <label class="own-field"><span class="k-label">The question</span><input id="q" required maxlength="200" placeholder="Will SVB fail?"></label>
+        <label class="own-field"><span class="k-label">Cutoff date</span><input id="d" type="date" required min="2000-01-01"></label>
+        <label class="own-field full"><span class="k-label">Words that give the ending away (optional)</span><input id="w" maxlength="200" placeholder="seized, collapse, failed"></label>
+      </div>
+      <div class="own-run">
+        <button class="k-btn k-btn--dark" id="go" type="submit">Run it live</button>
+        <a class="k-btn k-btn--white" href="test/">See our 7-rival test</a>
+      </div>
+      <div class="own-presets" id="presets"><span class="k-label">Try</span></div>
+    </form>
+    <p class="k-small own-honest" style="margin-top:16px">Live here: Keenable only, so a public link can’t burn anyone’s free-tier keys. The 7-rival head-to-head (Tavily, Exa, Linkup, Firecrawl, Parallel, Serper, SearchAPI) is <a href="test/">our recorded test</a>. Limit: 30 runs per hour per visitor.</p>
+  </section>
+
+  <section class="k-wide k-section" id="out" aria-live="polite"></section>
+
+  <footer class="k-footer">
+    <div class="k-col">
+      <p class="k-small" style="margin:0">Red dot: Keenable collected that page on or after your cutoff, or it contains one of your giveaway words. Green: collected before your cutoff, no giveaway word. Grey: no collection date. Dates are Keenable’s <span class="k-mono" style="font-size:14px">acquired_at</span>.</p>
+      <p class="k-footer__legal">A take-home by George Trushevskiy for Keenable. Not an official Keenable site.</p>
+    </div>
+  </footer>
+</div>
+
+<script>
+const PRESETS = [
+  { q: "Will Silicon Valley Bank fail?", d: "2023-03-09", w: "seized, collapse, failed, failure, receivership, FDIC took" },
+  { q: "Will FTX go bankrupt?", d: "2022-11-07", w: "bankruptcy, Chapter 11, collapse, collapsed, insolvent" },
+  { q: "Will UBS take over Credit Suisse?", d: "2023-03-15", w: "UBS to buy, takeover, rescue, acquires, agreed to buy" },
+  { q: "Who will win the 2024 US presidential election?", d: "2024-11-05", w: "won, wins, victory, president-elect, defeats" },
+];
+const $ = (s) => document.querySelector(s);
+const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const fmtD = (iso) => { if (!iso) return "no date"; const d = new Date(iso); return isNaN(d) ? "no date" : d.toISOString().slice(0, 10); };
+const nice = (iso) => new Date(iso + "T00:00:00Z").toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" });
+$("#d").max = new Date().toISOString().slice(0, 10);
+$("#presets").insertAdjacentHTML("beforeend", PRESETS.map((p, i) => `<button class="k-chip" type="button" data-i="${i}">${esc(p.q)}<small>${p.d}</small></button>`).join(""));
+document.querySelectorAll("#presets .k-chip").forEach((b) => b.onclick = () => { const p = PRESETS[+b.dataset.i]; $("#q").value = p.q; $("#d").value = p.d; $("#w").value = p.w; run(); });
+
+const FENCE = { nofence: "no date filter", pubdate: "published_before = day before cutoff", query_time: "query_time = cutoff" };
+function skeleton() {
+  return `<h2 class="k-h2 own-summary">Searching the web as it was…</h2><div class="own-cols" style="margin-top:24px">${["No fence", "Published-date filter", "query_time"].map((l, i) => `<div class="own-col${i === 2 ? " keen" : ""}"><h3 class="k-h3">${l}</h3><div class="own-list">${'<div class="skel"></div>'.repeat(4)}</div></div>`).join("")}</div>`;
+}
+function message(title, body) { return `<div class="k-col own-msg"><h3 class="k-h3" style="margin-bottom:8px">${esc(title)}</h3><p class="k-body" style="margin:0">${body}</p></div>`; }
+
+async function run() {
+  const q = $("#q").value.trim(), d = $("#d").value, w = $("#w").value.trim();
+  if (!q || !d) { $("#out").innerHTML = message("Two things first", "Type a question and pick a cutoff date in the past."); return; }
+  $("#go").disabled = true; $("#out").innerHTML = skeleton(); $("#out").scrollIntoView({ behavior: "smooth", block: "start" });
+  let r;
+  try {
+    const res = await fetch("api/own", { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ q, cutoff: d, words: w }) });
+    r = await res.json();
+  } catch { r = { ok: false, error: "We couldn’t reach the search service. Check your connection and try again." }; }
+  $("#go").disabled = false;
+  if (!r.ok) { $("#out").innerHTML = message(r.limited ? "Demo limit reached" : "That run didn’t go through", esc(r.error || "Try again in a moment.") + (r.limited ? "" : ` You can still open <a href="test/">our recorded test</a>.`)); return; }
+  render(r);
+}
+
+function render(r) {
+  const by = Object.fromEntries(r.modes.map((m) => [m.id, m]));
+  const part = (m, label) => `<span class="pt">` + (!m || !m.ok ? `${label} <span style="color:var(--k-muted)">no answer</span>` : `${label} <span class="${m.after ? "bad" : "good"}">${m.after} of ${m.n}</span>`) + `</span>`;
+  const wordsNote = r.words.length ? ` With your giveaway words: no fence ${by.nofence?.ok ? by.nofence.words : "—"}, published-date ${by.pubdate?.ok ? by.pubdate.words : "—"}, query_time ${by.query_time?.ok ? by.query_time.words : "—"}.` : "";
+  let html = `<h2 class="k-h2 own-summary">${part(by.nofence, "No fence:")}<span class="sep"> · </span>${part(by.pubdate, "Published-date:")}<span class="sep"> · </span>${part(by.query_time, "query_time:")}</h2>`;
+  html += `<p class="k-lead" style="margin:12px 0 0">Results Keenable collected after ${nice(r.cutoff)}, for “${esc(r.q)}”.${wordsNote}</p>`;
+  html += `<div class="own-legend k-small"><span><i class="red"></i>after your cutoff, or says a giveaway word</span><span><i></i>collected before your cutoff</span><span><i class="grey"></i>no collection date</span></div>`;
+  html += `<div class="own-cols">` + r.modes.map((m) => {
+    const head = `<h3 class="k-h3">${esc(m.label)}</h3><div class="k-small k-mono" style="font-size:12px">${FENCE[m.id]}</div>` + (m.ok ? `<div class="own-n ${m.after ? "bad" : "good"}">${m.after}<span class="k-small" style="font-size:14px"> of ${m.n} after your cutoff</span></div><div class="k-small">${r.words.length ? `${m.words} with a giveaway word · ` : ""}${m.ms.toLocaleString()} ms</div>` : `<p class="k-small" style="margin-top:12px">${esc(m.error)}</p>`);
+    const rows = m.ok ? (m.results.length ? m.results.map((x) => {
+      const cls = x.after || x.word ? "red" : x.acq ? "" : "grey";
+      return `<div class="k-card own-res"><i class="own-dot ${cls}"></i><div class="b"><a class="t" href="${esc(x.u)}" target="_blank" rel="noopener noreferrer" title="${esc(x.t)}">${esc(x.t || x.h)}</a><div class="own-meta"><span>${esc(x.h)}</span><span class="${x.after ? "after" : ""}">collected ${fmtD(x.acq)}</span>${x.word ? `<span class="word">says “${esc(x.word)}”</span>` : ""}</div>${x.s ? `<div class="s">${esc(x.s)}</div>` : ""}</div></div>`;
+    }).join("") : `<div class="k-card own-res"><i class="own-dot grey"></i><div class="b k-small">No results.</div></div>`) : "";
+    return `<div class="own-col${m.id === "query_time" ? " keen" : ""}">${head}<div class="own-list">${rows}</div></div>`;
+  }).join("") + `</div>`;
+  $("#out").innerHTML = html;
+}
+$("#f").onsubmit = (e) => { e.preventDefault(); run(); };
+</script>
+</body>
+</html>

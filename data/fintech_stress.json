@@ -1,0 +1,3099 @@
+{
+ "ran_at": "2026-10-01T11:52:49.892Z",
+ "endpoint": "https://api.keenable.ai/v1/search/public",
+ "auth": "keyless public endpoint (per-IP pool: 1,000/h, 10 rps; https://docs.keenable.ai/rate-limits)",
+ "method": "open-loop fixed-rate arrivals, 60s per stage, ramp 0.5 -> 1 -> 1.5 -> 2 rps, hard cap 2 rps; 12-query rotating fintech workload (pro, realtime, point-in-time)",
+ "client": "Mac, residential ISP; latency = wall time incl. TLS + body read (not server time)",
+ "node": "v25.6.0",
+ "caveat": "Keyless pool is shared per IP and capped at 10 rps; this test probes our client-side tail at <=2 rps, not Keenable's production capacity (100+ RPS Frontier is a contracted tier).",
+ "stages": [
+  {
+   "target_rps": 0.5,
+   "sent": 30,
+   "achieved_send_rps": 0.5,
+   "ok": 30,
+   "errors": 0,
+   "error_rate": 0,
+   "status_codes": {
+    "200": 30
+   },
+   "p50_ms": 194,
+   "p95_ms": 330,
+   "p99_ms": 381,
+   "max_ms": 381,
+   "pro_p50_ms": 185,
+   "realtime_p50_ms": 189,
+   "pit_p50_ms": 228,
+   "empty_results": 0,
+   "ratelimit_remaining_end": "803",
+   "samples": [
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 324,
+     "n": 10,
+     "remaining": "859",
+     "sent_ms": 0,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 207,
+     "n": 10,
+     "remaining": "856",
+     "sent_ms": 2004,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 179,
+     "n": 10,
+     "remaining": "852",
+     "sent_ms": 4002,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 230,
+     "n": 10,
+     "remaining": "849",
+     "sent_ms": 6001,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 228,
+     "n": 10,
+     "remaining": "846",
+     "sent_ms": 8002,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 173,
+     "n": 10,
+     "remaining": "845",
+     "sent_ms": 10002,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 189,
+     "n": 10,
+     "remaining": "841",
+     "sent_ms": 12002,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 202,
+     "n": 10,
+     "remaining": "838",
+     "sent_ms": 14005,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 210,
+     "n": 10,
+     "remaining": "835",
+     "sent_ms": 16010,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 182,
+     "n": 10,
+     "remaining": "830",
+     "sent_ms": 18004,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 194,
+     "n": 10,
+     "remaining": "827",
+     "sent_ms": 20004,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 381,
+     "n": 10,
+     "remaining": "824",
+     "sent_ms": 22001,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 179,
+     "n": 10,
+     "remaining": "820",
+     "sent_ms": 24001,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 210,
+     "n": 10,
+     "remaining": "819",
+     "sent_ms": 26003,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 181,
+     "n": 10,
+     "remaining": "818",
+     "sent_ms": 28002,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 178,
+     "n": 10,
+     "remaining": "817",
+     "sent_ms": 30002,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 243,
+     "n": 10,
+     "remaining": "816",
+     "sent_ms": 32004,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 185,
+     "n": 10,
+     "remaining": "815",
+     "sent_ms": 34002,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 189,
+     "n": 10,
+     "remaining": "814",
+     "sent_ms": 36003,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 330,
+     "n": 10,
+     "remaining": "813",
+     "sent_ms": 38001,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 213,
+     "n": 10,
+     "remaining": "812",
+     "sent_ms": 40002,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 183,
+     "n": 10,
+     "remaining": "811",
+     "sent_ms": 42001,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 190,
+     "n": 10,
+     "remaining": "810",
+     "sent_ms": 44002,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 210,
+     "n": 10,
+     "remaining": "809",
+     "sent_ms": 46003,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 184,
+     "n": 10,
+     "remaining": "808",
+     "sent_ms": 48002,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 178,
+     "n": 10,
+     "remaining": "807",
+     "sent_ms": 50001,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 181,
+     "n": 10,
+     "remaining": "806",
+     "sent_ms": 52001,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 176,
+     "n": 10,
+     "remaining": "805",
+     "sent_ms": 54003,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 261,
+     "n": 10,
+     "remaining": "804",
+     "sent_ms": 56001,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 199,
+     "n": 10,
+     "remaining": "803",
+     "sent_ms": 58002,
+     "mode": "pro",
+     "pit": false
+    }
+   ]
+  },
+  {
+   "target_rps": 1,
+   "sent": 60,
+   "achieved_send_rps": 1,
+   "ok": 60,
+   "errors": 0,
+   "error_rate": 0,
+   "status_codes": {
+    "200": 60
+   },
+   "p50_ms": 201,
+   "p95_ms": 662,
+   "p99_ms": 760,
+   "max_ms": 760,
+   "pro_p50_ms": 198,
+   "realtime_p50_ms": 195,
+   "pit_p50_ms": 245,
+   "empty_results": 0,
+   "ratelimit_remaining_end": "743",
+   "samples": [
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 299,
+     "n": 10,
+     "remaining": "802",
+     "sent_ms": 0,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 255,
+     "n": 10,
+     "remaining": "801",
+     "sent_ms": 1000,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 201,
+     "n": 10,
+     "remaining": "800",
+     "sent_ms": 2002,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 184,
+     "n": 10,
+     "remaining": "799",
+     "sent_ms": 3003,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 196,
+     "n": 10,
+     "remaining": "798",
+     "sent_ms": 4001,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 206,
+     "n": 10,
+     "remaining": "797",
+     "sent_ms": 5001,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 178,
+     "n": 10,
+     "remaining": "796",
+     "sent_ms": 6002,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 172,
+     "n": 10,
+     "remaining": "795",
+     "sent_ms": 7002,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 198,
+     "n": 10,
+     "remaining": "794",
+     "sent_ms": 8001,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 187,
+     "n": 10,
+     "remaining": "793",
+     "sent_ms": 9002,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 231,
+     "n": 10,
+     "remaining": "792",
+     "sent_ms": 10001,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 182,
+     "n": 10,
+     "remaining": "791",
+     "sent_ms": 11001,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 297,
+     "n": 10,
+     "remaining": "790",
+     "sent_ms": 12002,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 208,
+     "n": 10,
+     "remaining": "789",
+     "sent_ms": 13001,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 183,
+     "n": 10,
+     "remaining": "788",
+     "sent_ms": 14003,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 210,
+     "n": 10,
+     "remaining": "787",
+     "sent_ms": 15001,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 185,
+     "n": 10,
+     "remaining": "786",
+     "sent_ms": 16001,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 178,
+     "n": 10,
+     "remaining": "785",
+     "sent_ms": 17001,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 190,
+     "n": 10,
+     "remaining": "784",
+     "sent_ms": 18003,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 189,
+     "n": 10,
+     "remaining": "783",
+     "sent_ms": 19002,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 186,
+     "n": 10,
+     "remaining": "782",
+     "sent_ms": 20001,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 204,
+     "n": 10,
+     "remaining": "781",
+     "sent_ms": 21002,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 298,
+     "n": 10,
+     "remaining": "780",
+     "sent_ms": 22002,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 234,
+     "n": 10,
+     "remaining": "779",
+     "sent_ms": 23001,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 191,
+     "n": 10,
+     "remaining": "778",
+     "sent_ms": 24001,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 202,
+     "n": 10,
+     "remaining": "777",
+     "sent_ms": 25001,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 253,
+     "n": 10,
+     "remaining": "776",
+     "sent_ms": 26001,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 355,
+     "n": 10,
+     "remaining": "775",
+     "sent_ms": 27005,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 184,
+     "n": 10,
+     "remaining": "774",
+     "sent_ms": 28001,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 195,
+     "n": 10,
+     "remaining": "773",
+     "sent_ms": 29005,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 203,
+     "n": 10,
+     "remaining": "772",
+     "sent_ms": 30002,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 219,
+     "n": 10,
+     "remaining": "771",
+     "sent_ms": 31001,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 193,
+     "n": 10,
+     "remaining": "770",
+     "sent_ms": 32006,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 195,
+     "n": 10,
+     "remaining": "769",
+     "sent_ms": 33004,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 662,
+     "n": 10,
+     "remaining": "768",
+     "sent_ms": 34003,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 232,
+     "n": 10,
+     "remaining": "767",
+     "sent_ms": 35004,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 307,
+     "n": 10,
+     "remaining": "766",
+     "sent_ms": 36002,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 760,
+     "n": 10,
+     "remaining": "765",
+     "sent_ms": 37012,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 211,
+     "n": 10,
+     "remaining": "764",
+     "sent_ms": 38001,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 175,
+     "n": 10,
+     "remaining": "763",
+     "sent_ms": 39002,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 200,
+     "n": 10,
+     "remaining": "762",
+     "sent_ms": 40005,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 301,
+     "n": 10,
+     "remaining": "761",
+     "sent_ms": 41000,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 431,
+     "n": 10,
+     "remaining": "760",
+     "sent_ms": 42198,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 193,
+     "n": 10,
+     "remaining": "759",
+     "sent_ms": 43001,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 705,
+     "n": 10,
+     "remaining": "758",
+     "sent_ms": 44007,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 181,
+     "n": 10,
+     "remaining": "757",
+     "sent_ms": 45002,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 259,
+     "n": 10,
+     "remaining": "756",
+     "sent_ms": 46004,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 251,
+     "n": 10,
+     "remaining": "755",
+     "sent_ms": 47002,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 222,
+     "n": 10,
+     "remaining": "754",
+     "sent_ms": 48000,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 224,
+     "n": 10,
+     "remaining": "753",
+     "sent_ms": 49001,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 192,
+     "n": 10,
+     "remaining": "752",
+     "sent_ms": 50002,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 188,
+     "n": 10,
+     "remaining": "751",
+     "sent_ms": 51002,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 193,
+     "n": 10,
+     "remaining": "750",
+     "sent_ms": 52004,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 218,
+     "n": 10,
+     "remaining": "749",
+     "sent_ms": 53001,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 193,
+     "n": 10,
+     "remaining": "748",
+     "sent_ms": 54002,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 167,
+     "n": 10,
+     "remaining": "747",
+     "sent_ms": 55001,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 167,
+     "n": 10,
+     "remaining": "746",
+     "sent_ms": 56003,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 182,
+     "n": 10,
+     "remaining": "745",
+     "sent_ms": 57001,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 245,
+     "n": 10,
+     "remaining": "744",
+     "sent_ms": 58002,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 189,
+     "n": 10,
+     "remaining": "743",
+     "sent_ms": 59000,
+     "mode": "pro",
+     "pit": false
+    }
+   ]
+  },
+  {
+   "target_rps": 1.5,
+   "sent": 90,
+   "achieved_send_rps": 1.5,
+   "ok": 90,
+   "errors": 0,
+   "error_rate": 0,
+   "status_codes": {
+    "200": 90
+   },
+   "p50_ms": 213,
+   "p95_ms": 364,
+   "p99_ms": 674,
+   "max_ms": 674,
+   "pro_p50_ms": 216,
+   "realtime_p50_ms": 205,
+   "pit_p50_ms": 233,
+   "empty_results": 0,
+   "ratelimit_remaining_end": "653",
+   "samples": [
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 652,
+     "n": 10,
+     "remaining": "742",
+     "sent_ms": 26,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 209,
+     "n": 10,
+     "remaining": "741",
+     "sent_ms": 682,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 195,
+     "n": 10,
+     "remaining": "740",
+     "sent_ms": 1337,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 199,
+     "n": 10,
+     "remaining": "739",
+     "sent_ms": 2004,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 242,
+     "n": 10,
+     "remaining": "738",
+     "sent_ms": 2667,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 201,
+     "n": 10,
+     "remaining": "737",
+     "sent_ms": 3335,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 207,
+     "n": 10,
+     "remaining": "736",
+     "sent_ms": 4002,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 188,
+     "n": 10,
+     "remaining": "735",
+     "sent_ms": 4675,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 196,
+     "n": 10,
+     "remaining": "734",
+     "sent_ms": 5335,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 198,
+     "n": 10,
+     "remaining": "733",
+     "sent_ms": 6002,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 247,
+     "n": 10,
+     "remaining": "732",
+     "sent_ms": 6666,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 216,
+     "n": 10,
+     "remaining": "731",
+     "sent_ms": 7334,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 183,
+     "n": 10,
+     "remaining": "730",
+     "sent_ms": 8000,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 213,
+     "n": 10,
+     "remaining": "729",
+     "sent_ms": 8667,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 184,
+     "n": 10,
+     "remaining": "728",
+     "sent_ms": 9334,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 198,
+     "n": 10,
+     "remaining": "727",
+     "sent_ms": 10001,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 181,
+     "n": 10,
+     "remaining": "726",
+     "sent_ms": 10667,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 206,
+     "n": 10,
+     "remaining": "725",
+     "sent_ms": 11334,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 210,
+     "n": 10,
+     "remaining": "724",
+     "sent_ms": 12008,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 169,
+     "n": 10,
+     "remaining": "723",
+     "sent_ms": 12668,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 172,
+     "n": 10,
+     "remaining": "722",
+     "sent_ms": 13335,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 197,
+     "n": 10,
+     "remaining": "721",
+     "sent_ms": 14001,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 270,
+     "n": 10,
+     "remaining": "720",
+     "sent_ms": 14667,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 184,
+     "n": 10,
+     "remaining": "719",
+     "sent_ms": 15334,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 211,
+     "n": 10,
+     "remaining": "718",
+     "sent_ms": 16002,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 195,
+     "n": 10,
+     "remaining": "717",
+     "sent_ms": 16667,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 201,
+     "n": 10,
+     "remaining": "716",
+     "sent_ms": 17334,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 194,
+     "n": 10,
+     "remaining": "715",
+     "sent_ms": 18003,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 178,
+     "n": 10,
+     "remaining": "714",
+     "sent_ms": 18667,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 202,
+     "n": 10,
+     "remaining": "713",
+     "sent_ms": 19334,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 188,
+     "n": 10,
+     "remaining": "712",
+     "sent_ms": 20001,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 306,
+     "n": 10,
+     "remaining": "711",
+     "sent_ms": 20724,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 308,
+     "n": 10,
+     "remaining": "710",
+     "sent_ms": 21336,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 172,
+     "n": 10,
+     "remaining": "709",
+     "sent_ms": 22001,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 217,
+     "n": 10,
+     "remaining": "708",
+     "sent_ms": 22668,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 184,
+     "n": 10,
+     "remaining": "707",
+     "sent_ms": 23334,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 184,
+     "n": 10,
+     "remaining": "706",
+     "sent_ms": 24000,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 222,
+     "n": 10,
+     "remaining": "705",
+     "sent_ms": 24667,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 192,
+     "n": 10,
+     "remaining": "704",
+     "sent_ms": 25333,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 179,
+     "n": 10,
+     "remaining": "703",
+     "sent_ms": 26002,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 247,
+     "n": 10,
+     "remaining": "702",
+     "sent_ms": 26668,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 190,
+     "n": 10,
+     "remaining": "701",
+     "sent_ms": 27334,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 187,
+     "n": 10,
+     "remaining": "700",
+     "sent_ms": 28000,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 201,
+     "n": 10,
+     "remaining": "699",
+     "sent_ms": 28667,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 193,
+     "n": 10,
+     "remaining": "698",
+     "sent_ms": 29355,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 193,
+     "n": 10,
+     "remaining": "697",
+     "sent_ms": 30006,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 236,
+     "n": 10,
+     "remaining": "696",
+     "sent_ms": 30668,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 217,
+     "n": 10,
+     "remaining": "695",
+     "sent_ms": 31336,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 203,
+     "n": 10,
+     "remaining": "694",
+     "sent_ms": 32002,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 198,
+     "n": 10,
+     "remaining": "693",
+     "sent_ms": 32667,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 674,
+     "n": 10,
+     "remaining": "692",
+     "sent_ms": 33333,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 193,
+     "n": 10,
+     "remaining": "691",
+     "sent_ms": 34006,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 632,
+     "n": 10,
+     "remaining": "690",
+     "sent_ms": 34667,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 320,
+     "n": 10,
+     "remaining": "689",
+     "sent_ms": 35342,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 180,
+     "n": 10,
+     "remaining": "688",
+     "sent_ms": 36001,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 205,
+     "n": 10,
+     "remaining": "687",
+     "sent_ms": 36666,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 325,
+     "n": 10,
+     "remaining": "686",
+     "sent_ms": 37334,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 361,
+     "n": 10,
+     "remaining": "685",
+     "sent_ms": 38002,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 234,
+     "n": 10,
+     "remaining": "684",
+     "sent_ms": 38669,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 343,
+     "n": 10,
+     "remaining": "683",
+     "sent_ms": 39335,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 226,
+     "n": 10,
+     "remaining": "682",
+     "sent_ms": 40001,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 329,
+     "n": 10,
+     "remaining": "681",
+     "sent_ms": 40682,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 192,
+     "n": 10,
+     "remaining": "680",
+     "sent_ms": 41348,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 364,
+     "n": 10,
+     "remaining": "679",
+     "sent_ms": 42001,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 386,
+     "n": 10,
+     "remaining": "678",
+     "sent_ms": 42667,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 243,
+     "n": 10,
+     "remaining": "677",
+     "sent_ms": 43334,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 205,
+     "n": 10,
+     "remaining": "676",
+     "sent_ms": 44002,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 300,
+     "n": 10,
+     "remaining": "675",
+     "sent_ms": 44667,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 286,
+     "n": 10,
+     "remaining": "674",
+     "sent_ms": 45334,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 346,
+     "n": 10,
+     "remaining": "673",
+     "sent_ms": 46024,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 232,
+     "n": 10,
+     "remaining": "672",
+     "sent_ms": 46669,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 216,
+     "n": 10,
+     "remaining": "671",
+     "sent_ms": 47334,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 257,
+     "n": 10,
+     "remaining": "670",
+     "sent_ms": 48002,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 217,
+     "n": 10,
+     "remaining": "669",
+     "sent_ms": 48667,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 267,
+     "n": 10,
+     "remaining": "668",
+     "sent_ms": 49334,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 199,
+     "n": 10,
+     "remaining": "667",
+     "sent_ms": 50002,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 223,
+     "n": 10,
+     "remaining": "666",
+     "sent_ms": 50668,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 248,
+     "n": 10,
+     "remaining": "665",
+     "sent_ms": 51334,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 280,
+     "n": 10,
+     "remaining": "664",
+     "sent_ms": 52000,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 236,
+     "n": 10,
+     "remaining": "663",
+     "sent_ms": 52668,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 185,
+     "n": 10,
+     "remaining": "662",
+     "sent_ms": 53334,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 207,
+     "n": 10,
+     "remaining": "661",
+     "sent_ms": 54002,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 233,
+     "n": 10,
+     "remaining": "660",
+     "sent_ms": 54666,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 282,
+     "n": 10,
+     "remaining": "659",
+     "sent_ms": 55335,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 220,
+     "n": 10,
+     "remaining": "658",
+     "sent_ms": 56000,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 346,
+     "n": 10,
+     "remaining": "657",
+     "sent_ms": 56667,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 347,
+     "n": 10,
+     "remaining": "656",
+     "sent_ms": 57334,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 251,
+     "n": 10,
+     "remaining": "655",
+     "sent_ms": 58002,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 241,
+     "n": 10,
+     "remaining": "654",
+     "sent_ms": 58734,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 317,
+     "n": 10,
+     "remaining": "653",
+     "sent_ms": 59336,
+     "mode": "realtime",
+     "pit": false
+    }
+   ]
+  },
+  {
+   "target_rps": 2,
+   "sent": 120,
+   "achieved_send_rps": 2,
+   "ok": 120,
+   "errors": 0,
+   "error_rate": 0,
+   "status_codes": {
+    "200": 120
+   },
+   "p50_ms": 195,
+   "p95_ms": 375,
+   "p99_ms": 520,
+   "max_ms": 526,
+   "pro_p50_ms": 193,
+   "realtime_p50_ms": 190,
+   "pit_p50_ms": 227,
+   "empty_results": 0,
+   "ratelimit_remaining_end": "533",
+   "samples": [
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 243,
+     "n": 10,
+     "remaining": "652",
+     "sent_ms": 0,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 265,
+     "n": 10,
+     "remaining": "651",
+     "sent_ms": 501,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 184,
+     "n": 10,
+     "remaining": "650",
+     "sent_ms": 1003,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 190,
+     "n": 10,
+     "remaining": "649",
+     "sent_ms": 1501,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 227,
+     "n": 10,
+     "remaining": "648",
+     "sent_ms": 2003,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 189,
+     "n": 10,
+     "remaining": "647",
+     "sent_ms": 2501,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 223,
+     "n": 10,
+     "remaining": "646",
+     "sent_ms": 3002,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 237,
+     "n": 10,
+     "remaining": "645",
+     "sent_ms": 3501,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 285,
+     "n": 10,
+     "remaining": "644",
+     "sent_ms": 4001,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 297,
+     "n": 10,
+     "remaining": "643",
+     "sent_ms": 4501,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 313,
+     "n": 10,
+     "remaining": "642",
+     "sent_ms": 5001,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 349,
+     "n": 10,
+     "remaining": "641",
+     "sent_ms": 5500,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 375,
+     "n": 10,
+     "remaining": "640",
+     "sent_ms": 6004,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 183,
+     "n": 10,
+     "remaining": "639",
+     "sent_ms": 6500,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 279,
+     "n": 10,
+     "remaining": "638",
+     "sent_ms": 7001,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 225,
+     "n": 10,
+     "remaining": "637",
+     "sent_ms": 7557,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 227,
+     "n": 10,
+     "remaining": "636",
+     "sent_ms": 8001,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 261,
+     "n": 10,
+     "remaining": "635",
+     "sent_ms": 8501,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 520,
+     "n": 10,
+     "remaining": "634",
+     "sent_ms": 9211,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 526,
+     "n": 10,
+     "remaining": "633",
+     "sent_ms": 9609,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 208,
+     "n": 10,
+     "remaining": "632",
+     "sent_ms": 10001,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 229,
+     "n": 10,
+     "remaining": "631",
+     "sent_ms": 10503,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 270,
+     "n": 10,
+     "remaining": "630",
+     "sent_ms": 11001,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 190,
+     "n": 10,
+     "remaining": "629",
+     "sent_ms": 11501,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 456,
+     "n": 10,
+     "remaining": "628",
+     "sent_ms": 12001,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 351,
+     "n": 10,
+     "remaining": "627",
+     "sent_ms": 12502,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 183,
+     "n": 10,
+     "remaining": "626",
+     "sent_ms": 13002,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 376,
+     "n": 10,
+     "remaining": "625",
+     "sent_ms": 13502,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 260,
+     "n": 10,
+     "remaining": "624",
+     "sent_ms": 14002,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 248,
+     "n": 10,
+     "remaining": "623",
+     "sent_ms": 14502,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 171,
+     "n": 10,
+     "remaining": "622",
+     "sent_ms": 15001,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 201,
+     "n": 10,
+     "remaining": "621",
+     "sent_ms": 15501,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 199,
+     "n": 10,
+     "remaining": "620",
+     "sent_ms": 16000,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 183,
+     "n": 10,
+     "remaining": "619",
+     "sent_ms": 16501,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 170,
+     "n": 10,
+     "remaining": "618",
+     "sent_ms": 17000,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 198,
+     "n": 10,
+     "remaining": "617",
+     "sent_ms": 17502,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 175,
+     "n": 10,
+     "remaining": "616",
+     "sent_ms": 18001,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 170,
+     "n": 10,
+     "remaining": "615",
+     "sent_ms": 18502,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 195,
+     "n": 10,
+     "remaining": "614",
+     "sent_ms": 19005,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 174,
+     "n": 10,
+     "remaining": "613",
+     "sent_ms": 19502,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 239,
+     "n": 10,
+     "remaining": "612",
+     "sent_ms": 20001,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 182,
+     "n": 10,
+     "remaining": "611",
+     "sent_ms": 20502,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 193,
+     "n": 10,
+     "remaining": "610",
+     "sent_ms": 21001,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 202,
+     "n": 10,
+     "remaining": "609",
+     "sent_ms": 21502,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 186,
+     "n": 10,
+     "remaining": "608",
+     "sent_ms": 22001,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 177,
+     "n": 10,
+     "remaining": "607",
+     "sent_ms": 22501,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 177,
+     "n": 10,
+     "remaining": "606",
+     "sent_ms": 23002,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 175,
+     "n": 10,
+     "remaining": "605",
+     "sent_ms": 23500,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 200,
+     "n": 10,
+     "remaining": "604",
+     "sent_ms": 24001,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 186,
+     "n": 10,
+     "remaining": "603",
+     "sent_ms": 24502,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 170,
+     "n": 10,
+     "remaining": "602",
+     "sent_ms": 25001,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 177,
+     "n": 10,
+     "remaining": "601",
+     "sent_ms": 25502,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 216,
+     "n": 10,
+     "remaining": "600",
+     "sent_ms": 26001,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 186,
+     "n": 10,
+     "remaining": "599",
+     "sent_ms": 26502,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 223,
+     "n": 10,
+     "remaining": "598",
+     "sent_ms": 27002,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 201,
+     "n": 10,
+     "remaining": "597",
+     "sent_ms": 27502,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 197,
+     "n": 10,
+     "remaining": "596",
+     "sent_ms": 28001,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 192,
+     "n": 10,
+     "remaining": "595",
+     "sent_ms": 28503,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 200,
+     "n": 10,
+     "remaining": "594",
+     "sent_ms": 29001,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 177,
+     "n": 10,
+     "remaining": "593",
+     "sent_ms": 29501,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 207,
+     "n": 10,
+     "remaining": "592",
+     "sent_ms": 30001,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 188,
+     "n": 10,
+     "remaining": "591",
+     "sent_ms": 30500,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 168,
+     "n": 10,
+     "remaining": "590",
+     "sent_ms": 31002,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 184,
+     "n": 10,
+     "remaining": "589",
+     "sent_ms": 31501,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 248,
+     "n": 10,
+     "remaining": "588",
+     "sent_ms": 32003,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 203,
+     "n": 10,
+     "remaining": "587",
+     "sent_ms": 32502,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 195,
+     "n": 10,
+     "remaining": "586",
+     "sent_ms": 33002,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 193,
+     "n": 10,
+     "remaining": "585",
+     "sent_ms": 33502,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 198,
+     "n": 10,
+     "remaining": "584",
+     "sent_ms": 34002,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 191,
+     "n": 10,
+     "remaining": "583",
+     "sent_ms": 34499,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 182,
+     "n": 10,
+     "remaining": "582",
+     "sent_ms": 35000,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 193,
+     "n": 10,
+     "remaining": "581",
+     "sent_ms": 35502,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 179,
+     "n": 10,
+     "remaining": "580",
+     "sent_ms": 36002,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 169,
+     "n": 10,
+     "remaining": "579",
+     "sent_ms": 36501,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 181,
+     "n": 10,
+     "remaining": "578",
+     "sent_ms": 37001,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 205,
+     "n": 10,
+     "remaining": "577",
+     "sent_ms": 37511,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 228,
+     "n": 10,
+     "remaining": "576",
+     "sent_ms": 38007,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 182,
+     "n": 10,
+     "remaining": "575",
+     "sent_ms": 38501,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 229,
+     "n": 10,
+     "remaining": "574",
+     "sent_ms": 39001,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 207,
+     "n": 10,
+     "remaining": "573",
+     "sent_ms": 39508,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 227,
+     "n": 10,
+     "remaining": "572",
+     "sent_ms": 40001,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 191,
+     "n": 10,
+     "remaining": "571",
+     "sent_ms": 40501,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 244,
+     "n": 10,
+     "remaining": "570",
+     "sent_ms": 41000,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 197,
+     "n": 10,
+     "remaining": "569",
+     "sent_ms": 41503,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 282,
+     "n": 10,
+     "remaining": "568",
+     "sent_ms": 42001,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 181,
+     "n": 10,
+     "remaining": "567",
+     "sent_ms": 42501,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 178,
+     "n": 10,
+     "remaining": "566",
+     "sent_ms": 43002,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 198,
+     "n": 10,
+     "remaining": "565",
+     "sent_ms": 43502,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 469,
+     "n": 10,
+     "remaining": "564",
+     "sent_ms": 44001,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 202,
+     "n": 10,
+     "remaining": "563",
+     "sent_ms": 44516,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 185,
+     "n": 10,
+     "remaining": "562",
+     "sent_ms": 45001,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 225,
+     "n": 10,
+     "remaining": "561",
+     "sent_ms": 45505,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 248,
+     "n": 10,
+     "remaining": "560",
+     "sent_ms": 46002,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 229,
+     "n": 10,
+     "remaining": "559",
+     "sent_ms": 46502,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 183,
+     "n": 10,
+     "remaining": "558",
+     "sent_ms": 47001,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 180,
+     "n": 10,
+     "remaining": "557",
+     "sent_ms": 47501,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 231,
+     "n": 10,
+     "remaining": "556",
+     "sent_ms": 48001,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 186,
+     "n": 10,
+     "remaining": "555",
+     "sent_ms": 48506,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 172,
+     "n": 10,
+     "remaining": "554",
+     "sent_ms": 49001,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 182,
+     "n": 10,
+     "remaining": "553",
+     "sent_ms": 49501,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 241,
+     "n": 10,
+     "remaining": "552",
+     "sent_ms": 50001,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 189,
+     "n": 10,
+     "remaining": "551",
+     "sent_ms": 50502,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 180,
+     "n": 10,
+     "remaining": "550",
+     "sent_ms": 51000,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 182,
+     "n": 10,
+     "remaining": "549",
+     "sent_ms": 51500,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 179,
+     "n": 10,
+     "remaining": "548",
+     "sent_ms": 52000,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 170,
+     "n": 10,
+     "remaining": "547",
+     "sent_ms": 52501,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 179,
+     "n": 10,
+     "remaining": "546",
+     "sent_ms": 53001,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 170,
+     "n": 10,
+     "remaining": "545",
+     "sent_ms": 53501,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 183,
+     "n": 10,
+     "remaining": "544",
+     "sent_ms": 54001,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 179,
+     "n": 10,
+     "remaining": "543",
+     "sent_ms": 54500,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 177,
+     "n": 10,
+     "remaining": "542",
+     "sent_ms": 55001,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 178,
+     "n": 10,
+     "remaining": "541",
+     "sent_ms": 55501,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 220,
+     "n": 10,
+     "remaining": "540",
+     "sent_ms": 56000,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 180,
+     "n": 10,
+     "remaining": "539",
+     "sent_ms": 56515,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 181,
+     "n": 10,
+     "remaining": "538",
+     "sent_ms": 57001,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 181,
+     "n": 10,
+     "remaining": "537",
+     "sent_ms": 57501,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 207,
+     "n": 10,
+     "remaining": "536",
+     "sent_ms": 58001,
+     "mode": "pro",
+     "pit": true
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 203,
+     "n": 10,
+     "remaining": "535",
+     "sent_ms": 58500,
+     "mode": "realtime",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 190,
+     "n": 10,
+     "remaining": "534",
+     "sent_ms": 59001,
+     "mode": "pro",
+     "pit": false
+    },
+    {
+     "ok": true,
+     "status": 200,
+     "ms": 205,
+     "n": 10,
+     "remaining": "533",
+     "sent_ms": 59501,
+     "mode": "realtime",
+     "pit": false
+    }
+   ]
+  }
+ ]
+}

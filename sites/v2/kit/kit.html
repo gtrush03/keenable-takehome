@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>UI kit · Keenable take-home</title>
+<link rel="stylesheet" href="keenable.css" />
+<style>
+  .kit-row { display: flex; gap: 24px; align-items: flex-start; flex-wrap: wrap; }
+</style>
+</head>
+<body class="k">
+<div class="k-announce"><a href="../index.html">Founding GTM take-home · George Trushevskiy · 1 Oct 2026</a></div>
+<div class="k-ground">
+
+  <!-- header: sticky bar, logo | nav (193px in, 5 links like the live site) | pill (the Demo link lives in the pill) -->
+  <div class="k-header-bar">
+    <header class="k-header k-col">
+      <a class="k-logo" href="../index.html"><img src="assets/keenable-wordmark-ink.svg" alt="Keenable" /><small>take-home</small></a>
+      <nav class="k-nav">
+        <a href="../index.html#fintech">Fintech</a><a href="../index.html#galactica">Galactica</a><a href="../index.html#people">Two buyers</a><a href="../films/">Films</a><a href="../index.html#task">Requirements</a>
+      </nav>
+      <a class="k-pill" href="../index.html#demo">Demo</a>
+    </header>
+  </div>
+
+  <!-- hero: 80px below header; lead 28px below; buttons 28px below -->
+  <section class="k-col k-hero">
+    <h1 class="k-h1">Search with a clock, for<br />funds and their agents</h1>
+    <p class="k-lead" style="margin: 28px 0 28px;">0/60 acquired after the cutoff · ≈10× useful evidence · from $1 / 1K requests</p>
+    <div class="k-cta-row">
+      <a class="k-btn k-btn--dark" href="../index.html#demo">Try now</a>
+      <a class="k-btn k-btn--soft" href="../index.html#task">Talk to George</a>
+      <span class="k-cta-note">Measured on 6 events, top 10 each. Run 2026-10-01.</span>
+    </div>
+  </section>
+
+  <!-- section head with handwritten accent; illustration sits at the column's right edge -->
+  <section class="k-col" style="position: relative; height: 432px;">
+    <img class="k-eyes" src="assets/logo-e-outline.png" alt="" style="position: absolute; right: -50px; top: 60px; width: 260px;" />
+    <h2 class="k-h2" style="position: absolute; left: 0; top: 312px;">Backtests that <span class="k-hand">search twice</span><br />and get the same answer</h2>
+  </section>
+
+  <section class="k-col k-section">
+    <p class="k-small" style="margin: 0 0 8px;">Figure 1. Captions and notes · Stack Sans Text 14/18, 60% ink</p>
+    <p class="k-mono" style="margin: 0;">query_time: "2023-03-09" · Sometype Mono 16/20</p>
+  </section>
+
+  <!-- panels: square #EFF3FB, 24px padding, numbered circle, white cards -->
+  <section class="k-col k-section">
+    <h2 class="k-h2" style="margin-bottom: 52px;">One index, three <span class="k-hand k-hand--lg">pilots</span></h2>
+    <div class="k-panel">
+      <div class="k-panel__head"><span class="k-step">1</span><h3 class="k-h2">Event replay for your backtests</h3></div>
+      <div class="k-cards">
+        <div class="k-card"><div class="k-tile k-tile--orange">50</div><div class="k-card__title">Event replay</div><div class="k-card__sub">Your 50 hardest event queries, fenced</div>
+          <div class="k-specs"><div class="k-spec"><span>Turnaround</span><span>48 hours</span></div><div class="k-spec"><span>Output</span><span>Verdict memo</span></div><div class="k-spec"><span>Pass if</span><span>0 leaks</span></div></div></div>
+        <div class="k-card"><div class="k-tile k-tile--blue">ee</div><div class="k-card__title">Adverse media</div><div class="k-card__sub">Screening on the same index</div>
+          <div class="k-specs"><div class="k-spec"><span>Hard cases</span><span>19 / 22 right</span></div><div class="k-spec"><span>Mode</span><span>Live + fenced</span></div><div class="k-spec"><span>Status</span><span>Measured</span></div></div></div>
+        <div class="k-card"><div class="k-tile">$</div><div class="k-card__title">Pay as you go</div><div class="k-card__sub">One parameter in the call you make</div>
+          <div class="k-specs"><div class="k-spec"><span>Price</span><span>$4 / 1K queries</span></div><div class="k-spec"><span>Kit</span><span>26 tests passing</span></div><div class="k-spec"><span>Source</span><span>keenable.ai/pricing</span></div></div></div>
+      </div>
+    </div>
+    <div class="k-panel">
+      <div class="k-panel__head"><span class="k-step">2</span><h3 class="k-h2">Chips and actions</h3></div>
+      <div class="kit-row" style="align-items: center;"><span class="k-chip">https://api.example/mcp</span><a class="k-btn k-btn--dark" href="../index.html#task">Start the pilot</a><a class="k-btn k-btn--soft" href="../films/">Watch the films</a></div>
+    </div>
+    <div class="k-panel k-panel--split">
+      <div class="k-panel__intro">
+        <span class="k-step">3</span>
+        <h3 class="k-h2">Pilot for<br />your desk</h3>
+        <span class="k-chip">.k-panel--split</span>
+        <p class="k-small" style="margin: 0;">Intro on the left, cards on the right, as on the live pricing panel.</p>
+      </div>
+      <div class="k-card"><div class="k-tile k-tile--orange">50</div><div class="k-card__title">Replay pilot</div><div class="k-card__sub">Your 50 hardest event queries</div>
+        <div class="k-specs"><div class="k-spec"><span>Turnaround</span><span>48 hours</span></div><div class="k-spec"><span>Output</span><span>Verdict memo</span></div></div></div>
+      <div class="k-card"><div class="k-tile k-tile--blue">ee</div><div class="k-card__title">Production</div><div class="k-card__sub">Live and fenced on one index</div>
+        <div class="k-specs"><div class="k-spec"><span>Price</span><span>$4 / 1K</span></div><div class="k-spec"><span>Source</span><span>keenable.ai/pricing</span></div></div></div>
+    </div>
+  </section>
+
+  <!-- folded highlight card, halftone, illustrations -->
+  <section class="k-col k-section">
+    <div class="kit-row">
+      <div class="k-fold" style="flex: 1; min-width: 320px;">
+        <div class="k-fold__num"><em>1</em>/70</div>
+        <p class="k-lead" style="margin: 16px 0 0;">Keenable's clock let one result give the ending away, against 10–37 for five other search APIs with their best date filters.</p>
+        <p class="k-small" style="margin: 12px 0 0;">Measured tonight · small sample</p>
+      </div>
+      <figure style="margin: 0;">
+        <div class="k-halftone"><img src="assets/eyes-cursor-mascot.png" alt="" /></div>
+        <figcaption class="k-small" style="margin-top: 8px;">.k-halftone</figcaption>
+      </figure>
+    </div>
+    <div class="kit-row" style="margin-top: 40px; align-items: center;">
+      <img src="assets/hand-wave.png" alt="" style="height: 120px;" /><img src="assets/logo-e-outline.png" alt="" style="height: 120px;" /><img src="assets/eyes-hand-drawn.png" alt="" style="height: 120px;" />
+    </div>
+  </section>
+
+  <!-- essay cards -->
+  <section class="k-col k-section">
+    <h2 class="k-h2" style="margin-bottom: 51px;">Films and memos</h2>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px;">
+      <a class="k-essay" href="../films/"><span class="k-body">George Trushevskiy</span><span class="k-lead">Fintech film: search with a clock</span><span class="k-body">Oct 1, 2026</span></a>
+      <a class="k-essay" href="../films/"><span class="k-body">George Trushevskiy</span><span class="k-lead">Galactica film</span><span class="k-body">Oct 1, 2026</span></a>
+      <a class="k-essay" href="../index.html#task"><span class="k-body">George Trushevskiy</span><span class="k-lead">One-page verdict memo</span><span class="k-body">Oct 1, 2026</span></a>
+    </div>
+  </section>
+
+  <!-- CTA glow (column + 2 × 342 wide) -->
+  <section class="k-section">
+    <div class="k-glow">
+      <h2 class="k-h2">Get a verdict memo<br />in 48 hours</h2>
+      <div class="k-cta-row" style="justify-content: center; margin-top: 24px;"><a class="k-btn k-btn--white" href="../index.html#task">Start the pilot</a><a class="k-btn k-btn--glass" href="../films/">Watch the films</a></div>
+    </div>
+  </section>
+
+  <!-- footer -->
+  <footer class="k-footer">
+    <div class="k-col">
+      <div class="k-footer__grid">
+        <div><img src="assets/keenable-wordmark-ink.svg" alt="Keenable" style="height: 20px;" /></div>
+        <div><h6>Verticals</h6><a href="../index.html#fintech">Fintech</a><a href="../index.html#galactica">Galactica</a><a href="../index.html#people">Two buyers</a></div>
+        <div><h6>Proof</h6><a href="../films/">Films</a><a href="../index.html#demo">Demo</a><a href="../index.html#sources">Sources</a></div>
+        <div><h6>Take-home</h6><a href="../index.html#task">Requirements</a><a href="../index.html#gtm">GTM plan</a><a href="../index.html#appendix">Appendix</a></div>
+      </div>
+      <p class="k-footer__legal">A take-home by George Trushevskiy for Keenable. Not an official Keenable site.</p>
+    </div>
+  </footer>
+</div>
+</body>
+</html>

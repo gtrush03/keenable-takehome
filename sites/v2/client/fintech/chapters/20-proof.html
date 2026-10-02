@@ -1,0 +1,35 @@
+<section class="slide" id="fences" data-chapter="proof" data-title="Three fences" data-src="data/fence_relevance.json">
+  <div class="inner">
+    <p class="eyebrow">Useful pre-event results in the top 10, seven events</p>
+    <h2 data-reveal>The acquisition-time fence returned more pre-event evidence.</h2>
+    <div class="c-compare" style="--cols:3" data-reveal>
+      <div><p class="k">No fence</p><p class="v">0.4<small>useful / top 10</small></p><p class="d"><b>87%</b> reveal the outcome</p></div>
+      <div><p class="k">Publish-date filter</p><p class="v">0.6<small>useful / top 10</small></p><p class="d"><b>71%</b> reveal the outcome</p></div>
+      <div class="us"><p class="k">Keenable query_time</p><p class="v">4.3<small>useful / top 10</small></p><p class="d"><b>0</b> acquired after cutoff · <b>6/70</b> flagged</p></div>
+    </div>
+    <p class="foot">Jev labels; flags are possible leaks, 1 confirmed. Second model (Claude) agrees 28/30; no human validation yet. Source: <a class="src" href="../../data/fence_relevance.json">fence_relevance.json</a></p>
+  </div>
+</section>
+
+<section class="slide" id="recipe" data-chapter="proof" data-title="The phrasing recipe" data-src="data/fence_relevance.json">
+  <div class="inner">
+    <p class="eyebrow">How your agent should phrase it</p>
+    <h2 data-reveal>Ask as of the date: fresh evidence roughly doubles.</h2>
+    <p class="lede fx-recipe" data-reveal><code>query_time = as_of</code> · <code>"entity + metric + Month YYYY"</code> · no outcome words</p>
+    <div class="c-compare" style="--cols:2" data-reveal>
+      <div><p class="k">Original query</p><p class="v">2.1<small>fresh useful / top 10</small></p><p class="d">4.3 useful · 6 flagged</p></div>
+      <div class="us"><p class="k">Recipe phrasing</p><p class="v">4.6<small>fresh useful / top 10</small></p><p class="d">5.0 useful · <b>1</b> flagged</p></div>
+    </div>
+    <p class="foot">Fresh = acquired ≤365 days before the cutoff. Month alone: 4.1. Source: <a class="src" href="../../data/fence_relevance.json">fence_relevance.json</a></p>
+  </div>
+</section>
+
+<section class="slide c-big" id="caveat" data-chapter="proof" data-title="The caveat: 1 of 60" data-src="data/fintech_judged.json">
+  <div class="inner">
+    <p class="eyebrow">The confirmed miss, said before you find it</p>
+    <h2 data-reveal>A fenced result served later page text.</h2>
+    <div class="big" data-reveal><span class="acc">1</span><span class="of">/60</span></div>
+    <p class="big-label" data-reveal>a blockworks.co tag page crawled before the FTX cutoff, showing text updated after it</p>
+    <p class="foot">The pilot gate counts this case. The 70-result relevance run has 6 Jev flags; this is the confirmed one. Source: <a class="src" href="../../data/fintech_judged.json">fintech_judged.json</a></p>
+  </div>
+</section>

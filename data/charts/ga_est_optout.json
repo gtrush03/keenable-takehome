@@ -1,0 +1,244 @@
+{
+ "title": "Share of sampled docs on sites that opt out of AI training today",
+ "label": "MEASURED",
+ "headline": {
+  "share": 0.1567,
+  "ci95": [
+   0.1086,
+   0.2127
+  ],
+  "n_docs": 504,
+  "n_hosts": 388,
+  "ci_method": "bootstrap over hosts (docs cluster by site), 2,000 resamples"
+ },
+ "doc_level": {
+  "n_docs_on_known_hosts": 504,
+  "opt_out_any_signal": {
+   "k": 79,
+   "n": 504,
+   "share": 0.1567,
+   "ci95": [
+    0.1276,
+    0.1911
+   ]
+  },
+  "explicit_ai_bot_disallow": {
+   "k": 76,
+   "n": 504,
+   "share": 0.1508,
+   "ci95": [
+    0.1222,
+    0.1847
+   ]
+  },
+  "ai_train_no_content_signal": {
+   "k": 6,
+   "n": 504,
+   "share": 0.0119,
+   "ci95": [
+    0.0055,
+    0.0257
+   ]
+  },
+  "ai_txt_or_tdm_reservation": {
+   "k": 2,
+   "n": 504,
+   "share": 0.004,
+   "ci95": [
+    0.0011,
+    0.0144
+   ]
+  },
+  "disallowed_for_bot": {
+   "GPTBot": {
+    "k": 81,
+    "n": 504,
+    "share": 0.1607,
+    "ci95": [
+     0.1312,
+     0.1953
+    ]
+   },
+   "CCBot": {
+    "k": 91,
+    "n": 504,
+    "share": 0.1806,
+    "ci95": [
+     0.1494,
+     0.2165
+    ]
+   },
+   "ClaudeBot": {
+    "k": 79,
+    "n": 504,
+    "share": 0.1567,
+    "ci95": [
+     0.1276,
+     0.1911
+    ]
+   },
+   "Google-Extended": {
+    "k": 63,
+    "n": 504,
+    "share": 0.125,
+    "ci95": [
+     0.0989,
+     0.1567
+    ]
+   },
+   "anthropic-ai": {
+    "k": 79,
+    "n": 504,
+    "share": 0.1567,
+    "ci95": [
+     0.1276,
+     0.1911
+    ]
+   }
+  },
+  "disallowed_for_generic_crawler_star": {
+   "k": 34,
+   "n": 504,
+   "share": 0.0675,
+   "ci95": [
+    0.0487,
+    0.0928
+   ]
+  },
+  "disallowed_for_keenablebot_today": {
+   "k": 34,
+   "n": 504,
+   "share": 0.0675,
+   "ci95": [
+    0.0487,
+    0.0928
+   ]
+  },
+  "by_sample": {
+   "broad": {
+    "k": 63,
+    "n": 419,
+    "share": 0.1504,
+    "ci95": [
+     0.1193,
+     0.1878
+    ]
+   },
+   "search_biased": {
+    "k": 16,
+    "n": 85,
+    "share": 0.1882,
+    "ci95": [
+     0.1193,
+     0.2841
+    ]
+   }
+  }
+ },
+ "host_level": {
+  "explicit_group_for_any_ai_bot": {
+   "k": 103,
+   "n": 388,
+   "share": 0.2655,
+   "ci95": [
+    0.224,
+    0.3115
+   ]
+  },
+  "by_bot_explicit_group": {
+   "GPTBot": {
+    "k": 89,
+    "n": 388,
+    "share": 0.2294,
+    "ci95": [
+     0.1903,
+     0.2737
+    ]
+   },
+   "CCBot": {
+    "k": 79,
+    "n": 388,
+    "share": 0.2036,
+    "ci95": [
+     0.1665,
+     0.2465
+    ]
+   },
+   "ClaudeBot": {
+    "k": 82,
+    "n": 388,
+    "share": 0.2113,
+    "ci95": [
+     0.1736,
+     0.2547
+    ]
+   },
+   "Google-Extended": {
+    "k": 83,
+    "n": 388,
+    "share": 0.2139,
+    "ci95": [
+     0.176,
+     0.2574
+    ]
+   },
+   "anthropic-ai": {
+    "k": 69,
+    "n": 388,
+    "share": 0.1778,
+    "ci95": [
+     0.143,
+     0.219
+    ]
+   }
+  },
+  "content_signal_present": {
+   "k": 18,
+   "n": 388,
+   "share": 0.0464,
+   "ci95": [
+    0.0295,
+    0.0721
+   ]
+  },
+  "content_signal_ai_train_no": {
+   "k": 6,
+   "n": 388,
+   "share": 0.0155,
+   "ci95": [
+    0.0071,
+    0.0333
+   ]
+  },
+  "ai_txt_present": {
+   "k": 1,
+   "n": 388,
+   "share": 0.0026,
+   "ci95": [
+    0.0005,
+    0.0145
+   ]
+  },
+  "tdmrep_present": {
+   "k": 2,
+   "n": 388,
+   "share": 0.0052,
+   "ci95": [
+    0.0014,
+    0.0186
+   ]
+  },
+  "tdm_reserved": {
+   "k": 2,
+   "n": 388,
+   "share": 0.0052,
+   "ci95": [
+    0.0014,
+    0.0186
+   ]
+  }
+ },
+ "definition": "Doc opts out of AI training if, today, its URL is disallowed by a robots.txt group that names GPTBot, CCBot, ClaudeBot, Google-Extended or anthropic-ai, OR the host's robots.txt carries a Cloudflare Content-Signal with ai-train=no, OR /ai.txt disallows all, OR /.well-known/tdmrep.json reserves TDM. Hosts whose robots.txt was unreachable (5xx/DNS/timeout) are excluded.",
+ "source": "data/galactica_estimates.json",
+ "generated_at": "2026-10-01T19:00:00+00:00"
+}

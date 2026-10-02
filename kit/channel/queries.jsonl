@@ -1,0 +1,20 @@
+{"id":"code-01","segment":"coding-agent","query":"Next.js 16 middleware renamed proxy migration","expected_domains":["nextjs.org","github.com","vercel.com"]}
+{"id":"code-02","segment":"coding-agent","query":"TypeError: Cannot read properties of undefined (reading 'map') React useEffect fetch","expected_domains":["stackoverflow.com","react.dev","github.com"]}
+{"id":"code-03","segment":"coding-agent","query":"pydantic v2 model_validator mode before example","expected_domains":["docs.pydantic.dev","github.com","stackoverflow.com"]}
+{"id":"code-04","segment":"coding-agent","query":"vLLM tool calling parser for Qwen3 hermes flag","expected_domains":["docs.vllm.ai","github.com"]}
+{"id":"code-05","segment":"coding-agent","query":"rust tokio select! cancel safety","expected_domains":["docs.rs","tokio.rs","github.com"]}
+{"id":"code-06","segment":"coding-agent","query":"postgres 18 release notes asynchronous I/O","expected_domains":["postgresql.org"]}
+{"id":"code-07","segment":"coding-agent","query":"Model Context Protocol specification streamable HTTP transport","expected_domains":["modelcontextprotocol.io","github.com"]}
+{"id":"code-08","segment":"coding-agent","query":"Fireworks AI function calling API docs","expected_domains":["docs.fireworks.ai","fireworks.ai"]}
+{"id":"research-01","segment":"research-agent","query":"DeepSeek V3 technical report mixture of experts auxiliary-loss-free load balancing","expected_domains":["arxiv.org","github.com","huggingface.co"]}
+{"id":"research-02","segment":"research-agent","query":"speculative decoding EAGLE-3 paper","expected_domains":["arxiv.org","github.com"]}
+{"id":"research-03","segment":"research-agent","query":"SimpleQA Verified benchmark","expected_domains":["arxiv.org","kaggle.com","github.com","huggingface.co"]}
+{"id":"research-04","segment":"research-agent","query":"Kimi K2 open weights license","expected_domains":["huggingface.co","github.com","moonshotai.github.io","kimi.com"]}
+{"id":"fresh-01","segment":"freshness","query":"Baseten hosted tools web search launch","expected_domains":["baseten.co","keenable.ai"]}
+{"id":"fresh-02","segment":"freshness","query":"Fireworks AI Series D funding","expected_domains":["fireworks.ai","techcrunch.com","bloomberg.com","reuters.com"]}
+{"id":"fresh-03","segment":"freshness","query":"OpenRouter joining Stripe acquisition","expected_domains":["openrouter.ai","stripe.com","techcrunch.com"]}
+{"id":"fresh-04","segment":"freshness","query":"Cerebras second quarter 2026 results inference cloud","expected_domains":["cerebras.ai","nasdaq.com","businesswire.com"]}
+{"id":"fact-01","segment":"factual-qa","query":"population of Iceland 2025","expected_domains":["statice.is","en.wikipedia.org","worldbank.org"]}
+{"id":"fact-02","segment":"factual-qa","query":"who won the 2025 Nobel Prize in Physics","expected_domains":["nobelprize.org","en.wikipedia.org"]}
+{"id":"fact-03","segment":"factual-qa","query":"SEC Form 10-K filing deadline large accelerated filer","expected_domains":["sec.gov","investor.gov"]}
+{"id":"fact-04","segment":"factual-qa","query":"EU AI Act general-purpose AI obligations application date","expected_domains":["digital-strategy.ec.europa.eu","eur-lex.europa.eu","artificialintelligenceact.eu"]}

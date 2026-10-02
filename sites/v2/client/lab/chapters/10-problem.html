@@ -1,0 +1,40 @@
+<section class="slide" id="upstream" data-chapter="problem" data-title="One upstream" data-src="data/opt1_facts.json">
+  <div class="inner">
+    <p class="eyebrow">Where your web tokens come from</p>
+    <h2 data-reveal>Every open recipe filters the same crawl.</h2>
+    <figure class="c-diagram" data-reveal aria-label="Common Crawl, 2.17 billion pages in September 2026, feeds FineWeb, DCLM, Dolma and RedPajama, which feed your pool.">
+      <svg class="land" viewBox="0 0 1200 200" aria-hidden="true">
+        <defs><marker id="labChev" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" stroke="#0B0B0B" stroke-width="1.6"/></marker>
+          <marker id="labChevA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" style="stroke:var(--accent-deep)" stroke-width="2"/></marker></defs>
+        <g><rect class="box hl" x="1" y="1" width="340" height="198"/><text class="lab hl" x="24" y="70">Common Crawl</text><text class="lab hl" x="24" y="110">2.17B pages, Sep 2026</text><text class="lab hl" x="24" y="150">587.2M new URLs</text></g>
+        <g><rect class="box" x="429" y="1" width="340" height="198"/><text class="lab" x="452" y="70">FineWeb · DCLM</text><text class="lab" x="452" y="110">Dolma · RedPajama</text><text class="sub" x="452" y="150">same upstream</text></g>
+        <g><rect class="box" x="858" y="1" width="340" height="198"/><text class="lab" x="881" y="70">Your pool</text><text class="sub" x="881" y="110">filtered, deduped</text></g>
+        <path class="arrow hl" d="M345 100 H421" marker-end="url(#labChevA)"/>
+        <path class="arrow" d="M773 100 H850" marker-end="url(#labChev)"/>
+      </svg>
+      <svg class="portrait" viewBox="0 0 360 460" aria-hidden="true">
+        <defs><marker id="labChevP" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" stroke="#0B0B0B" stroke-width="1.6"/></marker>
+          <marker id="labChevPA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" style="stroke:var(--accent-deep)" stroke-width="2"/></marker></defs>
+        <g><rect class="box hl" x="1" y="1" width="358" height="120"/><text class="lab hl" x="20" y="44">Common Crawl</text><text class="lab hl" x="20" y="76">2.17B pages, Sep 2026</text><text class="lab hl" x="20" y="106">587.2M new URLs</text></g>
+        <g><rect class="box" x="1" y="171" width="358" height="110"/><text class="lab" x="20" y="216">FineWeb · DCLM</text><text class="lab" x="20" y="248">Dolma · RedPajama</text></g>
+        <g><rect class="box" x="1" y="331" width="358" height="110"/><text class="lab" x="20" y="378">Your pool</text><text class="sub" x="20" y="410">filtered, deduped</text></g>
+        <path class="arrow hl" d="M180 123 V163" marker-end="url(#labChevPA)"/>
+        <path class="arrow" d="M180 283 V323" marker-end="url(#labChevP)"/>
+      </svg>
+    </figure>
+    <p class="foot">Common Crawl blog, 19 Sep 2026. Source: <a class="src" href="../../data/opt1_facts.json">opt1_facts.json</a> (A01, A02)</p>
+  </div>
+</section>
+
+<section class="slide" id="closing" data-chapter="problem" data-title="The web is closing" data-src="data/opt1_facts.json">
+  <div class="inner">
+    <p class="eyebrow">Why it gets harder each quarter</p>
+    <h2 data-reveal>New web tokens are harder to collect.</h2>
+    <div class="c-compare" style="--cols:3" data-reveal>
+      <div><p class="k">C4 · within a year</p><p class="v">5%+<small>of tokens</small></p><p class="d">became <b>robots-restricted</b></p></div>
+      <div><p class="k">Cloudflare · Jun 2026</p><p class="v">52%<small>of crawler requests</small></p><p class="d">were for <b>AI training</b></p></div>
+      <div class="us"><p class="k">EU AI Act · enforced 2 Aug 2026</p><p class="v">10%<small>top scraped domains</small></p><p class="d">must be <b>listed</b> in your training summary (SMEs: 5% or 1,000, whichever is lower)</p></div>
+    </div>
+    <p class="foot">Sources: <a class="src" href="../../data/opt1_facts.json">opt1_facts.json</a> (B24, B21, B28–B30). Obligations apply from 2 Aug 2025; models already on sale must publish by 2 Aug 2027.</p>
+  </div>
+</section>

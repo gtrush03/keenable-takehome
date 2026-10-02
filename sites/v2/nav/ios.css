@@ -1,0 +1,67 @@
+/* iOS / mobile layer (ruling #15). Loaded after each page's own CSS on the deck, full.html, hub, films, map and index-map.
+   Every rule here is additive: env(safe-area-inset-*) is 0 on screens without a notch or home indicator, so desktop layout is unchanged.
+   Needs <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"> (ios.js adds viewport-fit if missing). */
+
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+/* ---------- present mode: dynamic viewport height (fallback: --app-h from ios.js, then the page's own 100vh/100svh); no rubber-band ---------- */
+body.present main { height: var(--app-h, 100vh); height: 100dvh; }
+html:has(body.present), body.present { overscroll-behavior: none; }
+body.present .slide { overscroll-behavior: contain; }
+
+/* ---------- safe areas ---------- */
+/* deck top bar (shared/deck.css + v2.css: fixed, var(--bar-h) tall, 0 clamp(12px, 2.4vw, 32px) side padding) */
+.topbar { padding-top: env(safe-area-inset-top); height: calc(var(--bar-h, 56px) + env(safe-area-inset-top));
+  padding-left: calc(clamp(12px, 2.4vw, 32px) + env(safe-area-inset-left)); padding-right: calc(clamp(12px, 2.4vw, 32px) + env(safe-area-inset-right)); }
+/* kit header (hub, films, map, index-map): sticky, 24px top padding; content columns keep clear of the notch in landscape */
+.k-header-bar { padding-top: calc(24px + env(safe-area-inset-top)); height: calc(var(--k-header-h, 76px) + env(safe-area-inset-top)); }
+.k-col, .k-wide { max-width: calc(100% - 32px - env(safe-area-inset-left) - env(safe-area-inset-right)); }
+/* slide controls + counter */
+.sc { right: calc(clamp(16px, 2.4vw, 32px) + env(safe-area-inset-right)); bottom: calc(20px + env(safe-area-inset-bottom)); }
+body.film-on .sc { left: calc(clamp(12px, 2vw, 32px) + env(safe-area-inset-left)); right: calc(clamp(12px, 2vw, 32px) + env(safe-area-inset-right)); bottom: auto; }
+.counter { bottom: calc(12px + env(safe-area-inset-bottom)); }
+@media (max-width: 700px) { .sc { right: calc(12px + env(safe-area-inset-right)); bottom: calc(12px + env(safe-area-inset-bottom)); } }
+/* film captions and controls: the KPlayer bar, the "Continue" call-out and the full-screen button */
+.kp-bar { padding-left: calc(16px + env(safe-area-inset-left)); padding-right: calc(16px + env(safe-area-inset-right)); padding-bottom: calc(10px + env(safe-area-inset-bottom)); }
+@container (max-width: 640px) { .kp-bar { padding-left: calc(6px + env(safe-area-inset-left)); padding-right: calc(6px + env(safe-area-inset-right)); padding-bottom: calc(4px + env(safe-area-inset-bottom)); } }
+.film-go { margin-right: env(safe-area-inset-right); margin-bottom: env(safe-area-inset-bottom); }
+.film-fs { margin-right: env(safe-area-inset-right); }
+.kp-overlay { padding: calc(56px + env(safe-area-inset-top)) calc(24px + env(safe-area-inset-right)) calc(24px + env(safe-area-inset-bottom)) calc(24px + env(safe-area-inset-left)); }
+
+/* ---------- touch: 44 pt tap targets, no hover-only affordances ---------- */
+@media (pointer: coarse) {
+  :root { --k-ctl-h: 44px; --k-header-h: 78px; }
+  .topbar .btn, .topbar .tools .btn { min-height: 44px; min-width: 44px; justify-content: center; }
+  .topbar .brand { min-height: 44px; display: inline-flex; align-items: center; }
+  .sc .sc-b { width: 44px; height: 44px; }
+  .sc .sc-n, button.sc-n { height: 44px; }
+  .hero-links a, .req-go { min-height: 44px; display: inline-flex; align-items: center; }
+  .c-path li button, .c-path .path-cur { min-height: 44px; }
+  .k-header a, .k-header button { min-height: 44px; display: inline-flex; align-items: center; }
+  a, button, [role="button"], summary, label { -webkit-tap-highlight-color: rgba(0, 92, 255, 0.12); }
+}
+
+/* ---------- rotate prompt (portrait phones; deck and films pages) ---------- */
+.ios-rot { position: fixed; z-index: 2147482000; left: calc(12px + env(safe-area-inset-left)); right: calc(12px + env(safe-area-inset-right)); top: calc(12px + env(safe-area-inset-top));
+  display: flex; align-items: center; gap: 12px; padding: 12px 8px 12px 14px; border-radius: 12px; background: rgba(255, 255, 255, 0.96);
+  -webkit-backdrop-filter: blur(16px) saturate(1.5); backdrop-filter: blur(16px) saturate(1.5); box-shadow: 0 0 0 1px rgba(42, 42, 42, 0.08), 0 12px 32px rgba(0, 0, 0, 0.16);
+  color: #2A2A2A; font: 300 15px/20px "Stack Sans Text", "Helvetica Neue", Arial, sans-serif; letter-spacing: -0.01em;
+  transform: translateY(-8px); opacity: 0; transition: opacity .3s ease, transform .3s ease; }
+.ios-rot.in { transform: none; opacity: 1; }
+.ios-rot[hidden] { display: none; }
+.ios-rot > svg { flex: none; width: 40px; height: 40px; }
+.ios-rot .ios-rot-t { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+.ios-rot b { font: 300 16px/20px "Stack Sans Headline", "Helvetica Neue", Arial, sans-serif; color: #0E0E0E; letter-spacing: -0.01em; }
+.ios-rot button { all: unset; box-sizing: border-box; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.ios-rot .ios-rot-go { min-height: 44px; padding: 0 14px; border-radius: 12px; background: #EFF3FB; color: #2A2A2A; display: inline-flex; align-items: center; font: inherit; }
+.ios-rot .ios-rot-x { flex: none; align-self: flex-start; width: 44px; height: 44px; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; color: #646464; }
+.ios-rot button:active { background: #E2E9F7; color: #005CFF; }
+.ios-rot button:focus-visible { outline: 2px solid #005CFF; outline-offset: 2px; }
+.ios-rot .ios-ph { transform-origin: 20px 20px; }
+@media (prefers-reduced-motion: no-preference) {
+  .ios-rot.in .ios-ph { animation: ios-rot 2.8s cubic-bezier(.6, 0, .3, 1) infinite; }
+  .ios-rot.in .ios-arc { animation: ios-arc 2.8s ease infinite; }
+}
+@keyframes ios-rot { 0%, 22% { transform: rotate(0deg); } 48%, 74% { transform: rotate(-90deg); } 100% { transform: rotate(0deg); } }
+@keyframes ios-arc { 0%, 18% { opacity: 1; } 40%, 80% { opacity: .25; } 100% { opacity: 1; } }
+@media print { .ios-rot { display: none !important; } }

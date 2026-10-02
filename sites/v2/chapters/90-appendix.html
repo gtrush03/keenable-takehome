@@ -1,0 +1,116 @@
+<section class="slide c-chapter" id="appendix" data-chapter="sources" data-title="Appendix">
+  <div class="inner">
+    <p class="eyebrow">Appendix</p>
+    <h2 data-reveal>Method, sources, objections, caveats.</h2>
+  </div>
+</section>
+
+<section class="slide ax" id="ax-src-fence" data-chapter="sources" data-title="Sources · fence and fintech">
+  <div class="inner">
+    <p class="eyebrow">Method and sources · 1 of 4</p>
+    <h2 data-reveal>The fence and fintech numbers.</h2>
+    <dl class="ax-list" data-reveal>
+      <dt><a class="src" href="data/fintech_judged.json">data/fintech_judged.json</a></dt><dd>33/60 results state the outcome unfenced; 0/60 acquired after the cutoff with <code>query_time</code>; 1/60 later text; primary source in top 10 on 14/40.</dd>
+      <dt><a class="src" href="data/h2h/latest_judged.json">data/h2h/latest_judged.json</a></dt><dd>A publish-date fence on the same engine: 29/70 results still state the outcome.</dd>
+      <dt><a class="src" href="data/fence_relevance.json">data/fence_relevance.json</a></dt><dd>Useful pre-event results per top 10 on 7 events: 0.4 no fence, 0.6 publish-date, 4.3 <code>query_time</code> (raw Jev labels; 6/70 flagged as possible leaks, 1 confirmed).</dd>
+    </dl>
+  </div>
+</section>
+
+<section class="slide ax" id="ax-src-fence-2" data-chapter="sources" data-title="Sources · fence and fintech (2)">
+  <div class="inner">
+    <p class="eyebrow">Method and sources · 2 of 4</p>
+    <h2 data-reveal>Labels, replays and load.</h2>
+    <dl class="ax-list" data-reveal>
+      <dt><a class="src" href="data/fence_gold.json">data/fence_gold.json</a></dt><dd>30 results labelled blind by a second model (Claude); Jev agreed on 28/30. No human validation yet.</dd>
+      <dt><a class="src" href="data/fintech_repro.json">data/fintech_repro.json</a></dt><dd>The same fenced request, run twice: identical order on 6/6 queries.</dd>
+      <dt><a class="src" href="data/fintech_stress.json">data/fintech_stress.json</a></dt><dd>Open-loop ramp 0.5 to 2 rps: 300/300 requests OK.</dd>
+    </dl>
+  </div>
+</section>
+
+<section class="slide ax" id="ax-src-more" data-chapter="sources" data-title="Sources · coverage, kit, channel">
+  <div class="inner">
+    <p class="eyebrow">Method and sources · 3 of 4</p>
+    <h2 data-reveal>Coverage, latency, build vs buy.</h2>
+    <dl class="ax-list" data-reveal>
+      <dt><a class="src" href="data/cc_overlap.json">data/cc_overlap.json</a></dt><dd>75.4% [71.4–79.0] of 500 Keenable-returned pages have no URL match in any of the nine 2026 Common Crawl crawls.</dd>
+      <dt><a class="src" href="data/needle_results.json">data/needle_results.json</a></dt><dd>NEEDLE: Finance recall@5 0.886, #3 by rank; median p95 pro 1,336 ms, realtime 169 ms.</dd>
+      <dt><a class="src" href="data/charts/opt1_montecarlo.json">data/charts/opt1_montecarlo.json</a></dt><dd>Galactica build vs buy over ranged inputs, 10,000 draws: build cheaper in 0 of them.</dd>
+    </dl>
+  </div>
+</section>
+
+<section class="slide ax" id="ax-src-more-2" data-chapter="sources" data-title="Sources · coverage, kit, channel (2)">
+  <div class="inner">
+    <p class="eyebrow">Method and sources · 4 of 4</p>
+    <h2 data-reveal>The kit, the channel, product findings.</h2>
+    <dl class="ax-list" data-reveal>
+      <dt><span class="src">kit/eval/out/*/VERDICT.md</span></dt><dd>Kit sample runs pass the domain/snippet rule on 25/40 fintech and 12/14 agentic queries; $0.006 and $0.005 per passing query at list.</dd>
+      <dt><a class="src" href="data/g9_channel.json">data/g9_channel.json</a></dt><dd>Channel map and platform scores: Fireworks 4.10/5, OpenRouter 3.65.</dd>
+      <dt><a class="src" href="research/g9_product_feedback.md">research/g9_product_feedback.md</a></dt><dd>18 product findings, each with evidence, buyer impact and a fix.</dd>
+    </dl>
+  </div>
+</section>
+
+<section class="slide ax" id="ax-objections" data-chapter="sources" data-title="Objections and answers">
+  <div class="inner">
+    <p class="eyebrow">Objections → answers · 1 of 2</p>
+    <h2 data-reveal>Six objections I expect, answered.</h2>
+    <dl class="ax-list ax-qa" data-reveal>
+      <dt>"We already use Exa or Tavily."</dt><dd>Their date filters fence on publish date; on Keenable's engine that still leaked 29/70.</dd>
+      <dt>"Is <code>query_time</code> today's copy of an old URL?"</dt><dd>0/60 acquired after the cutoff, but 1/60 served later text. Proposed fix: versioned snapshots.</dd>
+      <dt>"You rank aggregators first."</dt><dd>True on finance: primary source in top 10 on 14/40. <code>site:</code> plus fetch today.</dd>
+    </dl>
+  </div>
+</section>
+
+<section class="slide ax" id="ax-objections-2" data-chapter="sources" data-title="Objections and answers (2)">
+  <div class="inner">
+    <p class="eyebrow">Objections → answers · 2 of 2</p>
+    <h2 data-reveal>Crawl, cost and latency, answered.</h2>
+    <dl class="ax-list ax-qa" data-reveal>
+      <dt>"Common Crawl is free."</dt><dd>75.4% of 500 sampled pages have no URL match in a 2026 crawl. The gap is coverage.</dd>
+      <dt>"We already crawl."</dt><dd>Existing-team low scenario: ~$0.86M a year. Sell Delta, priced per novel document.</dd>
+      <dt>"Latency at our RPS?"</dt><dd>300/300 OK to 2 rps keyless. 100 RPS gets a contracted load test in the pilot.</dd>
+    </dl>
+    <p class="foot">Full lists: <a class="src" href="research/opt2_thesis.md">opt2_thesis.md</a> §6 · <a class="src" href="research/opt1_thesis.md">opt1_thesis.md</a> §8</p>
+  </div>
+</section>
+
+<section class="slide ax" id="ax-caveats" data-chapter="sources" data-title="Caveats">
+  <div class="inner">
+    <p class="eyebrow">Caveats · 1 of 2</p>
+    <h2 data-reveal>What these numbers do not prove.</h2>
+    <dl class="ax-list ax-cav" data-reveal>
+      <dt>n = 7 events</dt><dd>The fence result covers seven market events. A pilot runs 200 of the buyer's.</dd>
+      <dt>Keyless endpoint</dt><dd>Every call went through <code>/v1/search/public</code>. There, pro and realtime returned identical lists.</dd>
+      <dt>Residential latency</dt><dd>Client-side from a San Francisco Mac, last mile included. Not a server SLO.</dd>
+    </dl>
+  </div>
+</section>
+
+<section class="slide ax" id="ax-caveats-2" data-chapter="sources" data-title="Caveats (2)">
+  <div class="inner">
+    <p class="eyebrow">Caveats · 2 of 2</p>
+    <h2 data-reveal>Still unproven: rivals at scale, forecasts, labels.</h2>
+    <dl class="ax-list ax-cav" data-reveal>
+      <dt>One rival run</dt><dd>Seven rivals ran once on 1 Oct, free tiers, 7 events and up to 40 queries, snippets only. Small n; see the head-to-head.</dd>
+      <dt>Monte Carlo</dt><dd>A bounds argument over ranged inputs, not a forecast.</dd>
+      <dt>Jev labels</dt><dd>Checked against a second model (Claude) on 30 fence results: 28/30. No human validation yet.</dd>
+    </dl>
+  </div>
+</section>
+
+<section class="slide ax" id="ax-links" data-chapter="sources" data-title="Deep dives and the kit">
+  <div class="inner">
+    <p class="eyebrow">Deep dives</p>
+    <h2 data-reveal>The long versions, the demo, and the kit.</h2>
+    <ul class="ax-links">
+      <li><a href="client/fintech/"><span class="k">Fintech, the long version</span><span class="u">the first-meeting deck for a fintech buyer</span></a></li>
+      <li><a href="client/lab/"><span class="k">Galactica, the long version</span><span class="u">the lab deck, with the dataset card</span></a></li>
+      <li><a href="#" target="_blank" rel="noopener" data-demo-link><span class="k">Test your own event</span><span class="u">the live demo: pick a day, ask the web</span></a></li>
+      <li><a href="dl/keenable-kit.zip" download><span class="k">The kit (zip)</span><span class="u">dl/keenable-kit.zip</span></a></li>
+    </ul>
+  </div>
+</section>

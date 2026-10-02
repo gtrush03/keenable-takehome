@@ -1,0 +1,18 @@
+<section class="slide" id="cut" data-chapter="demo" data-title="Cut at your cutoff" data-src="data/cc_overlap.json">
+  <div class="inner">
+    <p class="eyebrow">Every search result we sampled carries acquired_at</p>
+    <h2 data-reveal>Train before your cutoff. Evaluate after it.</h2>
+    <figure class="c-ix" data-ix="slider">
+      <span class="ix-badge screen-only"><i></i><span>Try it · drag the cutoff</span></span>
+      <span class="ix-badge print-only"><i></i><span>Printed state · live on the web</span></span>
+      <div class="screen-only">
+        <p class="ix-how"><b>Drag the cutoff</b> month. 500 pages split by acquisition time.</p>
+        <input id="labCut" type="range" min="0" max="4" step="1" value="0" aria-label="Cutoff month">
+        <div class="ticks" aria-hidden="true" id="labCutTicks"></div>
+        <output class="ix-out" for="labCut" id="labCutOut"></output>
+      </div>
+      <div class="print-only" id="labCutPrint"></div>
+    </figure>
+    <p class="foot">acquired_at in dumps: a pilot question. Absent from CC's index; contamination untested. Source: <a class="src" href="../../data/cc_overlap.json">cc_overlap.json</a></p>
+  </div>
+</section>

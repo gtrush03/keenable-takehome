@@ -1,0 +1,6 @@
+/* Fintech deck: the evidence-pack receipt block. */
+.fx-receipt { margin: var(--s4) 0 0; padding: var(--s4); border: 1.5px solid var(--ink); background: #fff; font: 400 clamp(14px, 1.6vw, 26px)/1.55 var(--font-mono); color: var(--ink); white-space: pre-wrap; max-width: none; overflow: hidden; }
+.fx-receipt .k { display: inline-block; color: var(--accent-ink); font-weight: 600; }
+.fx-receipt b { background: var(--accent-soft); font-weight: 600; padding: 0 4px; }
+@media (max-width: 700px) { .fx-receipt { font-size: 14px; padding: 14px; margin-top: 20px; white-space: pre-wrap; word-break: break-all; } }
+@media print { .fx-receipt { font-size: 20px; margin-top: 28px; } }

@@ -1,0 +1,108 @@
+/* Galactica chapter: the bridge histogram, the P stat, the card before/after checklist and the feedback list. */
+
+/* ---- bridge: monthly acquired_at columns; train = ink, eval = accent ---- */
+.ga-hist { margin: 0 0 6px; }
+.ga-cols { display: grid; grid-template-columns: repeat(11, minmax(0, 1fr)); gap: 6px; height: 64px; align-items: end; }
+.ga-cols > div { height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: stretch; }
+.ga-cols i { display: block; background: var(--ink); }
+.ga-cols .ev i { background: var(--accent-fill); }
+.ga-cols span { font: 500 18px/1 var(--font-mono); color: var(--ink-2); text-align: center; margin-top: 8px; white-space: nowrap; }
+#ga-bridge .ix-out { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+#ga-bridge .c-ix { padding-top: 24px; }
+#ga-bridge .ix-how { margin-bottom: 8px; }
+#ga-bridge h2 { max-width: 22ch; }
+#ga-bridge .foot { margin-top: 16px; }
+
+/* ---- P: one stat inside the ProofStep ---- */
+.ga-stat { display: flex; align-items: baseline; gap: 24px; margin: 36px 0 0; padding-top: 20px; border-top: 1.5px solid var(--ink); }
+.ga-stat b { font: 800 clamp(96px, 9vw, 168px)/.9 var(--font-display); letter-spacing: -0.04em; font-stretch: 88%; color: var(--accent-text); font-variant-numeric: tabular-nums lining-nums; }
+.ga-stat span { font-size: clamp(20px, 1.2vw + 8px, 28px); color: var(--ink); max-width: 22ch; line-height: 1.3; }
+
+/* ---- O: card before (image) and the ten open questions ---- */
+.ga-ba { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: clamp(24px, 4vw, 64px); margin: 40px 0 0; align-items: start; }
+.ga-before { margin: 0; }
+.ga-before img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
+.ga-before figcaption { font: 400 16px var(--font-mono); color: var(--ink-2); margin-top: 10px; }
+.ga-check { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 32px; counter-reset: q; border-top: 1.5px solid var(--ink); padding-top: 8px; }
+.ga-check li { counter-increment: q; break-inside: avoid; display: flex; gap: 12px; align-items: baseline; padding: 10px 0; border-bottom: 1px solid var(--line); font-size: 20px; line-height: 1.25; color: var(--ink); }
+.ga-check li::before { content: ""; flex: none; width: 16px; height: 16px; border: 1.5px dashed var(--accent-deep); background: var(--accent-soft); transform: translateY(2px); }
+
+/* ---- F: three findings ---- */
+.ga-fb { list-style: none; margin: 44px 0 0; padding: 0; border-top: 1.5px solid var(--ink); max-width: 1080px; }
+.ga-fb li { display: grid; grid-template-columns: minmax(150px, 2fr) minmax(0, 7fr); gap: 28px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid var(--line); }
+.ga-fb b { font: 800 clamp(48px, 4vw + 8px, 84px)/1 var(--font-display); letter-spacing: -0.03em; font-stretch: 88%; color: var(--ink); font-variant-numeric: tabular-nums lining-nums; }
+.ga-fb li:first-child b { color: var(--accent-text); }
+.ga-fb span { font-size: clamp(20px, 1vw + 10px, 28px); color: var(--ink); line-height: 1.3; }
+#ga-feedback h2 code { font-size: .78em; letter-spacing: -0.02em; }
+
+
+/* ---- O: ten formerly unknown card items, estimated (5 x 2 grid of big numbers) ---- */
+.ga-ten { list-style: none; margin: 32px 0 0; padding: 0; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); border-top: 1.5px solid var(--ink); }
+.ga-ten li { display: flex; flex-direction: column; gap: 6px; padding: 16px 16px 16px 0; border-bottom: 1px solid var(--line); min-width: 0; }
+.ga-ten li + li { padding-left: 0; }
+.ga-ten .k { font-size: 19px; line-height: 1.25; color: var(--ink); min-height: 2.5em; }
+.ga-ten b { font: 800 clamp(40px, 3.4vw, 60px)/1 var(--font-display); letter-spacing: -0.03em; color: var(--ink); font-variant-numeric: tabular-nums lining-nums; }
+.ga-ten .m { font: 400 18px/1.2 var(--font-mono); color: var(--ink-2); }
+.ga-ten li.us b { color: var(--accent-text); }
+.ga-ten li.us { box-shadow: inset 0 4px 0 var(--accent); }
+
+@media (max-width: 700px) {
+  .ga-cols { height: 28px; gap: 3px; }
+  #ga-bridge h2 { font-size: 34px; }
+  :is(#ga-r, #ga-quality, #ga-cost) .c-chart .chart .lbl, :is(#ga-r, #ga-quality, #ga-cost) .c-chart .chart .axis text { font-size: 17px; }
+  #ga-card h2, #ga-tokens h2 { font-size: 34px; }
+  #ga-card .eyebrow, #ga-tokens .eyebrow { margin-bottom: 12px; }
+  #ga-card .foot { margin-top: 12px; }
+  #ga-bridge .ix-out .ev small { display: none; }
+  #ga-bar .letter, #ga-p .letter { font-size: 96px; }
+  #ga-bar .letter small, #ga-p .letter small { margin-top: 8px; }
+  .ga-cols span { font-size: 14px; }
+  .ga-cols > div:nth-child(even) span { visibility: hidden; }
+  .ga-stat { flex-direction: column; gap: 8px; margin-top: 20px; }
+  .ga-stat b { font-size: 96px; }
+  .ga-stat span { font-size: 18px; }
+  .ga-ba { grid-template-columns: 1fr; gap: 16px; margin-top: 20px; }
+  .ga-before img { max-height: 120px; width: auto; max-width: 100%; }
+  .ga-before figcaption { display: none; }
+  .ga-check { columns: 1; }
+  .ga-check li { font-size: 16px; padding: 3px 0; }
+  #ga-bar .foot { margin-top: 12px; }
+  #ga-bar .c-gate { margin-top: 16px; }
+  #ga-bar h2 { font-size: 34px; }
+  .ga-ten { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 16px; }
+  .ga-ten li { padding: 4px 8px 4px 0; gap: 0; }
+  .ga-ten .k { font-size: 14px; min-height: 0; }
+  .ga-ten b { font-size: 26px; }
+  .ga-ten .m { display: none; }
+  .ga-fb { margin-top: 24px; }
+  .ga-fb li { grid-template-columns: 1fr; gap: 4px; padding: 12px 0; }
+  .ga-fb b { font-size: 44px; }
+  .ga-fb span { font-size: 17px; }
+}
+
+@media print {
+  .ga-cols { height: 76px; }
+  #ga-bridge .c-ix { margin-top: 24px; padding: 24px 32px 16px; }
+  #ga-bridge .ix-out { margin-top: 8px; }
+  #ga-bridge .ix-out .m { font-size: 64px; }
+  #ga-bridge .ix-out .ev { font-size: 28px; }
+  #ga-bridge .ix-printed-note { margin-top: 8px; }
+  .ga-stat b { font-size: 140px; }
+  .ga-stat span { font-size: 24px; }
+  .ga-ba { margin-top: 24px; grid-template-columns: 5fr 6fr; }
+  .ga-check li { font-size: 19px; padding: 7px 0; }
+  #ga-r figcaption, #ga-quality figcaption, #ga-cost figcaption { font-size: 16px; }
+  #ga-optout .big { font-size: 150px; }
+  #ga-optout .big-label { margin-top: 12px; }
+  #ga-optout .lede { margin-top: 12px; }
+  .ga-ten { margin-top: 20px; }
+  .ga-ten li { padding: 12px 12px 12px 0; }
+  .ga-ten b { font-size: 48px; }
+  .ga-ten .k { font-size: 17px; }
+  .ga-ten .m { font-size: 16px; }
+  .ga-cols span { font-size: 16px; }
+  .ga-fb { margin-top: 28px; }
+  .ga-fb li { padding: 12px 0; }
+  .ga-fb b { font-size: 64px; }
+  .ga-fb span { font-size: 24px; }
+}

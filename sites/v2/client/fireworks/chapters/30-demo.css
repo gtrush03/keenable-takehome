@@ -1,0 +1,23 @@
+/* Fireworks deck: the hosted-tool demo (form, tool-call line, top-3 list, ledger). */
+.fw-ix { padding-top: 48px; }
+.fw-form { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 12px 16px; align-items: center; }
+.fw-form select { font: 400 var(--t-label) var(--font-text); min-height: 52px; padding: 0 14px; border: 1.5px solid var(--ink); background: #fff; color: var(--ink); border-radius: 0; min-width: 0; }
+.fw-call { font: 400 var(--t-min)/1.4 var(--font-mono); color: var(--ink-2); background: var(--bg-alt); padding: 12px 16px; margin: var(--s3) 0 var(--s2); white-space: pre-wrap; word-break: break-word; }
+.fw-res { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.fw-res li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--s3); padding: 12px 0; border-bottom: 1px solid var(--line); font-size: var(--t-small); }
+.fw-res li .t { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.fw-res li .h { font: 400 var(--t-min) var(--font-mono); color: var(--ink-2); }
+.fw-ledger { display: flex; flex-wrap: wrap; gap: 6px var(--s3); font: 400 var(--t-min) var(--font-mono); color: var(--ink-2); margin: var(--s2) 0 0; }
+.fw-ledger b { color: var(--ink); font-weight: 600; }
+.fw-ledger .lbl { color: var(--accent-ink); }
+@media (max-width: 700px) {
+  .fw-form { grid-template-columns: 1fr; gap: 6px; }
+  .fw-form select { font-size: 16px; padding: 0 8px; min-height: 44px; }
+  .fw-form .btn { padding: 9px 14px; justify-self: start; }
+  .fw-call { font-size: 14px; margin: 8px 0 4px; padding: 6px 8px; }
+  .fw-res li { grid-template-columns: 1fr; gap: 0; padding: 4px 0; font-size: 15px; }
+  .fw-res li .h { font-size: 14px; }
+  .fw-ledger { font-size: 14px; gap: 2px 12px; margin-top: 6px; }
+}
+@media print { .fw-call { margin: 0 0 6px; padding: 8px 12px; } .fw-ix { padding-top: 32px; } .fw-res li { padding: 6px 0; font-size: 18px; } .fw-form select { min-height: 44px; } }
+@media (max-width: 700px) { .fw-call { display: none; } .fw-res li:nth-child(n+3) { display: none; } }

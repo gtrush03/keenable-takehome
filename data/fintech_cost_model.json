@@ -1,0 +1,65 @@
+{
+ "built": "2026-10-01",
+ "note": "Annual cost = annual_queries/1000 * usd_per_1k. Volumes are ASSUMPTIONS with ranges (see research/opt2_fintech.md B). Keenable net pay-go subtracts the 100,000 free requests/month (1.2M/yr, docs.keenable.ai/credits). Frontier $1/1K requires 100+ RPS commitment (keenable.ai/pricing).",
+ "unit_prices_usd_per_1k": {
+  "keenable_paygo": {"price": 4, "source": "https://keenable.ai/pricing"},
+  "keenable_frontier": {"price": 1, "source": "https://keenable.ai/pricing", "condition": "100+ RPS, dedicated capacity, cloud or on-prem"},
+  "parallel_turbo": {"price": 1, "source": "https://parallel.ai/pricing"},
+  "perplexity_search_fast": {"price": 1, "source": "https://docs.perplexity.ai/getting-started/pricing"},
+  "serpapi_cloud_1m": {"price": 3.75, "source": "https://serpapi.com/pricing", "note": "slides to ~$1.96 at 51M+/mo"},
+  "exa_instant": {"price": 4, "source": "https://exa.ai/pricing"},
+  "brave_search": {"price": 5, "source": "https://brave.com/search/api/", "note": "storage rights require separate plan"},
+  "google_cse": {"price": 5, "source": "https://developers.google.com/custom-search/v1/overview", "note": "10K/day cap, closed to new customers, ends 2027-01-01"},
+  "linkup": {"price": 5.5, "source": "https://www.linkup.so/pricing"},
+  "tavily_basic": {"price": 8, "source": "https://www.tavily.com/pricing"},
+  "openai_web_search_tool": {"price": 10, "source": "https://openai.com/api/pricing/", "note": "plus content tokens"},
+  "anthropic_web_search_tool": {"price": 10, "source": "https://www.anthropic.com/pricing", "note": "plus tokens"},
+  "bing_grounding": {"price": 14, "source": "https://www.microsoft.com/en-us/bing/apis/grounding-pricing", "note": "no raw results; ToU bans store/cache/archive; $35 at May-2025 launch"},
+  "bing_web_search_s1_retired": {"price": 25, "source": "https://web.archive.org/web/20250506081623/https://www.microsoft.com/en-us/bing/apis/pricing", "note": "retired 2025-08-11"}
+ },
+ "scenarios": [
+  {
+   "id": "aml_screening_1m_monthly",
+   "segment": "KYC/AML adverse media",
+   "description": "Screen 1M customers per month (onboarding + perpetual KYC re-screens), 4 web queries per entity (legal name, alias/transliteration, 2 languages).",
+   "assumption": {"entities_per_month": 1000000, "queries_per_entity": 4, "range_queries_per_entity": [2, 8]},
+   "annual_queries": 48000000,
+   "annual_queries_range": [24000000, 96000000],
+   "avg_rps": 1.5,
+   "burst_note": "Batch re-screens run at 100+ RPS for hours; qualifies for Frontier.",
+   "annual_cost_usd": {"keenable_frontier": 48000, "keenable_paygo_net": 187200, "parallel_turbo": 48000, "perplexity_search_fast": 48000, "serpapi_cloud": 94000, "serpapi_cloud_note": "at ~$1.96 sliding tier; $180K at $3.75", "exa_instant": 192000, "brave_search": 240000, "tavily_basic": 384000, "bing_grounding": 672000, "google_cse": "not purchasable (10K/day cap)"},
+   "labour_anchor": {"note": "Facctum 2026: 85-95% false positives, 20-60 min per alert; 1M entities x 20-50 raw hits before AI triage. Web retrieval is <1% of the alert-labour budget it feeds.", "source": "https://www.facctum.com/blog/aml-false-positive-report"}
+  },
+  {
+   "id": "equity_research_agent_50_analysts",
+   "segment": "Investment research / hedge fund",
+   "description": "Research copilot: 10,000 web queries per analyst per month (agent fan-out), 50 analysts.",
+   "assumption": {"analysts": 50, "queries_per_analyst_month": 10000, "range_queries_per_analyst_month": [2000, 30000]},
+   "annual_queries": 6000000,
+   "annual_queries_range": [1200000, 18000000],
+   "annual_cost_usd": {"keenable_frontier": 6000, "keenable_paygo_net": 19200, "parallel_turbo": 6000, "exa_instant": 24000, "brave_search": 30000, "tavily_basic": 48000, "openai_web_search_tool": 60000, "bing_grounding": 84000},
+   "comparison_anchor": {"note": "Same 50 seats on AlphaSense at $10-20K/seat/yr [3P] = $500K-1M/yr; Bloomberg ~$28-32K/seat/yr [3P] = $1.4-1.6M/yr. Web search is 1-4% of the data budget; sell capability (point-in-time, cache rights), not $/1K.", "sources": ["https://www.alpha-sense.com/", "research/a_competitors.md A4"]}
+  },
+  {
+   "id": "kyb_onboarding_500k",
+   "segment": "Credit underwriting / KYB",
+   "description": "Verify 500K businesses/yr x 15 queries (website live-check, reviews, social, officers, news, DBA variants) + monitor 200K accounts monthly x 3 queries.",
+   "assumption": {"businesses_per_year": 500000, "queries_per_business": 15, "monitored_accounts": 200000, "monitor_queries_per_month": 3},
+   "annual_queries": 14700000,
+   "annual_queries_range": [5000000, 78000000],
+   "range_note": "Upper bound = Middesk scale: 150K companies verified/week (middesk.com/about-us) x 10 queries.",
+   "annual_cost_usd": {"keenable_frontier": 14700, "keenable_paygo_net": 54000, "parallel_turbo": 14700, "exa_instant": 58800, "brave_search": 73500, "tavily_basic": 117600, "bing_grounding": 205800},
+   "comparison_anchor": {"note": "Baselayer per-op list: $1.00 business search, up to $4.00 international (exa.ai/docs/reference/agent-api/connect/baselayer) = $500K-2M for the same 500K businesses. Keenable SELECT/Fetch at $1-4 per 1,000 is 2-3 orders of magnitude cheaper per business for the open-web layer.", "source": "https://exa.ai/docs/reference/agent-api/connect/baselayer"}
+  },
+  {
+   "id": "pit_backtest_run",
+   "segment": "Quant / LLM-agent evaluation (Time Machine)",
+   "description": "One leak-free backtest of a news-driven LLM signal: 3,000 tickers x weekly x 10 years = 1.56M point-in-time queries per full run.",
+   "assumption": {"tickers": 3000, "periods_per_year": 52, "years": 10},
+   "queries_per_run": 1560000,
+   "cost_per_run_usd": {"keenable_paygo": 6240, "keenable_frontier": 1560},
+   "alternative": {"note": "No competitor API offers query_time (checked: Brave, Exa, Parallel, Tavily, SerpAPI, Perplexity, Linkup, Google, Bing docs on 2026-10-01). In-house alternative = build a chronologically filtered corpus: DatedGPT trained 12 x 1.3B models on ~100B tokens each; NBER w35247 filtered 1T tokens of FineWeb with monthly checkpoints. ASSUMPTION: $0.5M-3M engineering + compute for a fund to build and maintain a dated web/news corpus (range; no public cost figure).", "sources": ["https://arxiv.org/abs/2603.11838", "https://www.nber.org/papers/w35247"]},
+   "value_anchor": {"note": "Look-Ahead-Bench: DeepSeek 3.2 alpha +20.73% in-sample -> -1.04% out-of-sample; DatedGPT lookahead premium 26.4 bps per sigma; Gao-Jiang-Yan: ~37% of apparent return predictability from memorization.", "sources": ["https://arxiv.org/abs/2601.13770", "https://arxiv.org/abs/2603.11838", "https://arxiv.org/abs/2512.23847"]}
+  }
+ ]
+}

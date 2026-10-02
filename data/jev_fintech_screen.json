@@ -1,0 +1,2419 @@
+{
+  "meta": {
+    "generated_at": "2026-10-01T11:56:59Z",
+    "jev_mode": "live",
+    "label": "live Jev jev-1.13.0",
+    "jev_models_seen": [
+      "jev-1.13.0"
+    ],
+    "needs_key": null,
+    "keenable_calls": {
+      "search": 0,
+      "fetch": 0,
+      "cache_hits": 24,
+      "errors": 0
+    },
+    "entities": 24,
+    "mean_input_tokens_per_entity": 2397,
+    "flagged_share_this_sample": 0.917,
+    "thresholds": {
+      "HIT_p": 0.7,
+      "HIT_conf": 0.5,
+      "REVIEW_p": 0.3
+    },
+    "jev_usage": {
+      "requests": 24,
+      "input_tokens": 57519,
+      "input_tokens_estimated": 48513,
+      "output_tokens": 7461
+    },
+    "jev_latency_ms_median": 156.0,
+    "caveat": "Cohorts are test-design labels, not findings. Search snippets are evidence pointers for a human; nothing here is a compliance determination."
+  },
+  "options": {
+    "adverse-financial-crime": "The result reports that this entity is accused of, charged with, convicted of, fined for or investigated for fraud, money laundering, sanctions evasion, bribery, market manipulation, embezzlement or other financial crime or AML/BSA failures.",
+    "adverse-other": "The result is negative news about this entity that is not financial crime: lawsuits, data breaches, outages, layoffs, consumer complaints, bankruptcy without alleged crime.",
+    "not-adverse": "The result is about this entity and is neutral or positive.",
+    "not-this-entity": "The result is not about this entity: a different company, person, product, place or thing that shares or resembles the name."
+  },
+  "verdicts_by_cohort": {
+    "public_record": {
+      "HIT": 9,
+      "REVIEW": 0,
+      "CLEAR": 0,
+      "NO_RESULTS": 0
+    },
+    "control": {
+      "HIT": 5,
+      "REVIEW": 4,
+      "CLEAR": 1,
+      "NO_RESULTS": 0
+    },
+    "name_collision": {
+      "HIT": 2,
+      "REVIEW": 2,
+      "CLEAR": 1,
+      "NO_RESULTS": 0
+    }
+  },
+  "hard_case_eval": {
+    "graded": 22,
+    "correct": 19,
+    "accuracy": 0.864,
+    "misses": [
+      {
+        "entity": "FTX Trading Ltd",
+        "url": "https://afinalwarning.com/683154.html",
+        "acceptable": [
+          "adverse-financial-crime"
+        ],
+        "got": "not-this-entity",
+        "p": {
+          "adverse-financial-crime": 0.43,
+          "not-adverse": 0.0,
+          "not-this-entity": 0.56,
+          "adverse-other": 0.01
+        },
+        "correct": false
+      },
+      {
+        "entity": "Plaid",
+        "url": "https://lawcompensate.com/venmo-lawsuit",
+        "acceptable": [
+          "adverse-other"
+        ],
+        "got": "not-this-entity",
+        "p": {
+          "adverse-financial-crime": 0.04,
+          "not-adverse": 0.13,
+          "not-this-entity": 0.54,
+          "adverse-other": 0.29
+        },
+        "correct": false
+      },
+      {
+        "entity": "Chime",
+        "url": "https://youtube.com/watch?v=xJyE-ju34dU",
+        "acceptable": [
+          "adverse-other",
+          "not-adverse"
+        ],
+        "got": "adverse-financial-crime",
+        "p": {
+          "not-this-entity": 0.0,
+          "adverse-financial-crime": 0.58,
+          "not-adverse": 0.01,
+          "adverse-other": 0.41
+        },
+        "correct": false
+      }
+    ],
+    "rows": [
+      {
+        "entity": "Wirecard AG",
+        "url": "https://presencis.com/field-notes/the-audit-that-never-called-the-bank",
+        "acceptable": [
+          "adverse-financial-crime"
+        ],
+        "got": "adverse-financial-crime",
+        "p": {
+          "adverse-other": 0.0,
+          "not-adverse": 0.0,
+          "not-this-entity": 0.0,
+          "adverse-financial-crime": 1.0
+        },
+        "correct": true
+      },
+      {
+        "entity": "FTX Trading Ltd",
+        "url": "https://afinalwarning.com/683154.html",
+        "acceptable": [
+          "adverse-financial-crime"
+        ],
+        "got": "not-this-entity",
+        "p": {
+          "adverse-financial-crime": 0.43,
+          "not-adverse": 0.0,
+          "not-this-entity": 0.56,
+          "adverse-other": 0.01
+        },
+        "correct": false
+      },
+      {
+        "entity": "Danske Bank",
+        "url": "https://thelaundrynews.com/round-up-danske-bank-settles-aml-failings-with-doj-sec-and-the-danish-special-crime-unit-scu",
+        "acceptable": [
+          "adverse-financial-crime"
+        ],
+        "got": "adverse-financial-crime",
+        "p": {
+          "not-adverse": 0.0,
+          "not-this-entity": 0.0,
+          "adverse-financial-crime": 1.0,
+          "adverse-other": 0.0
+        },
+        "correct": true
+      },
+      {
+        "entity": "TD Bank",
+        "url": "https://totalnews.com/td-bank-fined-3b-for-failing-to-prevent-money-laundering-by-drug-cartels",
+        "acceptable": [
+          "adverse-financial-crime"
+        ],
+        "got": "adverse-financial-crime",
+        "p": {
+          "adverse-financial-crime": 0.99,
+          "not-adverse": 0.0,
+          "not-this-entity": 0.01,
+          "adverse-other": 0.0
+        },
+        "correct": true
+      },
+      {
+        "entity": "Binance",
+        "url": "https://cmsapi.theepochtimes.com/article/binance-pleads-guilty-to-money-laundering-faces-over-4-billion-in-fines-5533813",
+        "acceptable": [
+          "adverse-financial-crime"
+        ],
+        "got": "adverse-financial-crime",
+        "p": {
+          "adverse-financial-crime": 1.0,
+          "not-this-entity": 0.0,
+          "adverse-other": 0.0,
+          "not-adverse": 0.0
+        },
+        "correct": true
+      },
+      {
+        "entity": "Terraform Labs",
+        "url": "https://btcc.com/en-US/square/Tronweekly/794605",
+        "acceptable": [
+          "adverse-financial-crime"
+        ],
+        "got": "adverse-financial-crime",
+        "p": {
+          "not-adverse": 0.0,
+          "adverse-other": 0.0,
+          "not-this-entity": 0.0,
+          "adverse-financial-crime": 1.0
+        },
+        "correct": true
+      },
+      {
+        "entity": "Celsius Network",
+        "url": "https://en.coin-turk.com/celsius-co-founders-fined-6-5-million-permanently-banned-from-crypto-promotions-by-ftc",
+        "acceptable": [
+          "adverse-financial-crime",
+          "adverse-other"
+        ],
+        "got": "adverse-financial-crime",
+        "p": {
+          "not-adverse": 0.0,
+          "adverse-financial-crime": 1.0,
+          "not-this-entity": 0.0,
+          "adverse-other": 0.0
+        },
+        "correct": true
+      },
+      {
+        "entity": "Greensill Capital",
+        "url": "https://wealthbriefing.com/html/article.php/UK-Regulator-Names-Greensill-In-GIML-Fines-Case-",
+        "acceptable": [
+          "adverse-financial-crime",
+          "adverse-other"
+        ],
+        "got": "adverse-financial-crime",
+        "p": {
+          "not-this-entity": 0.0,
+          "adverse-other": 0.31,
+          "not-adverse": 0.0,
+          "adverse-financial-crime": 0.6900000000000001
+        },
+        "correct": true
+      },
+      {
+        "entity": "Adyen",
+        "url": "https://dcf-analysis.com/products/adyenas-pestel-analysis",
+        "acceptable": [
+          "not-adverse"
+        ],
+        "got": "not-adverse",
+        "p": {
+          "not-this-entity": 0.0,
+          "not-adverse": 1.0,
+          "adverse-financial-crime": 0.0,
+          "adverse-other": 0.0
+        },
+        "correct": true
+      },
+      {
+        "entity": "Stripe",
+        "url": "https://tvtonight.com.au/2026/09/nz-producer-ordered-home-to-face-fraud-charges.html",
+        "acceptable": [
+          "not-this-entity"
+        ],
+        "got": "not-this-entity",
+        "p": {
+          "adverse-other": 0.0,
+          "adverse-financial-crime": 0.04,
+          "not-this-entity": 0.96,
+          "not-adverse": 0.0
+        },
+        "correct": true
+      },
+      {
+        "entity": "Wise plc",
+        "url": "https://caproasia.com/2026/07/24/uk-12-billion-fintech-wise-united-states-banking-license-national-trust-charter-application-rejected-due-to-legacy-issues-relating-to-financial-crime",
+        "acceptable": [
+          "adverse-financial-crime"
+        ],
+        "got": "adverse-financial-crime",
+        "p": {
+          "adverse-other": 0.0,
+          "not-this-entity": 0.0,
+          "not-adverse": 0.0,
+          "adverse-financial-crime": 1.0
+        },
+        "correct": true
+      },
+      {
+        "entity": "Plaid",
+        "url": "https://lawcompensate.com/venmo-lawsuit",
+        "acceptable": [
+          "adverse-other"
+        ],
+        "got": "not-this-entity",
+        "p": {
+          "adverse-financial-crime": 0.04,
+          "not-adverse": 0.13,
+          "not-this-entity": 0.54,
+          "adverse-other": 0.29
+        },
+        "correct": false
+      },
+      {
+        "entity": "Klarna",
+        "url": "https://mistake.club/w/klarna-aml-fine-sweden-2024",
+        "acceptable": [
+          "adverse-financial-crime"
+        ],
+        "got": "adverse-financial-crime",
+        "p": {
+          "adverse-other": 0.0,
+          "not-this-entity": 0.0,
+          "not-adverse": 0.0,
+          "adverse-financial-crime": 1.0
+        },
+        "correct": true
+      },
+      {
+        "entity": "Monzo",
+        "url": "https://signaturelitigation.com/abdulali-jiwaji-examines-the-fcas-fine-against-monzo-in-financial-regulation-international",
+        "acceptable": [
+          "adverse-financial-crime"
+        ],
+        "got": "adverse-financial-crime",
+        "p": {
+          "not-this-entity": 0.02,
+          "adverse-other": 0.0,
+          "not-adverse": 0.0,
+          "adverse-financial-crime": 0.98
+        },
+        "correct": true
+      },
+      {
+        "entity": "N26",
+        "url": "https://timesofmalta.com/article/germany-fines-online-bank-over-late-suspicious-activity-report.904133",
+        "acceptable": [
+          "adverse-financial-crime"
+        ],
+        "got": "adverse-financial-crime",
+        "p": {
+          "not-this-entity": 0.0,
+          "adverse-financial-crime": 1.0,
+          "not-adverse": 0.0,
+          "adverse-other": 0.0
+        },
+        "correct": true
+      },
+      {
+        "entity": "Brex",
+        "url": "https://ixsight.com/blogs/aml-penalties-fines-sanctions/",
+        "acceptable": [
+          "not-this-entity",
+          "not-adverse"
+        ],
+        "got": "not-this-entity",
+        "p": {
+          "adverse-other": 0.0,
+          "not-adverse": 0.0,
+          "adverse-financial-crime": 0.0,
+          "not-this-entity": 1.0
+        },
+        "correct": true
+      },
+      {
+        "entity": "Mercury",
+        "url": "https://cftc.gov/PressRoom/PressReleases/5227-06",
+        "acceptable": [
+          "not-this-entity"
+        ],
+        "got": "not-this-entity",
+        "p": {
+          "adverse-financial-crime": 0.1,
+          "not-adverse": 0.0,
+          "not-this-entity": 0.9,
+          "adverse-other": 0.0
+        },
+        "correct": true
+      },
+      {
+        "entity": "Ramp",
+        "url": "https://hackyourmom.com/en/novyny/fbr-vyluchylo-ramp-odyn-iz-klyuchovyh-forumiv-kiberzlochyncziv-i-ransomware-ugrupovan/",
+        "acceptable": [
+          "not-this-entity"
+        ],
+        "got": "not-this-entity",
+        "p": {
+          "adverse-financial-crime": 0.0,
+          "not-adverse": 0.0,
+          "not-this-entity": 1.0,
+          "adverse-other": 0.0
+        },
+        "correct": true
+      },
+      {
+        "entity": "Chime",
+        "url": "https://youtube.com/watch?v=xJyE-ju34dU",
+        "acceptable": [
+          "adverse-other",
+          "not-adverse"
+        ],
+        "got": "adverse-financial-crime",
+        "p": {
+          "not-this-entity": 0.0,
+          "adverse-financial-crime": 0.58,
+          "not-adverse": 0.01,
+          "adverse-other": 0.41
+        },
+        "correct": false
+      },
+      {
+        "entity": "Apex Fintech Solutions",
+        "url": "https://financial-planning.com/news/finra-hits-apex-clearing-with-3-2m-fine",
+        "acceptable": [
+          "adverse-other",
+          "adverse-financial-crime"
+        ],
+        "got": "adverse-financial-crime",
+        "p": {
+          "not-this-entity": 0.0,
+          "adverse-financial-crime": 0.93,
+          "adverse-other": 0.07,
+          "not-adverse": 0.0
+        },
+        "correct": true
+      },
+      {
+        "entity": "Block, Inc.",
+        "url": "https://changeflow.com/govping/government-general/block-inc-80m-penalty-cash-app-bsa-aml-2026-04-18",
+        "acceptable": [
+          "adverse-financial-crime"
+        ],
+        "got": "adverse-financial-crime",
+        "p": {
+          "adverse-other": 0.0,
+          "not-adverse": 0.0,
+          "adverse-financial-crime": 1.0,
+          "not-this-entity": 0.0
+        },
+        "correct": true
+      },
+      {
+        "entity": "Robinhood Markets",
+        "url": "https://hansajekalavya.com/reports/robinhood-finra-29-75-million-penalty-for-anti-money-laundering-oversight-gaps-2025",
+        "acceptable": [
+          "adverse-financial-crime"
+        ],
+        "got": "adverse-financial-crime",
+        "p": {
+          "adverse-other": 0.0,
+          "not-adverse": 0.0,
+          "not-this-entity": 0.0,
+          "adverse-financial-crime": 1.0
+        },
+        "correct": true
+      }
+    ]
+  },
+  "entities": [
+    {
+      "entity": {
+        "name": "Wirecard AG",
+        "country": "DE",
+        "type": "payments company",
+        "cohort": "public_record"
+      },
+      "query": "Wirecard AG fraud money laundering sanctions fine charges investigation",
+      "verdict": "HIT",
+      "max_p_financial_crime": 1.0,
+      "evidence_url": "https://presencis.com/field-notes/the-audit-that-never-called-the-bank",
+      "not_this_entity_share": 0.0,
+      "results": [
+        {
+          "title": "The audit that never called the bank",
+          "url": "https://presencis.com/field-notes/the-audit-that-never-called-the-bank",
+          "snippet": "The audit that never called the bank For years, the cash on Wirecard’s books — €1.9 billion by the end — was vouched for by trustee letters and balance confirmations that never came directly from the banks. The moment the auditor demanded an answer at the source, the banks disowned the accounts — and a DAX company had a week to live. 01Case facts 01Case facts Jurisdiction Germany (DAX-listed issuer), with the escrow claims located in Singapore and, later, the Philippines Regulator / court BaFin; Munich public prosecutors; APAS (Germany’s auditor-oversight body); ESMA fast-track peer review; Bu",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-other": 0.0,
+            "not-adverse": 0.0,
+            "not-this-entity": 0.0,
+            "adverse-financial-crime": 1.0
+          },
+          "confidence": 0.99
+        },
+        {
+          "title": "Wirecard Explained",
+          "url": "https://everything.explained.today/Wirecard",
+          "snippet": "Wirecard Explained Wirecard AG is an insolvent[3] German payment processor and financial services provider whose former CEO, COO, two board members, and other executives have been arrested or otherwise implicated in criminal proceedings.[4]\n\nAllegations of accounting malpractices had trailed the company since the early days of its incorporation, reaching a peak in 2019 after the Financial Times published a series of investigations along with whistleblower complaints and internal documents. On 25 June 2020, Wirecard filed for insolvency following revelations that an amount of €1.9 billion was “",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-other": 0.01,
+            "not-adverse": 0.0,
+            "not-this-entity": 0.0,
+            "adverse-financial-crime": 0.99
+          },
+          "confidence": 0.99
+        },
+        {
+          "title": "Wirecard",
+          "url": "http://en.wikipedia.org/wiki/Wirecard",
+          "snippet": "Wirecard AG is an insolvent German payment processor and financial services provider whose former CEO, COO, two board members, and other executives have been arrested or otherwise implicated in criminal proceedings.\n\nAllegations of accounting malpractices had trailed the company since the early days of its incorporation, reaching a peak in 2019 after the Financial Times published a series of investigations along with whistleblower complaints and internal documents. On 25 June 2020, Wirecard filed for insolvency following revelations that an amount of €1.9 billion was “missing”. Long-time CEO M",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-other": 0.01,
+            "not-adverse": 0.0,
+            "not-this-entity": 0.0,
+            "adverse-financial-crime": 0.99
+          },
+          "confidence": 0.99
+        },
+        {
+          "title": "Wirecard",
+          "url": "https://kiwix.enszfarms.org/content/wikipedia_en_all_maxi_2025-08/Wirecard",
+          "snippet": "Wirecard AG is an insolvent[4] German payment processor and financial services provider whose former CEO, COO, two board members, and other executives have been arrested or otherwise implicated in criminal proceedings.[5] In June 2020, the company announced that €1.9 billion in cash was missing. It owed €3.2 billion in debt.\n\nThe company is at the center of an international financial scandal. Allegations of accounting malpractices had trailed the company since the early days of its incorporation, reaching a peak in 2019 after the Financial Times published a series of investigations along with ",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-other": 0.01,
+            "not-adverse": 0.0,
+            "not-this-entity": 0.0,
+            "adverse-financial-crime": 0.99
+          },
+          "confidence": 0.99
+        },
+        {
+          "title": "The Wirecard Ghost Money Trail—Does It End With Calvin Ayre?",
+          "url": "https://bitcoinethereumnews.com/tech/the-wirecard-ghost-money-trail-does-it-end-with-calvin-ayre",
+          "snippet": "The Wirecard Ghost Money Trail—Does It End With Calvin Ayre? Calvin Ayre, billionaire gambling mogul and main financier of Bitcoin SV (BSV), has been identified as the “single customer” behind Wirecard’s fabricated €1.9 billion (or $2.19 billion) Asian payment network. Investigators traced hundreds of millions of euros through complex shell companies across Prague, Montenegro, Antigua, Manila, and Spain, each tied to Ayre’s gambling operations. The Wirecard Collapse and Missing Billions Wirecard AG collapsed in June 2020 after revealing that €1.9 billion reported in Asian trustee accounts did ",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-other": 0.0,
+            "not-adverse": 0.0,
+            "not-this-entity": 0.0,
+            "adverse-financial-crime": 1.0
+          },
+          "confidence": 0.99
+        }
+      ],
+      "input_tokens": 2294,
+      "answer_source": "live Jev jev-1.13.0"
+    },
+    {
+      "entity": {
+        "name": "FTX Trading Ltd",
+        "country": "BS",
+        "type": "crypto exchange",
+        "cohort": "public_record"
+      },
+      "query": "FTX Trading Ltd fraud money laundering sanctions fine charges investigation",
+      "verdict": "HIT",
+      "max_p_financial_crime": 0.97,
+      "evidence_url": "https://en.wikipedia.org/w?title=FTX_(company)",
+      "not_this_entity_share": 0.4,
+      "results": [
+        {
+          "title": "IN RE: FTX TRADING LTD.",
+          "url": "https://caselaw.findlaw.com/court/us-ban-crt-d-del/276821.html",
+          "snippet": "States.13 In 2023, in connection with actions brought by the United States, Binance Holdings Limited, d/b/a Binance.com, and CZ pled guilty to charges of failing to maintain an effective anti-money laundering program, conducting an unlicensed money transmitting business, and violating sanctions compliance policies.14 In the pleas entered to resolve these actions, Binance.com and CZ admitted to violating United States law “in a deliberate and calculated effort to profit from the U.S. market” and acknowledged that “U.S. users were essential for Binance to grow, were a significant source of reven",
+          "choice": "not-this-entity",
+          "probabilities": {
+            "not-adverse": 0.01,
+            "adverse-financial-crime": 0.07,
+            "not-this-entity": 0.91,
+            "adverse-other": 0.01
+          },
+          "confidence": 0.88
+        },
+        {
+          "title": "ANALYSIS: Dem mega-donor and FTX crypto founder ARRESTED, charged with conspiracy, wire fraud, campaign finance violations and money laundering",
+          "url": "https://afinalwarning.com/683154.html",
+          "snippet": "FTX founder and serial liar Sam Bankman-Fried has been arrested by Bahamian authorities under a joint operation with the Southern District of New York (SDNY) U.S. District Court in Manhattan which has leveled multiple criminal charges against Bankman-Fried. He is expected to be extradited quickly to face prosecution in the United States. Those charges were unsealed today and reveal that SBF is facing wire fraud, securities fraud, money laundering and campaign finance violations, reports CNBC: (emphasis ours) Prosecutors allege in the indictment that the former billionaire was engaging in crimi",
+          "choice": "not-this-entity",
+          "probabilities": {
+            "adverse-financial-crime": 0.43,
+            "not-adverse": 0.0,
+            "not-this-entity": 0.56,
+            "adverse-other": 0.01
+          },
+          "confidence": 0.42
+        },
+        {
+          "title": "Nishad Singh, former crypto engineer at FTX, was fined $3.7 million by the CFTC, avoiding jail time. - coinlogic",
+          "url": "https://coinlogic.online/nishad-singh-former-crypto-engineer-at-ftx-was-fined-3-7-million-by-the-cftc-avoiding-jail-time",
+          "snippet": "Nishad Singh, former crypto engineer at FTX, was fined $3.7 million by the CFTC, avoiding jail time. The CFTC ordered Nishad Singh, a former engineering director at FTX crypto and FTX US, to pay $3.7 million under a supplemental consent order finalized on April 1, 2026 – to resolve the agency’s civil enforcement actions arising from his role in the misappropriation of client funds worth more than $8 billion that precipitated FTX’s November 2022 collapse. Singh who He begged Guilty on federal criminal charges and cooperating extensively with the Department of Justice (DOJ), and avoiding prison ",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 0.76,
+            "not-this-entity": 0.24,
+            "adverse-other": 0.0
+          },
+          "confidence": 0.68
+        },
+        {
+          "title": "260408.mbx",
+          "url": "http://bankrupt.com/TCRLA_Public/260408.mbx",
+          "snippet": "============= B A H A M A S FTX TRADING: Ex-Chief Engineer Settles CFTC Fraud Case for $3.7MM Rick Archer of Law360 reports that the U.S. Commodity Futures Trading Commission said Wednesday that a New York federal judge has approved an order resolving fraud claims against the former chief engineer of the now-defunct cryptocurrency platform FTX. The action is part of the regulator’s broader enforcement response to the company’s collapse. The agency alleged that the former engineer played a role in deceptive practices involving customer assets and internal controls at the exchange. Those actions",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 0.94,
+            "adverse-other": 0.01,
+            "not-this-entity": 0.05
+          },
+          "confidence": 0.92
+        },
+        {
+          "title": "FTX",
+          "url": "https://en.wikipedia.org/w?title=FTX_(company)",
+          "snippet": "FTX Trading Ltd., trading as FTX (Futures Exchange), is a bankrupt company that formerly operated a cryptocurrency exchange and crypto hedge fund. The exchange was founded in 2019 by Sam Bankman-Fried and Gary Wang and collapsed in 2022 after massive fraud perpetrated by Bankman-Fried and his partner Caroline Ellison forced the company to file for Chapter 11 bankruptcy.\n\nSince November 11, 2022, FTX has been in Chapter 11 bankruptcy proceedings in the US court system. Public concern began with rumors of unethical and fraudulent inter-company transfers of client funds. In November 2022 CoinDesk",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 0.97,
+            "not-this-entity": 0.0,
+            "adverse-other": 0.03
+          },
+          "confidence": 0.95
+        }
+      ],
+      "input_tokens": 2348,
+      "answer_source": "live Jev jev-1.13.0"
+    },
+    {
+      "entity": {
+        "name": "Danske Bank",
+        "country": "DK",
+        "type": "bank",
+        "cohort": "public_record"
+      },
+      "query": "Danske Bank fraud money laundering sanctions fine charges investigation",
+      "verdict": "HIT",
+      "max_p_financial_crime": 1.0,
+      "evidence_url": "https://occrp.org/en/news/danske-bank-agrees-to-pay-2b-in-money-laundering-fines",
+      "not_this_entity_share": 0.0,
+      "results": [
+        {
+          "title": "Danske Bank Agrees to Pay $2B in Money-Laundering Fines",
+          "url": "https://occrp.org/en/news/danske-bank-agrees-to-pay-2b-in-money-laundering-fines",
+          "snippet": "“The resolutions mark the end of the investigations by U.S. and Danish authorities,” said Martin Blessing, chairman of Danske Bank’s Board of Directors. “We offer our unreserved apology and take full responsibility for the unacceptable failures and misconduct of the past, which have no place at Danske Bank today.” In 2018, an investigation commissioned by Danske concluded that a major portion of the $200 billion that flowed through its Estonian division in 2007-2015 was of suspicious origin. Danske was charged by the US Department of Justice (DOJ) for deceiving U.S. banks about its anti-money ",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "not-adverse": 0.0,
+            "not-this-entity": 0.0,
+            "adverse-financial-crime": 1.0,
+            "adverse-other": 0.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "The Laundry",
+          "url": "https://thelaundrynews.com/round-up-danske-bank-settles-aml-failings-with-doj-sec-and-the-danish-special-crime-unit-scu",
+          "snippet": "US Department of Justice (DOJ): Danske Bank Pleads Guilty to Fraud on U.S. Banks in Multi-Billion Dollar Scheme to Access the U.S. Financial System – Largest Bank in Denmark Agrees to Forfeit $2 Billion Danske Bank A/S (Danske Bank), a global financial institution headquartered in Denmark, pleaded guilty today and agreed to forfeit $2 billion to resolve the United States’ investigation into Danske Bank’s fraud on U.S. banks. According to court documents, Danske Bank defrauded U.S. banks regarding Danske Bank Estonia’s customers and anti-money laundering controls to facilitate access to the U.S",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "not-adverse": 0.0,
+            "not-this-entity": 0.0,
+            "adverse-financial-crime": 1.0,
+            "adverse-other": 0.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "Danske Bank fined over money-laundering, says expands internal probe",
+          "url": "https://reuters.com/article/us-danske-bank-moneylaundering/danske-bank-fined-over-money-laundering-says-expands-internal-probe-idUSKBN1EF18P",
+          "snippet": "COPENHAGEN (Reuters) - Denmark’s top lender Danske Bank (DANSKE.CO) said Thursday it had been fined 12.5 million Danish crowns ($2 million) for violating anti-money laundering rules in relation to the monitoring of transactions to and from correspondent banks. The bank also said it was examining whether its Lithuanian and Latvian branches had been involved in money laundering, expanding an investigation beyond its Estonian operations. Denmark’s financial regulator reported Danske Bank to the police last year for violating anti-money laundering rules and reprimanded the bank for not identifying",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "not-adverse": 0.0,
+            "not-this-entity": 0.0,
+            "adverse-other": 0.0,
+            "adverse-financial-crime": 1.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "Danske Bank reaches coordinated resolutions with the US and Danish authorities regarding the Estonia matter",
+          "url": "https://danskebank.com/news-and-insights/news-archive/company-announcements/2022/ca13122022b",
+          "snippet": "In relation to the resolutions with the U.S. authorities, Danske Bank has pleaded guilty to a criminal charge from DoJ of conspiracy to commit bank fraud, which has today been approved by a U.S. District Court. Furthermore, Danske Bank has agreed to settle a civil securities fraud action with the SEC. Under the SCU resolution, Danske Bank has agreed to accept a fine and confiscation for violations of the Danish AML Act and the Danish Financial Business Act. The aggregate amounts payable to the US and Danish authorities total USD 2.06 billion (~ DKK 15.3 billion – hedged following the provision",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "not-adverse": 0.0,
+            "not-this-entity": 0.0,
+            "adverse-other": 0.0,
+            "adverse-financial-crime": 1.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "U.S. judge accepts Danske Bank guilty plea in $2 billion pact to end Estonia probe | SaltWire",
+          "url": "https://saltwire.com/nova-scotia/business/us-judge-accepts-danske-bank-guilty-plea-in-2-billion-pact-to-end-estonia-probe-100811511",
+          "snippet": "NEW YORK (Reuters) - A U.S. judge on Thursday accepted Danske Bank's guilty plea to a bank fraud conspiracy charge and agreement to pay more than $2 billion to end probes into anti-money laundering failures in a now-shuttered branch in Estonia. U.S. District Judge Naomi Reice Buchwald accepted the plea at a hearing in Manhattan federal court, with Danske's senior general counsel in attendance. The $2.06 billion payout by Denmark's largest bank includes $1.21 billion to the U.S. government, $178.6 million to the U.S. Securities and Exchange Commission and a criminal fine of $672.3 million to Da",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "not-adverse": 0.0,
+            "not-this-entity": 0.0,
+            "adverse-other": 0.0,
+            "adverse-financial-crime": 1.0
+          },
+          "confidence": 1.0
+        }
+      ],
+      "input_tokens": 2419,
+      "answer_source": "live Jev jev-1.13.0"
+    },
+    {
+      "entity": {
+        "name": "TD Bank",
+        "country": "US",
+        "type": "bank",
+        "cohort": "public_record"
+      },
+      "query": "TD Bank fraud money laundering sanctions fine charges investigation",
+      "verdict": "HIT",
+      "max_p_financial_crime": 1.0,
+      "evidence_url": "https://jdsupra.com/legalnews/td-bank-agrees-to-pay-over-3-billion-7655435",
+      "not_this_entity_share": 0.0,
+      "results": [
+        {
+          "title": "TD Bank fined $3B for failing to prevent money laundering by drug cartels - Total News",
+          "url": "https://totalnews.com/td-bank-fined-3b-for-failing-to-prevent-money-laundering-by-drug-cartels",
+          "snippet": "TD Bank became the largest bank in U.S. history to plead guilty to violating federal anti-money laundering laws, agreeing to pay a $3 billion penalty to resolve the charges, government officials announced Thursday. did. TD’s plea agreement includes the imposition of asset limits and other restrictions on the business, authorities said. The bank pleaded guilty to conspiracy to commit money laundering and failing to file accurate reports or maintain a compliant anti-money laundering program. The Ministry of Justice stated:. TD failed to monitor more than $18 trillion in customer activity for nea",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-financial-crime": 0.99,
+            "not-adverse": 0.0,
+            "not-this-entity": 0.01,
+            "adverse-other": 0.0
+          },
+          "confidence": 0.99
+        },
+        {
+          "title": "TD Bank fined $3B for failing to prevent money laundering by drug cartels",
+          "url": "https://factinface.info/news/218871-td_bank_fined_3b_for_failing_to_prevent_money_laundering_by_drug_cartelc/print",
+          "snippet": "TD Bank fined $3B for failing to prevent money laundering by drug cartels TD Bank was slapped with a whopping $3 billion fine and pleaded guilty Thursday to federal charges of failing to monitor money laundering by drug cartels and other criminal gangs. The Department of Justice launched a probe in May after learning that drug traffickers funneled hundreds of millions of their ill-gotten gains — much of it from fentanyl-smuggling operations — through TD Bank branches in New York and New Jersey. Officials at TD, the 10th largest bank in the United States, struck a plea deal to pay the eye-poppi",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-financial-crime": 0.99,
+            "not-adverse": 0.0,
+            "not-this-entity": 0.01,
+            "adverse-other": 0.0
+          },
+          "confidence": 0.99
+        },
+        {
+          "title": "TD pleads guilty to money laundering charges in 'difficult chapter in our bank's history' | SaltWire",
+          "url": "https://saltwire.com/newfoundland-labrador/business/regional-business/td-pleads-guilty-to-money-laundering-charges-in-difficult-chapter-in-our-banks-history-100999937",
+          "snippet": "Toronto-Dominion Bank is facing a cap on its asset expansion in the United States and being fined about US$3.1 billion for failing to monitor money laundering activities through its branches, say the U.S. Department of Justice and other U.S. regulators. The justice department has also charged two TD bank employees for their involvement in one of the three money laundering schemes that moved more than US$670 million in illicit funds through TD bank accounts. “By making its services convenient for criminals, it became one,” Attorney General Merrick Garland said at a press conference on Thursday.",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-financial-crime": 0.95,
+            "not-this-entity": 0.05,
+            "not-adverse": 0.0,
+            "adverse-other": 0.0
+          },
+          "confidence": 0.93
+        },
+        {
+          "title": "TD Bank pleads guilty and receives $1.8 billion in penalties",
+          "url": "https://theglobeandmail.com/investing/markets/markets-news/Due%20Inc./28989048/td-bank-pleads-guilty-and-receives-18-billion-in-penalties",
+          "snippet": "TD Bank has pleaded guilty and will pay over one billion dollars to end a Justice Department investigation into violations of the Bank Secrecy Act (BSA) and money laundering. TD Bank has agreed to forfeit $452,432,302.00 and pay a criminal fine of $1,434,513,478.40, for a total financial penalty of $1,886,945,780.40.The IRS Criminal Investigation Department, the Federal Deposit Insurance Corporation Office of Inspector General, and the Drug Enforcement Administration investigated the case. They found three major money laundering networks managed to transfer over $670 million through TD Bank ac",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-financial-crime": 0.98,
+            "not-adverse": 0.0,
+            "not-this-entity": 0.02,
+            "adverse-other": 0.0
+          },
+          "confidence": 0.97
+        },
+        {
+          "title": "TD Bank Agrees to Pay Over $3 Billion for Systemic Violations of Bank Secrecy Act and Money Laundering Violations (Part I of IV) | JD Supra",
+          "url": "https://jdsupra.com/legalnews/td-bank-agrees-to-pay-over-3-billion-7655435",
+          "snippet": "In yet another reminder of the scope of Justice Department enforcement powers, and an important demonstration of the risks of non-compliance, the Justice Department and relevant banking agencies announced a $3 billion settlement with TD Bank companies to resolve systemic and pervasive Bank Secrecy Act (“BSA”) and money laundering violations. In addition to the financial settlement, TD Bank US Holding Company (TDBUSH) (together with TDBNA, TD Bank) and TDBNA entered guilty pleas to criminal offenses. TDBUSH pleaded guilty to causing TDBNA to fail to maintain an AML program that complies with th",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-financial-crime": 1.0,
+            "not-this-entity": 0.0,
+            "not-adverse": 0.0,
+            "adverse-other": 0.0
+          },
+          "confidence": 1.0
+        }
+      ],
+      "input_tokens": 2446,
+      "answer_source": "live Jev jev-1.13.0"
+    },
+    {
+      "entity": {
+        "name": "Binance",
+        "country": "KY",
+        "type": "crypto exchange",
+        "cohort": "public_record"
+      },
+      "query": "Binance fraud money laundering sanctions fine charges investigation",
+      "verdict": "HIT",
+      "max_p_financial_crime": 1.0,
+      "evidence_url": "https://cmsapi.theepochtimes.com/article/binance-pleads-guilty-to-money-laundering-faces-over-4-billion-in-fines-5533813",
+      "not_this_entity_share": 0.0,
+      "results": [
+        {
+          "title": "Binance Pleads Guilty to Money Laundering, Faces Over $4 Billion in Fines",
+          "url": "https://cmsapi.theepochtimes.com/article/binance-pleads-guilty-to-money-laundering-faces-over-4-billion-in-fines-5533813",
+          "snippet": "Binance Pleads Guilty to Money Laundering, Faces Over $4 Billion in Fines Changpeng Zhao, the founder of the world’s biggest cryptocurrency exchange Binance, pleaded guilty to money-laundering charges and agreed to step down and pay a $50 million fine, while Binance itself faces over $4 billion in fines to settle criminal charges and must make a “complete exit” from the United States. Following a years-long investigation into the operations of the crypto exchange, Binance and Mr. Zhao agreed to enter into a plea deal with a range of U.S. federal agencies, including the Department of Justice (D",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-financial-crime": 1.0,
+            "not-this-entity": 0.0,
+            "adverse-other": 0.0,
+            "not-adverse": 0.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "Binance CEO Changpeng Zhao pleads guilty to federal charges, steps down",
+          "url": "https://securitydone.com/binance-ceo-changpeng-zhao-pleads-guilty-to-federal-charges-steps-down",
+          "snippet": "Binance chief Changpeng Zhao pleaded guilty Tuesday to criminal charges and stepped down as the company’s CEO as part of a $4.3 billion settlement with the Department of Justice, according to court documents. The plea arrangement with the government resolves a multiyear investigation into the world’s largest cryptocurrency exchange. Zhao appeared before Judge Brian Tsuchida in a Seattle courtroom to enter his plea. Zhao and others were charged with violating the Bank Secrecy Act by failing to implement an effective anti-money-laundering program and for willfully violating U.S. economic sanctio",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-financial-crime": 1.0,
+            "not-this-entity": 0.0,
+            "adverse-other": 0.0,
+            "not-adverse": 0.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "Binance CEO pleads guilty, agrees to pay $50-million fine in huge Justice case",
+          "url": "https://financialpost.com/fp-finance/cryptocurrency/binance-ceo-pleads-guilty-pay-50-million-justice-case",
+          "snippet": "Binance CEO pleads guilty, agrees to pay $50-million fine in huge Justice case Company pleads guilty to criminal charges, to pay a US$4.3 billion fine Binance Holdings Ltd.’s chief executive Changpeng Zhao pleaded guilty to anti-money laundering violations and agreed to pay a US$50 million fine Tuesday under a sweeping deal worked out with the United States Department of Justice designed to keep the company operating. Zhao agreed to step down as part of the settlement, which included the Treasury Department and the Commodity Futures Trading Commission, according to people familiar with the mat",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-financial-crime": 1.0,
+            "not-this-entity": 0.0,
+            "adverse-other": 0.0,
+            "not-adverse": 0.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "Binance Is Under Federal Investigation Over Iran Sanctions Again. What Does It Mean for BNB?",
+          "url": "https://finance.yahoo.com/markets/crypto/articles/binance-under-federal-investigation-over-185115085.html",
+          "snippet": "Quick Read Binance faces a new federal probe over Iran-linked funds nearly three years after its $4.3 billion guilty plea, yet BNB trades at $775, up 7% since the news broke. Binance’s own review found $126 million reached Iran-linked wallets, including up to $24 million tied to Iran’s Revolutionary Guard, before it removed Blessed Trust in January 2026. If prosecutors find violations before the compliance monitor expires in May 2027, Binance could face an extended monitor or new charges that threaten BNB’s core utility.\n\n(Sponsor) Federal prosecutors are investigating whether Binance, the exc",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-financial-crime": 1.0,
+            "not-this-entity": 0.0,
+            "adverse-other": 0.0,
+            "not-adverse": 0.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "Binance Is Under Federal Investigation Over Iran Sanctions Again. What Does It Mean for BNB?",
+          "url": "https://aol.com/articles/binance-under-federal-investigation-over-185115000.html",
+          "snippet": "Quick Read Binance faces a new federal probe over Iran-linked funds nearly three years after its $4.3 billion guilty plea, yet BNB trades at $775, up 7% since the news broke. Binance’s own review found $126 million reached Iran-linked wallets, including up to $24 million tied to Iran’s Revolutionary Guard, before it removed Blessed Trust in January 2026. If prosecutors find violations before the compliance monitor expires in May 2027, Binance could face an extended monitor or new charges that threaten BNB’s core utility.\n\n(Sponsor) Federal prosecutors are investigating whether Binance, the exc",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-financial-crime": 1.0,
+            "not-this-entity": 0.0,
+            "adverse-other": 0.0,
+            "not-adverse": 0.0
+          },
+          "confidence": 1.0
+        }
+      ],
+      "input_tokens": 2392,
+      "answer_source": "live Jev jev-1.13.0"
+    },
+    {
+      "entity": {
+        "name": "Terraform Labs",
+        "country": "SG",
+        "type": "crypto company",
+        "cohort": "public_record"
+      },
+      "query": "Terraform Labs fraud money laundering sanctions fine charges investigation",
+      "verdict": "HIT",
+      "max_p_financial_crime": 1.0,
+      "evidence_url": "https://btcc.com/en-US/square/Tronweekly/794605",
+      "not_this_entity_share": 0.0,
+      "results": [
+        {
+          "title": "Do Kwon’s $40B Terra Luna Collapse: Terraform Labs Founder Pleads Guilty to Crypto Fraud",
+          "url": "https://btcc.com/en-US/square/Tronweekly/794605",
+          "snippet": "Do Kwon’s $40B Terra Luna Collapse: Terraform Labs Founder Pleads Guilty to Crypto Fraud 22 1 Another crypto titan falls—Do Kwon, the mastermind behind Terraform Labs, just copped to fraud charges tied to the $40B implosion of Terra Luna.\n\nDo Kwon pleaded guilty to fraud charges for deceiving investors in Terraform’s crypto system. Kwon misrepresented Terraform’s products, including TerraUSD and Luna, to mislead investors. Terraform Labs co-founder face up to 25 years in prison with sentencing scheduled for December 11. Do Kwon, co-founder of Terraform Labs, has changed his plea from not guilt",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "not-adverse": 0.0,
+            "adverse-other": 0.0,
+            "not-this-entity": 0.0,
+            "adverse-financial-crime": 1.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "Top Capital Market Charges: Penalties and Prosecutions - LegalClarity",
+          "url": "https://legalclarity.org/top-capital-market-charges-penalties-and-prosecutions",
+          "snippet": "The Largest Capital Markets Penalties on Record The single largest monetary remedy ever obtained by the SEC following a trial came in the case against Terraform Labs and its founder, Do Kwon. A jury found them liable for fraud, and the defendants agreed to pay more than $4.5 billion in disgorgement, prejudgment interest, and civil penalties.1SEC. SEC Obtains Final Judgment Against Terraform Labs and Do Kwon Kwon pleaded guilty in August 2025 to conspiracy to defraud and wire fraud in connection with the collapse of the TerraUSD stablecoin, which wiped out roughly $40 billion in value and harme",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "not-adverse": 0.0,
+            "adverse-other": 0.0,
+            "not-this-entity": 0.0,
+            "adverse-financial-crime": 1.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "Terraform and Do Kwon will pay a fine of $4.47 billion",
+          "url": "https://wikibit.com/news/terraform-billion-kwon-fine-pay-47",
+          "snippet": "Terraform and Do Kwon will pay a fine of $4.47 billion Abstract:Terraform Labs, the company responsible for the implosion of the 40 billion UST stablecoin, has agreed along with its founder Do Kwon to pay a fine of Terraform Labs, the company responsible for the implosion of the 40 billion UST stablecoin, has agreed along with its founder Do Kwon to pay a fine of 4.47 billion dollars to the SEC, thus putting an end to the civil lawsuit that had been ongoing since 2022. As part of the agreement reached, Terraform will no longer be authorized to trade cryptocurrencies, and will have to cease its",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "not-adverse": 0.0,
+            "adverse-other": 0.01,
+            "not-this-entity": 0.0,
+            "adverse-financial-crime": 0.99
+          },
+          "confidence": 0.99
+        },
+        {
+          "title": "terraform labs fraud",
+          "url": "https://economictimes.indiatimes.com/topic/terraform-labs-fraud",
+          "snippet": "Crypto mogul Do Kwon sentenced to 15 years for fraud A US court sentenced cryptocurrency tycoon Do Kwon to 15 years in prison Thursday over fraud linked to his company’s failure, which wiped out $40 billion of investors’ money and shook global crypto markets. Kwon successfully marketed them as the next big thing in crypto, attracting billions in investments and global hype.  Terraform Labs founder Do Kwon pleads guilty to US fraud charges in $40 billion crypto collapse Kwon, 33, who co-founded Singapore-based Terraform Labs and developed the TerraUSD and Luna currencies, entered the plea at a ",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "not-adverse": 0.0,
+            "adverse-other": 0.0,
+            "not-this-entity": 0.0,
+            "adverse-financial-crime": 1.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "US SEC requires Terraform Labs and Do Kwon to pay $5.3 billion in fines",
+          "url": "https://coinlive.com/news/us-sec-requires-terraform-labs-and-do-kwon-to-pay",
+          "snippet": "Securities and Exchange Commission (SEC) filed a motion after the civil case was decided, demanding billions of dollars in disgorgement and civil penalties from Terraform Labs and its co-founder Do Kwon. In a document filed with the U.S. District Court for the Southern District of New York on April 19, the SEC asked Kwon and Terraform to pay approximately $4.7 billion in disgorgement and prejudgment interest after the civil case was decided, as well as a total of $520 million in civil penalties - $420 million from Terraform and $100 million from Kwon.The Commission, Terraform, and Kwon simulta",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "not-adverse": 0.0,
+            "adverse-other": 0.01,
+            "not-this-entity": 0.0,
+            "adverse-financial-crime": 0.99
+          },
+          "confidence": 0.99
+        }
+      ],
+      "input_tokens": 2390,
+      "answer_source": "live Jev jev-1.13.0"
+    },
+    {
+      "entity": {
+        "name": "Celsius Network",
+        "country": "US",
+        "type": "crypto lender",
+        "cohort": "public_record"
+      },
+      "query": "Celsius Network fraud money laundering sanctions fine charges investigation",
+      "verdict": "HIT",
+      "max_p_financial_crime": 1.0,
+      "evidence_url": "https://en.coin-turk.com/celsius-co-founders-fined-6-5-million-permanently-banned-from-crypto-promotions-by-ftc",
+      "not_this_entity_share": 0.0,
+      "results": [
+        {
+          "title": "CFTC ends Celsius fight with lifetime ban for Mashinsky",
+          "url": "https://wordupnews.com/cryptocurrency/cftc-ends-celsius-fight-with-lifetime-ban-for-mashinsky",
+          "snippet": "The U.S. Commodity Futures Trading Commission (CFTC) has settled its enforcement action against Celsius Network founder Alex Mashinsky. Summary CFTC’s order bans Mashinsky from regulated trading and registration after Celsius customer fraud claims ended. The settlement closes the CFTC’s first enforcement case against a digital asset lending platform operator. Mashinsky still faces SEC allegations while challenging his 12-year criminal sentence in federal court filings. A federal court consent order permanently bans him from trading in markets overseen by the agency. It also bars him from regis",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 0.98,
+            "not-this-entity": 0.01,
+            "adverse-other": 0.01
+          },
+          "confidence": 0.98
+        },
+        {
+          "title": "Celsius co-founders fined $6.5 million, permanently banned from crypto promotions by FTC",
+          "url": "https://en.coin-turk.com/celsius-co-founders-fined-6-5-million-permanently-banned-from-crypto-promotions-by-ftc",
+          "snippet": "Shlomi Daniel Leon and Hanoch “Nuke” Goldstein, co-founders of Celsius Network, agreed to pay a combined $6.5 million in settlements with the Federal Trade Commission. The regulatory action resolves fraud allegations tied to the 2022 collapse of the once-prominent crypto lending platform. Breakdown of Settlements The FTC’s latest orders require Leon, who served as Celsius’s chief strategy officer, to pay $4.1 million according to a ruling by U.S. District Judge Denise Cote. This payment forms part of a much larger $4.72 billion judgment, with the majority suspended as long as Leon complies wit",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 1.0,
+            "not-this-entity": 0.0,
+            "adverse-other": 0.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "CFTC Resolves Action Against Celsius Founder",
+          "url": "https://cftc.gov/PressRoom/PressReleases/9256-26",
+          "snippet": "Founder June 18, 2026 WASHINGTON — The Commodity Futures Trading Commission today announced the U.S. District Court for the Southern District of New York entered a consent order that resolves the CFTC’s 2023 enforcement action against** Alexander Mashinsky**, the founder and former CEO of Celsius Network LLC. [See CFTC Press Release No. 8749-23]. The consent order permanently enjoins Mashinsky from further violations of certain anti-fraud provisions in the CEA and CFTC regulations and imposes permanent trading and registration bans against him. On July 13, 2023, the CFTC filed a complaint agai",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "not-adverse": 0.01,
+            "adverse-financial-crime": 0.94,
+            "not-this-entity": 0.04,
+            "adverse-other": 0.01
+          },
+          "confidence": 0.92
+        },
+        {
+          "title": "A U.S. federal judge in Manhattan has handed down time se...",
+          "url": "https://cryptonewstoday.ai/a-us-federal-judge-in-manhattan-has-handed-down",
+          "snippet": "federal judge in Manhattan has handed down time served to Roni Cohen-Pavon, the former chief revenue officer of Celsius Network, after he pleaded guilty to manipulating the price of Celsius’s CEL token and committing fraud on the now-defunct platform. Judge John Koeltl ordered that Cohen-Pavon serve time already spent in custody, followed by one year of supervised release. The sentencing marks another milestone in the criminal proceedings surrounding Celsius’s collapse in 2022, which left billions of dollars in losses for investors and users. Cohen-Pavon initially entered a not-guilty plea to ",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 1.0,
+            "not-this-entity": 0.0,
+            "adverse-other": 0.0
+          },
+          "confidence": 0.99
+        },
+        {
+          "title": "FTC: Celsius Founders to Pay $16.5M Over Collapse",
+          "url": "https://financefeeds.com/ftc-orders-celsius-founders-to-pay-16-5-million-over-crypto-platform-collapse",
+          "snippet": "The Federal Trade Commission has completed settlements with all three founders of Celsius Network, requiring Alexander Mashinsky, Shlomi Daniel Leon and Hanoch “Nuke” Goldstein to pay a combined $16.5 million over allegations that they deceived customers about the safety, liquidity and financial condition of the failed cryptocurrency platform. Mashinsky will pay $10 million, Leon will pay $4.1 million and Goldstein will pay $2.4 million. Goldstein’s order was entered by the U.S. District Court for the Southern District of New York on July 20, completing the FTC’s individual cases against Celsi",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 1.0,
+            "not-this-entity": 0.0,
+            "adverse-other": 0.0
+          },
+          "confidence": 1.0
+        }
+      ],
+      "input_tokens": 2362,
+      "answer_source": "live Jev jev-1.13.0"
+    },
+    {
+      "entity": {
+        "name": "Greensill Capital",
+        "country": "GB",
+        "type": "supply-chain finance firm",
+        "cohort": "public_record"
+      },
+      "query": "Greensill Capital fraud money laundering sanctions fine charges investigation",
+      "verdict": "HIT",
+      "max_p_financial_crime": 0.74,
+      "evidence_url": "https://gilt-edge.uk/posts/the-greensill-scandal-five-years-on-what-every-uk-saver-must-learn-from-a-10",
+      "not_this_entity_share": 0.0,
+      "results": [
+        {
+          "title": "UK Regulator Names Greensill In GIML Fines Case",
+          "url": "https://wealthbriefing.com/html/article.php/UK-Regulator-Names-Greensill-In-GIML-Fines-Case-",
+          "snippet": "Greensill, a supply-chain finance business, has collapsed causing losses for a number of firms. The UK’s Financial Conduct Authority has named Greensill Capital, the stricken UK supply-chain finance firm, as one of the parties involved in a saga that led to the FCA’s £9.1 million ($11.9 million) fine of GAM International Management Limited. It also had punished former senior manager Timothy Haywood late last year. (See that report here.) The regulator said that Haywood received gifts and entertainment, including travelling on a Greensill private aircraft, without disclosing these in a “timely ",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "not-this-entity": 0.0,
+            "adverse-other": 0.31,
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 0.6900000000000001
+          },
+          "confidence": 0.58
+        },
+        {
+          "title": "Financier Lex Greensill banned from running UK companies for nine years",
+          "url": "https://moneylaundering.einnews.com/article/917335720/z5WJdknLtz8Tf3fq",
+          "snippet": "£1.6bn The disgraced former financier Lex Greensill has been banned from running a UK company for nine years after he was judged to be unfit because of the 2021 collapse of his £1.6bn supply chain invoicing firm. The government’s Insolvency Service said on Thursday that Greensill had signed a disqualification undertaking, bringing the case to an end before a six-week trial was due to begin on 8 June. He had previously sought to challenge the proceedings against him but a court ruled against his efforts in March. Greensill, a 49-year-old Australian former sugar farmer, had risen rapidly to prom",
+          "choice": "adverse-other",
+          "probabilities": {
+            "not-this-entity": 0.44,
+            "adverse-other": 0.45,
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 0.11
+          },
+          "confidence": 0.27
+        },
+        {
+          "title": "Financier Lex Greensill banned from running UK companies for nine years",
+          "url": "http://execreview.com/2026/06/financier-lex-greensill-banned-from-running-uk-companies-for-nine-years",
+          "snippet": "The disgraced former financier Lex Greensill has been banned from running a UK company for nine years after he was judged to be unfit because of the 2021 collapse of his £1.6bn supply chain invoicing firm. The government’s Insolvency Service said on Thursday that Greensill had signed a disqualification undertaking, bringing the case to an end before a six-week trial was due to begin on 8 June. He had previously sought to challenge the proceedings against him but a court ruled against his efforts in March. Greensill, a 49-year-old Australian former sugar farmer, had risen rapidly to prominence ",
+          "choice": "adverse-other",
+          "probabilities": {
+            "not-this-entity": 0.39,
+            "adverse-other": 0.51,
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 0.1
+          },
+          "confidence": 0.33
+        },
+        {
+          "title": "The Greensill Scandal: Five Years On, What Every UK Saver Must Learn From a £10 Billion Collapse",
+          "url": "https://gilt-edge.uk/posts/the-greensill-scandal-five-years-on-what-every-uk-saver-must-learn-from-a-10",
+          "snippet": "Takeaways Greensill Capital’s collapse froze $10 billion in Credit Suisse funds — the disqualification trial for founder Lex Greensill is set for June 2026, with allegations around Katerra dealings and insurance misrepresentations\n\nOn 18 March 2026, the High Court refused to throw out disqualification proceedings against founder Lex Greensill. A six-week trial is now set for June 2026, with allegations centring on dealings with US construction firm Katerra, misrepresentations to insurers, and non-disclosure of insurance problems to company boards. The Insolvency Service is seeking a ban of up ",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "not-this-entity": 0.06,
+            "adverse-other": 0.2,
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 0.74
+          },
+          "confidence": 0.64
+        },
+        {
+          "title": "greensill capital",
+          "url": "https://economictimes.indiatimes.com/topic/greensill-capital/news",
+          "snippet": "Credit Suisse made ’‘serious breach’’ of law: Swiss regulator Switzerland’s financial markets authority, FINMA, said on Tuesday that it has concluded enforcement proceedings opened two years ago against Credit Suisse after bank partner Greensill Capital went bankrupt.\n\nSanjeev Gupta’s GFG Alliance to infuse £50m to restart UK steel operations Gupta, founder chairman of the $20-billion revenue GFG Alliance, was fighting his biggest battle to save his metals-to-energy conglomerate after its main lender Greensill Capital collapsed and filed for insolvency earlier this year. The company was active",
+          "choice": "adverse-other",
+          "probabilities": {
+            "not-this-entity": 0.05,
+            "adverse-other": 0.87,
+            "not-adverse": 0.02,
+            "adverse-financial-crime": 0.06
+          },
+          "confidence": 0.83
+        }
+      ],
+      "input_tokens": 2396,
+      "answer_source": "live Jev jev-1.13.0"
+    },
+    {
+      "entity": {
+        "name": "Archegos Capital Management",
+        "country": "US",
+        "type": "family office",
+        "cohort": "public_record"
+      },
+      "query": "Archegos Capital Management fraud money laundering sanctions fine charges investigation",
+      "verdict": "HIT",
+      "max_p_financial_crime": 1.0,
+      "evidence_url": "https://grokipedia.com/page/Archegos_Capital_Management",
+      "not_this_entity_share": 0.0,
+      "results": [
+        {
+          "title": "Archegos Capital Management",
+          "url": "https://en.wikipedia.org/wiki/Archegos_Capital",
+          "snippet": "Archegos Capital Management was a limited partnership family office that managed the personal assets of Bill Hwang, at one time managing over $36 billion in assets. In November 2024, Hwang was sentenced to 18 years in prison on federal charges of fraud and racketeering.\n\nYork On March 26, 2021, Archegos defaulted on margin calls from several global investment banks, including Credit Suisse and Nomura Holdings, as well as Goldman Sachs and Morgan Stanley. The firm had large, concentrated positions in ViacomCBS, Baidu, Vipshop, Farfetch, and other companies, and the firm’s use of total return sw",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-financial-crime": 0.9400000000000001,
+            "not-this-entity": 0.0,
+            "not-adverse": 0.03,
+            "adverse-other": 0.03
+          },
+          "confidence": 0.91
+        },
+        {
+          "title": "Archegos Capital Management - Wikiwand",
+          "url": "https://wikiwand.com/en/Archegos_Capital",
+          "snippet": "encyclopedia Archegos Capital Management was a limited partnership1 family office that managed the personal assets of Bill Hwang,23 at one time managing over $36 billion in assets.4 In November 2024, Hwang was sentenced to 18 years in prison on federal charges of fraud and racketeering.5\n\nbillion.3334 On April 27, 2022, Hwang and former Archegos CFO, Patrick Halligan, were arrested and charged with racketeering conspiracy, securities fraud, and wire fraud in connection the company’s 2021 collapse.3536 In a 59-page indictment, Manhattan federal prosecutors alleged that Hwang and Hallligan schem",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-financial-crime": 0.98,
+            "not-this-entity": 0.0,
+            "adverse-other": 0.0,
+            "not-adverse": 0.02
+          },
+          "confidence": 0.96
+        },
+        {
+          "title": "Archegos Capital Management",
+          "url": "https://grokipedia.com/page/Archegos_Capital_Management",
+          "snippet": "Securities and Exchange Commission and Department of Justice indicted Hwang and Archegos’s chief risk officer Patrick Halligan on charges of securities fraud, racketeering, and market manipulation for systematically deceiving counterparties about Archegos’s risk exposure to secure additional financing.[3][9] Hwang was convicted on 10 of 11 counts in July 2024 and sentenced to 18 years in federal prison in December 2024, underscoring failures in bank risk controls and regulatory oversight of unregulated family offices that enabled such opaque, high-leverage trading.[4][2]\n\nSecurities and Exchan",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-financial-crime": 1.0,
+            "not-this-entity": 0.0,
+            "not-adverse": 0.0,
+            "adverse-other": 0.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "Archegos Capital Management ::: Open WIKI",
+          "url": "https://owiki.org/wiki/Archegos_Capital_Management",
+          "snippet": "Archegos Capital Management Archegos Capital Management was a limited partnership family office that managed the personal assets of Bill Hwang, at one time managing over $36 billion in assets. On April 27, 2022, Hwang was indicted and arrested on federal charges of fraud and racketeering. On March 26, 2021, Archegos defaulted on margin calls from several global investment banks, including Credit Suisse and Nomura Holdings, as well as Goldman Sachs and Morgan Stanley. The firm had large, concentrated positions in ViacomCBS, Baidu, Vipshop, Farfetch, and other companies, and the firm’s use of to",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "not-this-entity": 0.0,
+            "adverse-financial-crime": 1.0,
+            "not-adverse": 0.0,
+            "adverse-other": 0.0
+          },
+          "confidence": 0.99
+        },
+        {
+          "title": "Bill Hwang",
+          "url": "https://grokipedia.com/page/Bill_Hwang",
+          "snippet": "Fact-checked by Grok 6 months ago Bill Hwang Sung Kook “Bill” Hwang (born 1964) is a South Korean-born American investor and convicted fraudster who founded Archegos Capital Management, a family office whose highly leveraged bets on equities via total return swaps collapsed in March 2021, wiping out Hwang’s personal fortune of approximately $20 billion and inflicting over $10 billion in losses on counterparty banks including Credit Suisse and Nomura.[1][2]\n\nprofit-taking.[1] The firm’s default triggered forced liquidations that depressed share prices further, exacerbating losses; U.S. prosecut",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-financial-crime": 0.52,
+            "not-this-entity": 0.48,
+            "not-adverse": 0.0,
+            "adverse-other": 0.0
+          },
+          "confidence": 0.35
+        }
+      ],
+      "input_tokens": 2318,
+      "answer_source": "live Jev jev-1.13.0"
+    },
+    {
+      "entity": {
+        "name": "Adyen",
+        "country": "NL",
+        "type": "payments company",
+        "cohort": "control"
+      },
+      "query": "Adyen fraud money laundering sanctions fine charges investigation",
+      "verdict": "REVIEW",
+      "max_p_financial_crime": 0.5,
+      "evidence_url": "https://ie.trustpilot.com/review/adyen.com",
+      "not_this_entity_share": 0.0,
+      "results": [
+        {
+          "title": "Adyen",
+          "url": "http://en.wikipedia.org/wiki/Adyen",
+          "snippet": "Adyen is a Dutch payment company with the status of an acquiring bank that allows businesses to accept e-commerce, mobile, and point-of-sale payments.",
+          "choice": "not-adverse",
+          "probabilities": {
+            "not-this-entity": 0.0,
+            "not-adverse": 1.0,
+            "adverse-other": 0.0,
+            "adverse-financial-crime": 0.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "Adyen Reviews",
+          "url": "https://ie.trustpilot.com/review/adyen.com",
+          "snippet": "[ They’re holding onto £1,100+ of my… ](https://ie.trustpilot.com/reviews/69a1a48154ac35d60dcae1da) They’re holding onto £1,100+ of my money through tide, I’m not impressed at all and considering legal action against this fraud company 27 February 2026 Unprompted review\n\n[ Steals your money in a broad daylight ](https://ie.trustpilot.com/reviews/69304b3dae22469b0d7bccb6) Sounds like a fraudulent company. Was meant to verify my account, got every possible detail needed, keeps rejecting and rejecting and rejecting, no details provided whatsoever. Only when you earn bigger amount it immediately f",
+          "choice": "adverse-other",
+          "probabilities": {
+            "not-this-entity": 0.0,
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 0.5,
+            "adverse-other": 0.5
+          },
+          "confidence": 0.33
+        },
+        {
+          "title": "Adyen",
+          "url": "https://grokipedia.com/page/Adyen",
+          "snippet": "is a Dutch financial technology company specializing in end-to-end payment solutions, enabling businesses to accept and process electronic payments across e-commerce, mobile, and point-of-sale channels in a unified platform.[1]\n\nworldwide.[4][5] Adyen’s platform integrates payment processing, fraud detection, data analytics, financial management tools, and embedded financing solutions, supporting over 250 payment methods and serving major clients such as Uber, eBay, Microsoft, and H&M.[6][7]",
+          "choice": "not-adverse",
+          "probabilities": {
+            "not-this-entity": 0.0,
+            "not-adverse": 1.0,
+            "adverse-financial-crime": 0.0,
+            "adverse-other": 0.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "Dutch financial services company",
+          "url": "https://en-wikipedia-org.translate.goog/wiki/Adyen?_x_tr_hl=tr&_x_tr_pto=tc&_x_tr_sl=en&_x_tr_tl=tr",
+          "snippet": "Adyen is a Dutch payment company with the status of an acquiring bank that allows businesses to accept e-commerce, mobile, and point-of-sale payments. It is listed on the stock exchange Euronext Amsterdam.2 Adyen N.V.",
+          "choice": "not-adverse",
+          "probabilities": {
+            "not-this-entity": 0.0,
+            "not-adverse": 1.0,
+            "adverse-financial-crime": 0.0,
+            "adverse-other": 0.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "PESTEL Analysis of Adyen (ADYENAS)",
+          "url": "https://dcf-analysis.com/products/adyenas-pestel-analysis",
+          "snippet": "(ADYEN.AS) - PESTLE Analysis: Political Geopolitical stability directly shapes cross-border payment volumes for Adyen: volatility in trade corridors, sanctions regimes, and conflict-driven trade disruptions reduce transaction flows and increase chargebacks and compliance costs.\n\nRegulatory oversight heightens operational complexity for global processors. Key political/regulatory drivers include anti-money laundering (AML) regimes, Know-Your-Customer (KYC) mandates, sanctions enforcement, PSD2-type open-banking rules, and payment-data localization laws. Compliance requires multi-jurisdictional ",
+          "choice": "not-adverse",
+          "probabilities": {
+            "not-this-entity": 0.0,
+            "not-adverse": 1.0,
+            "adverse-financial-crime": 0.0,
+            "adverse-other": 0.0
+          },
+          "confidence": 0.99
+        }
+      ],
+      "input_tokens": 2085,
+      "answer_source": "live Jev jev-1.13.0"
+    },
+    {
+      "entity": {
+        "name": "Stripe",
+        "country": "US",
+        "type": "payments company",
+        "cohort": "control"
+      },
+      "query": "Stripe fraud money laundering sanctions fine charges investigation",
+      "verdict": "REVIEW",
+      "max_p_financial_crime": 0.15,
+      "evidence_url": "https://permissionless-technologies.com/blog/your-money-is-not-your-money",
+      "not_this_entity_share": 0.8,
+      "results": [
+        {
+          "title": "Rochester man pleads guilty for conspiring to defraud victims, including taxpayers, of more than $2 million and money laundering | Internal Revenue Service",
+          "url": "https://irs.gov/compliance/criminal-investigation/rochester-man-pleads-guilty-for-conspiring-to-defraud-victims-including-taxpayers-of-more-than-2-million-and-money-laundering",
+          "snippet": "Attorney Michael DiGiacomo announced today that Timothy Wadsworth of Rochester, New York pleaded guilty before U.S. District Judge Frank P. Geraci, Jr. to conspiracy to commit wire fraud and money laundering, which carry a maximum penalty of 20 years in prison and a $250,000 fine. Between March 2020 and September 2021, Wadsworth conspired with others to fraudulently obtain money. To execute the scheme, he obtained credit card account numbers from co-conspirators and processed unauthorized credit card transactions from those accounts, transferring the money to his bank accounts, transferring a ",
+          "choice": "not-this-entity",
+          "probabilities": {
+            "adverse-other": 0.0,
+            "adverse-financial-crime": 0.01,
+            "not-this-entity": 0.99,
+            "not-adverse": 0.0
+          },
+          "confidence": 0.98
+        },
+        {
+          "title": "Your Money Is Not Your Money",
+          "url": "https://permissionless-technologies.com/blog/your-money-is-not-your-money",
+          "snippet": "Explanation In January 2022, three long-time PayPal users filed a federal class action in California. Their accounts had been frozen for 180 days. Then their balances — $27,000, $43,000, and $172,000 — were permanently seized. No specific reason was given. The complaint described PayPal’s Acceptable Use Policy as a quasi-law enforcement tool with seizure-like effects but none of the procedural protections that would apply if the government had obtained a freezing order.\n\nWhen Stripe Becomes Judge and Jury For twelve years, Stripe processed card transactions for Flipcause, a U.S. donation platf",
+          "choice": "adverse-other",
+          "probabilities": {
+            "adverse-other": 0.83,
+            "adverse-financial-crime": 0.15,
+            "not-this-entity": 0.02,
+            "not-adverse": 0.0
+          },
+          "confidence": 0.76
+        },
+        {
+          "title": "TV Producer Alexander Breingan Ordered To Return To NZ To Face Charges",
+          "url": "https://scoop.co.nz/stories/AK2609/S00020/tv-producer-alexander-breingan-ordered-to-return-to-nz-to-face-charges.htm",
+          "snippet": "Charges Television producer Alexander Breingan has been ordered to return to New Zealand from the United States to face charges of dishonestly obtaining funding for television productions. The Serious Fraud Office filed 33 charges against Mr Breingan for allegedly making false representations and using forged documents to obtain more than $4.3 million in Government-funded rebates and $10.2 million in lending. The alleged offending relates to the financing of 13 television programmes that were produced, or proposed to be produced, by Mr Breingan through his Stripe Studios companies. A warrant f",
+          "choice": "not-this-entity",
+          "probabilities": {
+            "adverse-other": 0.0,
+            "adverse-financial-crime": 0.03,
+            "not-this-entity": 0.97,
+            "not-adverse": 0.0
+          },
+          "confidence": 0.96
+        },
+        {
+          "title": "NZ producer ordered home to face fraud charges",
+          "url": "https://tvtonight.com.au/2026/09/nz-producer-ordered-home-to-face-fraud-charges.html",
+          "snippet": "on  Filed under News  New Zealand TV producer Alexander Breingan has been ordered to return home from the United States to face fraud charges. He is alleged to have dishonestly obtained more than $4.3m in government-funded rebates and $10.2m in lending for television shows. The Serious Fraud Office filed 33 charges at the Auckland District Court earlier this year alleging Breingan financed 13 television programmes through his company Stripe Media. Stripe Media was an Auckland-based company specialising in unscripted or reality shows, whose back catalogue includes Circus, Rich Listers and Snow ",
+          "choice": "not-this-entity",
+          "probabilities": {
+            "adverse-other": 0.0,
+            "adverse-financial-crime": 0.04,
+            "not-this-entity": 0.96,
+            "not-adverse": 0.0
+          },
+          "confidence": 0.95
+        },
+        {
+          "title": "Alex Breingan denies forging documents that allegedly drained millions from TV productions",
+          "url": "https://b2bnews.co.nz/news/stripe-media-14-point-5m-sfo-case-governance-warning",
+          "snippet": "denial The Serious Fraud Office has laid 33 fraud and forgery charges against Alex Breingan, former managing director of Stripe Media, in the Auckland District Court. The SFO alleges he made false representations and used forged documents to obtain more than $4.3 million in government-funded rebates and $10.2 million in private lending across 13 television productions. Each charge carries a maximum penalty of between seven and ten years. Breingan, now living in Los Angeles with a warrant out for his arrest, has denied everything. “I am not guilty of the charges the Serious Fraud Office has lai",
+          "choice": "not-this-entity",
+          "probabilities": {
+            "adverse-other": 0.0,
+            "adverse-financial-crime": 0.06,
+            "not-this-entity": 0.94,
+            "not-adverse": 0.0
+          },
+          "confidence": 0.92
+        }
+      ],
+      "input_tokens": 2375,
+      "answer_source": "live Jev jev-1.13.0"
+    },
+    {
+      "entity": {
+        "name": "Wise plc",
+        "country": "GB",
+        "type": "money transfer company",
+        "cohort": "control"
+      },
+      "query": "Wise plc fraud money laundering sanctions fine charges investigation",
+      "verdict": "HIT",
+      "max_p_financial_crime": 1.0,
+      "evidence_url": "https://goodindex.org/entities/wise",
+      "not_this_entity_share": 0.0,
+      "results": [
+        {
+          "title": "Wise - GoodIndex",
+          "url": "https://goodindex.org/entities/wise",
+          "snippet": "Current Team Track Record − Fined $4.2M by six US states for AML compliance failures Jul 9, 2025 negligent $4.2M Wise US, Inc. agreed to pay $4.2 million under a multistate settlement with California, Minnesota, Nebraska, New York, Texas, and one other state for serious shortcomings in Bank Secrecy Act and anti-money laundering compliance. The Multi-State MSB Examination Taskforce found suspicious activity reporting deficiencies, transaction monitoring data integrity issues, and failure to timely correct past deficiencies detected in prior examinations.\n\nSources: Wise(opens in new tab) − Order",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-other": 0.0,
+            "not-this-entity": 0.0,
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 1.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "UK $12 Billion Fintech Wise United States Banking License (National Trust Charter) Application Rejected Due to Legacy Issues Relating to Financial Crime",
+          "url": "https://caproasia.com/2026/07/24/uk-12-billion-fintech-wise-united-states-banking-license-national-trust-charter-application-rejected-due-to-legacy-issues-relating-to-financial-crime",
+          "snippet": "In 2026 June, UK fintech Wise was investigated by Belgium prosecutors for suspected $581 million (€500 million) money laundering transactions by international criminal organizations.\n\n**UK FCA (28/10/24): “**The FCA has fined Mr Käärmann, the CEO of Wise plc and senior manager of Wise Assets UK Ltd, £350,000 for breaching a senior manager conduct rule. In February 2021, Mr Käärmann paid a significant fine to HM Revenue & Customs (HMRC) of £365,651. He was fined for deliberately failing to notify HMRC of a capital gains tax liability after he sold shares worth £10m in 2017. In September 2021, H",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-other": 0.0,
+            "not-this-entity": 0.0,
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 1.0
+          },
+          "confidence": 0.99
+        },
+        {
+          "title": "Wise Under Belgian Investigation Over €500 Million in Suspicious Transactions",
+          "url": "https://financemagnates.com/fintech/payments/wise-under-belgian-investigation-over-500-million-in-suspicious-transactions",
+          "snippet": "Money transfer firm Wise is under investigation by prosecutors in Belgium over concerns that its accounts were used to launder the proceeds of fraud, corruption and drug trafficking, the company confirmed today (Monday) after the inquiry was first reported by The Bureau of Investigative Journalism. The case centers on about €500 million in suspicious transactions. Wise accounts had turned up in hundreds of requests for cross-border judicial assistance from more than 30 European countries, according to the report. It is the latest in a run of compliance episodes for the company since its 2021 L",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-other": 0.0,
+            "not-this-entity": 0.0,
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 1.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "Wise Shares Drop 18% Amid Belgian Money Laundering Probe | KuCoin",
+          "url": "https://kucoin.com/news/flash/wise-shares-drop-18-amid-belgian-money-laundering-probe",
+          "snippet": "Wise shares fell 18% after Belgian prosecutors revealed a 2022 investigation into the firm for potential money laundering linked to fraud, drug trafficking, and corruption. The probe involves €500 million in suspicious transactions tied to Wise accounts. In 2022, the National Bank of Belgium cited AML compliance gaps in customer due diligence. In July 2025, the U.S. subsidiary was fined $4.2 million for weak CFT and AML practices. Wise PLC, the London-listed fintech that built its brand on cheap, transparent cross-border payments, is facing a crisis that’s anything but transparent. Belgian pro",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-other": 0.0,
+            "not-this-entity": 0.0,
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 1.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "Wise under investigation in Europe over money laundering controls",
+          "url": "https://shropshirestar.com/uk-news/wise-under-investigation-in-europe-over-money-laundering-controls-8652108",
+          "snippet": "Fintech firm Wise is being investigated by Belgian authorities over money laundering concerns in a lengthy probe reportedly involving more than £400 million worth of transactions. Wise shares slumped on Monday – down 9% in afternoon trading – after the firm confirmed it was responding to questions from Belgian authorities. The Belgian public prosecutor’s office told French media the investigation had been launched last year and was “at an advanced stage and nearing its conclusion”. It said: “The findings primarily concern the use of Wise accounts for criminal purposes, with indications of non-",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-other": 0.0,
+            "not-this-entity": 0.0,
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 1.0
+          },
+          "confidence": 1.0
+        }
+      ],
+      "input_tokens": 2407,
+      "answer_source": "live Jev jev-1.13.0"
+    },
+    {
+      "entity": {
+        "name": "Plaid",
+        "country": "US",
+        "type": "fintech data network",
+        "cohort": "control"
+      },
+      "query": "Plaid fraud money laundering sanctions fine charges investigation",
+      "verdict": "REVIEW",
+      "max_p_financial_crime": 0.06,
+      "evidence_url": "https://en.wikipedia.org/wiki/Plaid_Inc.?:~:text=The%20company%20has%20faced%20controversy_risks%20associated%20with%20the%20service.",
+      "not_this_entity_share": 0.4,
+      "results": [
+        {
+          "title": "Plaid Inc.",
+          "url": "https://en.wikipedia.org/wiki/Plaid_Inc.?:~:text=The%20company%20has%20faced%20controversy_risks%20associated%20with%20the%20service.",
+          "snippet": "Plaid Inc. is an American financial services company based in San Francisco, California.\n\nOn January 13, 2020, Visa announced it intended to acquire Plaid for $5.3 billion. Visa CEO Alfred Kelly described the acquisition bid as an “insurance policy” to neutralize a “threat to our important US debit business.” Visa later abandoned the deal after the United States Department of Justice sued to block it for antitrust reasons.\n\nTD Bank filed a lawsuit against Plaid in 2020 accusing the company of trying to “dupe” its users. In 2021, Plaid settled a $58 million class action lawsuit over claims that",
+          "choice": "adverse-other",
+          "probabilities": {
+            "adverse-financial-crime": 0.04,
+            "not-adverse": 0.02,
+            "not-this-entity": 0.0,
+            "adverse-other": 0.94
+          },
+          "confidence": 0.92
+        },
+        {
+          "title": "Venmo Lawsuit 2026: Class Action and Plaid Settlement Facts",
+          "url": "https://lawcompensate.com/venmo-lawsuit",
+          "snippet": "Answer Multiple real Venmo-related legal actions exist, but no active case has a public claim form as of July 2026. The closed Plaid settlement paid $35.97 per claimant; the pending Al-Ramahi fraud case has no confirmed payout figure. There is no deadline to track right now because no open Venmo settlement is currently accepting claims.\n\nA federal fraud reimbursement case against PayPal, Venmo’s parent company, is moving through discovery in California. A New Hampshire settlement already forced Venmo to change how it handles scam warnings. And the case people confuse with an active Venmo lawsu",
+          "choice": "not-this-entity",
+          "probabilities": {
+            "adverse-financial-crime": 0.04,
+            "not-adverse": 0.13,
+            "not-this-entity": 0.54,
+            "adverse-other": 0.29
+          },
+          "confidence": 0.39
+        },
+        {
+          "title": "Venmo Lawsuit & Settlement Guide (2025–2026)",
+          "url": "https://settlementinsight.com/venmo-lawsuit",
+          "snippet": "A federal court approved a $58 million class-action settlement against Plaid, Inc. — which handles bank-linking for apps including Venmo — over harvesting users’ bank-login data. The claim deadline had already passed in April 2022.",
+          "choice": "adverse-other",
+          "probabilities": {
+            "adverse-financial-crime": 0.05,
+            "not-adverse": 0.0,
+            "not-this-entity": 0.01,
+            "adverse-other": 0.94
+          },
+          "confidence": 0.92
+        },
+        {
+          "title": "Fake Bank Statement Consequences: Penalties Explained",
+          "url": "https://mybankstatementanalysis.com/blog/fake-bank-statement-consequences",
+          "snippet": "Bottom line It is a crime — fraud and forgery charges apply in every US state and under federal law Mortgage fraud: Up to 30 years federal prison + $1M fine (18 U.S.C. § 1344) Rental fraud: Up to 5 years prison + civil liability under state law Immigration fraud: Up to 10 years + deportation\n\nLegal consequences by situation Situation Charge Law Penalty Mortgage or loan application Bank fraud / wire fraud 18 U.S.C. § 1344 Up to 30 years federal prison + $1M fine Rental application Fraud / misrepresentation State fraud statutes Up to 5 years prison + civil liability Visa or immigration Immigrati",
+          "choice": "not-this-entity",
+          "probabilities": {
+            "adverse-financial-crime": 0.0,
+            "not-adverse": 0.0,
+            "not-this-entity": 1.0,
+            "adverse-other": 0.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "Plaid Inc.",
+          "url": "https://grokipedia.com/page/Plaid_Inc.",
+          "snippet": "payments.[7][8] Plaid has faced scrutiny over data privacy practices, culminating in a $58 million class-action settlement in 2022 resolving claims that it harvested and sold consumers’ financial information without adequate consent, alongside commitments to delete certain data and enhance privacy controls.[9][10]",
+          "choice": "adverse-other",
+          "probabilities": {
+            "adverse-financial-crime": 0.06,
+            "not-adverse": 0.0,
+            "not-this-entity": 0.0,
+            "adverse-other": 0.94
+          },
+          "confidence": 0.92
+        }
+      ],
+      "input_tokens": 2205,
+      "answer_source": "live Jev jev-1.13.0"
+    },
+    {
+      "entity": {
+        "name": "Klarna",
+        "country": "SE",
+        "type": "buy-now-pay-later lender",
+        "cohort": "control"
+      },
+      "query": "Klarna fraud money laundering sanctions fine charges investigation",
+      "verdict": "HIT",
+      "max_p_financial_crime": 1.0,
+      "evidence_url": "https://occrp.org/en/news/swedish-fintech-company-fined-for-anti-money-laundering-failures",
+      "not_this_entity_share": 0.0,
+      "results": [
+        {
+          "title": "Swedish Fintech Company Fined for Anti-Money Laundering Failures",
+          "url": "https://occrp.org/en/news/swedish-fintech-company-fined-for-anti-money-laundering-failures",
+          "snippet": "Sweden fined a fintech company 500 million krona ($50 million) for failing to assess how its services could be abused by money launderers or terrorist financiers. Klarna Bank AB, a major buy-now-pay-later e-commerce provider, was fined after an audit found “significant deficiencies” in the company’s risk-related operations, Finansinspektionen (FI), the country’s financial regulator said Wednesday. “Our investigation shows that Klarna has not followed the requirements on, among other things, a general risk assessment and procedures and guidelines for due diligence measures,” said FI Director Ge",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-other": 0.0,
+            "not-this-entity": 0.0,
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 1.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "Sweden fined Klarna SEK 500 million for AML risk-assessment failures",
+          "url": "https://mistake.club/w/klarna-aml-fine-sweden-2024",
+          "snippet": "2024-12-11 What happened On December 11, 2024, Sweden’s financial regulator Finansinspektionen fined Klarna Bank AB SEK 500 million (~US$46 million) and issued a remark for breaches of anti-money-laundering rules. The penalty was one of the largest the regulator had ever imposed on a financial firm. The regulator found deficiencies in Klarna’s risk-assessment process that could allow illegal activity such as money laundering or terrorist financing, and concluded the bank lacked comprehensive procedures and guidelines for carrying out due diligence on clients using its bank invoice products. Th",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-other": 0.0,
+            "not-this-entity": 0.0,
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 1.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "Klarna’s Fraud Collaboration Scandal: When Law Enforcement Chooses Partnership Over Prosecution",
+          "url": "https://nordicbusinessjournal.com/klarnas-fraud-collaboration-scandal-when-law-enforcement-chooses-partnership-over-prosecution",
+          "snippet": "Unravelling In February 2026, Swedish investigative journalism program Kalla Fakta (TV4) dropped a bombshell that has sent shockwaves through Nordic fintech circles: Klarna, Europe’s largest buy-now-pay-later provider and Sweden’s most valuable fintech unicorn, maintained extensive payment processing partnerships with at least eleven online merchants selling fraudulent “miracle pills”—many marketed through AI-generated deepfake videos featuring Swedish public figures. The investigation revealed elderly victims like Peter, 79, who was deceived into purchasing counterfeit arthritis medication th",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-other": 0.07,
+            "not-this-entity": 0.0,
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 0.93
+          },
+          "confidence": 0.91
+        },
+        {
+          "title": "FI to Investigate Klarna Following Kalla Fakta Revelations",
+          "url": "https://marketscreener.com/news/fi-to-investigate-klarna-following-kalla-fakta-revelations-ce7e5cd9db88ff24",
+          "snippet": "original The Swedish Financial Supervisory Authority (FI) will proceed with an investigation based on Kalla Fakta’s revelations that Klarna has served as a payment option for online stores marketing so-called “miracle pills” using AI-generated fake videos and false health claims. “We will follow up on the information we have now received and, based on that, determine whether any action will be necessary,” FI’s Deputy Director General Malin Alpen told Kalla Fakta. FI can impose sanctions in cases of regulatory non-compliance. In December 2024, Klarna Bank received a reprimand and a penalty fee ",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-other": 0.02,
+            "not-this-entity": 0.0,
+            "not-adverse": 0.01,
+            "adverse-financial-crime": 0.97
+          },
+          "confidence": 0.96
+        },
+        {
+          "title": "Klarna fined for breaching Sweden’s anti-money laundering rules - EUROPE SAYS",
+          "url": "https://europesays.com/1679518",
+          "snippet": "Klarna has been fined about £36 million by Sweden’s financial regulator for violating regulations designed to combat money laundering. FI, the Swedish watchdog, said that Klarna Bank’s general risk assessment did not contain any assessments of how its products and services might be used for money laundering or terrorist financing and that it did not properly implement due diligence measures in every case. However, the watchdog said that the violations were not significant enough to issue either a formal warning or to withdraw authorisation for the company. Instead it issued Klarna with a fine ",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-other": 0.0,
+            "not-this-entity": 0.0,
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 1.0
+          },
+          "confidence": 1.0
+        }
+      ],
+      "input_tokens": 2353,
+      "answer_source": "live Jev jev-1.13.0"
+    },
+    {
+      "entity": {
+        "name": "Nubank",
+        "country": "BR",
+        "type": "digital bank",
+        "cohort": "control"
+      },
+      "query": "Nubank fraud money laundering sanctions fine charges investigation",
+      "verdict": "REVIEW",
+      "max_p_financial_crime": 0.32,
+      "evidence_url": "https://en.monoup.com/mono_talks/fintech_news/Payments-in-fire-300M-fraud-with-PSP-employees-remoteover-at-Nubank?a=401",
+      "not_this_entity_share": 0.2,
+      "results": [
+        {
+          "title": "Payments in fire: €300M fraud with PSP employees, remote-over at Nubank",
+          "url": "https://en.monoup.com/mono_talks/fintech_news/Payments-in-fire-300M-fraud-with-PSP-employees-remoteover-at-Nubank?a=401",
+          "snippet": "German law enforcement uncovered a €300 million money laundering scheme involving employees from four major Payment Service Providers (PSPs) in the country. It turns out these employees not only allowed the activities but also profited financially from them. This high-profile case has led to arrests and scandals, but more consequences may follow.\n\nOperation Chargeback: PSP Employees Assisted in Data Theft for Fraud Germany has uncovered a massive money laundering scheme involving insiders from four major payment systems. A group of fraudsters laundered €300 million using stolen credit card dat",
+          "choice": "not-this-entity",
+          "probabilities": {
+            "adverse-financial-crime": 0.32,
+            "adverse-other": 0.02,
+            "not-this-entity": 0.65,
+            "not-adverse": 0.01
+          },
+          "confidence": 0.55
+        },
+        {
+          "title": "FINRA Fines Aegis Capital $375K for Supervision Failures; OCC Grants Nubank U.S. Charter",
+          "url": "https://media.finleet.com/intel/daily-briefing/2026-01-29/daily-briefing-january-29-2026-finra-aegis-capital-375k-nubank-charter-morgan-stanley-merger",
+          "snippet": "Daily Briefing Cross-Vertical Thursday FINRA Fines Aegis Capital $375K for Supervision Failures; OCC Grants Nubank U.S. Charter FINRA fined Aegis Capital $375,000 for failing to supervise low-priced securities and private placements over four years, the OCC granted Brazilian neobank Nubank a U.S. national bank charter in McLean, Morgan Stanley Bank received OCC merger approval, and FINRA fined Christian Gonzalez $58,970 for structuring cash deposits across 35 total events. January 29, 2026 FINRA fined Aegis Capital Corp. $375,000 for failing to supervise low-priced securities and private place",
+          "choice": "not-adverse",
+          "probabilities": {
+            "adverse-financial-crime": 0.0,
+            "adverse-other": 0.0,
+            "not-this-entity": 0.02,
+            "not-adverse": 0.98
+          },
+          "confidence": 0.97
+        },
+        {
+          "title": "Nubank",
+          "url": "https://en.wikipedia.org/wiki/nubank",
+          "snippet": "Nubank, doing business outside of Brazil as Nu, is a Brazilian neobank headquartered in São Paulo, Brazil. Although it is not formally part of Brazil’s National Financial System ( Sistema Financeiro Nacional), Nubank operates as a financial and payment institution regulated and supervised by the Central Bank of Brazil. It is the largest fintech bank in Latin America, with more than 140 million customers between Brazil, Mexico, Colombia and the United States and a revenue of $16 billion.",
+          "choice": "not-adverse",
+          "probabilities": {
+            "adverse-financial-crime": 0.0,
+            "adverse-other": 0.0,
+            "not-this-entity": 0.0,
+            "not-adverse": 1.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "Nubank",
+          "url": "https://grokipedia.com/page/Nubank",
+          "snippet": "Fact-checked by Grok 3 months ago Nubank Nubank, legally known as Nu Holdings Ltd., is a Brazilian multinational financial services company that operates as a digital bank, providing credit cards with no annual fees, digital accounts with no monthly maintenance fees, personal loans, insurance, and investment products primarily through a mobile app without physical branches.\n\nBrazil, which in 2013 introduced rules mandating that credit card issuers register as payment institutions with approval required by April 2014—a deadline that nearly derailed the startup before launch.",
+          "choice": "not-adverse",
+          "probabilities": {
+            "adverse-financial-crime": 0.0,
+            "adverse-other": 0.0,
+            "not-this-entity": 0.0,
+            "not-adverse": 1.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "Sao Paulo labor court ordered Nubank to pay R$40,000 over abusive practices including explicit-content exposure and a 5-minute mass-layoff call with microphones blocked - GoodIndex",
+          "url": "https://goodindex.org/incidents/cf11076a-c833-48b6-8bbd-cb458e02ff23",
+          "snippet": "Nubank—Sao Paulo labor court ordered Nubank to pay R$40,000 over abusive practices including explicit-content exposure and a 5-minute mass-layoff call with microphones blocked · $7K On July 10, 2026 a Sao Paulo labor court (first instance) ordered Nubank to pay R$40,000 in moral damages to a former employee, finding three abusive practices: routine exposure to explicit images in photo-verification work without adequate safeguards; a 2018 internal campaign involving simulated-nudity photos; and the June 7, 2023 dismissal of roughly 300 employees via a five-minute videoconference with microphone",
+          "choice": "adverse-other",
+          "probabilities": {
+            "adverse-financial-crime": 0.0,
+            "adverse-other": 1.0,
+            "not-this-entity": 0.0,
+            "not-adverse": 0.0
+          },
+          "confidence": 1.0
+        }
+      ],
+      "input_tokens": 2406,
+      "answer_source": "live Jev jev-1.13.0"
+    },
+    {
+      "entity": {
+        "name": "Monzo",
+        "country": "GB",
+        "type": "digital bank",
+        "cohort": "control"
+      },
+      "query": "Monzo fraud money laundering sanctions fine charges investigation",
+      "verdict": "HIT",
+      "max_p_financial_crime": 1.0,
+      "evidence_url": "https://ldd.news/uk-news/monzo-fined-21-million-over-lax-financial-crime-controls",
+      "not_this_entity_share": 0.2,
+      "results": [
+        {
+          "title": "Monzo Fined £21 Million Over Lax Financial Crime Controls",
+          "url": "https://ldd.news/uk-news/monzo-fined-21-million-over-lax-financial-crime-controls",
+          "snippet": "Monzo Fined £21 Million Over Lax Financial Crime Controls  Digital bank Monzo has been fined £21.1 million by the Financial Conduct Authority (FCA) for serious lapses in financial crime prevention, after allowing thousands of high-risk customers to open accounts using blatantly false information – including famous addresses like 10 Downing Street, Buckingham Palace, and even Monzo’s own headquarters. The FCA investigation, launched in 2020, revealed that Monzo’s internal systems failed to keep pace with its rapid expansion. Between 2018 and 2020, the bank’s anti-financial crime controls were d",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "not-this-entity": 0.0,
+            "adverse-other": 0.0,
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 1.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "UK regulator fines Monzo after accepting fake addresses like Buckingham Palace",
+          "url": "https://aa.com.tr/en/europe/uk-regulator-fines-monzo-after-accepting-fake-addresses-like-buckingham-palace/3626140",
+          "snippet": "LONDON Digital bank Monzo accepted customers using fake addresses including Buckingham Palace, the prime minister’s 10 Downing Street office/residence, and even its own offices, a regulator has found, as it fined the firm £21 million (nearly $28 million) for anti-money laundering failings. An investigation by the UK Financial Conduct Authority (FCA) found Monzo did not adequately verify customer addresses, allowing people to open accounts with PO boxes, foreign addresses that included UK postcodes, and well-known London landmarks, the watchdog announced Tuesday. Between 2018 and 2022, Monzo’s ",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "not-this-entity": 0.0,
+            "adverse-other": 0.0,
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 1.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "Monzo Co-founder Jason Bates’ Monaco Bank Faces Legal Challenge Over Regulatory Fine Appeal | Crowdfund Insider",
+          "url": "https://crowdfundinsider.com/2026/08/300935-monzo-co-founder-jason-bates-monaco-bank-faces-legal-challenge-over-regulatory-fine-appeal",
+          "snippet": "A formal legal challenge has arisen at the Monaco private banking operation associated with Jason Bates, a co-founder of the UK digital bank Monzo. The matter involves Moncrief Private Bank (Monaco) S.A.M., previously known as Banque Havilland (Monaco) S.A.M., and stems from a regulatory decision the bank can contest in court. In 2025, Bates joined Ukrainian fintech investor Maksym Koretskiy and long-time Monaco resident Jim McColl to acquire the Monaco subsidiary of the troubled Banque Havilland group. The Luxembourg parent had lost its European banking license in 2024 after repeated anti-mon",
+          "choice": "not-this-entity",
+          "probabilities": {
+            "not-this-entity": 0.9,
+            "adverse-other": 0.07,
+            "not-adverse": 0.01,
+            "adverse-financial-crime": 0.02
+          },
+          "confidence": 0.87
+        },
+        {
+          "title": "Enforcement and litigation update – Key developments including the FCA Enforcement Guide and Upper Tribunal decisions",
+          "url": "https://farrer.co.uk/news-and-insights/enforcement-and-litigation-update--key-developments-including-the-fca-enforcement-guide-and-upper-tribunal-decisions",
+          "snippet": "Digital bank Monzo fined £21m On 7 July 2025, the FCA published a final notice to Monzo Bank Limited, and fined it £21.1 million due to serious systems and controls failures in relation to its anti-money laundering procedures. Since obtaining its full banking permissions in 2017, Monzo’s customer base increased substantially, growing from 250,000 customers in 2017 to over 12 million customers by April 2025. The FCA found that the firm’s systems and controls to counter financial crime did not keep pace with this expansion. The FCA found that in the period from October 2018 to August 2020, Monzo",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "not-this-entity": 0.0,
+            "adverse-other": 0.0,
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 1.0
+          },
+          "confidence": 0.99
+        },
+        {
+          "title": "Abdulali Jiwaji examines the FCA’s fine against Monzo in Financial Regulation International",
+          "url": "https://signaturelitigation.com/abdulali-jiwaji-examines-the-fcas-fine-against-monzo-in-financial-regulation-international",
+          "snippet": "It is four years since the FCA brought its first criminal prosecution under the UK’s anti-money laundering (AML) regulations. Following convictions for failing to prevent the laundering of circa GBP 365m by Fowler Oldfield, a jewellery business client, NatWest was fined GBP 264.8m: without a substantial discount resulting from guilty pleas, it would have been GBP 397m. Although NatWest initially understood it would not handle cash for Fowler Oldfield, GBP 264m of cash was deposited with the bank during their relationship.\n\nFined GBP 21m in July 2025, the most recent example is Monzo Bank. As M",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "not-this-entity": 0.02,
+            "adverse-other": 0.0,
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 0.98
+          },
+          "confidence": 0.97
+        }
+      ],
+      "input_tokens": 2486,
+      "answer_source": "live Jev jev-1.13.0"
+    },
+    {
+      "entity": {
+        "name": "N26",
+        "country": "DE",
+        "type": "digital bank",
+        "cohort": "control"
+      },
+      "query": "N26 fraud money laundering sanctions fine charges investigation",
+      "verdict": "HIT",
+      "max_p_financial_crime": 1.0,
+      "evidence_url": "https://timesofmalta.com/article/germany-fines-online-bank-over-late-suspicious-activity-report.904133",
+      "not_this_entity_share": 0.0,
+      "results": [
+        {
+          "title": "Germany fines online bank over late suspicious activity report",
+          "url": "https://timesofmalta.com/article/germany-fines-online-bank-over-late-suspicious-activity-report.904133",
+          "snippet": "Germany fines online bank over late suspicious activity report N26 pays €4.25m fine for not disclosing suspected money laundering Germany’s financial watchdog said on Wednesday it imposed a fine on online bank N26 over failures in the popular start-up’s anti-money laundering system. The €4.25 million penalty was issued in June but only confirmed by the regulator BaFin in a statement on Wednesday after it was disclosed by N26 late on Tuesday. N26 said the fine was in connection with around 50 “suspicious transactions” linked to money laundering between 2019 and 2020. The company said it reporte",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "not-this-entity": 0.0,
+            "adverse-financial-crime": 1.0,
+            "not-adverse": 0.0,
+            "adverse-other": 0.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "Maximilian Tayenthal: BaFin Enforcement, €13.4M Fines & Exit — Investigative Intelligence Report",
+          "url": "https://investigations.org/report/maximilian-tayenthal",
+          "snippet": "analysis across the 2019–2025 BaFin enforcement period Maximilian Tayenthal co-founded N26 (originally NUMBER26 GmbH) in 2013 and served as co-CEO alongside Valentin Stalf until 31 December 2025. Throughout that period, N26 Bank SE accumulated one of the most sustained BaFin enforcement records of any German-licensed neobank: five discrete regulatory actions between 2019 and 2025, aggregate monetary penalties of €13.465 million across three distinct fine decisions, two separate BaFin special monitor appointments, a customer onboarding cap that restricted growth for nearly three years, and a De",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "not-this-entity": 0.0,
+            "adverse-financial-crime": 0.97,
+            "not-adverse": 0.01,
+            "adverse-other": 0.02
+          },
+          "confidence": 0.96
+        },
+        {
+          "title": "N26 AML Flaws Prompt Sanctions and €9.2 Million Bafin Penalty - Fincrime Central",
+          "url": "https://fincrimecentral.com/n26-bafin-9m-euros-aml-fine-compliance-flaws",
+          "snippet": "The German Federal Financial Supervisory Authority, BaFin, imposed a substantial €9.2 million fine on N26 Bank SE, due to systemic and repeated failings in the bank’s procedures for the prevention of money laundering. This significant penalty, legally binding since May 2024, followed a previous fine of €4.25 million issued in 2021 for similar violations, underscoring persistent compliance challenges at the rapidly expanding digital bank. The regulator’s ongoing scrutiny escalated with the appointment of a special monitor to oversee the implementation of remedial actions, highlighting the serio",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "not-this-entity": 0.0,
+            "adverse-financial-crime": 1.0,
+            "not-adverse": 0.0,
+            "adverse-other": 0.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "OneFinance Compliance in the Financial Services Sector",
+          "url": "https://engage.hoganlovells.com/knowledgeservices/news/one-finance-compliance-in-the-financial-services-sector",
+          "snippet": "The German Federal Financial Supervisory Authority (Bundesanstalt für Finanzdienstleistungsaufsicht, BaFin) recently imposed a record fine of EUR 4,250,000.00 on N26 Bank GmbH for not filing a report on suspected money laundering in a timely, accurate and/or complete manner as required under the German Act on Money Laundering (Geldwäschegesetz, GwG). This record fine is the start of a new area in the compliance sector of the financial services industry, indicating the dedication of BaFin and its new President, Mark Branson, to enforce compliance with money laundering rules and regulations in G",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "not-this-entity": 0.01,
+            "adverse-other": 0.0,
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 0.99
+          },
+          "confidence": 0.99
+        },
+        {
+          "title": "N26 - GoodIndex",
+          "url": "https://goodindex.org/entities/n26",
+          "snippet": "Track Record − BaFin imposed new restrictions including mortgage ban and special monitor for serious deficiencies Dec 15, 2025 negligent Germany’s BaFin imposed new restrictions on N26 in December 2025 after a 2024 special audit found serious deficiencies in risk management, complaint handling, and lending. Restrictions include a ban on new mortgages in the Netherlands, higher capital requirements, and a second special monitor appointment since 2021. The company’s funding process was suspended.\n\n− N26 fined €9.2 million by BaFin for systematically late suspicious activity reports Jun 1, 2024 n",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "not-this-entity": 0.0,
+            "adverse-financial-crime": 0.94,
+            "not-adverse": 0.0,
+            "adverse-other": 0.06
+          },
+          "confidence": 0.92
+        }
+      ],
+      "input_tokens": 2387,
+      "answer_source": "live Jev jev-1.13.0"
+    },
+    {
+      "entity": {
+        "name": "Brex",
+        "country": "US",
+        "type": "corporate card company",
+        "cohort": "control"
+      },
+      "query": "Brex fraud money laundering sanctions fine charges investigation",
+      "verdict": "CLEAR",
+      "max_p_financial_crime": 0.01,
+      "evidence_url": null,
+      "not_this_entity_share": 1.0,
+      "results": [
+        {
+          "title": "Belgian court convicts two for EU funds misuse linked to Nigel Farage's Brexit group | Euractiv",
+          "url": "https://euractiv.com/news/belgian-court-convicts-two-for-eu-funds-misuse-linked-to-nigel-farages-brexit-group",
+          "snippet": "A criminal court in Brussels on Wednesday convicted two Polish nationals – including a current European Parliament assistant – of misusing EU funds tied to political entities associated with Brexit-backer Nigel Farage. The verdict marks the culmination of a ten-year case that started in a fierce political battle within the Parliament in the run-up to Brexit, and follows joint efforts by Parliament auditors, the EU’s anti-fraud office (OLAF), and Belgian authorities to probe allegations of misuse of EU funds in support of the campaign for the UK to exit the bloc or alleged personal agenda. The ",
+          "choice": "not-this-entity",
+          "probabilities": {
+            "adverse-other": 0.0,
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 0.0,
+            "not-this-entity": 1.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "AML Penalties, Fines, and Sanctions + Examples You Should Avoid in 2026",
+          "url": "https://ixsight.com/blogs/aml-penalties-fines-sanctions/",
+          "snippet": "AML fines, penalties, and sanctions are key deterrents to illicit practices, including money laundering, terrorist financing, and sanctions evasion. Such measures have financial, reputational, and operational implications on non-compliant entities. In 2026, the regulatory landscape is becoming stricter, with enforcers using advanced technologies and global collaboration to investigate violations more effectively.\n\nNonetheless, since the date is February 2026, we need to include new information of 2025, which is characterized by a rise in the number of enforcement measures amounting to more tha",
+          "choice": "not-this-entity",
+          "probabilities": {
+            "adverse-other": 0.0,
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 0.0,
+            "not-this-entity": 1.0
+          },
+          "confidence": 0.99
+        },
+        {
+          "title": "Vigilant CDD | Examples of Regulatory Fines",
+          "url": "https://vigilantcdd.com/examples-of-regulatory-fines/",
+          "snippet": "OKX Crypto Exchange – $500m fine OKX, one of the world’s largest cryptocurrency exchanges, has admitted to violating U.S. anti-money laundering (AML) laws and will pay over $504 million in fines. For more than seven years, the exchange failed to implement required AML policies, allowing over $5 billion in suspicious transactions. Prosecutors revealed that OKX knowingly permitted U.S. users to trade on its platform despite restrictions and even guided them on how to bypass know-your-customer (KYC) protocols. While OKX attributed these violations to “legacy compliance gaps,” the case underscores",
+          "choice": "not-this-entity",
+          "probabilities": {
+            "adverse-other": 0.0,
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 0.01,
+            "not-this-entity": 0.99
+          },
+          "confidence": 0.99
+        },
+        {
+          "title": "Anti-money laundering penalties from European regulators increase sixfold in 2025",
+          "url": "https://www.thebanker.com/content/524c98f1-975e-4d9c-bf5f-245e25d215dd",
+          "snippet": "Anti-money laundering penalties imposed by European regulators increased more than sixfold in 2025 as a small number of long-running investigations finally concluded. UBS, Barclays and JPMorgan Chase were among the banks hit with the biggest fines and settlement amounts during the year.",
+          "choice": "not-this-entity",
+          "probabilities": {
+            "adverse-other": 0.0,
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 0.01,
+            "not-this-entity": 0.99
+          },
+          "confidence": 0.99
+        },
+        {
+          "title": "Financial Sanctions – European Sanctions Enforcement",
+          "url": "https://blogs.duanemorris.com/europeansanctionsenforcement/tag/financial-sanctions",
+          "snippet": "imposed The government of Poland has issued a press release detailing its efforts to date on the enforcement of the EU’s sanctions against Russia and Belarus. My thanks to Dr Marcin Lukowski for drawing this release to the blog’s attention. To date Poland has: imposed fines of PLN 74.4m (c. €18m) across 138 separate fining decisions; and in the first quarter of 2026 there are:191 pending cases; 122 cases where an individual has been identified as a suspect (“charged” in Polish terminology); 13 indictments filed; and 10 final judgments. The government also states that it has frozen €546.2m in a",
+          "choice": "not-this-entity",
+          "probabilities": {
+            "adverse-other": 0.0,
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 0.0,
+            "not-this-entity": 1.0
+          },
+          "confidence": 1.0
+        }
+      ],
+      "input_tokens": 2299,
+      "answer_source": "live Jev jev-1.13.0"
+    },
+    {
+      "entity": {
+        "name": "Mercury",
+        "country": "US",
+        "type": "fintech banking platform for startups",
+        "cohort": "name_collision"
+      },
+      "query": "Mercury fraud money laundering sanctions fine charges investigation",
+      "verdict": "CLEAR",
+      "max_p_financial_crime": 0.1,
+      "evidence_url": null,
+      "not_this_entity_share": 1.0,
+      "results": [
+        {
+          "title": "The Mirage of Fine Wine and Easy Money: Unveiling China's RMB 1 Billion Pyramid Scheme",
+          "url": "https://wine-intelligence.com/blogs/wine-news-insights-wine-intelligence-trends-data-reports/the-mirage-of-fine-wine-and-easy-money-unveiling-chinas-rmb-1-billion-pyramid-scheme",
+          "snippet": "Yet, the wine bottles Jia believed would bring him wealth never materialized. Instead, he found himself ensnared in a sprawling web of deception that unraveled into one of China’s largest pyramid schemes, involving over RMB 1 billion (USD 140 million). The case, cracked by the Beijing Public Security Bureau, serves as a stark reminder of how a seemingly sophisticated e-commerce platform can be a front for fraud. The platform in question, known as “Mercury,” was marketed as an innovative way to trade wine, appealing to the growing interest in wine among Chinese consumers. However, the reality b",
+          "choice": "not-this-entity",
+          "probabilities": {
+            "adverse-financial-crime": 0.03,
+            "not-adverse": 0.0,
+            "adverse-other": 0.0,
+            "not-this-entity": 0.97
+          },
+          "confidence": 0.95
+        },
+        {
+          "title": "Australian executive in Myanmar linked to alleged financial misconduct is freed from jail - NewsBreak",
+          "url": "https://newsbreak.com/the-independent-517119/4903315943828-australian-executive-in-myanmar-linked-to-alleged-financial-misconduct-is-freed-from-jail",
+          "snippet": "An Australian business executive who headed the American Chamber of Commerce in Myanmar has been released from jail after being detained for more than 100 days over financial misappropriation allegations, a legal official said Wednesday. Ye Khaung Kyaw, also known as Danny, was freed following a ruling by a court in Yangon, Myanmar’s largest city, according to a legal official familiar with the case, who spoke on condition of anonymity because he was not authorized to release information.\n\nThe current board of the chamber, usually known as AmCham, had accused Ye Khaung Kyaw, Castillo and forme",
+          "choice": "not-this-entity",
+          "probabilities": {
+            "adverse-financial-crime": 0.0,
+            "not-adverse": 0.0,
+            "not-this-entity": 1.0,
+            "adverse-other": 0.0
+          },
+          "confidence": 0.99
+        },
+        {
+          "title": "Press Releases",
+          "url": "https://cftc.gov/PressRoom/PressReleases?page=113&param=286f472b",
+          "snippet": "FEDERAL COURT FREEZES ASSETS OF FLORIDA FOREIGN CURRENCY FIRM AND OTHERS IN U.S. GOVERNMENT LAWSUIT CHARGING A COMMODITY OPTIONS SCAM; CFTC Charges Mercury Partners, Inc.; Mercury Financial Partners, Inc.; Mercury Management, L.C.; Bruce N. Crown; Andrew Bartos; and Michael Morgan with Fraud and Misappropriation of Customer Funds , 5055-05",
+          "choice": "not-this-entity",
+          "probabilities": {
+            "adverse-financial-crime": 0.08,
+            "not-adverse": 0.0,
+            "adverse-other": 0.0,
+            "not-this-entity": 0.92
+          },
+          "confidence": 0.89
+        },
+        {
+          "title": "CFTC Settles Foreign Currency (Forex) Fraud Action Resulting in Over $2.5 Million in Civil Penalties",
+          "url": "https://cftc.gov/PressRoom/PressReleases/5227-06",
+          "snippet": "Commodity Futures Trading Commission Settles Foreign Currency (Forex) Fraud Action Resulting in Over $2.5 Million in Civil Penalties Mercury Partners, Inc., Mercury Financial Partners, Inc., Mercury Management, L.C. and Others Liable for Fraud & Misappropriation Washington, D.C.— The U.S. Commodity Futures Trading Commission (CFTC) announced today that the Honorable Cecelia Altonaga of the U.S. District Court for the Southern District of Florida entered consent orders of permanent injunction against Mercury Management, L.C. of Lake Worth, Florida; its manager, Michael Morgan of West Palm Beach",
+          "choice": "not-this-entity",
+          "probabilities": {
+            "adverse-financial-crime": 0.1,
+            "not-adverse": 0.0,
+            "not-this-entity": 0.9,
+            "adverse-other": 0.0
+          },
+          "confidence": 0.87
+        },
+        {
+          "title": "Aussie exec tied to US$300,000 lobby deal freed",
+          "url": "https://thestar.com.my/aseanplus/aseanplus-news/2026/09/25/aussie-exec-tied-to-us300000-lobby-deal-freed",
+          "snippet": "Aussie exec tied to US$300,000 lobby deal freed An Australian businessperson who served as executive director of the American Chamber of Commerce (AmCham) in Myanmar was released from jail after more than 100 days of detention on financial misappropriation allegations, a Myanmar legal official said. Ye Khaung Kyaw, also known as Danny, was freed on Wednesday following a ruling by a court in Yangon, according to a legal official familiar with the case, who spoke on condition of anonymity because he was not authorised to release information.\n\nThe chamber’s current board accused Kyaw, Castillo an",
+          "choice": "not-this-entity",
+          "probabilities": {
+            "adverse-financial-crime": 0.01,
+            "not-adverse": 0.0,
+            "adverse-other": 0.0,
+            "not-this-entity": 0.99
+          },
+          "confidence": 0.99
+        }
+      ],
+      "input_tokens": 2404,
+      "answer_source": "live Jev jev-1.13.0"
+    },
+    {
+      "entity": {
+        "name": "Ramp",
+        "country": "US",
+        "type": "corporate card and spend management company",
+        "cohort": "name_collision"
+      },
+      "query": "Ramp fraud money laundering sanctions fine charges investigation",
+      "verdict": "REVIEW",
+      "max_p_financial_crime": 0.03,
+      "evidence_url": "https://ago.wv.gov/sites/default/files/2026-07/2026.07.27%20FIND%20Act%20Letter%20%28Ramp%29_.pdf",
+      "not_this_entity_share": 0.8,
+      "results": [
+        {
+          "title": "FBI Seizes RAMP Cybercrime Forum Used by Ransomware Gangs",
+          "url": "https://uinat.com/news/fbi-seizes-ramp-cybercrime-forum-2026",
+          "snippet": "The Federal Bureau of Investigation has seized RAMP (Russian Anonymous Marketplace), a dark web cybercrime forum that served as one of the last platforms where ransomware-as-a-service operations were openly promoted. The takedown represents a significant blow to the ransomware ecosystem’s infrastructure. Seizure details Seizure details Attribute Details Date January 28, 2026  Lead agency FBI  Coordinating agencies US Attorney’s Office (S.D. Florida), DOJ CCIPS  Domains seized Tor hidden service, ramp4u[.]io (clearnet)  Platform users 14,000+  Registration fee $500 or 2 months activity on other",
+          "choice": "not-this-entity",
+          "probabilities": {
+            "adverse-financial-crime": 0.0,
+            "not-adverse": 0.0,
+            "not-this-entity": 1.0,
+            "adverse-other": 0.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "FBI Seizes RAMP, a Key Cybercrime Forum Used by Ransomware Gangs",
+          "url": "https://hackyourmom.com/en/novyny/fbr-vyluchylo-ramp-odyn-iz-klyuchovyh-forumiv-kiberzlochyncziv-i-ransomware-ugrupovan/",
+          "snippet": "FBI Seizes RAMP, a Key Cybercrime Forum Used by Ransomware Gangs  Law enforcement has taken down the RAMP cybercrime forum, an open market that cybercrime groups utilize to sell their ransomware products, recruit others to help spread ransomware, and buy/sell access to victim networks. RAMP was one of only two forums that still allow ransomware to be advertised openly.  The FBI has taken complete control of the RAMP forum’s Tor service and it’s clear net domain (ramp4u[.]io) both are displaying a “seizure” banner which indicates that there is coordination between the FBI, U.S. Department of Ju",
+          "choice": "not-this-entity",
+          "probabilities": {
+            "adverse-financial-crime": 0.0,
+            "not-adverse": 0.0,
+            "not-this-entity": 1.0,
+            "adverse-other": 0.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "Site catering to online criminals has been seized by the FBI",
+          "url": "https://cybernoz.com/site-catering-to-online-criminals-has-been-seized-by-the-fbi",
+          "snippet": "RAMP—the predominantly Russian-language online bazaar that billed itself as the “only place ransomware allowed”—had its dark web and clear web sites seized by the FBI as the agency tries to combat the growing scourge threatening critical infrastructure and organizations around the world. Visits to both sites on Wednesday returned pages that said the FBI had taken control of the RAMP domains, which mirrored each other. RAMP has been among the dwindling number of online crime forums to operate with impunity,\n\nI regret to inform you “The Federal Bureau of Investigation has seized RAMP,” a banner ",
+          "choice": "not-this-entity",
+          "probabilities": {
+            "adverse-financial-crime": 0.0,
+            "not-adverse": 0.0,
+            "not-this-entity": 1.0,
+            "adverse-other": 0.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "FIND Letter (Ramp).docx",
+          "url": "https://ago.wv.gov/sites/default/files/2026-07/2026.07.27%20FIND%20Act%20Letter%20%28Ramp%29_.pdf",
+          "snippet": "It has recently come to our attention that your company, Ramp, may have engaged in\nbehavior that violates West Virginia’s Firearms Industry Nondiscrimination (FIND) Act, W. Va.\nCode § 5A-14-1 et seq.  This letter serves two purposes.  First, it is an invitation to immediately\nstop violating West Virginia law and to take appropriate ameliorative action for any prior or\nongoing violations.",
+          "choice": "adverse-other",
+          "probabilities": {
+            "adverse-financial-crime": 0.01,
+            "not-adverse": 0.0,
+            "not-this-entity": 0.28,
+            "adverse-other": 0.71
+          },
+          "confidence": 0.6
+        },
+        {
+          "title": "SHAREHOLDER NOTICE: Brodsky & Smith Announces an Investigation of LiveRamp Holdings, Inc. (RAMP)",
+          "url": "https://markets.businessinsider.com/news/stocks/shareholder-notice-brodsky-smith-announces-an-investigation-of-liveramp-holdings-inc.-ramp-1036177128",
+          "snippet": "SHAREHOLDER NOTICE: Brodsky & Smith Announces an Investigation of LiveRamp Holdings, Inc. (RAMP)  Bala Cynwyd, Pennsylvania–(Newsfile Corp. - May 19, 2026) - Law office of Brodsky & Smith announces that it is investigating potential claims against the Board of Directors of LiveRamp Holdings, Inc. (“LiveRamp” or the “Company”) (NYSE: RAMP) for possible breaches of fiduciary duty and other violations of federal and state law in connection with the sale of the Company to Publicis Groupe for a total enterprise value of $2.167 billion in an all-cash transaction, based on an acquisition price of $38",
+          "choice": "not-this-entity",
+          "probabilities": {
+            "adverse-financial-crime": 0.03,
+            "not-adverse": 0.0,
+            "not-this-entity": 0.89,
+            "adverse-other": 0.08
+          },
+          "confidence": 0.85
+        }
+      ],
+      "input_tokens": 2459,
+      "answer_source": "live Jev jev-1.13.0"
+    },
+    {
+      "entity": {
+        "name": "Chime",
+        "country": "US",
+        "type": "neobank",
+        "cohort": "name_collision"
+      },
+      "query": "Chime fraud money laundering sanctions fine charges investigation",
+      "verdict": "REVIEW",
+      "max_p_financial_crime": 0.58,
+      "evidence_url": "https://youtube.com/watch?v=xJyE-ju34dU",
+      "not_this_entity_share": 0.2,
+      "results": [
+        {
+          "title": "Buy Chime Account Access Legal Consequences: The Complete Expert Guide",
+          "url": "https://blogs.bangboxonline.com/posts/buy-chime-account-access-legal-consequences-the-complete-expert-guide",
+          "snippet": "Section Key Takeaways Unauthorized access to a Chime account can lead to criminal charges under federal and state law. Fraudulent use of Chime accounts may result in fines, imprisonment, and permanent bans from financial institutions. Protecting your account requires strong passwords, multi-factor authentication, and awareness of phishing scams. Legal consequences vary depending on intent, scale of fraud, and jurisdiction.\n\nLegal Framework Governing Account Access Several laws govern Chime account access: Computer Fraud and Abuse Act (CFAA) – Criminalizes unauthorized access to computer system",
+          "choice": "not-adverse",
+          "probabilities": {
+            "not-this-entity": 0.02,
+            "adverse-financial-crime": 0.14,
+            "not-adverse": 0.72,
+            "adverse-other": 0.12
+          },
+          "confidence": 0.62
+        },
+        {
+          "title": "Chime vs SoFi vs Current vs Varo (2026)",
+          "url": "https://youtube.com/watch?v=xJyE-ju34dU",
+          "snippet": "In June 2025, Chime went public at a valuation of 11.6 billion, down from a peak of 25 billion. The stock fell another 27% after debut. In May 2024, the consumer regulator fined Chime over 4 and 1/2 million for holding customers money up to 4 months after closing their accounts. Over 8,700 people were affected. 7 months earlier, the same regulator fined Chime’s remittance app, Sendwave, for failing to investigate customer error claims properly. Two enforcement actions in 14 months.",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "not-this-entity": 0.0,
+            "adverse-financial-crime": 0.58,
+            "not-adverse": 0.01,
+            "adverse-other": 0.41
+          },
+          "confidence": 0.44
+        },
+        {
+          "title": "Chime Settlement 2026: What’s Real, What’s a Scam, and What Former Customers Are Actually Owed",
+          "url": "https://creativelearningguild.co.uk/finance/chime-settlement-2026-whats-real-whats-a-scam-and-what-former-customers-are-actually-owed",
+          "snippet": "Over the past few years, Chime Financial has settled with California regulators, been fined by the federal Consumer Financial Protection Bureau, been the target of numerous class action lawsuits, and is currently at the center of a lot of confusion regarding a so-called “Chime settlement 2026” that has been making the rounds online, partially as a legitimate regulatory history and partially as an outright scam. The CFPB’s May 2024 order, which required Chime to pay 1.3 million in direct consumer redress and a $3.25 million civil penalty—for neglecting to provide refunds to clients whose accoun",
+          "choice": "adverse-other",
+          "probabilities": {
+            "not-this-entity": 0.0,
+            "adverse-financial-crime": 0.48,
+            "not-adverse": 0.0,
+            "adverse-other": 0.52
+          },
+          "confidence": 0.35
+        },
+        {
+          "title": "Chime Class Action Lawsuit: The $4.5 Million Scandal That Shook Digital Banking",
+          "url": "https://kbsd6.com/finance/chime-class-action-lawsuit-the-4-5-million-scandal-that-shook-digital-banking",
+          "snippet": "Chime is accused of sending residents unsolicited “refer-a-friend” text messages without their consent in the most recent class action lawsuit, which was filed in Washington State. The case swiftly transformed from a privacy concern into a turning point in the regulatory maturity of the fintech sector. Taft Charles, the plaintiff at the heart of the case, claims that Chime broke Washington’s Commercial Electronic Mail Act (CEMA). Without prior, affirmative consent, businesses are not allowed by law to send or assist in sending promotional text messages. By encouraging users to send pre-filled ",
+          "choice": "adverse-other",
+          "probabilities": {
+            "not-this-entity": 0.0,
+            "adverse-financial-crime": 0.07,
+            "not-adverse": 0.0,
+            "adverse-other": 0.93
+          },
+          "confidence": 0.9
+        },
+        {
+          "title": "Woman out on bond after $1,500 scam call theft in Houston County, per court documents",
+          "url": "https://wgxa.tv/news/local/woman-out-on-bond-after-1500-scam-call-theft-in-houston-county-per-court-documents-lee-county-40-year-old-jessica-lashay-wallace-scams-theft-by-deception-with-gdc-inmate-scams",
+          "snippet": "(WGXA) — A Lee County woman is out on bond after being arrested for allegedly stealing money from a Houston County woman who believed she was getting a family member out of jail. According to a Houston County Superior Court warrant, on September 11, 2025, a Bonaire woman reported to the sheriff’s office that she was defrauded after receiving a call with “no caller ID” from a person claiming to be with a bail bond company who could get her son out of jail, who had been arrested the day before. The caller said that if she sent them money, her son would be released and only need to take anger man",
+          "choice": "not-this-entity",
+          "probabilities": {
+            "not-this-entity": 1.0,
+            "adverse-financial-crime": 0.0,
+            "not-adverse": 0.0,
+            "adverse-other": 0.0
+          },
+          "confidence": 1.0
+        }
+      ],
+      "input_tokens": 2399,
+      "answer_source": "live Jev jev-1.13.0"
+    },
+    {
+      "entity": {
+        "name": "Apex Fintech Solutions",
+        "country": "US",
+        "type": "clearing and custody firm",
+        "cohort": "name_collision"
+      },
+      "query": "Apex Fintech Solutions fraud money laundering sanctions fine charges investigation",
+      "verdict": "HIT",
+      "max_p_financial_crime": 0.94,
+      "evidence_url": "https://ecclestonlaw.com/eccleston-law-blog/apex-clearing-to-pay-32-million-in-finra-settlement-over-securities-lending-violations",
+      "not_this_entity_share": 0.4,
+      "results": [
+        {
+          "title": "Clearing firm to pay $3.2M for not paying client fees on borrowed securities",
+          "url": "https://financial-planning.com/news/finra-hits-apex-clearing-with-3-2m-fine",
+          "snippet": "EST 3 Min Read  FINRA The clearing arm of Apex Fintech Solutions has agreed to pay more than $3 million to resolve FINRA allegations that it failed to ensure customers received fees it generated by lending out their securities. Processing Content Apex Clearing, a clearing brokerage and a subsidiary of the software company Apex Fintech, will pay $3.2 million over charges related to its “paid securities lending program.” The program lets Apex Clearing borrow securities from clients brought to it by retail broker-dealers and lend them out for a fee. The money generated by those loans is usually s",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "not-this-entity": 0.0,
+            "adverse-financial-crime": 0.93,
+            "adverse-other": 0.07,
+            "not-adverse": 0.0
+          },
+          "confidence": 0.9
+        },
+        {
+          "title": "FTC Action Leads to Industry Ban for Ringleader of Student Loan Debt Relief Scam",
+          "url": "https://www.ftc.gov/news-events/news/press-releases/2024/04/ftc-action-leads-industry-ban-ringleader-student-loan-debt-relief-scam",
+          "snippet": "The ringleader of a student loan debt relief scam will be permanently banned from the debt relief industry and is required to turn over assets as part of a settlement with the Federal Trade Commission. The settlement with Marco Manzi resolves FTC charges involving the student loan debt relief scheme. The FTC charged that Manzi, Ivan Esquivel, and Robert Kissinger, operators of Express Enrollment LLC (also doing business as SLFD Processing) and Intercontinental Solutions LLC (also doing business as Apex Doc Processing LLC), pretended to be affiliated with the U.S. Department of Education and us",
+          "choice": "not-this-entity",
+          "probabilities": {
+            "not-this-entity": 1.0,
+            "adverse-financial-crime": 0.0,
+            "adverse-other": 0.0,
+            "not-adverse": 0.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "James Ward cops $80K civil penalty for Apex Financial fraud",
+          "url": "https://behindmlm.com/companies/james-ward-cops-80k-civil-penalty-for-apex-financial-fraud",
+          "snippet": "James Ward cops $80K civil penalty for Apex Financial fraud James Ward will pay an $80,000 civil penalty after defrauding consumers through Apex Financial. Apex Financial was an MLM crypto Ponzi launched in 2021. The scheme was built around APT, a token Ward created. The SEC filed suit against Ward in 2024, alleging Ward defrauded “at least 70 investors” out of “at least $852,000”. Ward (right) settled with the SEC back in March 2025, however specifics of the settlement received pushback from the court. In July 2025 the SEC requested the court impose a $150,000. Ward responded to request and a",
+          "choice": "not-this-entity",
+          "probabilities": {
+            "not-this-entity": 0.97,
+            "adverse-financial-crime": 0.03,
+            "adverse-other": 0.0,
+            "not-adverse": 0.0
+          },
+          "confidence": 0.97
+        },
+        {
+          "title": "Apex Clearing To Pay $3.2 Million In FINRA Settlement Over Securities Lending Violations",
+          "url": "https://ecclestonlaw.com/eccleston-law-blog/apex-clearing-to-pay-32-million-in-finra-settlement-over-securities-lending-violations",
+          "snippet": "Law Apex Clearing, the clearing arm of Apex Fintech Solutions, has agreed to pay $3.2 million to settle FINRA allegations that it failed to ensure customers received compensation for lending their securities. As reported by Financial Planning, FINRA’s investigation found that from January 2019 to June 2023, Apex misled clients about its “paid securities lending program,” violating Rule 4330. According to FINRA, Apex Clearing allowed broker-dealer clients to enroll investors in a securities lending program, under which Apex borrowed securities and lent them out for a fee. While Apex, its broker",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "not-this-entity": 0.01,
+            "adverse-financial-crime": 0.94,
+            "adverse-other": 0.05,
+            "not-adverse": 0.0
+          },
+          "confidence": 0.93
+        },
+        {
+          "title": "Apex Fintech Solutions",
+          "url": "https://nlrb.gov/case/12-CA-325317",
+          "snippet": "Apex Fintech Solutions Case Number: 12-CA-325317 Date Filed: 09/05/2023 Status: Open Location: Winter Springs, FL Region Assigned: Region 12, Tampa, Florida Docket Activity [Date ](/sort-case-decisions-cp/12-CA-325317/ds_activity asc/case-docket-activity/ds-activity-date/10) [Document](/sort-case-decisions-cp/12-CA-325317/doc_subtype desc/case-docket-activity/document/10) [Issued/Filed By](/sort-case-decisions-cp/12-CA-325317/participant_type desc/case-docket-activity/participant-type/10) 08/04/2026 C-Case EOT Response NLRB - Board  07/24/2026 Order Transferring Proceeding to the Board NLRB - ",
+          "choice": "adverse-other",
+          "probabilities": {
+            "not-this-entity": 0.01,
+            "adverse-financial-crime": 0.0,
+            "adverse-other": 0.68,
+            "not-adverse": 0.31
+          },
+          "confidence": 0.56
+        }
+      ],
+      "input_tokens": 2504,
+      "answer_source": "live Jev jev-1.13.0"
+    },
+    {
+      "entity": {
+        "name": "Block, Inc.",
+        "country": "US",
+        "type": "payments company (Square, Cash App)",
+        "cohort": "name_collision"
+      },
+      "query": "Block, Inc. fraud money laundering sanctions fine charges investigation",
+      "verdict": "HIT",
+      "max_p_financial_crime": 1.0,
+      "evidence_url": "https://sanctions.io/blog/the-block-inc-40m-aml-settlement",
+      "not_this_entity_share": 0.2,
+      "results": [
+        {
+          "title": "The Block Inc. $40M AML Settlement: What Every FinTech Compliance Team Must Learn | sanctions.io",
+          "url": "https://sanctions.io/blog/the-block-inc-40m-aml-settlement",
+          "snippet": "On April 10, 2025, NYDFS Superintendent Adrienne A. Harris announced that Block Inc. would pay a $40 million penalty for significant failures in its Bank Secrecy Act and AML compliance program, which violated the Department’s money transmitter and virtual currency regulations. That settlement followed a separate action three months earlier. In January 2025, in a coordinated enforcement action by 48 state financial regulators, Block agreed to pay an $80 million fine and undertake corrective action for violations of the Bank Secrecy Act and AML laws. By the time the final settlement landed, Bloc",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-other": 0.0,
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 1.0,
+            "not-this-entity": 0.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "Block Inc: $80 Million Multi-state Settlement For AML Program Deficiencies | Ekalavya Hansaj",
+          "url": "https://th.hansajekalavya.com/%E0%B8%A3%E0%B8%B2%E0%B8%A2%E0%B8%87%E0%B8%B2%E0%B8%99/%E0%B8%9A%E0%B8%A3%E0%B8%B4%E0%B8%A9%E0%B8%B1%E0%B8%97-Block-Inc.-%E0%B8%95%E0%B8%81%E0%B8%A5%E0%B8%87%E0%B8%88%E0%B9%88%E0%B8%B2%E0%B8%A2%E0%B8%84%E0%B9%88%E0%B8%B2%E0%B8%9B%E0%B8%A3%E0%B8%B1%E0%B8%9A%E0%B8%A1%E0%B8%B9%E0%B8%A5%E0%B8%84%E0%B9%88%E0%B8%B2-80-%E0%B8%A5%E0%B9%89%E0%B8%B2%E0%B8%99%E0%B8%94%E0%B8%AD%E0%B8%A5%E0%B8%A5%E0%B8%B2%E0%B8%A3%E0%B9%8C%E0%B8%AA%E0%B8%AB%E0%B8%A3%E0%B8%B1%E0%B8%90%E0%B8%AF-%E0%B9%83%E0%B8%AB%E0%B9%89%E0%B8%81%E0%B8%B1%E0%B8%9A%E0%B8%AB%E0%B8%A5%E0%B8%B2%E0%B8%A2%E0%B8%A3%E0%B8%B1%E0%B8%90%E0%B9%80%E0%B8%99%E0%B8%B7%E0%B9%88%E0%B8%AD%E0%B8%87%E0%B8%88%E0%B8%B2%E0%B8%81%E0%B8%82%E0%B9%89%E0%B8%AD%E0%B8%9A%E0%B8%81%E0%B8%9E%E0%B8%A3%E0%B9%88%E0%B8%AD%E0%B8",
+          "snippet": "The $80 Million Accord: Deconstructing the Multi-State Settlement The $80 Million Accord: Deconstructing the Multi-State Settlement January 15, 2025, stands as a definitive marker in the chronology of Block, Inc. This date does not represent a product launch or a quarterly earnings triumph. It marks the execution of a multi-state settlement valuing $80 million. The agreement resolved investigations led by 48 state financial regulators into the compliance architecture of Cash App. The findings were precise. The regulatory consensus was absolute. Block prioritized velocity over verification. The",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-other": 0.0,
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 1.0,
+            "not-this-entity": 0.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "AR Fines Block Cash App $80M for BSA/AML Violations",
+          "url": "https://changeflow.com/govping/government-general/block-inc-80m-penalty-cash-app-bsa-aml-2026-04-18",
+          "snippet": "UrgentEnforcementAmendedFinal Block Inc Cash App $80M BSA/AML Multistate Settlement Summary The Arkansas Securities Department joined 47 state financial regulatory agencies in a coordinated $80 million enforcement action against Block, Inc. (Cash App) for Bank Secrecy Act (BSA) and anti-money laundering (AML) violations. State regulators found Block’s services were not in compliance with customer due diligence, suspicious activity reporting, and high-risk account controls requirements, creating potential for money laundering and terrorism financing. As part of the settlement, Block must hire a",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-other": 0.0,
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 1.0,
+            "not-this-entity": 0.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "Block Inc BSA AML Fine: What Really Happened Behind the Scenes",
+          "url": "https://mymaven.org/block-inc-bsa-aml-fine-what-really-happened-behind-the-scenes-1l8w",
+          "snippet": "The Massive Bill: Breaking Down the Fines By the time 2025 rolled around, the tally for Block Inc. (the parent company of Cash App) was staggering. We aren’t just talking about a slap on the wrist. Total regulatory fines and redress reached nearly $300 million. Here is the actual breakdown of where that money went: Multistate Settlement: 48 states and D.C. teamed up for an $80 million penalty. New York DFS: The New York Department of Financial Services secured a separate $40 million settlement in April 2025 specifically for virtual currency and AML failures. CFPB Action: The Consumer Financial",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-other": 0.0,
+            "not-adverse": 0.0,
+            "adverse-financial-crime": 1.0,
+            "not-this-entity": 0.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "Top 5 AML Fines of 2025: OKX, Block Inc, & more",
+          "url": "https://www.complycube.com/en/top-5-aml-fines-in-2025-you-need-to-know/",
+          "snippet": "OKX Crypto Exchange and Its $500 Million Guilty Plea February 24, 2025 — Cryptocurrency Exchange OKX was fined over $500 million by the US Department of Justice (DOJ) due to severe AML violations. Founded in 2017 by Star Xu, a blockchain technology enthusiast, the Seychelles-based platform operated one of the largest crypto exchanges globally.  Authorities in the U.S found that the firm had aided over $5 billion in suspicious transactions due to inadequate Know Your Customer (KYC) and AML frameworks. Despite officially banning U.S. users, authorities uncovered internal documents showing that O",
+          "choice": "not-this-entity",
+          "probabilities": {
+            "adverse-other": 0.0,
+            "not-adverse": 0.05,
+            "adverse-financial-crime": 0.1,
+            "not-this-entity": 0.85
+          },
+          "confidence": 0.81
+        }
+      ],
+      "input_tokens": 2918,
+      "answer_source": "live Jev jev-1.13.0"
+    },
+    {
+      "entity": {
+        "name": "Robinhood Markets",
+        "country": "US",
+        "type": "retail brokerage",
+        "cohort": "control"
+      },
+      "query": "Robinhood Markets fraud money laundering sanctions fine charges investigation",
+      "verdict": "HIT",
+      "max_p_financial_crime": 1.0,
+      "evidence_url": "https://hansajekalavya.com/reports/robinhood-finra-29-75-million-penalty-for-anti-money-laundering-oversight-gaps-2025",
+      "not_this_entity_share": 0.2,
+      "results": [
+        {
+          "title": "Robinhood: FINRA $29.75 Million Penalty For Anti-money Laundering Oversight Gaps 2025 | Ekalavya Hansaj",
+          "url": "https://hansajekalavya.com/reports/robinhood-finra-29-75-million-penalty-for-anti-money-laundering-oversight-gaps-2025",
+          "snippet": "FINRA $29.75 Million Penalty for Anti-Money Laundering Oversight Gaps 2025 REPORT SECTION: REGULATORY ENFORCEMENT ACTIONS 2025 SUBJECT: FINRA DISCIPLINARY PROCEEDING NO. 2020066971201 DATE: FEBRUARY 13, 2026 The $29.75 Million Penalty: March 2025 Enforcement Metrics The Financial Industry Regulatory Authority (FINRA) executed a definitive enforcement action against Robinhood Financial LLC and Robinhood Securities on March 7, 2025. This regulatory event culminated in a total monetary sanction of $29.75 million. The breakdown of this figure is precise. It consists of a $26 million punitive fine ",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-other": 0.0,
+            "not-adverse": 0.0,
+            "not-this-entity": 0.0,
+            "adverse-financial-crime": 1.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "Robinhood Agrees to Pay $26M for FINRA Allegations Settlement",
+          "url": "https://nasdaq.com/articles/robinhood-agrees-pay-26m-finra-allegations-settlement",
+          "snippet": "[  ](/publishers/zacks) Robinhood Agrees to Pay $26M for FINRA Allegations Settlement Robinhood Markets Inc.’s HOOD units — Robinhood Financial and Robinhood Securities — have to pay $26 million to settle Financial Industry Regulatory Authority (“FINRA”) allegations for failing to respond to red flags about potential misconduct and not verifying the identities of thousands of customers. Also, FINRA has ordered Robinhood Financial to pay $3.75 million in compensation to the trading platform’s customers. Details of Allegation Against HOOD FINRA found that Robinhood Financial provided customers w",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-other": 0.0,
+            "not-adverse": 0.0,
+            "not-this-entity": 0.0,
+            "adverse-financial-crime": 1.0
+          },
+          "confidence": 0.99
+        },
+        {
+          "title": "Sam Bankman-Fried",
+          "url": "https://en.wikipedia.org/wiki/Bankman-Fried",
+          "snippet": "Fried (aunt) Convictions: Wire fraud (2 counts), Conspiracy (5 counts), Conspiracy to commit wire fraud (2 counts), Conspiracy to commit securities fraud, Conspiracy to commit commodities fraud, Conspiracy to commit money laundering Criminal penalty: 25 years in prison Date apprehended:\n\nI In November 2022, as evidence of potential fraud began to surface, depositors quickly withdrew their assets from FTX, forcing the company into bankruptcy. On December 12, 2022, Bankman-Fried was arrested in the Bahamas and extradited to the United States, where he was indicted on seven criminal charges, incl",
+          "choice": "not-this-entity",
+          "probabilities": {
+            "adverse-other": 0.0,
+            "not-adverse": 0.0,
+            "not-this-entity": 1.0,
+            "adverse-financial-crime": 0.0
+          },
+          "confidence": 1.0
+        },
+        {
+          "title": "Robinhood's broker-dealers paid $45M for 10+ securities-law violations",
+          "url": "https://mistake.club/w/robinhood-sec-45m-broker-dealer-2025",
+          "snippet": "2020–2025 Robinhood’s broker-dealers paid $45M for 10+ securities-law violations The SEC said Robinhood failed at short-sale reporting, suspicious-activity reports, recordkeeping and cybersecurity — $45M in combined penalties. Robinhood Markets What happened In January 2025 the SEC charged Robinhood Securities and Robinhood Financial with violating more than 10 separate securities-law provisions in their brokerage operations. The failures included inaccurate trading-activity reporting, breaches of Reg SHO short-sale rules, late suspicious-activity reports, missing books-and-records communicati",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-other": 0.02,
+            "not-adverse": 0.0,
+            "not-this-entity": 0.02,
+            "adverse-financial-crime": 0.96
+          },
+          "confidence": 0.95
+        },
+        {
+          "title": "Robinhood To Pay FINRA, Customers $29.75M for Violations",
+          "url": "https://wealthmanagement.com/regulation-compliance/robinhood-to-pay-finra-customers-29-75m-for-violations",
+          "snippet": "Robinhood To Pay FINRA, Customers $29.75M for Violations The online trading and financial services company was charged with providing customers with incomplete disclosures and not instituting proper anti-money laundering practices. 2 Min Read  OLIVIER DOULIERY/AFP/Getty Images The Financial Industry Regulatory Authority has fined Robinhood Financial and Robinhood Securities to pay a combined $29.75 million for alleged violations dating back as far as 2014, a year after the firm was founded. In a 127-page document released Friday, FINRA detailed various alleged violations by the entities of par",
+          "choice": "adverse-financial-crime",
+          "probabilities": {
+            "adverse-other": 0.0,
+            "not-adverse": 0.0,
+            "not-this-entity": 0.0,
+            "adverse-financial-crime": 1.0
+          },
+          "confidence": 1.0
+        }
+      ],
+      "input_tokens": 2467,
+      "answer_source": "live Jev jev-1.13.0"
+    }
+  ]
+}

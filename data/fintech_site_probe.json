@@ -1,0 +1,337 @@
+{
+ "ran_at": "2026-10-01T11:53:07.983Z",
+ "note": "site-restricted re-run of 8 queries whose expected primary source missed the top 3 in the open run",
+ "rows": [
+  {
+   "query": "FOMC statement September 2026 federal funds rate decision",
+   "site": "federalreserve.gov",
+   "ms": 382,
+   "status": 200,
+   "n": 5,
+   "results": [
+    {
+     "url": "https://federalreserve.gov/monetarypolicy/files/monetary20260916a1.pdf",
+     "title": "Federal Reserve issues FOMC statement",
+     "acquired_at": "2026-09-17T12:09:19Z",
+     "published_at": "2026-09-16T16:28:34Z",
+     "snippet": "for release by a\n12 – 0 vote:\nThe Committee decided to raise the target range for the federal funds rate by\n1/4 percentage point to 3-3/4 to 4 percent, in suppo"
+    },
+    {
+     "url": "https://federalreserve.gov/mediacenter/files/FOMCpresconf20260916.pdf",
+     "title": "Transcript of Chairman Warsh’s Press Conference, September 16, 2026",
+     "acquired_at": "2026-09-17T19:31:05Z",
+     "published_at": "2026-09-17T13:48:35Z",
+     "snippet": "day.  In the meeting just concluded, the FOMC decided to\nraise the target range for the federal funds rate by ¼ percentage point to 3¾ to 4 percent, in\nsupport "
+    },
+    {
+     "url": "https://federalreserve.gov/newsevents/pressreleases/monetary20260916a1.htm",
+     "title": "Implementation Note issued September 16, 2026",
+     "acquired_at": "2026-09-17T15:41:15Z",
+     "snippet": "the Federal Reserve System voted unanimouslyto raise the interest rate paid on reserve balances to 3.90 percent, effective September 17, 2026. As part of its po"
+    },
+    {
+     "url": "https://federalreserve.gov/releases/h15",
+     "title": "Federal Reserve Board - H.15 - Selected Interest Rates (Daily)",
+     "acquired_at": "2026-09-19T19:13:02Z",
+     "snippet": "Interest Rates Yields in percent per annum Instruments 2026 Sep 11 2026 Sep 14 2026 Sep 15 2026 Sep 16 2026 Sep 17 Federal funds (effective) 1 2 3 3.63 3.63 3.6"
+    },
+    {
+     "url": "https://federalreserve.gov/monetarypolicy/fomcpresconf20260916.htm",
+     "title": "September 15-16, 2026 FOMC Meeting",
+     "acquired_at": "2026-09-16T22:37:03Z",
+     "snippet": "15-16, 2026 FOMC Meeting FOMC Meeting Statement: PDF | HTML (Released September 16, 2026 at 2:00 p.m.) Implementation Note (Released September 16, 2026 at 2:00 "
+    }
+   ]
+  },
+  {
+   "query": "Apple 10-K fiscal 2025 risk factors",
+   "site": "sec.gov",
+   "ms": 190,
+   "status": 200,
+   "n": 5,
+   "results": [
+    {
+     "url": "https://sec.gov/Archives/edgar/data/1418121/000119312526140135/aple-10k-12312025_ars.pdf",
+     "title": "APLE-10K-12312025_Print.pdf",
+     "acquired_at": "2026-05-27T15:28:12Z",
+     "published_at": "2026-03-31T18:50:00Z",
+     "snippet": "or a recessionary environment); reduced business and leisure travel due to geopolitical uncertainty, including terrorism and\nacts of war; travel-related health "
+    },
+    {
+     "url": "https://sec.gov/Archives/edgar/data/320193/000032019325000079/aapl-20250927.htm",
+     "title": "aapl-20250927",
+     "acquired_at": "2026-09-14T05:46:32Z",
+     "snippet": "Factors The following summarizes factors that could have a material adverse effect on the Company’s business, reputation, results of operations, financial condi"
+    },
+    {
+     "url": "https://sec.gov/Archives/edgar/data/320193/000032019325000079/a10-kexhibit31209272025.htm",
+     "title": "Document",
+     "acquired_at": "2026-06-14T02:53:30Z",
+     "snippet": "Document Exhibit 31.2 CERTIFICATION I, Kevan Parekh, certify that: 1.I have reviewed this annual report on Form 10-K of Apple Inc.; 2.Based on my knowledge,"
+    },
+    {
+     "url": "https://sec.gov/files/corpfin/no-action/14a-8/ncpprapple102025.pdf",
+     "title": "Apple Inc",
+     "acquired_at": "2026-05-07T08:24:39Z",
+     "published_at": "2025-12-04T22:51:29Z",
+     "snippet": "within the next year, at reasonable cost and excluding\nconfidential information, assessing risks and costs associated with the company’s\ncontinued entanglement "
+    },
+    {
+     "url": "https://sec.gov/Archives/edgar/data/0001134982/000147793226002110/aapi_10k.htm",
+     "title": "aapi_10k.htm",
+     "acquired_at": "2026-08-22T11:46:39Z",
+     "snippet": "AND EXCHANGE COMMISSION Washington, D.C. 20549 FORM 10-K (Mark One) ☒ ANNUAL REPORT UNDER SECTION 13 OR 15(d) OF THE SECURITIES EXCHANGE ACT OF 1934 For the fis"
+    }
+   ]
+  },
+  {
+   "query": "FinCEN enforcement action 2026 money services business",
+   "site": "fincen.gov",
+   "ms": 173,
+   "status": 200,
+   "n": 5,
+   "results": [
+    {
+     "url": "https://fincen.gov/system/files/2026-03/SWB-GTO-FAQs.pdf",
+     "title": "FinCEN Southwest Border GTO FAQs, 3/19/2026",
+     "acquired_at": "2026-09-19T02:47:02Z",
+     "published_at": "2026-09-03T15:11:20Z",
+     "snippet": "2, 2026, FinCEN renewed, with modifications, a Geographic Targeting Order\n(GTO) requiring certain money services businesses (MSBs) to file additional Currency\nT"
+    },
+    {
+     "url": "https://fincen.gov/news/news-releases/fincen-reissues-order-requiring-transparency-msbs-along-southwest-border",
+     "title": "FinCEN.gov",
+     "acquired_at": "2026-09-11T16:18:19Z",
+     "published_at": "2026-09-02T12:00:00Z",
+     "snippet": "and other criminal actors along the southwest border of the United States. The GTO subjects certain money services businesses (MSBs)—which provide financial ser"
+    },
+    {
+     "url": "https://fincen.gov/system/files/2026-07/UBS-Consent-Order.pdf",
+     "title": "UBS Consent Order Number 2026-02",
+     "acquired_at": "2026-09-17T01:42:31Z",
+     "published_at": "2026-07-30T14:51:10Z",
+     "snippet": "The Financial Crimes Enforcement Network (FinCEN) has conducted a civil enforcement\ninvestigation and determined that grounds exist to impose a Civil Money Pena"
+    },
+    {
+     "url": "https://fincen.gov/system/files/2026-07/StatementofBSAenforcmentpolicyJuly2026.pdf",
+     "title": "FinCEN Statement of Enforcement, July 27, 2026",
+     "acquired_at": "2026-08-25T12:26:33Z",
+     "published_at": "2026-07-27T15:54:56Z",
+     "snippet": " Consistent with Treasury’s policies\nunderlying GL 60 and GL 57, and except as provided below, FinCEN hereby commits to not take\nany supervisory action, includi"
+    },
+    {
+     "url": "https://fincen.gov/system/files/2026-09/Iran-FinCEN-WB-Bulletin-RE-Iran.pdf",
+     "title": "FinCEN Whistleblower Bulletin - Blow the Whistle on Iran-Related Illicit Finance",
+     "acquired_at": "2026-09-12T09:52:22Z",
+     "published_at": "2026-09-08T17:41:55Z",
+     "snippet": "well as its sanctions evasion schemes to move funds.\nTreasury warned that any entity facilitating money laundering or sanctions evasion on behalf of Iran\nrisks "
+    }
+   ]
+  },
+  {
+   "query": "FATF grey list countries latest plenary",
+   "site": "fatf-gafi.org",
+   "ms": 152,
+   "status": 200,
+   "n": 5,
+   "results": [
+    {
+     "url": "https://fatf-gafi.org/content/fatf-gafi/en/publications/High-risk-and-other-monitored-jurisdictions/increased-monitoring-february-2026.html",
+     "title": "Jurisdictions under Increased Monitoring - 13 February 2026",
+     "acquired_at": "2026-05-30T08:34:38Z",
+     "snippet": "their FSRBs,"
+    },
+    {
+     "url": "https://fatf-gafi.org/en/publications/High-risk-and-other-monitored-jurisdictions/increased-monitoring-october-2025.html",
+     "title": "Jurisdictions under Increased Monitoring - 24 October 2025",
+     "acquired_at": "2026-05-23T20:39:38Z",
+     "snippet": "their progress reviewed by the FATF since June 2025: Algeria, Angola, Bulgaria; Burkina Faso, Cameroon, Côte d’Ivoire, Democratic Republic of the Congo, Kenya, "
+    },
+    {
+     "url": "https://fatf-gafi.org/en/publications/High-risk-and-other-monitored-jurisdictions/increased-monitoring-june-2025.html",
+     "title": "Jurisdictions under Increased Monitoring - 13 June 2025",
+     "acquired_at": "2026-05-29T19:09:00Z",
+     "snippet": "countries had their progress reviewed by the FATF since February 2025: Angola, Bulgaria; Burkina Faso, Cameroon, Côte d’Ivoire, Croatia, Democratic Republic of "
+    },
+    {
+     "url": "https://fatf-gafi.org/content/fatf-gafi/en/publications/High-risk-and-other-monitored-jurisdictions/increased-monitoring-february-2025.html",
+     "title": "Jurisdictions under Increased Monitoring - 21 February 2025",
+     "acquired_at": "2025-09-17T08:33:31Z",
+     "snippet": "October 2024: Bulgaria; Burkina Faso, Cameroon, Croatia, Democratic Republic of Congo, Kenya, Mali, Mozambique, Namibia; Nigeria, Philippines, South Africa, Sou"
+    },
+    {
+     "url": "https://fatf-gafi.org/en/publications/High-risk-and-other-monitored-jurisdictions/increased-monitoring-june-2026.html",
+     "title": "Jurisdictions under Increased Monitoring - 19 June 2026",
+     "acquired_at": "2026-09-11T23:08:27Z",
+     "snippet": "reviewed by the FATF since February 2026: Algeria, Angola, Bolivia, Bulgaria, Cameroon, Côte d’Ivoire, Democratic Republic of the Congo, Haiti, Kenya, Lao PDR, "
+    }
+   ]
+  },
+  {
+   "query": "SOFR rate today",
+   "site": "newyorkfed.org",
+   "ms": 1326,
+   "status": 200,
+   "n": 5,
+   "results": [
+    {
+     "url": "https://newyorkfed.org/markets/reference-rates/sofr",
+     "title": "Secured Overnight Financing Rate Data",
+     "acquired_at": "2026-09-19T20:07:28Z",
+     "snippet": "day, the New York Fed publishes the SOFR on the New York Fed website at approximately 8:00 a.m. ET. For more information on the SOFR’s publication schedule and "
+    },
+    {
+     "url": "https://newyorkfed.org/markets/reference-rates/additional-information-about-reference-rates",
+     "title": "Additional Information about Reference Rates Administered by the New York Fed",
+     "acquired_at": "2026-09-14T08:39:20Z",
+     "snippet": "Overnight Bank Funding Rate Primary Data Inputs for the EFFR and OBFR The New York Fed calculates the Effective Federal Funds Rate (EFFR) and Overnight Bank Fun"
+    },
+    {
+     "url": "https://www.newyorkfed.org/markets/reference-rates/sofr-averages-and-index",
+     "title": "SOFR Averages and Index Data",
+     "acquired_at": "2026-09-19T20:06:35Z",
+     "snippet": "SOFR Index measures the cumulative impact of compounding the SOFR on a unit of investment over time, with the initial value set to 1.00000000 on April 2, 2018, "
+    },
+    {
+     "url": "https://newyorkfed.org/medialibrary/microsites/arrc/files/2019/Templates_for_Using_SOFR.pdf",
+     "title": "PowerPoint Presentation",
+     "acquired_at": "2026-05-07T05:29:25Z",
+     "published_at": "2019-06-27T15:27:17Z",
+     "snippet": "SOFR is published  on every U.S.\nbusiness day at approximately\n8:00am EST. Because the Fed has\nthe ability to correct and republish\nthis rate until 2:30pm New Y"
+    },
+    {
+     "url": "https://newyorkfed.org/arrc/sofr-transition",
+     "title": "- Alternative Reference Rates Committee",
+     "acquired_at": "2026-08-21T08:54:03Z",
+     "snippet": "of December 31, 2021. June 30, 2023 then marked the cessation of all USD LIBOR panel settings—the final major step in the transition. Today, SOFR is the dominan"
+    }
+   ]
+  },
+  {
+   "query": "Danske Bank Estonia money laundering investigation",
+   "site": "justice.gov",
+   "ms": 174,
+   "status": 200,
+   "n": 5,
+   "results": [
+    {
+     "url": "https://justice.gov/d9/press-releases/attachments/2022/12/13/danske_plea_508_compliant_0.pdf",
+     "title": "Danske Bank plea",
+     "acquired_at": "2026-05-29T03:08:37Z",
+     "published_at": "2022-12-13T20:24:58Z",
+     "snippet": "DANSKE BANK offered banking services through\na subsidiary in Estonia. From 2008 until 2019, DANSKE BANK operated a branch headquartered\nin Tallinn, Estonia (her"
+    },
+    {
+     "url": "https://justice.gov/opa/pr/danske-bank-pleads-guilty-fraud-us-banks-multi-billion-dollar-scheme-access-us-financial?matchtype=p&utm_audience=a",
+     "title": "Danske Bank Pleads Guilty to Fraud on U.S. Banks in Multi-Billion Dollar Scheme to Access ",
+     "acquired_at": "2026-06-14T06:39:53Z",
+     "published_at": "2022-12-13T17:05:22Z",
+     "snippet": "capabilities, and its high-risk, offshore customer base in order to gain unlawful access to the U.S. financial system,” said Assistant Attorney General Kenneth "
+    },
+    {
+     "url": "https://justice.gov/opa/pr/us-transfers-50m-forfeited-assets-republic-estonia-recognition-assistance-danske-bank",
+     "title": "U.S. Transfers $50M in Forfeited Assets to the Republic of Estonia in Recognition of Assis",
+     "acquired_at": "2026-06-12T04:28:13Z",
+     "published_at": "2025-01-07T19:50:10Z",
+     "snippet": "Danske Bank pleaded guilty to one count of conspiracy to commit bank fraud in a scheme to defraud U.S. banks regarding Danske Bank Estonia’s customers and anti-"
+    },
+    {
+     "url": "https://justice.gov/d9/press-releases/attachments/2022/12/13/danske_information_508_compliant_0.pdf",
+     "title": "Danske Bank information",
+     "acquired_at": "2026-05-12T18:15:20Z",
+     "published_at": "2022-12-13T18:17:29Z",
+     "snippet": "profits. DANSKE BANK\nknew that many\nNRP\ncustomers conducted transactions in U.S.\ndollars, which required Danske Bank Estonia to use U.S. banks and\nbank accounts"
+    },
+    {
+     "url": "https://justice.gov/criminal/criminal-mlars/mlars-corporate-enforcement-actions",
+     "title": "MNF Corporate Enforcement Actions",
+     "acquired_at": "2026-05-24T02:43:28Z",
+     "published_at": "2024-07-31T15:00:10Z",
+     "snippet": "States v. Binance: Press Release United States v. Gunvor S.A.: Press Release United States v. Danske Bank: Press Release United States v. Glencore International"
+    }
+   ]
+  },
+  {
+   "query": "Ramp Business Corporation headquarters address New York",
+   "site": "ramp.com",
+   "ms": 226,
+   "status": 200,
+   "n": 5,
+   "results": [
+    {
+     "url": "https://ramp.com/legal/privacy-terms/privacy-terms/do-not-call-policy",
+     "title": "Do Not Call Policy",
+     "acquired_at": "2026-08-31T17:39:08Z",
+     "snippet": "at: Ramp Business Corporation Attention: Do Not Call 28 W 23rd St Floor 2 New York, NY 10010 855-206-SAVE"
+    },
+    {
+     "url": "https://ramp.com/legal/sutton-bank-cardholder-terms",
+     "title": "Sutton Bank Cardholder Terms",
+     "acquired_at": "2026-08-29T14:32:16Z",
+     "snippet": "CUSTOMER SERVICE CONTACT INFORMATION: Address: 28 W. 23rd Street, Floor 2, New York, NY 10010 Website: https://www.ramp.com Phone Number: 1-855-206-7283 1."
+    },
+    {
+     "url": "https://ramp.com/legal/customer-terms/policies-and-authorizations/europe-sepa-b-2-b",
+     "title": "Europe SEPA B2B",
+     "acquired_at": "2026-08-31T09:33:10Z",
+     "snippet": "Mailing Address Phone Number: Email: 28 West 23rd Street, 2nd Floor NYC, New York 10010 1-844-331-1023"
+    },
+    {
+     "url": "https://ramp.com/legal/ramp-advisory-adv-part2a-20260903.pdf",
+     "title": "RMP sh - Form ADV Part 2A Amendment DRAFT v3 20260903",
+     "acquired_at": "2026-09-10T02:39:03Z",
+     "snippet": "Wrap Fee Program Brochure for:\nRamp Advisory LLC\n28 WEST 23RD STREET, FLOOR 2\nNEW YORK, NY 10010\n855-206-7283\nEmail: advisory@rampadvisory.com\nWebsite: https://"
+    },
+    {
+     "url": "https://ramp.com/legal/customer-terms/policies-and-authorizations/europe-sepa-core",
+     "title": "Europe SEPA Core",
+     "acquired_at": "2026-07-20T00:24:45Z",
+     "snippet": "Mailing Address Phone Number: Email: 28 West 23rd Street, 2nd Floor NYC, New York 10010 1-844-331-1023"
+    }
+   ]
+  },
+  {
+   "query": "ECB monetary policy decision September 2026 deposit facility rate",
+   "site": "ecb.europa.eu",
+   "ms": 170,
+   "status": 200,
+   "n": 5,
+   "results": [
+    {
+     "url": "https://ecb.europa.eu/press/press_conference/monetary-policy-statement/shared/pdf/ecb.ds260910~fbf0ab9b8d.en.pdf",
+     "title": "Combined monetary policy decisions and statement",
+     "acquired_at": "2026-09-14T12:15:27Z",
+     "published_at": "2026-09-10T10:51:12Z",
+     "snippet": "rates on the deposit facility, the main refinancing operations and the marginal\nlending facility will be increased to 2.50%, 2.65% and 2.90% respectively, with "
+    },
+    {
+     "url": "https://ecb.europa.eu/press/pr/date/2026/html/ecb.mp260910~314e508016.en.html",
+     "title": "Monetary policy decisions",
+     "acquired_at": "2026-09-13T23:26:21Z",
+     "published_at": "2026-09-10T00:00:00Z",
+     "snippet": "PRESS RELEASE Monetary policy decisions 10 September 2026 The Governing Council today decided to raise the three key ECB interest rates by 25 basis points."
+    },
+    {
+     "url": "https://ecb.europa.eu/press/key/date/2026/html/ecb.sp260928_annex~493dd9e149.en.pdf",
+     "title": "Introductory statement in three charts",
+     "acquired_at": "2026-09-28T15:04:56Z",
+     "published_at": "2026-09-25T11:47:08Z",
+     "snippet": "Deposit facility rate\nTopic 1: Monetary policy stance\nThe ECB raised its interest rates by 25 basis points in\nSeptember.\n• This decision ensures that inflation "
+    },
+    {
+     "url": "https://ecb.europa.eu/press/key/date/2026/html/ecb.sp260930_1~7c6c120482.pt.html",
+     "title": "Monetary policy in a world of overlapping shocks",
+     "acquired_at": "2026-09-30T17:07:46Z",
+     "published_at": "2026-09-30T00:00:00Z",
+     "snippet": "Since June, the Governing Council has raised the key ECB interest rates by 50 basis points, lifting the deposit facility rate from 2% to 2.5%, to ensure that in"
+    },
+    {
+     "url": "https://ecb.europa.eu/stats/policy_and_exchange_rates/key_ecb_interest_rates/html/index.pl.html",
+     "title": "Official interest rates",
+     "acquired_at": "2026-09-17T02:48:56Z",
+     "snippet": "the key interest rates for the euro area. These are as follows: Deposit facility: The rate on the deposit facility, which banks may use to make overnight deposi"
+    }
+   ]
+  }
+ ]
+}

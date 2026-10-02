@@ -1,0 +1,28 @@
+/* Peek card + Back control (ruling #10). Kit look: white card, 12px radius, #EFF3FB hairline, no chips. */
+.peek { position: fixed; z-index: 400; width: 296px; padding: 8px 8px 10px; background: #fff; border: 1px solid #EFF3FB; border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(42, 42, 42, 0.10), 0 2px 6px rgba(42, 42, 42, 0.06); cursor: pointer; pointer-events: auto;
+  opacity: 0; transform: translateY(4px); transition: opacity .14s ease, transform .14s ease;
+  font: 300 14px/18px "Stack Sans Text", "Helvetica Neue", Arial, sans-serif; letter-spacing: -0.02em; color: #2A2A2A; }
+.peek[hidden] { display: none; }
+.peek.on { opacity: 1; transform: none; }
+.peek-strip { display: grid; gap: 4px; }
+.peek-strip img { display: block; width: 100%; height: auto; aspect-ratio: 400 / 250; border-radius: 8px; background: #EFF3FB; object-fit: cover; outline: 1px solid rgba(42, 42, 42, 0.06); outline-offset: -1px; }
+.peek-strip img.peek-miss { visibility: hidden; }
+.peek-sec { width: 360px; }
+.peek-sec .peek-strip { grid-template-columns: 1fr 1fr; }
+.peek-t { margin: 8px 4px 0; font-size: 14px; line-height: 18px; color: #2A2A2A; }
+.peek-s { margin: 2px 4px 0; font-size: 12px; line-height: 14px; letter-spacing: normal; color: rgba(42, 42, 42, 0.6); }
+.peek:hover .peek-t { color: #005CFF; }
+.peek-on { -webkit-touch-callout: none; }
+@media (max-width: 700px) { .peek { width: min(296px, calc(100vw - 32px)); } .peek-sec { width: min(340px, calc(100vw - 32px)); } }
+
+/* ‹ Back: quiet, left of the slide counter */
+.nav-back { all: unset; box-sizing: border-box; display: inline-flex; align-items: center; gap: 4px; height: 42px; padding: 0 12px; border-radius: 12px; background: rgba(255, 255, 255, 0.92);
+  font: 300 15px/1 "Stack Sans Text", "Helvetica Neue", Arial, sans-serif; letter-spacing: 0; color: #646464; cursor: pointer; transition: color .15s; }
+.nav-back:hover { color: #005CFF; }
+.nav-back .nb-i { display: inline-block; width: 18px; height: 18px; background: currentColor; -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; }
+.nav-back:focus-visible { outline: 2px solid #005CFF; outline-offset: 2px; }
+.nav-back[hidden] { display: none; }
+.nav-back.nav-float { position: fixed; left: clamp(16px, 2.4vw, 32px); bottom: 20px; z-index: 60; }
+@media print { .peek, .nav-back { display: none !important; } }
+@media (max-width: 700px) { .nav-back { width: 42px; padding: 0; justify-content: center; } .nav-back .nb-i { width: 22px; height: 22px; } .nav-back .nb-l { display: none; } }

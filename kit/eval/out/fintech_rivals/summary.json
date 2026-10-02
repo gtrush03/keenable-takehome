@@ -1,0 +1,5263 @@
+{
+ "meta": {
+  "set_name": "fintech",
+  "queries_path": "eval/sets/fintech.jsonl",
+  "queries_sha256": "0c8d1d356985f14de00b4e1c917a5a6a635ca6aac7d82fcea19511c18905addf",
+  "items": 47,
+  "ran_at": "2026-10-01T21:39:46.853Z",
+  "judged_at": "2026-10-01T21:42:05.984Z",
+  "seed": 20261001,
+  "k": 10,
+  "client": "node v24.3.0 on darwin",
+  "judge_rules": {
+   "verified": "expected primary domain in top 10 OR a fact-strength expected_regex in a top-10 title/snippet; topic-strength regex counts toward on_topic only",
+   "hit_at_k": "first expected domain at rank <= k (queries with expected_domains only)",
+   "pit": "for queries with query_time: acquired_after_query_time (index leak), outcome_leaks (leak_regex in a top-10 title/snippet), published_after_query_time (content-date check)",
+   "blinding": "arms relabelled A.. per query in seeded random order before scoring; see blind_packet.json"
+  }
+ },
+ "notes": [
+  "Keenable pro and realtime returned identical URL lists for 47/47 queries (served mode echoed as requested), so on this endpoint the two modes differ in latency only, if at all."
+ ],
+ "board": {
+  "keenable": {
+   "label": "Keenable (pro)",
+   "auth": "key",
+   "fence": "query_time: index as it stood at the instant (acquisition time)",
+   "calls": 47,
+   "ok": 47,
+   "errors": 0,
+   "error_samples": [],
+   "empty_results": 0,
+   "latency_ms": {
+    "p50": 704,
+    "p95": 1358,
+    "p99": 1422,
+    "max": 1422,
+    "n": 47
+   },
+   "quality": {
+    "judged": 40,
+    "verified": 22,
+    "verified_rate": 0.55,
+    "verified_ci95": [
+     0.398,
+     0.693
+    ],
+    "hit_at": {
+     "1": 0.175,
+     "3": 0.275,
+     "10": 0.325
+    },
+    "domain_judged": 40,
+    "on_topic": 39,
+    "llm_supported": null,
+    "llm_judged": 0
+   },
+   "pit": {
+    "items": 7,
+    "results": 70,
+    "acquired_after_query_time": 0,
+    "published_after_query_time": 1,
+    "outcome_leaks": 1,
+    "undated": 34,
+    "per_item": [
+     {
+      "item": "fin-pit1",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 5,
+      "examples": []
+     },
+     {
+      "item": "fin-pit2",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 9,
+      "examples": []
+     },
+     {
+      "item": "fin-pit3",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 3,
+      "examples": []
+     },
+     {
+      "item": "fin-pit4",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 1,
+      "outcome_leaks": 1,
+      "undated": 3,
+      "examples": [
+       {
+        "host": "blockworks.co",
+        "title": "Tagged - Zac Prince",
+        "published_at": "2024-03-06T22:05:54Z",
+        "acquired_at": "2022-06-28T03:05:32Z"
+       },
+       {
+        "host": "todaynewspost.com",
+        "title": "Bankman-Fried, founder and CEO of Crypto exchange FTX, says the company has &quot;a few billion&quot; to support the emb",
+        "published_at": "2022-07-07T15:14:29Z",
+        "acquired_at": "2022-10-04T23:03:55Z"
+       }
+      ]
+     },
+     {
+      "item": "fin-pit5",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 8,
+      "examples": []
+     },
+     {
+      "item": "fin-pit6",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 3,
+      "examples": []
+     },
+     {
+      "item": "fin-pit7",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 3,
+      "examples": []
+     }
+    ]
+   },
+   "cost": {
+    "list_per_1k": 4,
+    "floor_per_1k": 1,
+    "note": "$4/1K pay-go, $1/1K at 100+ RPS, 100K requests/month free (keenable.ai/pricing, read 2026-10-01). Keyless calls bill $0.",
+    "this_run_list_usd": 0.188,
+    "reported_usd": null,
+    "billed_usd": null,
+    "list_usd_per_verified": 0.007,
+    "floor_usd_per_verified": 0.002
+   }
+  },
+  "keenable_realtime": {
+   "label": "Keenable (realtime)",
+   "auth": "key",
+   "fence": "query_time: index as it stood at the instant (acquisition time)",
+   "calls": 47,
+   "ok": 47,
+   "errors": 0,
+   "error_samples": [],
+   "empty_results": 0,
+   "latency_ms": {
+    "p50": 728,
+    "p95": 1260,
+    "p99": 1498,
+    "max": 1498,
+    "n": 47
+   },
+   "quality": {
+    "judged": 40,
+    "verified": 22,
+    "verified_rate": 0.55,
+    "verified_ci95": [
+     0.398,
+     0.693
+    ],
+    "hit_at": {
+     "1": 0.175,
+     "3": 0.275,
+     "10": 0.325
+    },
+    "domain_judged": 40,
+    "on_topic": 39,
+    "llm_supported": null,
+    "llm_judged": 0
+   },
+   "pit": {
+    "items": 7,
+    "results": 70,
+    "acquired_after_query_time": 0,
+    "published_after_query_time": 1,
+    "outcome_leaks": 1,
+    "undated": 34,
+    "per_item": [
+     {
+      "item": "fin-pit1",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 5,
+      "examples": []
+     },
+     {
+      "item": "fin-pit2",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 9,
+      "examples": []
+     },
+     {
+      "item": "fin-pit3",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 3,
+      "examples": []
+     },
+     {
+      "item": "fin-pit4",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 1,
+      "outcome_leaks": 1,
+      "undated": 3,
+      "examples": [
+       {
+        "host": "blockworks.co",
+        "title": "Tagged - Zac Prince",
+        "published_at": "2024-03-06T22:05:54Z",
+        "acquired_at": "2022-06-28T03:05:32Z"
+       },
+       {
+        "host": "todaynewspost.com",
+        "title": "Bankman-Fried, founder and CEO of Crypto exchange FTX, says the company has &quot;a few billion&quot; to support the emb",
+        "published_at": "2022-07-07T15:14:29Z",
+        "acquired_at": "2022-10-04T23:03:55Z"
+       }
+      ]
+     },
+     {
+      "item": "fin-pit5",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 8,
+      "examples": []
+     },
+     {
+      "item": "fin-pit6",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 3,
+      "examples": []
+     },
+     {
+      "item": "fin-pit7",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 3,
+      "examples": []
+     }
+    ]
+   },
+   "cost": {
+    "list_per_1k": 4,
+    "floor_per_1k": 1,
+    "note": "$4/1K pay-go, $1/1K at 100+ RPS, 100K requests/month free (keenable.ai/pricing, read 2026-10-01). Keyless calls bill $0.",
+    "this_run_list_usd": 0.188,
+    "reported_usd": null,
+    "billed_usd": null,
+    "list_usd_per_verified": 0.007,
+    "floor_usd_per_verified": 0.002
+   }
+  },
+  "tavily": {
+   "label": "Tavily (basic)",
+   "auth": "key",
+   "fence": "published or last-updated date (end_date)",
+   "calls": 47,
+   "ok": 47,
+   "errors": 0,
+   "error_samples": [],
+   "empty_results": 0,
+   "latency_ms": {
+    "p50": 2070,
+    "p95": 6893,
+    "p99": 20748,
+    "max": 20748,
+    "n": 47
+   },
+   "quality": {
+    "judged": 40,
+    "verified": 37,
+    "verified_rate": 0.925,
+    "verified_ci95": [
+     0.801,
+     0.974
+    ],
+    "hit_at": {
+     "1": 0.225,
+     "3": 0.4,
+     "10": 0.875
+    },
+    "domain_judged": 40,
+    "on_topic": 40,
+    "llm_supported": null,
+    "llm_judged": 0
+   },
+   "pit": {
+    "items": 7,
+    "results": 69,
+    "acquired_after_query_time": 0,
+    "published_after_query_time": 0,
+    "outcome_leaks": 16,
+    "undated": 69,
+    "per_item": [
+     {
+      "item": "fin-pit1",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 10,
+      "examples": []
+     },
+     {
+      "item": "fin-pit2",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 3,
+      "undated": 10,
+      "examples": [
+       {
+        "host": "fsb.org",
+        "title": "2023 Bank Failures: Preliminary lessons learnt for resolution",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "facebook.com",
+        "title": "The banking sector vulnerable to funding risk arising ...",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "gao.gov",
+        "title": "Actions Related to the Spring 2023 Bank Failures",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "fin-pit3",
+      "results": 9,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 9,
+      "examples": []
+     },
+     {
+      "item": "fin-pit4",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 5,
+      "undated": 10,
+      "examples": [
+       {
+        "host": "coinbase.com",
+        "title": "Coinbase Bytes newsletter",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "avark.agency",
+        "title": "FTX: How a $32 Billion Empire Collapsed in 9 Days | Avark",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "freemanlaw.com",
+        "title": "Holding Digital Assets Through Custodial Wallets",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "fin-pit5",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 2,
+      "undated": 10,
+      "examples": [
+       {
+        "host": "marketchameleon.com",
+        "title": "NVDA Stock Quote | Price Chart | Volume Chart Nvidia",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "youtube.com",
+        "title": "Josh Brown really does believe Nvidia could hit $1 trillion ...",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "fin-pit6",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 4,
+      "undated": 10,
+      "examples": [
+       {
+        "host": "theguardian.com",
+        "title": "Sam Bankman-Fried | Page 2 of 8",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "facebook.com",
+        "title": "Sam Bankman-Fried, 32, is scheduled to be sentenced on ...",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "fcpa.stanford.edu",
+        "title": "Foreign Corrupt Practices Act: Enforcement Action Dataset",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "fin-pit7",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 2,
+      "undated": 10,
+      "examples": [
+       {
+        "host": "keenable.ai",
+        "title": "SELECT the tail FROM the web - Keenable.ai",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "keenable.ai",
+        "title": "Keenable Blog - Notes on Agent Search and Retrieval",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     }
+    ]
+   },
+   "cost": {
+    "list_per_1k": 8,
+    "floor_per_1k": 8,
+    "note": "$0.008/credit, basic = 1 credit (tavily.com/pricing); 1,000 free credits/mo",
+    "this_run_list_usd": 0.376,
+    "reported_usd": null,
+    "billed_usd": null,
+    "list_usd_per_verified": 0.009,
+    "floor_usd_per_verified": 0.009
+   }
+  },
+  "exa": {
+   "label": "Exa (auto + highlights)",
+   "auth": "key",
+   "fence": "published date (endPublishedDate)",
+   "calls": 47,
+   "ok": 47,
+   "errors": 0,
+   "error_samples": [],
+   "empty_results": 0,
+   "latency_ms": {
+    "p50": 571,
+    "p95": 806,
+    "p99": 852,
+    "max": 852,
+    "n": 47
+   },
+   "quality": {
+    "judged": 40,
+    "verified": 40,
+    "verified_rate": 1,
+    "verified_ci95": [
+     0.912,
+     1
+    ],
+    "hit_at": {
+     "1": 0.7,
+     "3": 0.825,
+     "10": 0.95
+    },
+    "domain_judged": 40,
+    "on_topic": 40,
+    "llm_supported": null,
+    "llm_judged": 0
+   },
+   "pit": {
+    "items": 7,
+    "results": 70,
+    "acquired_after_query_time": 0,
+    "published_after_query_time": 0,
+    "outcome_leaks": 31,
+    "undated": 69,
+    "per_item": [
+     {
+      "item": "fin-pit1",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 3,
+      "undated": 9,
+      "examples": [
+       {
+        "host": "en.wikipedia.org",
+        "title": "Acquisition of Activision Blizzard by Microsoft",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "gamedeveloper.com",
+        "title": "What's happening with Microsoft's Activision Blizzard merger?",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "orbispatches.com",
+        "title": "Is Microsoft paying cash for Activision?",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "fin-pit2",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 5,
+      "undated": 10,
+      "examples": [
+       {
+        "host": "fdic.gov",
+        "title": "An Analysis of the Spring 2023 Bank Failures",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "fdic.gov",
+        "title": "FDIC Releases Staff Study of Deposit Flows at Three Failed Banks in Spring 2023 | FDIC.gov",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "en.wikipedia.org",
+        "title": "Collapse of Silicon Valley Bank",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "fin-pit3",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 1,
+      "undated": 10,
+      "examples": [
+       {
+        "host": "ubs.com",
+        "title": "UBS to acquire Credit Suisse",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "fin-pit4",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 8,
+      "undated": 10,
+      "examples": [
+       {
+        "host": "wehco.media.clients.ellingtoncms.com",
+        "title": "I, John J. Ray III, hereby declare under penalty of perjury as follows:",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "storage.courtlistener.com",
+        "title": "",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "storage.courtlistener.com",
+        "title": "Voluntary Petition for Non-Individuals Filing for Bankruptcy",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "fin-pit5",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 3,
+      "undated": 10,
+      "examples": [
+       {
+        "host": "stockanalysis.com",
+        "title": "NVIDIA (NVDA) Statistics & Valuation",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "stockanalysis.com",
+        "title": "NVIDIA (NVDA) Market Cap & Net Worth",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "companiesmarketcap.com",
+        "title": "NVIDIA (NVDA) - Market capitalization - Companies Market Cap",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "fin-pit6",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 7,
+      "undated": 10,
+      "examples": [
+       {
+        "host": "apnews.com",
+        "title": "FTX founder Sam Bankman-Fried sentenced to 25 years in prison | AP News",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "cbsnews.com",
+        "title": "Sam Bankman-Fried sentenced to 25 years in prison for his role in collapse of FTX crypto exchange - CBS News",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "cnn.com",
+        "title": "March 28 2024: Sam Bankman-Fried sentenced to 25 years in prison | CNN Business",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "fin-pit7",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 4,
+      "undated": 10,
+      "examples": [
+       {
+        "host": "plushcap.com",
+        "title": "Keenable partners with Baseten to make web search native to inference",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "keenable.ai",
+        "title": "Keenable.ai — Independent Web Search API for AI",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "keenable.ai",
+        "title": "Keenable now runs inside Lightpanda",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     }
+    ]
+   },
+   "cost": {
+    "list_per_1k": 17,
+    "floor_per_1k": 17,
+    "note": "$7/1K auto search + $1/1K pages highlights x 10 results (exa.ai/pricing); costDollars recorded when returned",
+    "this_run_list_usd": 0.799,
+    "reported_usd": 0.329,
+    "billed_usd": null,
+    "list_usd_per_verified": 0.017,
+    "floor_usd_per_verified": 0.017
+   }
+  },
+  "parallel": {
+   "label": "Parallel Search (fast)",
+   "auth": "key",
+   "fence": "none before a date (source_policy only has after_date): PIT items run unfenced",
+   "calls": 47,
+   "ok": 46,
+   "errors": 1,
+   "error_samples": [
+    "The operation timed out."
+   ],
+   "empty_results": 0,
+   "latency_ms": {
+    "p50": 1158,
+    "p95": 3472,
+    "p99": 4108,
+    "max": 4108,
+    "n": 46
+   },
+   "quality": {
+    "judged": 40,
+    "verified": 37,
+    "verified_rate": 0.925,
+    "verified_ci95": [
+     0.801,
+     0.974
+    ],
+    "hit_at": {
+     "1": 0.425,
+     "3": 0.725,
+     "10": 0.85
+    },
+    "domain_judged": 40,
+    "on_topic": 40,
+    "llm_supported": null,
+    "llm_judged": 0
+   },
+   "pit": {
+    "items": 6,
+    "results": 60,
+    "acquired_after_query_time": 0,
+    "published_after_query_time": 22,
+    "outcome_leaks": 24,
+    "undated": 37,
+    "per_item": [
+     {
+      "item": "fin-pit1",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 4,
+      "outcome_leaks": 6,
+      "undated": 6,
+      "examples": [
+       {
+        "host": "nytimes.com",
+        "title": "Microsoft Closes $69 Billion Activision Blizzard Deal - The New York Times",
+        "published_at": "2023-10-13",
+        "acquired_at": null
+       },
+       {
+        "host": "inquirer.com",
+        "title": "Micrososft completes $69 billion Activision Blizzard purchase",
+        "published_at": "2023-10-13",
+        "acquired_at": null
+       },
+       {
+        "host": "en.wikipedia.org",
+        "title": "Acquisition of Activision Blizzard by Microsoft - Wikipedia",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "fin-pit2",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 5,
+      "outcome_leaks": 1,
+      "undated": 5,
+      "examples": [
+       {
+        "host": "cnbc.com",
+        "title": "SVB customers tried to pull nearly all deposits in two days, Barr says",
+        "published_at": "2023-03-28",
+        "acquired_at": null
+       },
+       {
+        "host": "oig.federalreserve.gov",
+        "title": "[PDF] Material Loss Review of Silicon Valley Bank",
+        "published_at": "2023-09-25",
+        "acquired_at": null
+       },
+       {
+        "host": "fdic.gov",
+        "title": "[PDF] Dissecting Depositor Flight: An Analysis of the Spring 2023 Bank ...",
+        "published_at": "2026-05-13",
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "fin-pit3",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 2,
+      "outcome_leaks": 0,
+      "undated": 7,
+      "examples": [
+       {
+        "host": "ubs.com",
+        "title": "Credit Suisse and UBS to Merge",
+        "published_at": "2023-03-19",
+        "acquired_at": null
+       },
+       {
+        "host": "ubs.com",
+        "title": "UBS completes merger of UBS Switzerland AG and Credit Suisse (Schweiz) AG | UBS Global",
+        "published_at": "2024-07-01",
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "fin-pit4",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 6,
+      "outcome_leaks": 7,
+      "undated": 4,
+      "examples": [
+       {
+        "host": "fox9.com",
+        "title": "FTX cryptocurrency exchange files for bankruptcy | FOX 9 Minneapolis-St. Paul",
+        "published_at": "2022-11-11",
+        "acquired_at": null
+       },
+       {
+        "host": "wsj.com",
+        "title": "FTX Files for Bankruptcy, CEO Sam Bankman-Fried Resigns",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "abcnews.com",
+        "title": "What FTX's bankruptcy filing means for the future of digital currency - ABC News",
+        "published_at": "2022-12-22",
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "fin-pit5",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 1,
+      "outcome_leaks": 4,
+      "undated": 9,
+      "examples": [
+       {
+        "host": "companiesmarketcap.com",
+        "title": "NVIDIA (NVDA) - Market capitalization",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "marketcap.company",
+        "title": "#1 Ranked NVIDIA Corporation (NASDAQ:NVDA) Market Cap & Net Worth Analysis: $5.06 Trillion | Global Leader in USA",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "techtarget.com",
+        "title": "What's going on with Nvidia stock and the booming AI market?",
+        "published_at": "2025-08-15",
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "fin-pit7",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 4,
+      "outcome_leaks": 6,
+      "undated": 6,
+      "examples": [
+       {
+        "host": "keenable.ai",
+        "title": "Keenable partners with Baseten to make web search native to inference - Keenable.ai",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "docs.keenable.ai",
+        "title": "Baseten - Keenable",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "tipranks.com",
+        "title": "Keenableai Integrates Search Natively Into Baseten Inference Platform - TipRanks.com",
+        "published_at": "2026-09-17",
+        "acquired_at": null
+       }
+      ]
+     }
+    ]
+   },
+   "cost": {
+    "list_per_1k": 1,
+    "floor_per_1k": 1,
+    "note": "fast mode $1/1K (parallel.ai/pricing); H2H_PARALLEL_MODE=basic|advanced for $5/1K modes",
+    "this_run_list_usd": 0.047,
+    "reported_usd": null,
+    "billed_usd": null,
+    "list_usd_per_verified": 0.001,
+    "floor_usd_per_verified": 0.001
+   }
+  }
+ },
+ "pairwise": [
+  {
+   "a": "keenable",
+   "b": "keenable_realtime",
+   "a_only": 0,
+   "b_only": 0,
+   "both": 22,
+   "neither": 18,
+   "mcnemar_p": 1
+  },
+  {
+   "a": "keenable",
+   "b": "tavily",
+   "a_only": 0,
+   "b_only": 15,
+   "both": 22,
+   "neither": 3,
+   "mcnemar_p": 0
+  },
+  {
+   "a": "keenable",
+   "b": "exa",
+   "a_only": 0,
+   "b_only": 18,
+   "both": 22,
+   "neither": 0,
+   "mcnemar_p": 0
+  },
+  {
+   "a": "keenable",
+   "b": "parallel",
+   "a_only": 0,
+   "b_only": 15,
+   "both": 22,
+   "neither": 3,
+   "mcnemar_p": 0
+  },
+  {
+   "a": "keenable_realtime",
+   "b": "tavily",
+   "a_only": 0,
+   "b_only": 15,
+   "both": 22,
+   "neither": 3,
+   "mcnemar_p": 0
+  },
+  {
+   "a": "keenable_realtime",
+   "b": "exa",
+   "a_only": 0,
+   "b_only": 18,
+   "both": 22,
+   "neither": 0,
+   "mcnemar_p": 0
+  },
+  {
+   "a": "keenable_realtime",
+   "b": "parallel",
+   "a_only": 0,
+   "b_only": 15,
+   "both": 22,
+   "neither": 3,
+   "mcnemar_p": 0
+  },
+  {
+   "a": "tavily",
+   "b": "exa",
+   "a_only": 0,
+   "b_only": 3,
+   "both": 37,
+   "neither": 0,
+   "mcnemar_p": 0.25
+  },
+  {
+   "a": "tavily",
+   "b": "parallel",
+   "a_only": 3,
+   "b_only": 3,
+   "both": 34,
+   "neither": 0,
+   "mcnemar_p": 1
+  },
+  {
+   "a": "exa",
+   "b": "parallel",
+   "a_only": 3,
+   "b_only": 0,
+   "both": 37,
+   "neither": 0,
+   "mcnemar_p": 0.25
+  }
+ ],
+ "llm": {
+  "backend": {
+   "name": "openrouter",
+   "model": "anthropic/claude-sonnet-5.5"
+  },
+  "status": null,
+  "judged_items": 0,
+  "errors": []
+ },
+ "verdicts": [
+  {
+   "item": "fin-q01",
+   "labels": {
+    "A": "exa",
+    "B": "keenable",
+    "C": "parallel",
+    "D": "keenable_realtime",
+    "E": "tavily"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 2,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "E": {
+     "n": 9,
+     "domain_rank": 2,
+     "regex_rank": 0,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q02",
+   "labels": {
+    "A": "tavily",
+    "B": "keenable_realtime",
+    "C": "exa",
+    "D": "keenable",
+    "E": "parallel"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 6,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q03",
+   "labels": {
+    "A": "keenable",
+    "B": "exa",
+    "C": "parallel",
+    "D": "tavily",
+    "E": "keenable_realtime"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 6,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 3,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 2,
+     "regex_rank": 4,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 4,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 6,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q04",
+   "labels": {
+    "A": "keenable_realtime",
+    "B": "exa",
+    "C": "parallel",
+    "D": "tavily",
+    "E": "keenable"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": null,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": null,
+     "on_topic": false
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 9,
+     "regex_rank": null,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 2,
+     "regex_rank": null,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 9,
+     "regex_rank": null,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": null,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": null,
+     "on_topic": false
+    }
+   }
+  },
+  {
+   "item": "fin-q05",
+   "labels": {
+    "A": "keenable",
+    "B": "tavily",
+    "C": "parallel",
+    "D": "exa",
+    "E": "keenable_realtime"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 4,
+     "regex_rank": 2,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q06",
+   "labels": {
+    "A": "parallel",
+    "B": "tavily",
+    "C": "keenable_realtime",
+    "D": "keenable",
+    "E": "exa"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 5,
+     "regex_rank": 2,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 3,
+     "regex_rank": 6,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 3,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 3,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 2,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q07",
+   "labels": {
+    "A": "exa",
+    "B": "parallel",
+    "C": "tavily",
+    "D": "keenable",
+    "E": "keenable_realtime"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 2,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 9,
+     "domain_rank": 3,
+     "regex_rank": 3,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 8,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 4,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 4,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q08",
+   "labels": {
+    "A": "keenable_realtime",
+    "B": "exa",
+    "C": "parallel",
+    "D": "keenable",
+    "E": "tavily"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 3,
+     "regex_rank": 0,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 2,
+     "regex_rank": 2,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 0,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q09",
+   "labels": {
+    "A": "keenable",
+    "B": "tavily",
+    "C": "exa",
+    "D": "parallel",
+    "E": "keenable_realtime"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 8,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 8,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q10",
+   "labels": {
+    "A": "keenable_realtime",
+    "B": "exa",
+    "C": "parallel",
+    "D": "tavily",
+    "E": "keenable"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 5,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 2,
+     "regex_rank": 2,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 4,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q11",
+   "labels": {
+    "A": "parallel",
+    "B": "keenable_realtime",
+    "C": "tavily",
+    "D": "keenable",
+    "E": "exa"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 10,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 2,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 2,
+     "regex_rank": 3,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 2,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 8,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q12",
+   "labels": {
+    "A": "tavily",
+    "B": "exa",
+    "C": "keenable",
+    "D": "keenable_realtime",
+    "E": "parallel"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 5,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 2,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q13",
+   "labels": {
+    "A": "exa",
+    "B": "keenable_realtime",
+    "C": "tavily",
+    "D": "parallel",
+    "E": "keenable"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 3,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q14",
+   "labels": {
+    "A": "parallel",
+    "B": "exa",
+    "C": "tavily",
+    "D": "keenable",
+    "E": "keenable_realtime"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 9,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 9,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q15",
+   "labels": {
+    "A": "parallel",
+    "B": "keenable_realtime",
+    "C": "tavily",
+    "D": "keenable",
+    "E": "exa"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 3,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 3,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 2,
+     "regex_rank": 2,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q16",
+   "labels": {
+    "A": "keenable",
+    "B": "tavily",
+    "C": "keenable_realtime",
+    "D": "parallel",
+    "E": "exa"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 3,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q17",
+   "labels": {
+    "A": "exa",
+    "B": "parallel",
+    "C": "tavily",
+    "D": "keenable_realtime",
+    "E": "keenable"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 6,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 4,
+     "regex_rank": 2,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 3,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 3,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q18",
+   "labels": {
+    "A": "exa",
+    "B": "keenable_realtime",
+    "C": "keenable",
+    "D": "tavily",
+    "E": "parallel"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 4,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 5,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 2,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q19",
+   "labels": {
+    "A": "parallel",
+    "B": "keenable_realtime",
+    "C": "keenable",
+    "D": "tavily",
+    "E": "exa"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 2,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 2,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 4,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q20",
+   "labels": {
+    "A": "exa",
+    "B": "parallel",
+    "C": "tavily",
+    "D": "keenable",
+    "E": "keenable_realtime"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 6,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q21",
+   "labels": {
+    "A": "keenable",
+    "B": "tavily",
+    "C": "keenable_realtime",
+    "D": "parallel",
+    "E": "exa"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 2,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 2,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q22",
+   "labels": {
+    "A": "tavily",
+    "B": "keenable_realtime",
+    "C": "exa",
+    "D": "parallel",
+    "E": "keenable"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 2,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 2,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 2,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 2,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q23",
+   "labels": {
+    "A": "keenable_realtime",
+    "B": "keenable",
+    "C": "exa",
+    "D": "parallel",
+    "E": "tavily"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 8,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q24",
+   "labels": {
+    "A": "parallel",
+    "B": "keenable_realtime",
+    "C": "exa",
+    "D": "keenable",
+    "E": "tavily"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 2,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 2,
+     "regex_rank": 2,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 2,
+     "regex_rank": 2,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q25",
+   "labels": {
+    "A": "parallel",
+    "B": "tavily",
+    "C": "exa",
+    "D": "keenable",
+    "E": "keenable_realtime"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 4,
+     "regex_rank": 3,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 6,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 2,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 2,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q26",
+   "labels": {
+    "A": "tavily",
+    "B": "exa",
+    "C": "keenable",
+    "D": "keenable_realtime",
+    "E": "parallel"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 2,
+     "regex_rank": 2,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q27",
+   "labels": {
+    "A": "exa",
+    "B": "parallel",
+    "C": "keenable_realtime",
+    "D": "tavily",
+    "E": "keenable"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 3,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 2,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 5,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 2,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q28",
+   "labels": {
+    "A": "keenable_realtime",
+    "B": "exa",
+    "C": "keenable",
+    "D": "parallel",
+    "E": "tavily"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 10,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q29",
+   "labels": {
+    "A": "parallel",
+    "B": "keenable_realtime",
+    "C": "exa",
+    "D": "tavily",
+    "E": "keenable"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 2,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 2,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 6,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 2,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q30",
+   "labels": {
+    "A": "parallel",
+    "B": "keenable",
+    "C": "tavily",
+    "D": "exa",
+    "E": "keenable_realtime"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 2,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q31",
+   "labels": {
+    "A": "tavily",
+    "B": "keenable",
+    "C": "exa",
+    "D": "keenable_realtime",
+    "E": "parallel"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 8,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 2,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 7,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q32",
+   "labels": {
+    "A": "tavily",
+    "B": "exa",
+    "C": "keenable_realtime",
+    "D": "parallel",
+    "E": "keenable"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 2,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 2,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 2,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q33",
+   "labels": {
+    "A": "keenable_realtime",
+    "B": "exa",
+    "C": "tavily",
+    "D": "parallel",
+    "E": "keenable"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 2,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 7,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q34",
+   "labels": {
+    "A": "parallel",
+    "B": "exa",
+    "C": "keenable",
+    "D": "tavily",
+    "E": "keenable_realtime"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q35",
+   "labels": {
+    "A": "parallel",
+    "B": "tavily",
+    "C": "keenable",
+    "D": "exa",
+    "E": "keenable_realtime"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 4,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 4,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 8,
+     "regex_rank": 3,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q36",
+   "labels": {
+    "A": "tavily",
+    "B": "keenable",
+    "C": "keenable_realtime",
+    "D": "exa",
+    "E": "parallel"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 5,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 2,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 2,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q37",
+   "labels": {
+    "A": "parallel",
+    "B": "keenable",
+    "C": "exa",
+    "D": "keenable_realtime",
+    "E": "tavily"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 2,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 5,
+     "regex_rank": 2,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 5,
+     "regex_rank": 2,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 3,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q38",
+   "labels": {
+    "A": "exa",
+    "B": "parallel",
+    "C": "tavily",
+    "D": "keenable_realtime",
+    "E": "keenable"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 2,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 2,
+     "regex_rank": 4,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 6,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q39",
+   "labels": {
+    "A": "tavily",
+    "B": "keenable",
+    "C": "keenable_realtime",
+    "D": "exa",
+    "E": "parallel"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 3,
+     "regex_rank": 3,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 3,
+     "regex_rank": 3,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 4,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-q40",
+   "labels": {
+    "A": "exa",
+    "B": "keenable",
+    "C": "parallel",
+    "D": "keenable_realtime",
+    "E": "tavily"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 3,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 2,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "fin-pit1",
+   "labels": {
+    "A": "keenable",
+    "B": "keenable_realtime",
+    "C": "parallel",
+    "D": "tavily",
+    "E": "exa"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 5,
+      "examples": []
+     }
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 5,
+      "examples": []
+     }
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 4,
+      "outcome_leaks": 6,
+      "undated": 6,
+      "examples": [
+       {
+        "host": "nytimes.com",
+        "title": "Microsoft Closes $69 Billion Activision Blizzard Deal - The New York Times",
+        "published_at": "2023-10-13",
+        "acquired_at": null
+       },
+       {
+        "host": "inquirer.com",
+        "title": "Micrososft completes $69 billion Activision Blizzard purchase",
+        "published_at": "2023-10-13",
+        "acquired_at": null
+       },
+       {
+        "host": "en.wikipedia.org",
+        "title": "Acquisition of Activision Blizzard by Microsoft - Wikipedia",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     }
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 10,
+      "examples": []
+     }
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 3,
+      "undated": 9,
+      "examples": [
+       {
+        "host": "en.wikipedia.org",
+        "title": "Acquisition of Activision Blizzard by Microsoft",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "gamedeveloper.com",
+        "title": "What's happening with Microsoft's Activision Blizzard merger?",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "orbispatches.com",
+        "title": "Is Microsoft paying cash for Activision?",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "item": "fin-pit2",
+   "labels": {
+    "A": "exa",
+    "B": "parallel",
+    "C": "tavily",
+    "D": "keenable",
+    "E": "keenable_realtime"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 5,
+      "undated": 10,
+      "examples": [
+       {
+        "host": "fdic.gov",
+        "title": "An Analysis of the Spring 2023 Bank Failures",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "fdic.gov",
+        "title": "FDIC Releases Staff Study of Deposit Flows at Three Failed Banks in Spring 2023 | FDIC.gov",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "en.wikipedia.org",
+        "title": "Collapse of Silicon Valley Bank",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     }
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 5,
+      "outcome_leaks": 1,
+      "undated": 5,
+      "examples": [
+       {
+        "host": "cnbc.com",
+        "title": "SVB customers tried to pull nearly all deposits in two days, Barr says",
+        "published_at": "2023-03-28",
+        "acquired_at": null
+       },
+       {
+        "host": "oig.federalreserve.gov",
+        "title": "[PDF] Material Loss Review of Silicon Valley Bank",
+        "published_at": "2023-09-25",
+        "acquired_at": null
+       },
+       {
+        "host": "fdic.gov",
+        "title": "[PDF] Dissecting Depositor Flight: An Analysis of the Spring 2023 Bank ...",
+        "published_at": "2026-05-13",
+        "acquired_at": null
+       }
+      ]
+     }
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 3,
+      "undated": 10,
+      "examples": [
+       {
+        "host": "fsb.org",
+        "title": "2023 Bank Failures: Preliminary lessons learnt for resolution",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "facebook.com",
+        "title": "The banking sector vulnerable to funding risk arising ...",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "gao.gov",
+        "title": "Actions Related to the Spring 2023 Bank Failures",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     }
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 9,
+      "examples": []
+     }
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 9,
+      "examples": []
+     }
+    }
+   }
+  },
+  {
+   "item": "fin-pit3",
+   "labels": {
+    "A": "parallel",
+    "B": "keenable_realtime",
+    "C": "keenable",
+    "D": "exa",
+    "E": "tavily"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 2,
+      "outcome_leaks": 0,
+      "undated": 7,
+      "examples": [
+       {
+        "host": "ubs.com",
+        "title": "Credit Suisse and UBS to Merge",
+        "published_at": "2023-03-19",
+        "acquired_at": null
+       },
+       {
+        "host": "ubs.com",
+        "title": "UBS completes merger of UBS Switzerland AG and Credit Suisse (Schweiz) AG | UBS Global",
+        "published_at": "2024-07-01",
+        "acquired_at": null
+       }
+      ]
+     }
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 3,
+      "examples": []
+     }
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 3,
+      "examples": []
+     }
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 1,
+      "undated": 10,
+      "examples": [
+       {
+        "host": "ubs.com",
+        "title": "UBS to acquire Credit Suisse",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     }
+    },
+    "E": {
+     "n": 9,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 9,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 9,
+      "examples": []
+     }
+    }
+   }
+  },
+  {
+   "item": "fin-pit4",
+   "labels": {
+    "A": "tavily",
+    "B": "parallel",
+    "C": "keenable_realtime",
+    "D": "exa",
+    "E": "keenable"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 5,
+      "undated": 10,
+      "examples": [
+       {
+        "host": "coinbase.com",
+        "title": "Coinbase Bytes newsletter",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "avark.agency",
+        "title": "FTX: How a $32 Billion Empire Collapsed in 9 Days | Avark",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "freemanlaw.com",
+        "title": "Holding Digital Assets Through Custodial Wallets",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     }
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 6,
+      "outcome_leaks": 7,
+      "undated": 4,
+      "examples": [
+       {
+        "host": "fox9.com",
+        "title": "FTX cryptocurrency exchange files for bankruptcy | FOX 9 Minneapolis-St. Paul",
+        "published_at": "2022-11-11",
+        "acquired_at": null
+       },
+       {
+        "host": "wsj.com",
+        "title": "FTX Files for Bankruptcy, CEO Sam Bankman-Fried Resigns",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "abcnews.com",
+        "title": "What FTX's bankruptcy filing means for the future of digital currency - ABC News",
+        "published_at": "2022-12-22",
+        "acquired_at": null
+       }
+      ]
+     }
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 1,
+      "outcome_leaks": 1,
+      "undated": 3,
+      "examples": [
+       {
+        "host": "blockworks.co",
+        "title": "Tagged - Zac Prince",
+        "published_at": "2024-03-06T22:05:54Z",
+        "acquired_at": "2022-06-28T03:05:32Z"
+       },
+       {
+        "host": "todaynewspost.com",
+        "title": "Bankman-Fried, founder and CEO of Crypto exchange FTX, says the company has &quot;a few billion&quot; to support the emb",
+        "published_at": "2022-07-07T15:14:29Z",
+        "acquired_at": "2022-10-04T23:03:55Z"
+       }
+      ]
+     }
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 8,
+      "undated": 10,
+      "examples": [
+       {
+        "host": "wehco.media.clients.ellingtoncms.com",
+        "title": "I, John J. Ray III, hereby declare under penalty of perjury as follows:",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "storage.courtlistener.com",
+        "title": "",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "storage.courtlistener.com",
+        "title": "Voluntary Petition for Non-Individuals Filing for Bankruptcy",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     }
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 1,
+      "outcome_leaks": 1,
+      "undated": 3,
+      "examples": [
+       {
+        "host": "blockworks.co",
+        "title": "Tagged - Zac Prince",
+        "published_at": "2024-03-06T22:05:54Z",
+        "acquired_at": "2022-06-28T03:05:32Z"
+       },
+       {
+        "host": "todaynewspost.com",
+        "title": "Bankman-Fried, founder and CEO of Crypto exchange FTX, says the company has &quot;a few billion&quot; to support the emb",
+        "published_at": "2022-07-07T15:14:29Z",
+        "acquired_at": "2022-10-04T23:03:55Z"
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "item": "fin-pit5",
+   "labels": {
+    "A": "keenable_realtime",
+    "B": "parallel",
+    "C": "tavily",
+    "D": "keenable",
+    "E": "exa"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 8,
+      "examples": []
+     }
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 1,
+      "outcome_leaks": 4,
+      "undated": 9,
+      "examples": [
+       {
+        "host": "companiesmarketcap.com",
+        "title": "NVIDIA (NVDA) - Market capitalization",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "marketcap.company",
+        "title": "#1 Ranked NVIDIA Corporation (NASDAQ:NVDA) Market Cap & Net Worth Analysis: $5.06 Trillion | Global Leader in USA",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "techtarget.com",
+        "title": "What's going on with Nvidia stock and the booming AI market?",
+        "published_at": "2025-08-15",
+        "acquired_at": null
+       }
+      ]
+     }
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 2,
+      "undated": 10,
+      "examples": [
+       {
+        "host": "marketchameleon.com",
+        "title": "NVDA Stock Quote | Price Chart | Volume Chart Nvidia",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "youtube.com",
+        "title": "Josh Brown really does believe Nvidia could hit $1 trillion ...",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     }
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 8,
+      "examples": []
+     }
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 3,
+      "undated": 10,
+      "examples": [
+       {
+        "host": "stockanalysis.com",
+        "title": "NVIDIA (NVDA) Statistics & Valuation",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "stockanalysis.com",
+        "title": "NVIDIA (NVDA) Market Cap & Net Worth",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "companiesmarketcap.com",
+        "title": "NVIDIA (NVDA) - Market capitalization - Companies Market Cap",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     }
+    }
+   }
+  },
+  {
+   "item": "fin-pit6",
+   "labels": {
+    "A": "tavily",
+    "B": "exa",
+    "C": "keenable",
+    "D": "keenable_realtime"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 4,
+      "undated": 10,
+      "examples": [
+       {
+        "host": "theguardian.com",
+        "title": "Sam Bankman-Fried | Page 2 of 8",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "facebook.com",
+        "title": "Sam Bankman-Fried, 32, is scheduled to be sentenced on ...",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "fcpa.stanford.edu",
+        "title": "Foreign Corrupt Practices Act: Enforcement Action Dataset",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     }
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 7,
+      "undated": 10,
+      "examples": [
+       {
+        "host": "apnews.com",
+        "title": "FTX founder Sam Bankman-Fried sentenced to 25 years in prison | AP News",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "cbsnews.com",
+        "title": "Sam Bankman-Fried sentenced to 25 years in prison for his role in collapse of FTX crypto exchange - CBS News",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "cnn.com",
+        "title": "March 28 2024: Sam Bankman-Fried sentenced to 25 years in prison | CNN Business",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     }
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 3,
+      "examples": []
+     }
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 3,
+      "examples": []
+     }
+    }
+   }
+  },
+  {
+   "item": "fin-pit7",
+   "labels": {
+    "A": "exa",
+    "B": "parallel",
+    "C": "tavily",
+    "D": "keenable",
+    "E": "keenable_realtime"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 4,
+      "undated": 10,
+      "examples": [
+       {
+        "host": "plushcap.com",
+        "title": "Keenable partners with Baseten to make web search native to inference",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "keenable.ai",
+        "title": "Keenable.ai — Independent Web Search API for AI",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "keenable.ai",
+        "title": "Keenable now runs inside Lightpanda",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     }
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 4,
+      "outcome_leaks": 6,
+      "undated": 6,
+      "examples": [
+       {
+        "host": "keenable.ai",
+        "title": "Keenable partners with Baseten to make web search native to inference - Keenable.ai",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "docs.keenable.ai",
+        "title": "Baseten - Keenable",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "tipranks.com",
+        "title": "Keenableai Integrates Search Natively Into Baseten Inference Platform - TipRanks.com",
+        "published_at": "2026-09-17",
+        "acquired_at": null
+       }
+      ]
+     }
+    },
+    "C": {
+     "n": 10,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 2,
+      "undated": 10,
+      "examples": [
+       {
+        "host": "keenable.ai",
+        "title": "SELECT the tail FROM the web - Keenable.ai",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "keenable.ai",
+        "title": "Keenable Blog - Notes on Agent Search and Retrieval",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     }
+    },
+    "D": {
+     "n": 10,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 3,
+      "examples": []
+     }
+    },
+    "E": {
+     "n": 10,
+     "domain_rank": null,
+     "regex_rank": null,
+     "hit": {
+      "1": null,
+      "3": null,
+      "10": null
+     },
+     "judged": false,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 3,
+      "examples": []
+     }
+    }
+   }
+  }
+ ]
+}

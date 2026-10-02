@@ -1,0 +1,22 @@
+<section class="slide c-big" id="leak" data-chapter="problem" data-title="87% reveal the outcome" data-src="data/fence_relevance.json">
+  <div class="inner">
+    <p class="eyebrow">Your agent, in a backtest, with plain web search</p>
+    <h2 data-reveal>Your backtest's web results already know the outcome.</h2>
+    <div class="big" data-reveal><span class="acc" data-count="87" data-suffix="%">87%</span></div>
+    <p class="big-label" data-reveal>of top-10 results gave the outcome away, asked before seven historical market events</p>
+    <p class="foot">61 of 70 results, Jev labels; lead times vary by event. SVB, Credit Suisse, FTX and four more. Source: <a class="src" href="../../data/fence_relevance.json">fence_relevance.json</a></p>
+  </div>
+</section>
+
+<section class="slide" id="pubdate" data-chapter="problem" data-title="Publish dates leak" data-src="data/fence_relevance.json">
+  <div class="inner">
+    <p class="eyebrow">Why a publish-date filter still leaks 71%</p>
+    <h2 data-reveal>A publish date is what the page claims.</h2>
+    <p class="lede" data-reveal>"Sam Bankman-Fried sentenced to 25 years", theconversation.com. Sentencing: 28 Mar 2024.</p>
+    <div class="c-compare" style="--cols:2" data-reveal>
+      <div><p class="k">published_at · the page says</p><p class="v">2023-11-07<small>passes a date filter</small></p><p class="d">four months <b>before</b> the sentence</p></div>
+      <div class="us"><p class="k">acquired_at · the index saw it</p><p class="v">2026-09-11<small>blocked by query_time</small></p><p class="d">two years <b>after</b> the sentence</p></div>
+    </div>
+    <p class="foot">Source: <a class="src" href="../../data/fence_relevance.json">fence_relevance.json</a> (published_before arm, SBF event)</p>
+  </div>
+</section>

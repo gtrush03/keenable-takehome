@@ -1,0 +1,36 @@
+<section class="slide c-big" id="novel" data-chapter="proof" data-title="75.4% not in Common Crawl" data-src="data/cc_overlap.json">
+  <div class="inner">
+    <p class="eyebrow">The coverage gap · measured 1 Oct 2026</p>
+    <h2 data-reveal>Three in four pages aren't in Common Crawl 2026.</h2>
+    <div class="big" data-reveal><span class="acc" data-count="75.4" data-dec="1" data-suffix="%">75.4%</span></div>
+    <p class="big-label" data-reveal>of 500 pages Keenable served are in none of Common Crawl's nine 2026 crawls</p>
+    <p class="foot">95% CI 71.4–79.0. Absent from CC's index; contamination untested. Search-sampled, not a random index draw. Source: <a class="src" href="../../data/cc_overlap.json">cc_overlap.json</a></p>
+  </div>
+</section>
+
+<section class="slide" id="coverage" data-chapter="proof" data-title="Coverage, not speed" data-src="data/cc_overlap.json">
+  <div class="inner">
+    <p class="eyebrow">Same 500 pages, three cuts</p>
+    <h2 data-reveal>The gain is coverage, not recrawl speed.</h2>
+    <div class="c-compare" style="--cols:3" data-reveal>
+      <div><p class="k">Not in latest crawl</p><p class="v">93.8%<small>CC-MAIN-2026-39</small></p><p class="d">missing from September's crawl</p></div>
+      <div class="us"><p class="k">Not in any 2026 crawl</p><p class="v">75.4%<small>nine crawls</small></p><p class="d">pages your CC slice <b>never saw</b></p></div>
+      <div><p class="k">Where both have it</p><p class="v">~50%<small>Keenable newer</small></p><p class="d">a coin flip on freshness, so I don't sell speed</p></div>
+    </div>
+    <p class="foot">Keenable newer on 50% (Galactica) and 55.9% (fintech) of 130 shared pages. Source: <a class="src" href="../../data/cc_overlap.json">cc_overlap.json</a></p>
+  </div>
+</section>
+
+<section class="slide" id="inside" data-chapter="proof" data-title="Measured: what's inside" data-src="data/galactica_estimates.json">
+  <div class="inner">
+    <p class="eyebrow">MEASURED · 1,209 sampled Keenable pages · 1 Oct 2026</p>
+    <h2 data-reveal>What a dump would hold, measured on a sample.</h2>
+    <div class="c-compare lab-four" style="--cols:4" data-reveal>
+      <div><p class="k">Non-English</p><p class="v">14.0%<small>CI 12.0–16.3 · n 1,009</small></p><p class="d">23 languages detected</p></div>
+      <div class="us"><p class="k">AI-training opt-out</p><p class="v">15.7%<small>CI 10.9–21.3 · n 504</small></p><p class="d">of docs, on <b>388 sites</b> checked</p></div>
+      <div><p class="k">Near-duplicates</p><p class="v">1.2%<small>CI 0.7–1.9 · n 1,209</small></p><p class="d">Jaccard ≥ 0.8; <b>0</b> exact</p></div>
+      <div><p class="k">Tokens per doc</p><p class="v">2,883<small>median · CI 2,731–3,049</small></p><p class="d">mean 4,950, cl100k</p></div>
+    </div>
+    <p class="foot">Search-sampled, not a random index draw. Opt-out: robots group naming an AI bot, ai-train=no, ai.txt or TDM. Source: <a class="src" href="../../data/galactica_estimates.json">galactica_estimates.json</a></p>
+  </div>
+</section>

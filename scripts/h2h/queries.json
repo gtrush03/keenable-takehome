@@ -1,0 +1,495 @@
+{
+ "version": 1,
+ "note": "Answer keys (gold domains + fact regex + outcome regex) fixed 2026-10-01 before any competitor run; the judge never sees provider names.",
+ "queries": [
+  {
+   "id": "q01",
+   "seg": "research",
+   "q": "NVIDIA Q2 FY2026 earnings data center revenue",
+   "gold": [
+    "nvidianews.nvidia.com",
+    "investor.nvidia.com",
+    "nvidia.com"
+   ],
+   "fact_strength": "fact",
+   "fact_regex": "46\\.7|41\\.1"
+  },
+  {
+   "id": "q02",
+   "seg": "research",
+   "q": "FOMC statement September 2026 federal funds rate decision",
+   "gold": [
+    "federalreserve.gov"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "target range"
+  },
+  {
+   "id": "q03",
+   "seg": "research",
+   "q": "Apple 10-K fiscal 2025 risk factors",
+   "gold": [
+    "sec.gov",
+    "investor.apple.com"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "risk factors"
+  },
+  {
+   "id": "q04",
+   "seg": "research",
+   "q": "Tesla Q3 2026 vehicle deliveries production",
+   "gold": [
+    "ir.tesla.com",
+    "tesla.com"
+   ],
+   "fact_strength": "n/a",
+   "fact_regex": null
+  },
+  {
+   "id": "q05",
+   "seg": "research",
+   "q": "Berkshire Hathaway 13F holdings latest quarter",
+   "gold": [
+    "sec.gov"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "13F"
+  },
+  {
+   "id": "q06",
+   "seg": "research",
+   "q": "Microsoft Activision Blizzard acquisition closed",
+   "gold": [
+    "news.microsoft.com",
+    "microsoft.com"
+   ],
+   "fact_strength": "fact",
+   "fact_regex": "october 13,? 2023|13 october 2023|oct\\.? 13|completed (its|the) acquisition|has completed"
+  },
+  {
+   "id": "q07",
+   "seg": "research",
+   "q": "Silicon Valley Bank deposit outflows",
+   "gold": [
+    "svb.com",
+    "fdic.gov"
+   ],
+   "fact_strength": "fact",
+   "fact_regex": "march 10,? 2023|receivership|fdic"
+  },
+  {
+   "id": "q08",
+   "seg": "research",
+   "q": "Credit Suisse UBS merger",
+   "gold": [
+    "ubs.com",
+    "credit-suisse.com",
+    "snb.ch"
+   ],
+   "fact_strength": "fact",
+   "fact_regex": "3(\\.0)? billion (swiss )?francs|chf ?3|\\$3\\.2 billion|march 19"
+  },
+  {
+   "id": "q09",
+   "seg": "research",
+   "q": "FTX bankruptcy filing",
+   "gold": [
+    "ftx.com",
+    "sec.gov",
+    "justice.gov"
+   ],
+   "fact_strength": "fact",
+   "fact_regex": "chapter 11|november 11,? 2022"
+  },
+  {
+   "id": "q10",
+   "seg": "research",
+   "q": "Nvidia market capitalization",
+   "gold": [
+    "companiesmarketcap.com",
+    "nvidia.com"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "market cap"
+  },
+  {
+   "id": "q11",
+   "seg": "aml",
+   "q": "Danske Bank Estonia money laundering investigation",
+   "gold": [
+    "danskebank.com",
+    "justice.gov",
+    "reuters.com"
+   ],
+   "fact_strength": "fact",
+   "fact_regex": "200 billion|\\$2(\\.0)? billion|pleaded guilty|plead guilty"
+  },
+  {
+   "id": "q12",
+   "seg": "aml",
+   "q": "Changpeng Zhao Binance guilty plea sentence",
+   "gold": [
+    "justice.gov",
+    "reuters.com"
+   ],
+   "fact_strength": "fact",
+   "fact_regex": "four months|4 months|4-month|\\$50 million|pleaded guilty"
+  },
+  {
+   "id": "q13",
+   "seg": "aml",
+   "q": "Wirecard Markus Braun fraud trial verdict",
+   "gold": [
+    "reuters.com",
+    "ft.com",
+    "handelsblatt.com"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "braun"
+  },
+  {
+   "id": "q14",
+   "seg": "aml",
+   "q": "OFAC SDN list recent actions September 2026",
+   "gold": [
+    "ofac.treasury.gov",
+    "treasury.gov"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "sanction|designat"
+  },
+  {
+   "id": "q15",
+   "seg": "aml",
+   "q": "FinCEN enforcement action 2026 money services business",
+   "gold": [
+    "fincen.gov"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "civil money penalty|assess|enforcement"
+  },
+  {
+   "id": "q16",
+   "seg": "aml",
+   "q": "Trevor Milton Nikola fraud conviction pardon",
+   "gold": [
+    "justice.gov",
+    "reuters.com",
+    "sec.gov"
+   ],
+   "fact_strength": "fact",
+   "fact_regex": "pardon"
+  },
+  {
+   "id": "q17",
+   "seg": "aml",
+   "q": "Wirecard Betrug Urteil Landgericht M\u00fcnchen",
+   "gold": [
+    "sueddeutsche.de",
+    "handelsblatt.com",
+    "faz.net",
+    "spiegel.de",
+    "tagesschau.de"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "braun|urteil|prozess",
+   "lang": "de"
+  },
+  {
+   "id": "q18",
+   "seg": "aml",
+   "q": "Jho Low 1MDB arrest warrant Malaysia",
+   "gold": [
+    "justice.gov",
+    "thestar.com.my",
+    "reuters.com"
+   ],
+   "fact_strength": "fact",
+   "fact_regex": "1mdb.*(warrant|fugitive)|(warrant|fugitive).*1mdb|\\$4\\.5 billion"
+  },
+  {
+   "id": "q19",
+   "seg": "aml",
+   "q": "FATF grey list countries latest plenary",
+   "gold": [
+    "fatf-gafi.org"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "increased monitoring|grey list|gray list"
+  },
+  {
+   "id": "q20",
+   "seg": "aml",
+   "q": "Sam Bankman-Fried sentenced years prison",
+   "gold": [
+    "justice.gov",
+    "reuters.com"
+   ],
+   "fact_strength": "fact",
+   "fact_regex": "25 years|25-year"
+  },
+  {
+   "id": "q21",
+   "seg": "kyb",
+   "q": "Ramp Business Corporation headquarters address New York",
+   "gold": [
+    "ramp.com"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "new york"
+  },
+  {
+   "id": "q22",
+   "seg": "kyb",
+   "q": "Middesk business verification API documentation",
+   "gold": [
+    "middesk.com",
+    "docs.middesk.com"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "\\bapi\\b"
+  },
+  {
+   "id": "q23",
+   "seg": "kyb",
+   "q": "Delaware Division of Corporations entity search",
+   "gold": [
+    "delaware.gov",
+    "icis.corp.delaware.gov"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "entity search|division of corporations"
+  },
+  {
+   "id": "q24",
+   "seg": "kyb",
+   "q": "Joe's Pizza Carmine Street New York reviews hours",
+   "gold": [
+    "joespizzanyc.com",
+    "yelp.com",
+    "tripadvisor.com"
+   ],
+   "fact_strength": "fact",
+   "fact_regex": "carmine"
+  },
+  {
+   "id": "q25",
+   "seg": "kyb",
+   "q": "Klarna IPO prospectus NYSE listing",
+   "gold": [
+    "sec.gov",
+    "klarna.com"
+   ],
+   "fact_strength": "fact",
+   "fact_regex": "\\bF-1\\b|\\bKLAR\\b|nyse"
+  },
+  {
+   "id": "q26",
+   "seg": "kyb",
+   "q": "Chime Better Business Bureau complaints",
+   "gold": [
+    "bbb.org"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "complaint"
+  },
+  {
+   "id": "q27",
+   "seg": "kyb",
+   "q": "SBA PPP loan recipient lookup database",
+   "gold": [
+    "sba.gov",
+    "projects.propublica.org",
+    "federalpay.org"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "ppp.*(search|lookup|database)|(search|lookup|database).*ppp"
+  },
+  {
+   "id": "q28",
+   "seg": "kyb",
+   "q": "Big Lots store closures list 2025",
+   "gold": [
+    "biglots.com",
+    "usatoday.com",
+    "reuters.com"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "clos"
+  },
+  {
+   "id": "q29",
+   "seg": "kyb",
+   "q": "California Secretary of State business search Brex Inc",
+   "gold": [
+    "bizfileonline.sos.ca.gov",
+    "sos.ca.gov"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "bizfile|secretary of state"
+  },
+  {
+   "id": "q30",
+   "seg": "kyb",
+   "q": "Companies House Revolut Ltd filing history",
+   "gold": [
+    "company-information.service.gov.uk",
+    "gov.uk"
+   ],
+   "fact_strength": "fact",
+   "fact_regex": "08804411|filing history"
+  },
+  {
+   "id": "q31",
+   "seg": "agents",
+   "q": "SOFR rate today",
+   "gold": [
+    "newyorkfed.org"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "sofr"
+  },
+  {
+   "id": "q32",
+   "seg": "agents",
+   "q": "ECB monetary policy decision September 2026 deposit facility rate",
+   "gold": [
+    "ecb.europa.eu"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "deposit facility"
+  },
+  {
+   "id": "q33",
+   "seg": "agents",
+   "q": "spot bitcoin ETF net inflows this week",
+   "gold": [
+    "farside.co.uk",
+    "coinshares.com",
+    "bloomberg.com"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "inflow"
+  },
+  {
+   "id": "q34",
+   "seg": "agents",
+   "q": "US CPI August 2026 release BLS",
+   "gold": [
+    "bls.gov"
+   ],
+   "fact_strength": "fact",
+   "fact_regex": "august 2026|aug(ust)?\\.? 2026"
+  },
+  {
+   "id": "q35",
+   "seg": "agents",
+   "q": "Robinhood Q3 2026 earnings date",
+   "gold": [
+    "investors.robinhood.com",
+    "robinhood.com"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "third quarter|q3"
+  },
+  {
+   "id": "q36",
+   "seg": "agents",
+   "q": "Visa interchange fee changes 2026",
+   "gold": [
+    "usa.visa.com",
+    "visa.com"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "interchange"
+  },
+  {
+   "id": "q37",
+   "seg": "agents",
+   "q": "Stripe Radar machine learning fraud detection how it works",
+   "gold": [
+    "stripe.com",
+    "docs.stripe.com"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "radar"
+  },
+  {
+   "id": "q38",
+   "seg": "agents",
+   "q": "CFPB Section 1071 small business lending rule compliance date",
+   "gold": [
+    "consumerfinance.gov"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "compliance date"
+  },
+  {
+   "id": "q39",
+   "seg": "agents",
+   "q": "Polymarket odds Fed rate cut next meeting",
+   "gold": [
+    "polymarket.com"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "polymarket"
+  },
+  {
+   "id": "q40",
+   "seg": "agents",
+   "q": "10 year 2 year treasury yield spread today",
+   "gold": [
+    "fred.stlouisfed.org",
+    "home.treasury.gov",
+    "treasury.gov"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "t10y2y|spread"
+  }
+ ],
+ "pit_events": [
+  {
+   "q": "Microsoft Activision Blizzard acquisition closed",
+   "cutoff": "2023-06-01",
+   "event": "closed 2023-10-13",
+   "outcome_regex": "completed (its|the) acquisition|has completed|closed (its|the) acquisition|october 13,? 2023"
+  },
+  {
+   "q": "Silicon Valley Bank deposit outflows",
+   "cutoff": "2023-03-09",
+   "event": "FDIC closed SVB 2023-03-10",
+   "outcome_regex": "receivership|collapse[ds]?|bank failure|was closed|shut down"
+  },
+  {
+   "q": "Credit Suisse UBS merger",
+   "cutoff": "2023-03-17",
+   "event": "UBS deal 2023-03-19",
+   "outcome_regex": "ubs (to )?(buy|buys|acquire|acquires|takeover|rescue)|emergency (rescue|takeover)|3(\\.0)? billion (swiss )?francs|chf ?3"
+  },
+  {
+   "q": "FTX bankruptcy filing",
+   "cutoff": "2022-11-08",
+   "event": "Chapter 11 2022-11-11",
+   "outcome_regex": "chapter 11|filed for bankruptcy|bankruptcy filing"
+  },
+  {
+   "q": "Nvidia market capitalization",
+   "cutoff": "2022-12-01",
+   "event": "first $1T close 2023-05-30",
+   "outcome_regex": "\\$?[1-9](\\.\\d+)? ?trillion"
+  },
+  {
+   "q": "Sam Bankman-Fried sentenced years prison",
+   "cutoff": "2024-03-27",
+   "event": "sentenced 2024-03-28",
+   "outcome_regex": "25 years|25-year"
+  },
+  {
+   "q": "Keenable Baseten partnership",
+   "cutoff": "2026-09-15",
+   "event": "Keenable x Baseten partnership + Baseten Hosted Tools announced 2026-09-16 (pilot-desk finding, keenable-pilot-desk/public/data/point-in-time.json)",
+   "outcome_regex": "partners with baseten|hosted tools|web search native to inference|integrated web search tools"
+  }
+ ]
+}

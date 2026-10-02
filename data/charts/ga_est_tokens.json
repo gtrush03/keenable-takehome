@@ -1,0 +1,61 @@
+{
+ "title": "Galactica stock in cl100k tokens (MODEL)",
+ "unit": "tokens",
+ "label": "MODEL",
+ "data": [
+  {
+   "label": "Raw stock",
+   "point": 288300000000000.0,
+   "range": [
+    120000000000000.0,
+    532600000000000.0
+   ]
+  },
+  {
+   "label": "After dedup + Gopher",
+   "point": 125123641500000.0,
+   "range": [
+    40840800000000.01,
+    286765155000000.0
+   ]
+  },
+  {
+   "label": "FineWeb-Edu score >= 2",
+   "point": 90399348000000.0,
+   "range": [
+    27924600000000.0,
+    216142395000000.0
+   ]
+  },
+  {
+   "label": "FineWeb-Edu score >= 3",
+   "point": 29570931000000.0,
+   "range": [
+    7510800000000.001,
+    81967140000000.0
+   ],
+   "hl": true
+  }
+ ],
+ "per_doc": {
+  "n": 1009,
+  "mean": 4950,
+  "mean_ci95": [
+   4577,
+   5326
+  ],
+  "p10": 854,
+  "p50": 2883,
+  "p90": 11949,
+  "median_ci95": [
+   2731,
+   3049
+  ],
+  "trimmed_mean_5_95": 4055,
+  "share_at_100k_char_cap": 0.0317,
+  "chars_per_token": 3.751
+ },
+ "how": "raw tokens x (1 - corpus dup share 25-45%, MODEL) x measured keep share (token-weighted, broad sample). Point = median tokens/doc and 35% dup; range = (1,200 tok/doc prior, 45% dup, lower CI) to (upper mean CI, 25% dup, upper CI). Flow = stock / 5 (20B of 100B docs per month).",
+ "source": "data/galactica_estimates.json",
+ "generated_at": "2026-10-01T19:00:00+00:00"
+}

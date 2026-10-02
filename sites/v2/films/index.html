@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Films · George Trushevskiy for Keenable</title>
+<meta name="description" content="Two short films and a forty-second ad from George Trushevskiy's Keenable take-home, each with a full-screen button.">
+<link rel="icon" href="../brand/favicon-32.png">
+<link rel="apple-touch-icon" href="../brand/apple-touch-icon.png">
+<meta name="theme-color" content="#FAFAF7">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="George Trushevskiy · Founding GTM take-home for Keenable">
+<meta property="og:title" content="Films · Search, with a clock · Founding GTM take-home for Keenable">
+<meta property="og:description" content="George Trushevskiy ran Keenable on its live API, tested it and brought back the bug. Narrated films, a live demo and graded sources.">
+<meta property="og:url" content="https://founding-gtm.trusynth.com/v2/films/">
+<meta property="og:image" content="https://founding-gtm.trusynth.com/v2/brand/og-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Search, with a clock. George Trushevskiy, Founding GTM take-home for Keenable.">
+<meta name="twitter:card" content="summary_large_image">
+<script src="../config.js"></script>
+<link rel="stylesheet" href="../kit/keenable.css">
+<link rel="stylesheet" href="../player/player.css">
+<style>
+  /* page chrome on the kit (our links only); the kit hides .k-nav under 900px, so it becomes a scrolling second row here */
+  .k-nav a[aria-current="page"] { color: var(--k-blue); }
+  .k-announce { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 0 16px; }
+  @media (max-width: 900px) {
+    body .k-header-bar { height: auto; padding: calc(16px + env(safe-area-inset-top)) 0 8px; } /* beats nav/ios.css fixed 78px height: the nav wraps to a 2nd row here */
+    .k-header { height: auto; row-gap: 8px; }
+    .k-nav { display: flex; grid-column: 1 / -1; grid-row: 2; overflow-x: auto; gap: 4px; margin: 0 -12px; scrollbar-width: none; }
+    .k-nav::-webkit-scrollbar { display: none; }
+    .k-nav a { height: auto; padding: 8px 12px; }
+    .k-announce { font-size: 12px; }
+    .k-footer__grid { gap: 24px; }
+  }
+  @media print { .k-announce, .k-header-bar, .k-footer { display: none !important; } }
+
+  .films { padding-bottom: 89px; }
+  .films-top { margin-bottom: 56px; }
+  .films-h1 { font-size: 64px; margin-top: 20px; }
+  .film + .film { margin-top: 26px; }
+  .film .k-panel__head { align-items: flex-start; }
+  .film .k-panel__head .k-label { margin: 4px 0 8px; }
+  .frame { border-radius: var(--k-r-card); overflow: hidden; background: #000; }
+  .frame .kp { border-radius: 0; }
+  .go { display: flex; align-items: center; justify-content: center; gap: 16px; margin: 20px 0 0; flex-wrap: wrap; }
+  .fs { height: 52px; padding: 0 22px; font-size: 18px; gap: 10px; }
+  .fs svg { width: 20px; height: 20px; }
+  .hint { color: var(--k-muted); }
+  @media (max-width: 900px) {
+    .films { padding-top: 40px; padding-bottom: 56px; }
+    .films-top { margin-bottom: 32px; }
+    .films-h1 { font-size: 40px; }
+    .film { padding: 16px; }
+    .film .k-h2 { font-size: 24px; line-height: 1.15; }
+    .fs { height: 48px; font-size: 16px; }
+    .hint { display: none; }
+  }
+</style>
+<style>/* type rule: no negative tracking under 28px (overrides the kit's measured values on this page) */ :root { --k-ls-14: 0; --k-ls-16: 0; --k-ls-18: 0; --k-ls-mono: 0; } .kp .kp-title, .kp .kp-ch .l, .kp .kp-ch, .kp-chapters * { letter-spacing: 0 !important; }</style>
+<link rel="stylesheet" href="../nav/peek.css">
+<link rel="stylesheet" href="../nav/ios.css">
+<script src="../nav/ios.js" defer></script>
+</head>
+<body class="k">
+<div class="k-announce">Founding GTM take-home · George Trushevskiy · 1 Oct 2026</div>
+<div class="k-ground">
+<div class="k-header-bar"><header class="k-header k-col"><a class="k-logo" href="../hub/" aria-label="Home"><img src="../kit/assets/keenable-wordmark-ink.svg" alt="Keenable"><small>take-home</small></a><nav class="k-nav" aria-label="Site"><a href="../?present=1#film-fintech">Fintech</a><a href="../?present=1#film-galactica">Galactica</a><a href="../?present=1#tk-bridge">One timestamp</a><a href="../films/" aria-current="page">Films</a><a href="../map/">Requirements</a></nav><a class="k-pill" href="#" data-demo-link target="_blank" rel="noopener">Demo</a></header></div>
+<main class="k-col k-hero films">
+  <div class="films-top">
+    <p class="k-label">Films · two short films and a forty-second ad</p>
+    <h1 class="k-h1 films-h1">The story, in <span class="k-hand">motion</span></h1>
+  </div>
+  <section class="k-panel film" id="fintech" aria-labelledby="t1">
+    <div class="k-panel__head"><span class="k-step">1</span><div><p class="k-label">Film 01 · 6:11 · Option 2</p><h2 class="k-h2" id="t1">Fintech: search, with a <span class="k-hand">clock</span></h2></div></div>
+    <div class="frame" data-film="fintech"></div>
+    <p class="go"><button class="k-btn k-btn--dark fs" type="button" data-fs="fintech"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>Full screen</button><span class="k-small hint">or press F · double-click · Esc exits</span></p>
+  </section>
+  <section class="k-panel film" id="galactica" aria-labelledby="t2">
+    <div class="k-panel__head"><span class="k-step">2</span><div><p class="k-label">Film 02 · 5:19 · Option 1</p><h2 class="k-h2" id="t2">Galactica: the same timestamp, for <span class="k-hand">labs</span></h2></div></div>
+    <div class="frame" data-film="galactica"></div>
+    <p class="go"><button class="k-btn k-btn--dark fs" type="button" data-fs="galactica"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>Full screen</button></p>
+  </section>
+  <section class="k-panel film" id="ad" aria-labelledby="t3">
+    <div class="k-panel__head"><span class="k-step">3</span><div><p class="k-label">Film 03 · 0:41 · for fun</p><h2 class="k-h2" id="t3">Rex: 40 seconds, for <span class="k-hand">fun</span></h2></div></div>
+    <div class="frame" data-film="ad"></div>
+    <p class="go"><button class="k-btn k-btn--dark fs" type="button" data-fs="ad"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>Full screen</button></p>
+  </section>
+</main>
+<footer class="k-footer"><div class="k-col"><div class="k-footer__grid"><div><a href="../hub/" aria-label="Home"><img src="../kit/assets/keenable-wordmark-ink.svg" alt="Keenable" style="height:24px"></a></div><div><h6>The case</h6><a href="../?present=1#film-fintech">Fintech</a><a href="../?present=1#tk-bridge">One timestamp</a><a href="../?present=1#film-galactica">Galactica</a><a href="../full.html#findings">Findings</a></div><div><h6>Watch</h6><a href="../films/">Films</a><a href="#" data-demo-link target="_blank" rel="noopener">Live demo</a></div><div><h6>Read</h6><a href="../memo/">Memo</a><a href="../map/">Requirements</a><a href="../?present=1#sources">Sources</a><a href="../v2.pdf">PDF</a></div></div><p class="k-footer__legal">A take-home by George Trushevskiy for Keenable. Not an official Keenable site.</p></div></footer>
+</div>
+<script src="../player/player.js"></script>
+<script>
+(() => {
+  if (!window.KPlayer) return;
+  const M = KPlayer.media;
+  const films = {
+    fintech: { src: M + "fintech.mp4", poster: M + "fintech.jpg", title: "Fintech: search, with a clock", chapters: "fintech", eyebrow: "Film 01 · 6:11" },
+    galactica: { src: M + "galactica.mp4", poster: M + "galactica.jpg", title: "Galactica: the same timestamp, for labs", chapters: "galactica", eyebrow: "Film 02 · 5:19" },
+    ad: { src: M + "ad.mp4", poster: M + "ad.jpg", title: "Rex: 40 seconds, for fun", chapters: "ad", eyebrow: "Film 03 · 0:41" },
+  };
+  const players = {};
+  let last = null;
+  document.querySelectorAll(".frame[data-film]").forEach(el => {
+    const key = el.dataset.film, api = KPlayer.mount(el, films[key]);
+    players[key] = api;
+    const mark = () => { last = key; };
+    api.el.addEventListener("pointerdown", mark);
+    api.el.addEventListener("focusin", mark);
+    api.video.addEventListener("play", () => {
+      mark();
+      Object.keys(players).forEach(k => { if (k !== key && !players[k].video.paused) players[k].pause(); });
+    });
+    // double-click anywhere on the player (the player already handles a double-click on the bare video)
+    api.el.addEventListener("dblclick", e => { if (e.target.closest("button, [role=slider], video")) return; api.toggleFullscreen(); });
+  });
+  document.querySelectorAll("[data-fs]").forEach(b => b.addEventListener("click", () => {
+    const api = players[b.dataset.fs]; if (!api) return;
+    last = b.dataset.fs;
+    try { api.toggleFullscreen(); } catch (err) { const r = api.el; (r.requestFullscreen || r.webkitRequestFullscreen || (() => {})).call(r); }
+  }));
+  // F: the film most in view (or the last one touched) goes full screen; inside a player, the player's own F wins
+  const inView = () => {
+    let best = null, area = 0;
+    Object.keys(players).forEach(k => {
+      const r = players[k].el.getBoundingClientRect();
+      const h = Math.max(0, Math.min(innerHeight, r.bottom) - Math.max(0, r.top));
+      if (h > area) { area = h; best = k; }
+    });
+    return area > innerHeight * 0.25 ? best : last;
+  };
+  addEventListener("keydown", e => {
+    if (e.key !== "f" && e.key !== "F") return;
+    if (e.metaKey || e.ctrlKey || e.altKey || e.defaultPrevented) return;
+    if (e.target.closest && e.target.closest(".kp, input, textarea, select, [contenteditable]")) return;
+    const k = document.fullscreenElement ? null : inView();
+    if (document.fullscreenElement) { document.exitFullscreen && document.exitFullscreen(); e.preventDefault(); return; }
+    if (k && players[k]) { players[k].toggleFullscreen(); e.preventDefault(); }
+  });
+})();
+</script>
+<script src="../nav/peek.js"></script>
+<script src="../nav/history.js"></script>
+<script src="../nav/resume.js"></script>
+</body>
+</html>

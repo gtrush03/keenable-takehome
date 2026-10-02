@@ -1,0 +1,152 @@
+/* Contents overlay, brief chips, orientation strip and Keenable marks for the v2 deck. Kit look (kit/keenable.css values). */
+.toc-ov, .toc-layer { --t-blue: #005CFF; --t-card: #EFF3FB; --t-ink: #2A2A2A; --t-muted: rgba(42, 42, 42, 0.6); --t-rule: rgba(42, 42, 42, 0.06);
+  --t-text: "Stack Sans Text", "Helvetica Neue", Arial, sans-serif; --t-head: "Stack Sans Headline", "Helvetica Neue", Arial, sans-serif; }
+
+/* ---------- overlay ---------- */
+.toc-ov { position: fixed; inset: 0; z-index: 250; background: rgba(255, 255, 255, 0.86); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  overflow-y: auto; overscroll-behavior: contain; font-family: var(--t-text); font-weight: 300; color: var(--t-ink); letter-spacing: -0.01em; }
+.toc-ov[hidden] { display: none; }
+.toc-in { width: min(800px, calc(100% - 32px)); margin: 72px auto 64px; background: var(--t-card); padding: 24px; }
+.toc-top { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
+.toc-k { margin: 0; font-family: var(--t-head); font-weight: 200; font-size: 36px; line-height: 36px; letter-spacing: normal; }
+.toc-hint { flex: 1; font-size: 14px; line-height: 18px; color: var(--t-muted); letter-spacing: -0.02em; }
+.toc-x { all: unset; box-sizing: border-box; height: 42px; padding: 10px 12px; border-radius: 12px; background: #fff; font: 300 16px/22px var(--t-text); cursor: pointer; }
+.toc-x:hover { color: var(--t-blue); }
+.toc-x:focus-visible, .toc-ov button:focus-visible, .toc-ov a:focus-visible { outline: 2px solid var(--t-blue); outline-offset: 2px; }
+
+/* brief block */
+.toc-brief { margin-bottom: 32px; }
+.toc-bh { margin: 0 0 12px; font-family: var(--t-head); font-weight: 300; font-size: 24px; line-height: 28.8px; }
+.toc-bh em { font-style: normal; color: var(--t-blue); }
+/* ruling #9 table: requirement → our answer → proof → slide (quiet, no chips) */
+.toc-bt { background: #fff; border-radius: 12px; padding: 4px 16px; }
+.toc-btr { display: grid; grid-template-columns: 1.15fr 1.1fr 1fr 64px; gap: 4px 16px; align-items: baseline; padding: 10px 0; border-top: 1px solid var(--t-rule); font-size: 14px; line-height: 18px; letter-spacing: -0.02em; scroll-margin-top: 24px; }
+.toc-btr:first-child { border-top: 0; }
+.toc-btg { padding: 14px 0 4px; border-top: 1px solid var(--t-rule); font-family: var(--t-head); font-weight: 300; font-size: 16px; line-height: 20px; color: var(--t-ink); }
+.toc-bthead { padding: 8px 0 6px; color: var(--t-muted); font-size: 12px; line-height: 14px; letter-spacing: normal; }
+.toc-req[data-row-i] { cursor: pointer; }
+.toc-req:hover .toc-bq { color: var(--t-blue); }
+.toc-req.flash { animation: toc-flash 1.6s ease; }
+@keyframes toc-flash { 0%, 40% { background: rgba(0, 92, 255, 0.06); } 100% { background: transparent; } }
+.toc-bq { color: var(--t-ink); }
+.toc-ba { color: var(--t-muted); }
+.toc-partly { font-style: normal; color: var(--t-ink); }
+.toc-bp { display: flex; flex-direction: column; gap: 2px; }
+.toc-bp a { color: var(--t-blue); text-decoration: none; }
+.toc-bp a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.toc-bs { text-align: right; }
+.toc-bpx { color: var(--t-muted); }
+.toc-bs button, .toc-bs a { all: unset; cursor: pointer; color: var(--t-blue); font: 300 14px/18px var(--t-text); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.toc-bs button:hover, .toc-bs a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* (a) extended version */
+.toc-ext { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--t-rule); }
+.toc-ext-hs { display: flex; flex-wrap: wrap; gap: 8px 40px; margin: 0; }
+.toc-ext-h { font-family: var(--t-head); font-weight: 300; font-size: 24px; line-height: 28.8px; color: var(--t-ink); text-decoration: none; }
+.toc-ext-h em { font-style: normal; color: var(--t-blue); }
+.toc-ext-h:hover { color: var(--t-blue); }
+.toc-ext-sub { margin: 6px 0 12px; font-size: 14px; line-height: 18px; color: var(--t-muted); }
+.toc-ext-ch { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 4px 16px; }
+.toc-ext-ch a { display: flex; gap: 10px; align-items: baseline; padding: 4px 0; color: var(--t-ink); text-decoration: none; font-size: 16px; line-height: 22px; }
+.toc-ext-ch a:hover { color: var(--t-blue); }
+.toc-ext-ch i { font-style: normal; font-size: 14px; color: var(--t-muted); width: 18px; font-variant-numeric: tabular-nums; }
+
+/* chapters */
+.toc-chs { list-style: none; margin: 0; padding: 0; display: grid; gap: 24px; }
+.toc-chh { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+.toc-chh i { width: 36px; height: 36px; border-radius: 32px; outline: 1px solid rgba(42, 42, 42, 0.12); outline-offset: -2px; display: inline-flex; align-items: center; justify-content: center;
+  font: 300 16px/20px var(--t-text); font-style: normal; flex: none; }
+.toc-chh b { font-family: var(--t-head); font-weight: 300; font-size: 24px; line-height: 28.8px; }
+.toc-chh span { font-size: 14px; color: var(--t-muted); }
+.toc-rows { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; }
+.toc-rows button { all: unset; box-sizing: border-box; width: 100%; display: flex; gap: 16px; align-items: baseline; padding: 10px 16px; border-radius: 12px; background: #fff; cursor: pointer;
+  font: 300 16px/22px var(--t-text); letter-spacing: -0.01em; transition: background .12s, color .12s; }
+.toc-rows button:hover { color: var(--t-blue); }
+.toc-rows button.on { color: var(--t-blue); box-shadow: inset 2px 0 0 var(--t-blue); }
+.toc-rows button.on .toc-n { color: var(--t-blue); }
+.toc-n { flex: none; width: 76px; font-size: 14px; color: var(--t-muted); font-variant-numeric: tabular-nums; letter-spacing: -0.02em; }
+.toc-t { flex: 1; min-width: 0; }
+
+/* ---------- fixed layer (present mode only) ---------- */
+.toc-layer { display: none; }
+body.present .toc-layer { display: block; }
+body.toc-open .toc-layer, body.ov-open .toc-layer, body.menu-open .toc-layer, body.film-on .toc-layer, body.zoomed .toc-layer { display: none; }
+.toc-layer > * { position: fixed; z-index: 55; }
+
+/* brief caption: a quiet figure-style line at bottom-left, above the orientation strip (no box) */
+.toc-cap { left: clamp(16px, 2.4vw, 32px); bottom: 44px; margin: 0; max-width: calc(100% - 260px); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  font: 300 14px/18px var(--t-text); letter-spacing: -0.02em; color: var(--t-muted); }
+.toc-cap-k { color: var(--t-ink); }
+.toc-cap a { color: var(--t-ink); text-decoration: none; }
+.toc-cap a:hover { color: var(--t-blue); }
+.toc-layer.on-dark .toc-cap { color: rgba(255, 255, 255, 0.6); }
+.toc-layer.on-dark .toc-cap-k, .toc-layer.on-dark .toc-cap a { color: #fff; }
+
+/* orientation strip: bottom-left, quiet */
+.toc-orient { left: clamp(16px, 2.4vw, 32px); bottom: 22px; margin: 0; max-width: calc(100% - 260px); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; pointer-events: none;
+  font: 300 13px/18px var(--t-text); letter-spacing: -0.01em; color: var(--t-muted); }
+.toc-orient b { font-weight: 400; color: var(--t-ink); }
+.toc-of { font-variant-numeric: tabular-nums; }
+
+/* marks: eyes on chapter openers (top-right), wordmark bottom-right at low opacity (under the ‹ › controls) */
+.toc-eyes { display: none; top: calc(var(--bar-h, 60px) + 20px); right: clamp(16px, 2.4vw, 32px); width: 72px; height: auto; pointer-events: none; }
+.toc-layer.opener .toc-eyes { display: block; }
+.toc-layer .toc-off { visibility: hidden; }
+.toc-wm { right: clamp(16px, 2.4vw, 32px); bottom: 31px; height: 16px; width: auto; opacity: 0.28; pointer-events: none; z-index: 54; }
+body.sc-on .toc-wm { opacity: 0; transition: opacity .3s ease; }
+
+/* dark slides */
+.toc-layer.on-dark .toc-orient { color: rgba(255, 255, 255, 0.6); }
+.toc-layer.on-dark .toc-orient b { color: #fff; }
+.toc-layer.on-dark .toc-wm { opacity: 0.4; }
+
+/* the counter opens the contents */
+body.present .sc-n { cursor: pointer; }
+body.present .sc-n:hover { color: #005CFF; }
+
+@media (max-width: 700px) {
+  .toc-in { margin: 16px auto 24px; padding: 16px; }
+  .toc-k { font-size: 28px; line-height: 28px; }
+  .toc-hint { display: none; }
+  .toc-btr { grid-template-columns: 1fr auto; }
+  .toc-bthead { display: none; }
+  .toc-bq { grid-column: 1; } .toc-bs { grid-column: 2; grid-row: 1; }
+  .toc-ba, .toc-bp { grid-column: 1 / -1; }
+  .toc-n { width: 64px; }
+  .toc-cap { left: 16px; bottom: 36px; max-width: calc(100% - 32px); font-size: 12px; line-height: 16px; }
+  .toc-orient { left: 16px; bottom: 16px; max-width: calc(100% - 200px); font-size: 12px; }
+  .toc-eyes { width: 48px; top: calc(var(--bar-h, 56px) + 12px); right: 16px; }
+  .toc-wm { display: none; }
+}
+@media print { .toc-ov, .toc-layer { display: none !important; } }
+/* phones: leave room for "‹" Back left of the counter */
+/* exception #6: on phones the strip ellipsizes before the slide controls (.sc starts at 212 px at 393 wide, 164 px with ‹ Back), shown or not;
+   the whole caption opens Contents on tap, since its "proof" link is usually cut off by the ellipsis */
+@media (max-width: 700px) {
+  .toc-cap, .toc-orient { max-width: calc(100% - 212px - env(safe-area-inset-right)); }
+  body:has(.nav-back:not([hidden])) .toc-orient, body:has(.nav-back:not([hidden])) .toc-cap { max-width: calc(100% - 260px - env(safe-area-inset-right)); }
+  .toc-cap a.toc-cap-p::after { content: ""; position: absolute; inset: -6px 0; }
+}
+
+/* SVG icons (nav/icons, currentColor mask): no emoji or glyph characters */
+.tic { display: inline-block; width: 1em; height: 1em; vertical-align: -0.14em; background: currentColor; -webkit-mask: var(--ic) center / contain no-repeat; mask: var(--ic) center / contain no-repeat; font-style: normal; }
+.tic-blue { color: var(--t-blue); }
+.tic-lg { width: 24px; height: 24px; vertical-align: middle; }
+.toc-x .tic { width: 16px; height: 16px; margin-left: 4px; vertical-align: -3px; }
+.toc-bp a .tic, .toc-cap .tic { width: 12px; height: 12px; vertical-align: -1px; }
+
+/* Datasets & code (rulings #12/#13): quiet rows, above "Extended version" */
+.toc-dl { margin-top: 32px; }
+.toc-dlt { list-style: none; margin: 0; padding: 4px 16px; background: #fff; border-radius: 12px; }
+.toc-dlr { display: grid; grid-template-columns: 24px minmax(0, 1fr) auto 32px; gap: 4px 14px; align-items: center; padding: 10px 0; border-top: 1px solid var(--t-rule); }
+.toc-dlr:first-child { border-top: 0; }
+.toc-dlr > .tic-lg { color: var(--t-ink); }
+.toc-dll { min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.toc-dll b { font-weight: 300; font-size: 16px; line-height: 22px; letter-spacing: -0.01em; overflow-wrap: anywhere; }
+.toc-dll span { font-size: 14px; line-height: 18px; letter-spacing: -0.02em; color: var(--t-muted); }
+.toc-dlm { font-size: 12px; line-height: 14px; color: var(--t-muted); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.toc-dlp { white-space: normal; color: var(--t-ink); font-size: 14px; line-height: 18px; }
+.toc-dla { display: inline-flex; width: 32px; height: 32px; align-items: center; justify-content: center; border-radius: 8px; color: var(--t-ink); }
+a.toc-dla:hover { background: var(--t-card); color: var(--t-blue); }
+a.toc-dla .tic { width: 18px; height: 18px; }
+@media (max-width: 700px) { .toc-dlr { grid-template-columns: 24px minmax(0, 1fr) 32px; } .toc-dlm { grid-column: 2; grid-row: 2; white-space: normal; } .toc-dla { grid-column: 3; grid-row: 1 / span 2; } }

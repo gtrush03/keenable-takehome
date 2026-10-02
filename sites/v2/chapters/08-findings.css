@@ -1,0 +1,27 @@
+/* 08-findings: what I found in Keenable. #1 as a three-number slide, then A and B rows (reuses .sx-list from 85-sources). */
+.fd .sx-list .g { width: auto; min-width: 36px; padding: 0 5px; }
+.fd h2 { max-width: 34ch; }
+.fd-fix { display: flex; gap: var(--s2); align-items: baseline; margin: var(--s3) 0 0; max-width: 1100px; padding: 14px 18px; border-left: 4px solid var(--accent); background: var(--accent-soft); }
+.fd-fix b { font: 600 var(--t-label)/1.2 var(--font-mono); letter-spacing: .05em; text-transform: uppercase; color: var(--accent-ink); flex: none; }
+.fd-fix span { font-size: var(--t-small); line-height: 1.35; }
+@media (max-width: 700px) {
+  .fd h2 { font-size: 28px; }
+  .fd .c-compare { margin-top: 14px; }
+  .fd .c-compare > div, .fd .c-compare > div + div { padding: 6px 8px 6px 0; }
+  .fd .c-compare .us { padding-left: 8px !important; }
+  .fd .c-compare .k, .fd .c-compare .d { font-size: 14px; line-height: 1.25; }
+  .fd .c-compare .v { font-size: 34px; }
+  .fd-fix { padding: 8px 10px; margin-top: 12px; display: block; }
+  .fd-fix b, .fd-fix span { font-size: 14px; }
+  .fd .foot { display: none; }
+  .fd .sx-list .g { min-width: 26px; padding: 0 3px; }
+  .fd .sx-list span:not(.src) { font-size: 14px; }
+}
+@media print {
+  .fd h2 { font-size: 52px; }
+  .fd .c-compare { margin-top: 22px; }
+  .fd .c-compare .v { font-size: 72px; }
+  .fd-fix { margin-top: 16px; padding: 10px 14px; }
+  .fd-fix b, .fd-fix span { font-size: 18px; }
+  .fd .foot { margin-top: 12px; font-size: 16px; }
+}

@@ -1,0 +1,711 @@
+{
+ "meta": {
+  "set_name": "agentic",
+  "queries_path": "eval/sets/agentic.csv",
+  "queries_sha256": "0393927ba69169ceab5313a69f722515f1a9140bbd9b0d1b70f8cdbf83efe735",
+  "items": 14,
+  "ran_at": "2026-10-01T13:54:12.110Z",
+  "judged_at": "2026-10-01T13:55:17.840Z",
+  "seed": 20261001,
+  "k": 10,
+  "client": "node v25.6.0 on darwin",
+  "judge_rules": {
+   "verified": "expected primary domain in top 10 OR a fact-strength expected_regex in a top-10 title/snippet; topic-strength regex counts toward on_topic only",
+   "hit_at_k": "first expected domain at rank <= k (queries with expected_domains only)",
+   "pit": "for queries with query_time: acquired_after_query_time (index leak), outcome_leaks (leak_regex in a top-10 title/snippet), published_after_query_time (content-date check)",
+   "blinding": "arms relabelled A.. per query in seeded random order before scoring; see blind_packet.json"
+  }
+ },
+ "notes": [
+  "Keenable pro and realtime returned identical URL lists for 14/14 queries (served mode echoed as requested), so on this endpoint the two modes differ in latency only, if at all."
+ ],
+ "board": {
+  "keenable": {
+   "label": "Keenable (pro)",
+   "auth": "keyless",
+   "fence": "query_time: index as it stood at the instant (acquisition time)",
+   "calls": 14,
+   "ok": 14,
+   "errors": 0,
+   "error_samples": [],
+   "empty_results": 0,
+   "latency_ms": {
+    "p50": 252,
+    "p95": 1785,
+    "p99": 1785,
+    "max": 1785,
+    "n": 14
+   },
+   "quality": {
+    "judged": 14,
+    "verified": 12,
+    "verified_rate": 0.857,
+    "verified_ci95": [
+     0.601,
+     0.96
+    ],
+    "hit_at": {
+     "1": 0.571,
+     "3": 0.643,
+     "10": 0.857
+    },
+    "domain_judged": 14,
+    "on_topic": 13,
+    "llm_supported": null,
+    "llm_judged": 0
+   },
+   "pit": {
+    "items": 2,
+    "results": 20,
+    "acquired_after_query_time": 0,
+    "published_after_query_time": 0,
+    "outcome_leaks": 0,
+    "undated": 13,
+    "per_item": [
+     {
+      "item": "ag-13",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 10,
+      "examples": []
+     },
+     {
+      "item": "ag-14",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 3,
+      "examples": []
+     }
+    ]
+   },
+   "cost": {
+    "list_per_1k": 4,
+    "floor_per_1k": 1,
+    "note": "$4/1K pay-go, $1/1K at 100+ RPS, 100K requests/month free (keenable.ai/pricing, read 2026-10-01). Keyless calls bill $0.",
+    "this_run_list_usd": 0.056,
+    "reported_usd": null,
+    "billed_usd": 0,
+    "list_usd_per_verified": 0.005,
+    "floor_usd_per_verified": 0.001
+   }
+  },
+  "keenable_realtime": {
+   "label": "Keenable (realtime)",
+   "auth": "keyless",
+   "fence": "query_time: index as it stood at the instant (acquisition time)",
+   "calls": 14,
+   "ok": 14,
+   "errors": 0,
+   "error_samples": [],
+   "empty_results": 0,
+   "latency_ms": {
+    "p50": 215,
+    "p95": 528,
+    "p99": 528,
+    "max": 528,
+    "n": 14
+   },
+   "quality": {
+    "judged": 14,
+    "verified": 12,
+    "verified_rate": 0.857,
+    "verified_ci95": [
+     0.601,
+     0.96
+    ],
+    "hit_at": {
+     "1": 0.571,
+     "3": 0.643,
+     "10": 0.857
+    },
+    "domain_judged": 14,
+    "on_topic": 13,
+    "llm_supported": null,
+    "llm_judged": 0
+   },
+   "pit": {
+    "items": 2,
+    "results": 20,
+    "acquired_after_query_time": 0,
+    "published_after_query_time": 0,
+    "outcome_leaks": 0,
+    "undated": 13,
+    "per_item": [
+     {
+      "item": "ag-13",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 10,
+      "examples": []
+     },
+     {
+      "item": "ag-14",
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 3,
+      "examples": []
+     }
+    ]
+   },
+   "cost": {
+    "list_per_1k": 4,
+    "floor_per_1k": 1,
+    "note": "$4/1K pay-go, $1/1K at 100+ RPS, 100K requests/month free (keenable.ai/pricing, read 2026-10-01). Keyless calls bill $0.",
+    "this_run_list_usd": 0.056,
+    "reported_usd": null,
+    "billed_usd": 0,
+    "list_usd_per_verified": 0.005,
+    "floor_usd_per_verified": 0.001
+   }
+  }
+ },
+ "pairwise": [
+  {
+   "a": "keenable",
+   "b": "keenable_realtime",
+   "a_only": 0,
+   "b_only": 0,
+   "both": 12,
+   "neither": 2,
+   "mcnemar_p": 1
+  }
+ ],
+ "llm": {
+  "backend": null,
+  "status": "NEEDS KEY: ANTHROPIC_API_KEY or OPENAI_API_KEY or OPENROUTER_API_KEY (rule judge only)",
+  "judged_items": 0,
+  "errors": []
+ },
+ "verdicts": [
+  {
+   "item": "ag-01",
+   "labels": {
+    "A": "keenable_realtime",
+    "B": "keenable"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "ag-02",
+   "labels": {
+    "A": "keenable_realtime",
+    "B": "keenable"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 3,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 3,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "ag-03",
+   "labels": {
+    "A": "keenable",
+    "B": "keenable_realtime"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 3,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 3,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "ag-04",
+   "labels": {
+    "A": "keenable_realtime",
+    "B": "keenable"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 3,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 3,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "ag-05",
+   "labels": {
+    "A": "keenable",
+    "B": "keenable_realtime"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "ag-06",
+   "labels": {
+    "A": "keenable_realtime",
+    "B": "keenable"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 9,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 9,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "ag-07",
+   "labels": {
+    "A": "keenable_realtime",
+    "B": "keenable"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "ag-08",
+   "labels": {
+    "A": "keenable",
+    "B": "keenable_realtime"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 4,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 4,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "ag-09",
+   "labels": {
+    "A": "keenable_realtime",
+    "B": "keenable"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 5,
+     "regex_rank": 3,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 5,
+     "regex_rank": 3,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "ag-10",
+   "labels": {
+    "A": "keenable",
+    "B": "keenable_realtime"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "ag-11",
+   "labels": {
+    "A": "keenable",
+    "B": "keenable_realtime"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": 1,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "ag-12",
+   "labels": {
+    "A": "keenable",
+    "B": "keenable_realtime"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": 1,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": false,
+     "on_topic": true
+    }
+   }
+  },
+  {
+   "item": "ag-13",
+   "labels": {
+    "A": "keenable_realtime",
+    "B": "keenable"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": null,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 10,
+      "examples": []
+     }
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 1,
+     "regex_rank": null,
+     "hit": {
+      "1": true,
+      "3": true,
+      "10": true
+     },
+     "judged": true,
+     "verified": true,
+     "on_topic": true,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 10,
+      "examples": []
+     }
+    }
+   }
+  },
+  {
+   "item": "ag-14",
+   "labels": {
+    "A": "keenable",
+    "B": "keenable_realtime"
+   },
+   "scored": {
+    "A": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": null,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 3,
+      "examples": []
+     }
+    },
+    "B": {
+     "n": 10,
+     "domain_rank": 0,
+     "regex_rank": null,
+     "hit": {
+      "1": false,
+      "3": false,
+      "10": false
+     },
+     "judged": true,
+     "verified": null,
+     "on_topic": false,
+     "pit": {
+      "results": 10,
+      "acquired_after_query_time": 0,
+      "published_after_query_time": 0,
+      "outcome_leaks": 0,
+      "undated": 3,
+      "examples": []
+     }
+    }
+   }
+  }
+ ]
+}

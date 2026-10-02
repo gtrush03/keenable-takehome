@@ -1,0 +1,21 @@
+<section class="slide" id="live" data-chapter="demo" data-title="Try it: live query" data-src="data/fence_relevance.json">
+  <div class="inner">
+    <p class="eyebrow">Live against Keenable's public index</p>
+    <h2 data-reveal>Ask the web as of your decision date.</h2>
+    <figure class="c-ix fx-live" data-ix="live">
+      <span class="ix-badge screen-only"><i></i><span>Try it · one live search per click</span></span>
+      <span class="ix-badge print-only"><i></i><span>Printed state · recorded run 1 Oct 2026</span></span>
+      <form class="screen-only fx-form" id="fxForm">
+        <select id="fxEv" aria-label="Market event"></select>
+        <input id="fxQ" type="text" aria-label="Query" autocomplete="off">
+        <label class="fx-tm"><input id="fxTm" type="checkbox" checked> query_time <input id="fxDate" type="date" aria-label="query_time date"></label>
+        <button class="btn accent" id="fxGo" type="submit">Search</button>
+      </form>
+      <p class="fx-meter screen-only" id="fxMeter" aria-live="polite"></p>
+      <ol class="fx-res screen-only" id="fxRes"></ol>
+      <div class="print-only" id="fxPrint"></div>
+    </figure>
+    <p class="screen-only fx-demo-cta"><a class="btn accent" href="#" target="_blank" rel="noopener" data-demo-link>Open the live demo →</a></p>
+    <p class="foot">Keyless endpoint, 1 request per click. Source: <a class="src" href="../../data/fence_relevance.json">fence_relevance.json</a></p>
+  </div>
+</section>

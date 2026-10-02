@@ -1,0 +1,235 @@
+<section class="slide c-chapter still" id="fintech" data-chapter="fintech" data-title="Fintech">
+  <div class="inner">
+    <p class="eyebrow">Example · Fintech heads of data</p>
+    <h2 data-reveal>Search with a clock, for backtests.</h2>
+    <div class="steps" data-reveal aria-hidden="true"><b>P</b><b>R</b><b>O</b><b>O</b><b>F</b></div>
+  </div>
+</section>
+
+
+<section class="slide st" id="fx-story" data-chapter="fintech" data-title="The backtest that read the answer key" data-src="data/fintech_run.json">
+  <div class="inner">
+    <p class="eyebrow">The story · as of 9 March 2023</p>
+    <h2 data-reveal>The backtest looked brilliant. <em>It had read the answer key.</em></h2>
+    <div class="st-pair" data-reveal>
+      <figure class="st-card bad">
+        <figcaption><b>Plain web search</b><span>asked the day before</span></figcaption>
+        <ol>
+          <li><span class="t">Collapse of Silicon Valley Bank</span><span class="m">grokipedia.com · acquired 14 Jul 2026</span></li>
+          <li><span class="t">Contagion Effects of the Silicon Valley Bank Run</span><span class="m">arxiv.org · acquired 4 Sep 2026</span></li>
+          <li><span class="t">ABA DataBank: Depositor behavior during the 2023 bank failures</span><span class="m">bankingjournal.aba.com · acquired 30 Sep 2026</span></li>
+        </ol>
+        <p class="st-tag">From the future · SVB failed on 10 March</p>
+      </figure>
+      <figure class="st-card good">
+        <figcaption><b>Keenable · query_time 2023-03-09</b><span>the web as it stood</span></figcaption>
+        <ol>
+          <li><span class="t">SIVB SVB Financial Stock Data, Filings, Earnings</span><span class="m">docoh.com · acquired 20 Aug 2022</span></li>
+          <li><span class="t">Silicon Valley Bank · deposits $190.2B, Q2 2022</span><span class="m">depositaccounts.com · acquired 26 Nov 2022</span></li>
+          <li><span class="t">Ask HN: Best Bank for Startups?</span><span class="m">news.ycombinator.com · acquired 18 Sep 2020</span></li>
+        </ol>
+        <p class="st-tag">Before the cutoff · newest page 26 Nov 2022</p>
+      </figure>
+    </div>
+    <p class="foot">Real top results, live API, 1 Oct 2026. Source: <a class="src" href="data/fintech_run.json">data/fintech_run.json</a></p>
+  </div>
+</section>
+
+<section class="slide st-q" id="fx-quote" data-chapter="fintech" data-title="Look-ahead bias, in the research" data-src="https://arxiv.org/abs/2510.07920">
+  <div class="inner">
+    <p class="eyebrow">Why it matters · in the research, not just my run</p>
+    <blockquote class="c-quote" data-reveal><p>“…dazzling back-tested returns evaporate once the model’s knowledge window ends.”</p><cite>Li et al., <i>Profit Mirage: Revisiting Information Leakage in LLM-based Financial Agents</i>, arXiv 2510.07920, Oct 2025 · grade A</cite></blockquote>
+    <p class="st-also" data-reveal>Also: Sarkar &amp; Vafa, SSRN 4754678 (2024) · Levy, Chicago Booth, SSRN 5082861 (2024) · Zhang et al., arXiv 2602.17234 (2026): the fix needs <b>time-filtered retrieval</b>.</p>
+    <p class="foot">Sources: <a class="src" href="https://arxiv.org/abs/2510.07920">arxiv.org/abs/2510.07920</a> · <a class="src" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4754678">ssrn 4754678</a> · <a class="src" href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5082861">ssrn 5082861</a> · <a class="src" href="https://arxiv.org/abs/2602.17234">arxiv.org/abs/2602.17234</a></p>
+  </div>
+</section>
+
+<section class="slide fx" id="fx-p" data-chapter="fintech" data-title="P · 33 of 60 state the outcome" data-src="data/fintech_judged.json">
+  <div class="inner">
+    <p class="fx-step" aria-label="Step P of PROOF"><b>P</b><span>R</span><span>O</span><span>O</span><span>F</span><em>Pick the query that hurts</em></p>
+    <h2 data-reveal>Across six market events, 33 of 60 results already state the outcome.</h2>
+    <figure class="fx-grid" id="fxGrid" data-reveal aria-label="Six market events, ten results each, no date fence. Filled squares state the outcome."></figure>
+    <p class="fx-key" data-reveal><span><i class="on"></i>states the outcome</span><span><i></i>does not</span><span>all 60 crawled after the cutoff</span></p>
+    <p class="foot">Six events, top 10 each, no fence, run 2026-10-01. Source: <a class="src" href="data/fintech_judged.json">data/fintech_judged.json</a> · the bias in research: <a class="src" href="https://arxiv.org/abs/2510.07920">arXiv 2510.07920</a> (A)</p>
+  </div>
+</section>
+
+<section class="slide fx" id="fx-fences" data-chapter="fintech" data-title="R · Three fences, leaks" data-src="data/fintech_judged.json">
+  <div class="inner">
+    <p class="fx-step" aria-label="Step R of PROOF"><span>P</span><b>R</b><span>O</span><span>O</span><span>F</span><em>Run it in their harness</em></p>
+    <h2 data-reveal>No fenced result was crawled after the cutoff.</h2>
+    <div class="c-compare" style="--cols:3" data-reveal>
+      <div><p class="k">No fence</p><p class="v">33/60<small>state the outcome</small></p><p class="d">results already state the outcome</p></div>
+      <div><p class="k">Publish-date fence</p><p class="v">29/70<small>state the outcome</small></p><p class="d">results leak through the fence</p></div>
+      <div class="us"><p class="k">Crawl date · query_time</p><p class="v">0/60<small>acquired after cutoff</small></p><p class="d">results acquired after the cutoff</p></div>
+    </div>
+    <p class="tk-go fx-rivals" data-reveal><a href="#" target="_blank" rel="noopener" data-demo-link>Open the live demo →</a><a href="#fx-h2h">Rivals on the same events →</a></p>
+    <p class="foot">Separate runs, so the columns are not one leak rate. 1/60 fenced results still served later text. Research agrees date filters leak: <a class="src" href="https://arxiv.org/abs/2602.17234">arXiv 2602.17234</a> (A). Sources: <a class="src" href="data/fintech_judged.json">data/fintech_judged.json</a> · <a class="src" href="data/h2h/latest_judged.json">data/h2h/latest_judged.json</a></p>
+  </div>
+</section>
+
+<section class="slide fx" id="fx-h2h" data-chapter="fintech" data-title="Head-to-head, seven rivals" data-src="data/h2h/latest_judged.json">
+  <div class="inner">
+    <p class="eyebrow">Head-to-head · 7 events · MEASURED 1 Oct 2026</p>
+    <h2 data-reveal>Keenable leaked least of eight. <em>Today’s questions: it trails.</em></h2>
+    <table class="fx-h2h" data-reveal>
+      <thead><tr><th>Provider · date filter</th><th>States the outcome · fixed rule</th><th class="sm">LLM flags</th><th>Useful pre-event</th><th>Verified today</th><th>$ / 1K list</th></tr></thead>
+      <tbody>
+        <tr class="us"><td><b class="wm"><img class="h2h-logo wm" src="brands/keenable.svg" alt="Keenable" loading="lazy"></b> query_time, crawl date</td><td><b>1/70</b></td><td class="sm">5 <small>(1 real)</small></td><td><b>30/70</b></td><td>23/39</td><td>$4 <small>($1)</small></td></tr>
+        <tr><td><img class="h2h-logo" src="brands/linkup.svg" alt="" loading="lazy"><b>Linkup</b> published date</td><td>10/69</td><td class="sm">15 <small>(14 real)</small></td><td>25/69</td><td>25/39</td><td>$6</td></tr>
+        <tr><td><b class="wm"><img class="h2h-logo wm" src="brands/serper.svg" alt="Serper" loading="lazy"></b> Google, date range</td><td>14/70</td><td class="sm">31</td><td>23/70</td><td>38/39</td><td>$1 <small>($0.30)</small></td></tr>
+        <tr><td><b class="wm"><img class="h2h-logo wm" src="brands/searchapi.svg" alt="SearchAPI" loading="lazy"></b> Google, date range</td><td>15/67</td><td class="sm">33</td><td>20/67</td><td>7/9 <small>first 10</small></td><td>$4</td></tr>
+        <tr><td><b class="wm"><img class="h2h-logo wm" src="brands/tavily.svg" alt="Tavily" loading="lazy"></b> published or updated date</td><td>16/69</td><td class="sm">35</td><td>17/69</td><td>37/39</td><td>$8</td></tr>
+        <tr><td><b class="wm"><img class="h2h-logo wm" src="brands/exa.svg" alt="Exa" loading="lazy"></b> published date</td><td>31/70</td><td class="sm">57</td><td>9/70</td><td>39/39</td><td>$17</td></tr>
+        <tr><td><img class="h2h-logo" src="brands/parallel.svg" alt="" loading="lazy"><b>Parallel</b> no before-date filter</td><td>32/70</td><td class="sm">61</td><td>2/70</td><td>35/39</td><td>$1</td></tr>
+        <tr><td><img class="h2h-logo" src="brands/firecrawl.svg" alt="" loading="lazy"><b>Firecrawl</b> custom date range</td><td>37/70</td><td class="sm">63</td><td>1/70</td><td>34/36</td><td>$6.4</td></tr>
+      </tbody>
+    </table>
+    <p class="foot">One outcome rule, fixed before any run. LLM flags reviewed for Keenable and Linkup only. Small n. Source: <a class="src" href="data/h2h/latest_judged.json">latest_judged.json</a></p>
+  </div>
+</section>
+
+<section class="slide fx dark" id="fx-useful" data-chapter="fintech" data-title="R · Useful results by fence" data-src="data/fence_relevance.json">
+  <div class="inner">
+    <p class="fx-step" aria-label="Step R of PROOF"><span>P</span><b>R</b><span>O</span><span>O</span><span>F</span><em>Run it in their harness</em></p>
+    <h2 data-reveal>Ten times more usable evidence.</h2>
+    <div class="c-compare" style="--cols:3" data-reveal>
+      <div><p class="k">No fence</p><p class="v">0.4<small>useful / top 10</small></p><p class="d"><b>87%</b> reveal the outcome</p></div>
+      <div><p class="k">Publish-date filter</p><p class="v">0.6<small>useful / top 10</small></p><p class="d"><b>71%</b> reveal the outcome</p></div>
+      <div class="us"><p class="k">Keenable query_time</p><p class="v">4.3<small>useful / top 10</small></p><p class="d"><b>0</b> acquired after cutoff · <b>6/70</b> flagged</p></div>
+    </div>
+    <p class="foot">7 events; 28/30 agree with a second-model check, no human validation. Source: <a class="src" href="data/fence_relevance.json">data/fence_relevance.json</a></p>
+  </div>
+</section>
+
+<section class="slide fx" id="fx-flip" data-chapter="fintech" data-title="Try it: switch the fence" data-src="data/fence_relevance.json">
+  <div class="inner">
+    <p class="fx-step" aria-label="Step R of PROOF"><span>P</span><b>R</b><span>O</span><span>O</span><span>F</span><em>Run it in their harness</em></p>
+    <h2 data-reveal>Switch the fence and the results flip.</h2>
+    <figure class="c-ix fx-ix" data-ix="toggle">
+      <span class="ix-badge screen-only"><i></i><span>Try it · tap</span></span>
+      <span class="ix-badge print-only"><i></i><span>Printed state · live on the web</span></span>
+      <div class="screen-only">
+        <div class="fx-ctl" role="group" aria-label="Event" id="flipEv"></div>
+        <div class="fx-ctl fx-fence" role="group" aria-label="Fence" id="flipArm"></div>
+        <div class="fx-meter" id="flipMeter" aria-live="polite"></div>
+        <ol class="fx-rows" id="flipRows"></ol>
+      </div>
+      <div class="print-only" id="flipPrint"></div>
+    </figure>
+    <p class="fx-cap">Useful pre-event results per top 10: 0.4 no fence · 0.6 publish date · 4.3 query_time (MEASURED)</p>
+    <p class="foot">Recorded 2026-10-01, 7 events; 28/30 agree with a blind second-model check, no human validation yet. Source: <a class="src" href="data/fence_relevance.json">data/fence_relevance.json</a></p>
+  </div>
+</section>
+
+<section class="slide fx" id="fx-recipe" data-chapter="fintech" data-title="R · The phrasing recipe" data-src="data/fence_relevance.json">
+  <div class="inner">
+    <p class="fx-step" aria-label="Step R of PROOF"><span>P</span><b>R</b><span>O</span><span>O</span><span>F</span><em>Run it in their harness</em></p>
+    <h2 data-reveal>Name the month in the query.</h2>
+    <p class="fx-recipe" data-reveal><span>entity</span><i>+</i><span>metric</span><i>+</i><span class="hl">Month YYYY</span></p>
+    <p class="fx-eg mono" data-reveal>SVB deposits liquidity <b>March 2023</b></p>
+    <div class="c-compare" style="--cols:2" data-reveal>
+      <div><p class="k">Original query</p><p class="v">4.3<small>useful / top 10</small></p><p class="d"><b>2.1</b> fresh · 6 flagged</p></div>
+      <div class="us"><p class="k">Recipe</p><p class="v">5.0<small>useful / top 10</small></p><p class="d"><b>4.6</b> fresh · 1 flagged</p></div>
+    </div>
+    <p class="foot">Fresh = crawled in the prior year. Month alone: 4.1. Source: <a class="src" href="data/fence_relevance.json">data/fence_relevance.json</a></p>
+  </div>
+</section>
+
+<section class="slide fx" id="fx-live" data-chapter="fintech" data-title="R · Run it yourself" data-src="https://api.keenable.ai/v1/search/public">
+  <div class="inner">
+    <p class="fx-step" aria-label="Step R of PROOF"><span>P</span><b>R</b><span>O</span><span>O</span><span>F</span><em>Run it in their harness</em></p>
+    <h2 data-reveal>Run it yourself on the live index.</h2>
+    <figure class="c-ix fx-ix fx-live">
+      <span class="ix-badge screen-only"><i></i><span>Try it · live</span></span>
+      <span class="ix-badge print-only"><i></i><span>Printed state · recorded run</span></span>
+      <form class="screen-only fx-form" id="liveForm" autocomplete="off">
+        <label class="fx-q"><span>Query</span><input id="liveQ" aria-label="Query" type="text" maxlength="200" required></label>
+        <label><span>query_time</span><input id="liveDate" aria-label="query_time" type="date" required></label>
+        <label class="fx-sw"><input id="liveTm" type="checkbox" checked><span>Fence on</span></label>
+        <button class="btn accent" id="liveGo" type="submit">Search<span class="fx-n"> · 1 request</span></button>
+      </form>
+      <div class="screen-only">
+        <p class="fx-meter" id="liveMeter" aria-live="polite"></p>
+        <ol class="fx-rows" id="liveRows"></ol>
+      </div>
+      <div class="print-only" id="livePrint"></div>
+    </figure>
+    <p class="foot">Keyless public endpoint, one request per click. Recorded run: <a class="src" href="data/fence_relevance.json">data/fence_relevance.json</a></p>
+  </div>
+</section>
+
+<section class="slide fx" id="fx-open" data-chapter="fintech" data-title="O · Replay 6/6, 1/60 later text" data-src="data/fintech_repro.json">
+  <div class="inner">
+    <p class="fx-step" aria-label="Step O of PROOF"><span>P</span><span>R</span><b>O</b><span>O</span><span>F</span><em>Open the evidence</em></p>
+    <h2 data-reveal>Replays match six of six. One page served later text.</h2>
+    <div class="c-compare" style="--cols:2" data-reveal>
+      <div class="us"><p class="k">Evidence pack · replay</p><p class="v">6/6<small>identical URL lists, same order</small></p><p class="d">request, <b>query_time</b>, URLs, SHA-256</p></div>
+      <div><p class="k">Product finding #1</p><p class="v">1/60<small>fenced results with later text</small></p><p class="d">blockworks.co, FTX: <b>acquired 2022, text from 2024</b></p></div>
+    </div>
+    <p class="foot">Replay ~8 minutes apart. Sources: <a class="src" href="data/fintech_repro.json">data/fintech_repro.json</a> · <a class="src" href="data/fintech_judged.json">data/fintech_judged.json</a></p>
+  </div>
+</section>
+
+<section class="slide fx" id="fx-order" data-chapter="fintech" data-title="O · What it costs at list" data-src="data/fintech_cost_model.json">
+  <div class="inner">
+    <p class="fx-step" aria-label="Step O of PROOF"><span>P</span><span>R</span><span>O</span><b>O</b><span>F</span><em>Order: size the deal</em></p>
+    <h2 data-reveal>A fund's research agent costs $19K a year at list.</h2>
+    <figure class="c-chart" data-reveal>
+      <div id="fxCost" data-label="Annual Keenable cost at list price, three fintech workloads"></div>
+      <figcaption><span class="fx-tag">MODEL</span> fund: 50 analysts × 10K agent queries a month = 6M/yr (1.2–18M) · KYC: 1M customers × 4 queries a month = 48M (24–96M) · backtest: 3,000 tickers × weekly × 10 years = 1.56M a run.</figcaption>
+    </figure>
+    <p class="foot">$4/1K pay-go net of free tier; $1/1K Frontier at 100+ RPS. Source: <a class="src" href="data/fintech_cost_model.json">data/fintech_cost_model.json</a> · keenable.ai/pricing</p>
+  </div>
+</section>
+
+<section class="slide fx" id="fx-fan" data-chapter="fintech" data-title="F · Fan out via Fireworks" data-src="data/g9_channel.json">
+  <div class="inner">
+    <p class="fx-step" aria-label="Step F of PROOF"><span>P</span><span>R</span><span>O</span><span>O</span><b>F</b><em>Fan out, and feed back</em><span class="fx-tag">PROPOSAL</span></p>
+    <h2 data-reveal>A fintech pass becomes the proof Fireworks needs.</h2>
+    <figure class="c-diagram" data-reveal aria-label="PROPOSAL. A fintech pilot that passes its gate is the proof for Fireworks, whose web_search backend is unnamed; Fireworks serves every model to 10,000+ companies.">
+      <svg class="land" viewBox="0 0 1200 200" aria-hidden="true">
+        <defs><marker id="chevFx" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" style="stroke:var(--ink)" stroke-width="1.6"/></marker>
+          <marker id="chevFxA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" style="stroke:var(--accent-deep)" stroke-width="2"/></marker></defs>
+        <g><rect class="box" x="1" y="1" width="340" height="198"/><text class="lab" x="24" y="64">Fintech pilot</text><text class="lab" x="24" y="94">passes its gate</text><text class="sub" x="24" y="164">the proof</text></g>
+        <g><rect class="box hl" x="430" y="1" width="340" height="198"/><text class="lab hl" x="454" y="64">Fireworks</text><text class="lab hl" x="454" y="94">web_search</text><text class="sub hl" x="454" y="166">backend unnamed</text></g>
+        <g><rect class="box" x="859" y="1" width="340" height="198"/><text class="lab" x="883" y="64">Every Fireworks</text><text class="lab" x="883" y="94">model</text><text class="sub" x="883" y="166">10,000+ companies</text></g>
+        <path class="arrow hl" d="M345 100 H424" marker-end="url(#chevFxA)"/>
+        <path class="arrow" d="M774 100 H853" marker-end="url(#chevFx)"/>
+      </svg>
+      <svg class="portrait" viewBox="0 0 360 300" aria-hidden="true">
+        <defs><marker id="chevFxP" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" style="stroke:var(--ink)" stroke-width="1.6"/></marker>
+          <marker id="chevFxPA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" style="stroke:var(--accent-deep)" stroke-width="2"/></marker></defs>
+        <g><rect class="box" x="1" y="1" width="358" height="76"/><text class="lab" x="16" y="34">Fintech pilot passes</text><text class="sub" x="16" y="62">the proof</text></g>
+        <g><rect class="box hl" x="1" y="112" width="358" height="76"/><text class="lab hl" x="16" y="145">Fireworks web_search</text><text class="sub hl" x="16" y="173">backend unnamed</text></g>
+        <g><rect class="box" x="1" y="223" width="358" height="76"/><text class="lab" x="16" y="256">Every Fireworks model</text><text class="sub" x="16" y="284">10,000+ companies</text></g>
+        <path class="arrow hl" d="M180 79 V106" marker-end="url(#chevFxPA)"/>
+        <path class="arrow" d="M180 190 V217" marker-end="url(#chevFxP)"/>
+      </svg>
+    </figure>
+    <p class="fx-line" data-reveal>Keenable on NEEDLE Finance: <b>#3 of 23</b> at 0.886 · median p95 <b>227 ms</b> vs Exa 3,320 ms</p>
+    <p class="foot">Sources: <a class="src" href="data/g9_channel.json">data/g9_channel.json</a> (Fireworks docs, read 2026-10-01) · <a class="src" href="data/needle_results.json">data/needle_results.json</a></p>
+  </div>
+</section>
+
+<section class="slide fx c-big" id="fx-screen" data-chapter="fintech" data-title="F · Adverse-media screen 19/22" data-src="data/jev_fintech_screen.json">
+  <div class="inner">
+    <p class="fx-step" aria-label="Step F of PROOF"><span>P</span><span>R</span><span>O</span><span>O</span><b>F</b><em>Fan out, and feed back</em></p>
+    <h2 data-reveal>The same index screens KYC names: 19 of 22 right.</h2>
+    <div class="big" data-reveal><span class="acc" data-count="19">19</span><span class="of">/22</span></div>
+    <p class="big-label" data-reveal>hard adverse-media cases labelled correctly by live Jev over Keenable results</p>
+    <p class="foot">24 entities; evidence for a human reviewer, not a compliance decision. Source: <a class="src" href="data/jev_fintech_screen.json">data/jev_fintech_screen.json</a></p>
+  </div>
+</section>
+
+<section class="slide fx" id="fx-gate" data-chapter="fintech" data-title="The pilot gate" data-src="research/opt2_demo_spec.md">
+  <div class="inner">
+    <p class="fx-step" aria-label="Step P of PROOF, the bar"><b>P</b><span>R</span><span>O</span><span>O</span><span>F</span><em>The bar, agreed before the first query</em><span class="fx-tag">PROPOSAL</span></p>
+    <h2 data-reveal>The pilot passes only if both leak counts are zero.</h2>
+    <div class="c-gate" data-reveal>
+      <div class="line"><b>PASS IF</b> acquired after cutoff = 0<br><b>AND</b> served text after cutoff = 0</div>
+      <div class="meta"><span>200 of your events · both arms · your LLM and judge</span><span>2 weeks · $0 in the free tier</span><span>agreed: pilot kickoff</span><span>owner: buyer-nominated lead</span></div>
+    </div>
+    <p class="foot">Today: 0/60 and 1/60, so finding #1 must ship first. Accuracy gap reported, not gated. Source: <a class="src" href="research/opt2_demo_spec.md">opt2_demo_spec.md</a></p>
+  </div>
+</section>

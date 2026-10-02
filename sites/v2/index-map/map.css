@@ -1,0 +1,80 @@
+/* Index: the submission as a subway map. Sits on kit/keenable.css (tokens, header, footer); only the map itself lives here. */
+.k-nav a[aria-current="page"] { color: var(--k-blue); }
+.k-announce { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; padding: 0 16px; }
+
+.im-hero { padding-top: var(--k-section-gap); }
+.im-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; }
+.im-lead { margin: 24px 0 0; max-width: 40em; }
+.im-dl-btn { border: 0; cursor: pointer; font-size: 16px; flex: none; }
+.im-dl-btn svg { margin-right: 2px; }
+.im-legend { display: flex; flex-wrap: wrap; gap: 8px 20px; margin: 32px 0 0; align-items: center; }
+.im-legend span { display: inline-flex; align-items: center; gap: 8px; white-space: nowrap; }
+.im-legend i { display: inline-block; width: 22px; height: 6px; border-radius: 3px; }
+.im-legend b { display: inline-block; width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 3px solid var(--k-ink); box-sizing: border-box; }
+.im-legend em { font-style: normal; display: inline-block; width: 11px; height: 11px; border-radius: 50%; background: #fff; border: 2.5px solid var(--k-blue); box-sizing: border-box; }
+
+.im-wrap { padding: 24px 0 0; }
+.im-map { position: relative; min-height: 320px; }
+.im-map svg { display: block; width: 100%; height: auto; overflow: visible; }
+.im-loading { padding: 40px 0; }
+
+/* stations: links inside the SVG */
+.im-map .st { cursor: pointer; outline: none; }
+.im-map .st circle { transition: r var(--k-fast) var(--k-ease), stroke-width var(--k-fast) var(--k-ease); }
+.im-map .st text { fill: var(--k-ink); font-family: var(--k-text); font-weight: 300; font-size: 13px; letter-spacing: -0.01em; transition: fill var(--k-fast) var(--k-ease); }
+.im-map .st.x text { font-weight: 500; fill: var(--k-strong); }
+.im-map .st:hover text, .im-map .st:focus-visible text { fill: var(--k-blue); }
+.im-map .st:hover circle.dot, .im-map .st:focus-visible circle.dot { stroke-width: 4.5; }
+.im-map .st:focus-visible circle.ring { stroke: var(--k-blue); }
+.im-map .hit { fill: transparent; }
+.im-map .sec { font-family: var(--k-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; }
+.im-map .sec-n { font-family: var(--k-mono); font-size: 11px; fill: var(--k-muted); }
+.im-map .ln { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.im-map .gl * { vector-effect: non-scaling-stroke; }            /* glyphs keep their 1.5px line at any size */
+.im-map .gl, .im-map .st circle.ring { transition: stroke var(--k-fast) var(--k-ease); }
+.im-map .st:hover .gl, .im-map .st:focus-visible .gl { stroke: var(--k-blue); }
+.im-map .st:hover circle.ring { stroke: var(--k-blue); }
+.im-map .logos image { opacity: 0.92; }
+.im-map .st:hover .logos image { opacity: 1; }
+
+/* downloads panel (kit panel look) */
+.im-dl { border: 0; padding: 32px; width: min(720px, calc(100% - 32px)); max-height: calc(100% - 64px); background: var(--k-card); color: var(--k-ink); border-radius: var(--k-r-card); }
+.im-dl::backdrop { background: rgba(14, 14, 14, 0.42); }
+.im-dl__head { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 8px; }
+.im-dl__head .k-btn { border: 0; cursor: pointer; }
+.im-dl__list { list-style: none; margin: 24px 0 0; padding: 0; display: grid; gap: var(--k-card-gap); }
+.im-dl__list a, .im-dl__plain { display: grid; grid-template-columns: 24px minmax(0, 1fr) auto auto; gap: 16px; align-items: center; background: #fff; border-radius: var(--k-r-card); padding: 14px 16px; color: var(--k-ink); text-decoration: none; transition: box-shadow var(--k-fast) var(--k-ease); }
+.im-dl__list a:hover, .im-dl__list a:focus-visible { box-shadow: 0 0 0 1.5px var(--k-blue); }
+.im-dl__list .t { font-size: 16px; line-height: 22px; min-width: 0; }
+.im-dl__list .t small { display: block; font-size: 13px; line-height: 18px; color: var(--k-muted); margin-top: 2px; }
+.im-dl__list .f { font: 400 12px/16px var(--k-mono); color: var(--k-muted); text-transform: uppercase; letter-spacing: 0.06em; }
+.im-dl__list .s { font: 400 13px/16px var(--k-mono); color: var(--k-ink); white-space: nowrap; }
+.im-dl__list .ic { width: 24px; height: 24px; display: block; color: var(--k-ink); transition: color var(--k-fast) var(--k-ease); }
+.im-dl__list a:hover .ic, .im-dl__list a:focus-visible .ic, .im-dl__list a:hover .s svg { color: var(--k-blue); }
+.im-dl__list .s svg { display: block; margin-left: auto; }
+.im-dl__plain { background: #fff; border-radius: var(--k-r-card); padding: 14px 16px; grid-template-columns: 24px minmax(0, 1fr); color: var(--k-muted); }
+.im-dl__more summary { cursor: pointer; padding: 10px 4px; font-size: 14px; color: var(--k-muted); list-style: none; display: inline-flex; align-items: center; gap: 6px; }
+.im-dl__more summary::-webkit-details-marker { display: none; }
+.im-dl__more summary svg { transition: transform var(--k-fast) var(--k-ease); }
+.im-dl__more[open] summary svg { transform: rotate(90deg); }
+.im-dl__more summary:hover { color: var(--k-blue); }
+.im-dl__more .im-dl__list { margin-top: 4px; }
+.im-dl__close svg { margin-left: -4px; }
+.im-dl__group { scroll-margin-top: 8px; font: 400 11px/16px var(--k-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--k-muted); margin: 14px 0 0; }
+
+@media (max-width: 900px) {
+  .k-header-bar { height: auto; padding: 16px 0 8px; }
+  .k-header { height: auto; row-gap: 8px; }
+  .k-nav { display: flex; grid-column: 1 / -1; grid-row: 2; overflow-x: auto; gap: 4px; margin: 0 -12px; scrollbar-width: none; }
+  .k-nav::-webkit-scrollbar { display: none; }
+  .k-nav a { height: auto; padding: 8px 12px; }
+  .k-announce { font-size: 12px; }
+  .im-hero { padding-top: 40px; }
+  .im-head { flex-direction: column; align-items: flex-start; gap: 20px; }
+  .im-lead { font-size: 17px; line-height: 23px; }
+  .im-map .st text { font-size: 15px; }
+  .im-dl { padding: 20px; }
+  .im-dl__list a { grid-template-columns: 24px minmax(0, 1fr) auto; }
+  .im-dl__list .f { display: none; }
+}
+@media print { .k-announce, .k-header-bar, .k-footer, .im-dl-btn { display: none !important; } }

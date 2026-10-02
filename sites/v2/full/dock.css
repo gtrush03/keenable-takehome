@@ -1,0 +1,72 @@
+/* Extended deck: section dividers + Apple-style Dock (ruling #8). A layer on top of v2.css; kit tokens from sites/v2/kit/keenable.css:
+   Keenable blue #005CFF, black #0E0E0E, panel #EFF3FB, ink #2A2A2A; Stack Sans Headline 200 for titles, Sometype Mono for numbers. */
+
+/* ---------- dividers: one full page of a contrasting kit colour before each section ---------- */
+.slide.dk-div { border-top: 0; justify-content: center; min-height: 100vh; min-height: 100svh; }
+.slide.dk-div.dk-blue { background: #005CFF; color: #fff; --dk-fg: #fff; --dk-num: rgba(255, 255, 255, .78); --dk-sub: rgba(255, 255, 255, .9); }
+.slide.dk-div.dk-black { background: #0E0E0E; color: #fff; --dk-fg: #fff; --dk-num: rgba(255, 255, 255, .7); --dk-sub: rgba(255, 255, 255, .86); }
+.slide.dk-div.dk-pale { background: #EFF3FB; color: #0E0E0E; --dk-fg: #0E0E0E; --dk-num: #005CFF; --dk-sub: #2A2A2A; }
+.dk-div > .inner { width: 100%; max-width: var(--col); margin: 0 auto; }
+.dk-div .dk-n { font: 500 clamp(16px, 1.35vw, 22px)/1 "Sometype Mono", var(--font-mono); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; margin: 0 0 clamp(20px, 4vh, 44px); color: var(--dk-num); }
+.dk-div h1 { font-family: "Stack Sans Headline", var(--font-display); font-weight: 200; font-size: clamp(64px, 11vw, 184px); line-height: .95; letter-spacing: -0.02em; color: var(--dk-fg); margin: 0; text-wrap: balance; }
+.dk-div .dk-l { font: 300 clamp(20px, 2vw, 32px)/1.3 "Stack Sans Text", var(--font-text); letter-spacing: -0.01em; max-width: 34em; margin: clamp(22px, 4vh, 44px) 0 0; color: var(--dk-sub); text-wrap: pretty; }
+@media (prefers-reduced-motion: no-preference) {
+  .dk-div .inner > * { transition: opacity .6s cubic-bezier(.2, .7, .2, 1), transform .6s cubic-bezier(.2, .7, .2, 1); }
+  .dk-div .inner > h1 { transition-delay: .06s; }
+  .dk-div .inner > .dk-l { transition-delay: .16s; }
+  body:not(.present) .dk-div:not(.in) .inner > *, body.present .dk-div:not(.cur) .inner > * { opacity: 0; transform: translateY(18px); }
+}
+@media (max-width: 700px) {
+  .slide.dk-div, body.present .slide.dk-div { justify-content: center; }
+  .dk-div h1 { font-size: clamp(48px, 15vw, 72px); }
+  .dk-div .dk-l { font-size: 19px; }
+}
+@media print { .slide.dk-div { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+
+/* ---------- Dock: bottom centre, one tile per section; shows on movement, always up on a divider ---------- */
+.dk { position: fixed; left: 50%; bottom: calc(14px + env(safe-area-inset-bottom)); z-index: 58; transform: translate(-50%, 0); opacity: 0; pointer-events: none; transition: opacity .3s ease, transform .3s ease; }
+body.dk-show .dk, body.dk-on-div .dk, .dk:focus-within { opacity: 1; pointer-events: auto; }
+body.dk-film .dk, body.menu-open .dk, body.ov-open .dk, body.zoomed .dk, body.dk-foot:not(.present) .dk { opacity: 0; pointer-events: none; transform: translate(-50%, 16px); }
+.dk-bar { position: relative; isolation: isolate; display: flex; align-items: flex-end; gap: 8px; height: 64px; padding: 0 10px 10px; }
+.dk-bar::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: 20px; background: rgba(255, 255, 255, .74);
+  -webkit-backdrop-filter: blur(18px) saturate(1.6); backdrop-filter: blur(18px) saturate(1.6); box-shadow: 0 0 0 1px rgba(42, 42, 42, .08), 0 14px 36px rgba(0, 0, 0, .18); }
+.dk-it { all: unset; box-sizing: border-box; position: relative; flex: none; width: calc(44px * var(--s, 1)); height: calc(44px * var(--s, 1)); cursor: pointer;
+  transition: width .25s cubic-bezier(.2, .7, .2, 1), height .25s cubic-bezier(.2, .7, .2, 1); }
+.dk-bar.dk-mag .dk-it { transition-duration: .09s; }
+.dk-ic { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; border-radius: calc(12px * var(--s, 1)); background: #EFF3FB; color: #2A2A2A;
+  font: 500 calc(15px * var(--s, 1))/1 "Sometype Mono", var(--font-mono); letter-spacing: -0.02em; font-variant-numeric: tabular-nums; box-shadow: inset 0 0 0 1px rgba(42, 42, 42, .06);
+  transition: background .2s, color .2s; }
+.dk-it:hover .dk-ic { background: #E2E9F7; color: #005CFF; }
+.dk-it.on .dk-ic { background: #005CFF; color: #fff; box-shadow: none; }
+.dk-it.on::after { content: ""; position: absolute; left: 50%; bottom: -7px; width: 4px; height: 4px; margin-left: -2px; border-radius: 50%; background: #2A2A2A; }
+.dk-it:focus-visible .dk-ic { outline: 2px solid #005CFF; outline-offset: 2px; }
+.dk-lb { position: absolute; left: 50%; bottom: calc(100% + 10px); transform: translate(-50%, 4px); white-space: nowrap; padding: 6px 10px; border-radius: 8px; background: #0E0E0E; color: #fff;
+  font: 300 14px/18px "Stack Sans Text", var(--font-text); letter-spacing: -0.02em; opacity: 0; pointer-events: none; transition: opacity .15s, transform .15s; }
+.dk-it:hover .dk-lb, .dk-it:focus-visible .dk-lb { opacity: 1; transform: translate(-50%, 0); }
+@media (min-width: 701px) { .dk.dk-peek .dk-it:hover .dk-lb { opacity: 0; } }   /* Peek shows the section title in its own card */
+
+/* phone and any touch screen: a compact horizontal scroller of labelled pills (tap to jump, long-press for Peek; no hover magnify),
+   44 pt tall, above the slide controls in portrait and beside them in landscape; clear of the notch and home indicator */
+@media (max-width: 700px), (hover: none) and (pointer: coarse) {
+  .dk { left: calc(12px + env(safe-area-inset-left)); right: calc(12px + env(safe-area-inset-right)); bottom: calc(64px + env(safe-area-inset-bottom)); transform: none; border-radius: 16px; overflow: hidden; background: rgba(255, 255, 255, .86);
+    -webkit-backdrop-filter: blur(18px) saturate(1.6); backdrop-filter: blur(18px) saturate(1.6); box-shadow: 0 0 0 1px rgba(42, 42, 42, .08), 0 10px 28px rgba(0, 0, 0, .16); }
+  body:not(.present) .dk { bottom: calc(12px + env(safe-area-inset-bottom)); }
+  body.dk-film .dk, body.menu-open .dk, body.ov-open .dk, body.zoomed .dk, body.dk-foot:not(.present) .dk { transform: translateY(16px); }
+  .dk-bar { height: auto; padding: 6px; gap: 6px; align-items: center; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x proximity; scrollbar-width: none; }
+  .dk-bar::-webkit-scrollbar { display: none; }
+  .dk-bar::before { display: none; }
+  .dk-it { width: auto; height: 44px; padding: 0 14px 0 8px; display: inline-flex; align-items: center; gap: 8px; border-radius: 12px; scroll-snap-align: center; transition: background .2s;
+    -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; }
+  .dk-ic { position: static; flex: none; width: 28px; height: 28px; border-radius: 8px; font-size: 12px; }
+  .dk-lb { position: static; transform: none; opacity: 1; padding: 0; background: none; color: #2A2A2A; font-size: 14px; }
+  .dk-it:hover .dk-lb { transform: none; }
+  .dk-it.on { background: #005CFF; }
+  .dk-it.on .dk-ic { background: rgba(255, 255, 255, .2); }
+  .dk-it.on .dk-lb { color: #fff; }
+  .dk-it.on::after { display: none; }
+}
+/* landscape phone: share the bottom row with the ‹ › controls instead of stacking above them */
+@media (hover: none) and (pointer: coarse) and (orientation: landscape) and (max-height: 500px) {
+  body.present .dk { bottom: calc(14px + env(safe-area-inset-bottom)); right: calc(clamp(16px, 2.4vw, 32px) + 200px + env(safe-area-inset-right)); }
+}
+@media (prefers-reduced-motion: reduce) { .dk, .dk-it, .dk-lb { transition: none; } }

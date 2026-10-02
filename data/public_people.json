@@ -1,0 +1,119 @@
+{
+ "_note": "Public: target names/roles are public LinkedIn titles at their companies; connector names withheld.",
+ "network": {
+  "first_degree": 1359,
+  "relevant_people": 864,
+  "accounts": 119
+ },
+ "galactica": [
+  {
+   "company": "Hugging Face",
+   "person": "Leandro von Werra",
+   "role": "Head of Research (FineWeb team)",
+   "path": "2nd-degree · 1 mutual",
+   "why": "Team behind FineWeb, the open baseline"
+  },
+  {
+   "company": "DatologyAI",
+   "person": "Ari Morcos",
+   "role": "CEO and Co-founder",
+   "path": "2nd-degree · 1 mutual",
+   "why": "Curates tokens for labs; upstream channel"
+  },
+  {
+   "company": "AI21 Labs",
+   "person": "Isgav Davidowitz",
+   "role": "Director of Data",
+   "path": "2nd-degree · 1 mutual",
+   "why": "Owns data at a lab training its own models"
+  },
+  {
+   "company": "Arcee AI",
+   "person": "Lucas Atkins",
+   "role": "CTO and Head of Research",
+   "path": "2nd-degree · 1 mutual (to confirm)",
+   "why": "~20T curated tokens for Trinity"
+  },
+  {
+   "company": "Microsoft AI",
+   "person": "Xiao Guo",
+   "role": "VP of Engineering",
+   "path": "2nd-degree · 1 mutual (to confirm)",
+   "why": "Microsoft AI is building its data function"
+  }
+ ],
+ "fintech": [
+  {
+   "company": "Balyasny Asset Management",
+   "person": "Kate Lewis",
+   "role": "MD, Head of Equities Data Science & AI",
+   "path": "2nd-degree · 1 mutual",
+   "why": "Runs equities data science; backtests are the workload"
+  },
+  {
+   "company": "Hebbia",
+   "person": "Charlie Pickell",
+   "role": "Global Head of AI",
+   "path": "2nd-degree · 2 mutuals (to confirm)",
+   "why": "Matrix lives on dated citations"
+  },
+  {
+   "company": "Rogo",
+   "person": "Gabriel Stengel",
+   "role": "CEO and Founder",
+   "path": "2nd-degree · 9 mutuals",
+   "why": "Rogo runs 150,000+ queries a day"
+  },
+  {
+   "company": "Sardine",
+   "person": "Alex Kushnir",
+   "role": "Head of Commercial Development",
+   "path": "2nd-degree · 8 mutuals (to confirm)",
+   "why": "Adverse media is a live workload"
+  },
+  {
+   "company": "Bretton AI",
+   "person": "Will Lawrence",
+   "role": "CEO",
+   "path": "2nd-degree · 5 mutuals",
+   "why": "Picks web vendors by benchmark"
+  }
+ ],
+ "platform": [
+  {
+   "company": "Fireworks AI",
+   "person": "Raymond Thai",
+   "role": "Director of Product",
+   "path": "2nd-degree · 1 mutual",
+   "why": "Owns the surface where web_search lives"
+  },
+  {
+   "company": "OpenRouter",
+   "person": "Louis Vichy",
+   "role": "Co-founder",
+   "path": "2nd-degree · 4 mutuals",
+   "why": "Web plugin on every routed model"
+  },
+  {
+   "company": "LlamaIndex",
+   "person": "Jerry Liu",
+   "role": "Co-founder and CEO",
+   "path": "2nd-degree · 9 mutuals",
+   "why": "Framework default for agent builders"
+  },
+  {
+   "company": "LangChain",
+   "person": "Harrison Chase",
+   "role": "Co-founder and CEO",
+   "path": "2nd-degree · 1 mutual",
+   "why": "Widely used agent framework"
+  },
+  {
+   "company": "Hugging Face",
+   "person": "Julien Chaumond",
+   "role": "CTO",
+   "path": "2nd-degree · 8 mutuals",
+   "why": "smolagents default web tool"
+  }
+ ]
+}

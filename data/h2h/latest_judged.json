@@ -1,0 +1,6117 @@
+{
+ "source": "data/h2h/latest_raw.json",
+ "ran_at": "2026-10-01T22:14:33.590Z",
+ "judged_at": "2026-10-01T22:16:14.766Z",
+ "seed": 20261001,
+ "rule": {
+  "now": "verified = expected primary-source domain in top 10 OR a 'fact'-strength expected fact (number/date/outcome) in a top-10 title/snippet; 'topic' patterns only count toward on_topic; 'n/a' items (answer not yet public) excluded.",
+  "pit": "states_outcome = top-10 title/snippet states the post-cutoff outcome (regex fixed in queries.json); lower is better. Each provider uses its own best native date fence (see 'fence').",
+  "blinding": "providers relabelled A.. per item in seeded random order before scoring; see blind packet."
+ },
+ "board": {
+  "keenable": {
+   "label": "Keenable (pro, query_time)",
+   "auth": "key",
+   "fence": "acquired_at (index state at query_time)",
+   "calls": 47,
+   "ok": 47,
+   "errors": 0,
+   "error_samples": [],
+   "latency_ms": {
+    "p50": 497,
+    "p95": 1212,
+    "p99": 1311,
+    "max": 1311,
+    "note": "client wall-clock incl. TLS"
+   },
+   "now": {
+    "queries": 40,
+    "judged": 39,
+    "verified": 23,
+    "verified_rate": 0.59,
+    "on_topic": 39,
+    "gold_top3": 11,
+    "gold_top10": 14,
+    "by_segment": {
+     "research": "6/9",
+     "aml": "7/10",
+     "kyb": "7/10",
+     "agents": "3/10"
+    }
+   },
+   "pit": {
+    "events": 7,
+    "results": 70,
+    "states_outcome": 1,
+    "published_after_cutoff": 1,
+    "acquired_after_cutoff": 0,
+    "undated": 34,
+    "per_event": [
+     {
+      "item": "Microsoft Activision Blizzard acquisition closed",
+      "n": 10,
+      "states_outcome": 0,
+      "undated": 5,
+      "outcome_examples": []
+     },
+     {
+      "item": "Silicon Valley Bank deposit outflows",
+      "n": 10,
+      "states_outcome": 0,
+      "undated": 9,
+      "outcome_examples": []
+     },
+     {
+      "item": "Credit Suisse UBS merger",
+      "n": 10,
+      "states_outcome": 0,
+      "undated": 3,
+      "outcome_examples": []
+     },
+     {
+      "item": "FTX bankruptcy filing",
+      "n": 10,
+      "states_outcome": 1,
+      "undated": 3,
+      "outcome_examples": [
+       {
+        "host": "todaynewspost.com",
+        "title": "Bankman-Fried, founder and CEO of Crypto exchange FTX, says the company has &quot;a few billion&quot; to support the emb",
+        "published_at": "2022-07-07T15:14:29Z",
+        "acquired_at": "2022-10-04T23:03:55Z"
+       }
+      ]
+     },
+     {
+      "item": "Nvidia market capitalization",
+      "n": 10,
+      "states_outcome": 0,
+      "undated": 8,
+      "outcome_examples": []
+     },
+     {
+      "item": "Sam Bankman-Fried sentenced years prison",
+      "n": 10,
+      "states_outcome": 0,
+      "undated": 3,
+      "outcome_examples": []
+     },
+     {
+      "item": "Keenable Baseten partnership",
+      "n": 10,
+      "states_outcome": 0,
+      "undated": 3,
+      "outcome_examples": []
+     }
+    ]
+   },
+   "cost": {
+    "list_per_1k": 4,
+    "floor_per_1k": 1,
+    "note": "$4/1K Agent Builder pay-go; $1/1K Frontier at 100+ RPS (keenable.ai/pricing). Keyless calls bill $0.",
+    "reported_usd": null,
+    "this_run_list_usd": 0.188,
+    "list_usd_per_verified_answer": 0.007,
+    "per_10m_queries_yr_list_usd": 40000,
+    "per_10m_queries_yr_floor_usd": 10000
+   },
+   "pit_llm": {
+    "model": "anthropic/claude-sonnet-5.5",
+    "results_labelled": 70,
+    "events_labelled": 7,
+    "leaks-outcome": 5,
+    "useful-pre-event-evidence": 30,
+    "related-but-weak": 29,
+    "irrelevant": 6,
+    "leak_share": 0.071,
+    "useful_at_10_mean": 4.29,
+    "events_with_any_useful": 6
+   }
+  },
+  "keenable_pubdate": {
+   "label": "Keenable (pro, published_before)",
+   "auth": "key",
+   "fence": "published_at metadata (published_before = day before cutoff)",
+   "calls": 7,
+   "ok": 7,
+   "errors": 0,
+   "error_samples": [],
+   "latency_ms": {
+    "p50": 698,
+    "p95": 3792,
+    "p99": 3792,
+    "max": 3792,
+    "note": "client wall-clock incl. TLS"
+   },
+   "now": null,
+   "pit": {
+    "events": 7,
+    "results": 70,
+    "states_outcome": 31,
+    "published_after_cutoff": 0,
+    "acquired_after_cutoff": 64,
+    "undated": 1,
+    "per_event": [
+     {
+      "item": "Microsoft Activision Blizzard acquisition closed",
+      "n": 10,
+      "states_outcome": 7,
+      "undated": 0,
+      "outcome_examples": [
+       {
+        "host": "wikipedia-org.zproxy.org",
+        "title": "business acquisition held from 2022 to 2023",
+        "published_at": "2022-01-21T05:01:41Z",
+        "acquired_at": "2026-05-14T23:15:16Z"
+       },
+       {
+        "host": "en-wikipedia-org.translate.goog",
+        "title": "Acquisition of Activision Blizzard by Microsoft",
+        "published_at": "2022-01-21T05:01:41Z",
+        "acquired_at": "2026-09-21T17:07:04Z"
+       },
+       {
+        "host": "gamedatacrunch.com",
+        "title": "Activision Blizzard Share Price: Why It (Technically) Doesn't Exist Anymore",
+        "published_at": "2021-11-22T19:09:49Z",
+        "acquired_at": "2026-08-15T08:24:10Z"
+       }
+      ]
+     },
+     {
+      "item": "Silicon Valley Bank deposit outflows",
+      "n": 10,
+      "states_outcome": 7,
+      "undated": 0,
+      "outcome_examples": [
+       {
+        "host": "sciencedirect.com",
+        "title": "Repercussions of the Silicon Valley Bank collapse on global stock markets",
+        "published_at": "2023-01-01T00:00:00Z",
+        "acquired_at": "2026-09-10T21:41:33Z"
+       },
+       {
+        "host": "notthebee.com",
+        "title": "Here's a crash (sorry) course on what happened with the historic collapse of Silicon Valley Bank",
+        "published_at": "2020-03-16T12:10:07Z",
+        "acquired_at": "2026-05-20T12:09:57Z"
+       },
+       {
+        "host": "convextrade.com",
+        "title": "2023 Silicon Valley Bank Collapse",
+        "published_at": "2023-03-08T03:17:05Z",
+        "acquired_at": "2026-05-27T03:17:02Z"
+       }
+      ]
+     },
+     {
+      "item": "Credit Suisse UBS merger",
+      "n": 10,
+      "states_outcome": 1,
+      "undated": 0,
+      "outcome_examples": [
+       {
+        "host": "everything-pr.com",
+        "title": "UBS After Credit Suisse: The $1.7 Trillion Wealth Manager",
+        "published_at": "2011-01-18T10:46:52Z",
+        "acquired_at": "2026-09-20T16:09:19Z"
+       }
+      ]
+     },
+     {
+      "item": "FTX bankruptcy filing",
+      "n": 10,
+      "states_outcome": 7,
+      "undated": 0,
+      "outcome_examples": [
+       {
+        "host": "everipedia.org",
+        "title": "FTX",
+        "published_at": "2022-07-19T18:13:50Z",
+        "acquired_at": "2026-04-23T16:32:15Z"
+       },
+       {
+        "host": "iq.wiki",
+        "title": "FTX",
+        "published_at": "2022-07-19T18:13:50Z",
+        "acquired_at": "2026-07-04T07:16:18Z"
+       },
+       {
+        "host": "vanishedbrands.com",
+        "title": "Is FTX Discontinued? What Happened to FTX?",
+        "published_at": "2019-01-01T03:13:48Z",
+        "acquired_at": "2026-05-18T03:13:24Z"
+       }
+      ]
+     },
+     {
+      "item": "Nvidia market capitalization",
+      "n": 10,
+      "states_outcome": 6,
+      "undated": 0,
+      "outcome_examples": [
+       {
+        "host": "en-wikipedia-org.translate.goog",
+        "title": "American multinational technology company",
+        "published_at": "2002-02-15T02:54:58Z",
+        "acquired_at": "2026-09-12T00:50:58Z"
+       },
+       {
+        "host": "translate.google.com",
+        "title": "American multinational technology company",
+        "published_at": "2002-02-15T02:54:58Z",
+        "acquired_at": "2026-07-11T10:40:01Z"
+       },
+       {
+        "host": "en.wikipedia.org",
+        "title": "Nvidia",
+        "published_at": "2002-02-15T02:54:58Z",
+        "acquired_at": "2026-07-09T03:13:15Z"
+       }
+      ]
+     },
+     {
+      "item": "Sam Bankman-Fried sentenced years prison",
+      "n": 10,
+      "states_outcome": 3,
+      "undated": 0,
+      "outcome_examples": [
+       {
+        "host": "sbf.courtdaemon.com",
+        "title": "Sam Bankman-Fried Case Timeline",
+        "published_at": "2022-12-13T00:00:00Z",
+        "acquired_at": "2026-09-19T09:57:29Z"
+       },
+       {
+        "host": "theconversation.com",
+        "title": "Sam Bankman-Fried sentenced to 25 years − how he went from $30B crypto CEO to prison inmate",
+        "published_at": "2023-11-07T00:00:00Z",
+        "acquired_at": "2026-09-11T06:16:28Z"
+       },
+       {
+        "host": "techopedia.com",
+        "title": "The Sam Bankman-Fried Saga: From Crypto Tycoon to Fraudster",
+        "published_at": "2023-08-10T08:55:24Z",
+        "acquired_at": "2026-06-21T17:19:31Z"
+       }
+      ]
+     },
+     {
+      "item": "Keenable Baseten partnership",
+      "n": 10,
+      "states_outcome": 0,
+      "undated": 1,
+      "outcome_examples": []
+     }
+    ]
+   },
+   "cost": {
+    "list_per_1k": 4,
+    "floor_per_1k": 1,
+    "note": "same SKU as keenable",
+    "reported_usd": null,
+    "this_run_list_usd": 0.028,
+    "list_usd_per_verified_answer": null,
+    "per_10m_queries_yr_list_usd": 40000,
+    "per_10m_queries_yr_floor_usd": 10000
+   },
+   "pit_llm": {
+    "model": "anthropic/claude-sonnet-5.5",
+    "results_labelled": 70,
+    "events_labelled": 7,
+    "leaks-outcome": 53,
+    "useful-pre-event-evidence": 2,
+    "related-but-weak": 13,
+    "irrelevant": 2,
+    "leak_share": 0.757,
+    "useful_at_10_mean": 0.29,
+    "events_with_any_useful": 2
+   }
+  },
+  "keenable_nofence": {
+   "label": "Keenable (pro, no fence)",
+   "auth": "key",
+   "fence": "none (control arm)",
+   "calls": 7,
+   "ok": 7,
+   "errors": 0,
+   "error_samples": [],
+   "latency_ms": {
+    "p50": 510,
+    "p95": 797,
+    "p99": 797,
+    "max": 797,
+    "note": "client wall-clock incl. TLS"
+   },
+   "now": null,
+   "pit": {
+    "events": 7,
+    "results": 70,
+    "states_outcome": 34,
+    "published_after_cutoff": 39,
+    "acquired_after_cutoff": 69,
+    "undated": 31,
+    "per_event": [
+     {
+      "item": "Microsoft Activision Blizzard acquisition closed",
+      "n": 10,
+      "states_outcome": 6,
+      "undated": 2,
+      "outcome_examples": [
+       {
+        "host": "medium.com",
+        "title": "How Activision Blizzard Became a Microsoft Subsidiary: What It Teaches Us About Global Business…",
+        "published_at": "2026-07-19T15:27:10Z",
+        "acquired_at": "2026-07-22T09:04:41Z"
+       },
+       {
+        "host": "blog.rottenwifi.com",
+        "title": "Microsoft Settles Gamers’ Antitrust Lawsuit Over $68.7 Billion Activision Blizzard Acquisition",
+        "published_at": "2026-08-16T17:59:57Z",
+        "acquired_at": "2026-09-11T11:18:57Z"
+       },
+       {
+        "host": "ad-hoc-news.de",
+        "title": "Activision Blizzard stock (US00507V1098): Microsoft deal closes and delisting ends an era for gamers",
+        "published_at": "2026-05-17T18:45:29Z",
+        "acquired_at": "2026-05-26T23:22:05Z"
+       }
+      ]
+     },
+     {
+      "item": "Silicon Valley Bank deposit outflows",
+      "n": 10,
+      "states_outcome": 4,
+      "undated": 3,
+      "outcome_examples": [
+       {
+        "host": "bankingjournal.aba.com",
+        "title": "ABA DataBank: Depositor behavior during the 2023 bank failures | ABA Banking Journal",
+        "published_at": "2026-09-30T13:51:12Z",
+        "acquired_at": "2026-09-30T15:52:06Z"
+       },
+       {
+        "host": "grokipedia.com",
+        "title": "Collapse of Silicon Valley Bank",
+        "published_at": "2026-03-27T19:38:25Z",
+        "acquired_at": "2026-07-14T04:36:04Z"
+       },
+       {
+        "host": "cmsapi.theepochtimes.com",
+        "title": "Fed Chair Powell on SVB Collapse: ‘Management Failed Badly,’ While Speed of Bank Run Surprised Regulators",
+        "published_at": null,
+        "acquired_at": "2026-08-22T06:32:31Z"
+       }
+      ]
+     },
+     {
+      "item": "Credit Suisse UBS merger",
+      "n": 10,
+      "states_outcome": 3,
+      "undated": 7,
+      "outcome_examples": [
+       {
+        "host": "m.timesofoman.com",
+        "title": "Switzerland: UBS completes Credit Suisse takeover",
+        "published_at": null,
+        "acquired_at": "2026-05-18T00:32:03Z"
+       },
+       {
+        "host": "p41bgw.atlantafigures.org",
+        "title": "which bank stock is a better buy",
+        "published_at": null,
+        "acquired_at": "2026-09-23T12:39:39Z"
+       },
+       {
+        "host": "legalclarity.org",
+        "title": "Who Owns Credit Suisse? It No Longer Exists - LegalClarity",
+        "published_at": "2026-06-15T04:05:48Z",
+        "acquired_at": "2026-07-26T05:38:17Z"
+       }
+      ]
+     },
+     {
+      "item": "FTX bankruptcy filing",
+      "n": 10,
+      "states_outcome": 0,
+      "undated": 6,
+      "outcome_examples": []
+     },
+     {
+      "item": "Nvidia market capitalization",
+      "n": 10,
+      "states_outcome": 6,
+      "undated": 4,
+      "outcome_examples": [
+       {
+        "host": "companiesmarketcap.com",
+        "title": "NVIDIA (NVDA) - Market capitalization",
+        "published_at": null,
+        "acquired_at": "2026-09-20T01:13:47Z"
+       },
+       {
+        "host": "tradingview.com",
+        "title": "Nvidia's $5.4 Trillion Market Cap 'Seems Crazy' Next to $3.5 Trillion Russell 2000 Total, Says Charlie Bilello",
+        "published_at": "2026-09-28T10:40:01Z",
+        "acquired_at": "2026-09-30T11:18:11Z"
+       },
+       {
+        "host": "newsbreak.com",
+        "title": "Nvidia's $5.4 Trillion Market Cap 'Seems Crazy' Next to $3.5 Trillion Russell 2000 Total, Says Charlie Bilello - NewsBre",
+        "published_at": "2026-09-28T10:40:01Z",
+        "acquired_at": "2026-09-29T19:52:32Z"
+       }
+      ]
+     },
+     {
+      "item": "Sam Bankman-Fried sentenced years prison",
+      "n": 10,
+      "states_outcome": 10,
+      "undated": 8,
+      "outcome_examples": [
+       {
+        "host": "en.wikipedia.org",
+        "title": "Sam Bankman-Fried",
+        "published_at": "2026-09-27T04:21:54Z",
+        "acquired_at": "2026-09-28T23:12:59Z"
+       },
+       {
+        "host": "economictimes.indiatimes.com",
+        "title": "Fallen crypto mogul Sam Bankman-Fried sentenced to 25 years in prison",
+        "published_at": null,
+        "acquired_at": "2026-06-17T09:09:57Z"
+       },
+       {
+        "host": "economictimes.indiatimes.com",
+        "title": "Sam Bankman-Fried sentenced to 25 years in prison for multi-billion dollar FTX fraud",
+        "published_at": null,
+        "acquired_at": "2026-06-18T22:10:41Z"
+       }
+      ]
+     },
+     {
+      "item": "Keenable Baseten partnership",
+      "n": 10,
+      "states_outcome": 5,
+      "undated": 1,
+      "outcome_examples": [
+       {
+        "host": "keenable.ai",
+        "title": "Keenable partners with Baseten to make web search native to inference - Keenable.ai",
+        "published_at": "2026-09-16T00:00:00Z",
+        "acquired_at": "2026-09-16T20:51:53Z"
+       },
+       {
+        "host": "baseten.co",
+        "title": "Introducing Baseten Hosted Tools",
+        "published_at": "2026-09-16T16:52:23Z",
+        "acquired_at": "2026-09-17T07:31:40Z"
+       },
+       {
+        "host": "docs.keenable.ai",
+        "title": "Baseten",
+        "published_at": "2026-09-16T14:41:54Z",
+        "acquired_at": "2026-09-17T15:28:06Z"
+       }
+      ]
+     }
+    ]
+   },
+   "cost": {
+    "list_per_1k": 4,
+    "floor_per_1k": 1,
+    "note": "same SKU as keenable",
+    "reported_usd": null,
+    "this_run_list_usd": 0.028,
+    "list_usd_per_verified_answer": null,
+    "per_10m_queries_yr_list_usd": 40000,
+    "per_10m_queries_yr_floor_usd": 10000
+   },
+   "pit_llm": {
+    "model": "anthropic/claude-sonnet-5.5",
+    "results_labelled": 70,
+    "events_labelled": 7,
+    "leaks-outcome": 64,
+    "useful-pre-event-evidence": 1,
+    "related-but-weak": 3,
+    "irrelevant": 2,
+    "leak_share": 0.914,
+    "useful_at_10_mean": 0.14,
+    "events_with_any_useful": 1
+   }
+  },
+  "tavily": {
+   "label": "Tavily (basic)",
+   "auth": "key",
+   "fence": "published or last-updated date (end_date)",
+   "calls": 47,
+   "ok": 47,
+   "errors": 0,
+   "error_samples": [],
+   "latency_ms": {
+    "p50": 2007,
+    "p95": 3451,
+    "p99": 4900,
+    "max": 4900,
+    "note": "client wall-clock incl. TLS"
+   },
+   "now": {
+    "queries": 40,
+    "judged": 39,
+    "verified": 37,
+    "verified_rate": 0.949,
+    "on_topic": 39,
+    "gold_top3": 20,
+    "gold_top10": 36,
+    "by_segment": {
+     "research": "9/9",
+     "aml": "10/10",
+     "kyb": "8/10",
+     "agents": "10/10"
+    }
+   },
+   "pit": {
+    "events": 7,
+    "results": 69,
+    "states_outcome": 16,
+    "published_after_cutoff": 0,
+    "acquired_after_cutoff": 0,
+    "undated": 69,
+    "per_event": [
+     {
+      "item": "Microsoft Activision Blizzard acquisition closed",
+      "n": 10,
+      "states_outcome": 0,
+      "undated": 10,
+      "outcome_examples": []
+     },
+     {
+      "item": "Silicon Valley Bank deposit outflows",
+      "n": 10,
+      "states_outcome": 3,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "fsb.org",
+        "title": "2023 Bank Failures: Preliminary lessons learnt for resolution",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "facebook.com",
+        "title": "The banking sector vulnerable to funding risk arising ...",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "gao.gov",
+        "title": "Actions Related to the Spring 2023 Bank Failures",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "Credit Suisse UBS merger",
+      "n": 9,
+      "states_outcome": 0,
+      "undated": 9,
+      "outcome_examples": []
+     },
+     {
+      "item": "FTX bankruptcy filing",
+      "n": 10,
+      "states_outcome": 5,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "coinbase.com",
+        "title": "Coinbase Bytes newsletter",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "avark.agency",
+        "title": "FTX: How a $32 Billion Empire Collapsed in 9 Days | Avark",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "freemanlaw.com",
+        "title": "Holding Digital Assets Through Custodial Wallets",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "Nvidia market capitalization",
+      "n": 10,
+      "states_outcome": 2,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "marketchameleon.com",
+        "title": "NVDA Stock Quote | Price Chart | Volume Chart Nvidia",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "youtube.com",
+        "title": "Josh Brown really does believe Nvidia could hit $1 trillion ...",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "Sam Bankman-Fried sentenced years prison",
+      "n": 10,
+      "states_outcome": 4,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "theguardian.com",
+        "title": "Sam Bankman-Fried | Page 2 of 8",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "facebook.com",
+        "title": "Sam Bankman-Fried, 32, is scheduled to be sentenced on ...",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "fcpa.stanford.edu",
+        "title": "Foreign Corrupt Practices Act: Enforcement Action Dataset",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "Keenable Baseten partnership",
+      "n": 10,
+      "states_outcome": 2,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "keenable.ai",
+        "title": "SELECT the tail FROM the web - Keenable.ai",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "keenable.ai",
+        "title": "Keenable Blog - Notes on Agent Search and Retrieval",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     }
+    ]
+   },
+   "cost": {
+    "list_per_1k": 8,
+    "floor_per_1k": 8,
+    "note": "$0.008/credit, basic = 1 credit (tavily.com/pricing); free tier 1,000 credits/mo",
+    "reported_usd": null,
+    "this_run_list_usd": 0.376,
+    "list_usd_per_verified_answer": 0.009,
+    "per_10m_queries_yr_list_usd": 80000,
+    "per_10m_queries_yr_floor_usd": 80000
+   },
+   "pit_llm": {
+    "model": "anthropic/claude-sonnet-5.5",
+    "results_labelled": 69,
+    "events_labelled": 7,
+    "leaks-outcome": 35,
+    "useful-pre-event-evidence": 17,
+    "related-but-weak": 12,
+    "irrelevant": 5,
+    "leak_share": 0.507,
+    "useful_at_10_mean": 2.43,
+    "events_with_any_useful": 5
+   }
+  },
+  "exa": {
+   "label": "Exa (auto + highlights)",
+   "auth": "key",
+   "fence": "published date (endPublishedDate); crawl-date filters are deprecated and ignored",
+   "calls": 47,
+   "ok": 47,
+   "errors": 0,
+   "error_samples": [],
+   "latency_ms": {
+    "p50": 1042,
+    "p95": 2111,
+    "p99": 3177,
+    "max": 3177,
+    "note": "client wall-clock incl. TLS"
+   },
+   "now": {
+    "queries": 40,
+    "judged": 39,
+    "verified": 39,
+    "verified_rate": 1,
+    "on_topic": 39,
+    "gold_top3": 33,
+    "gold_top10": 38,
+    "by_segment": {
+     "research": "9/9",
+     "aml": "10/10",
+     "kyb": "10/10",
+     "agents": "10/10"
+    }
+   },
+   "pit": {
+    "events": 7,
+    "results": 70,
+    "states_outcome": 31,
+    "published_after_cutoff": 0,
+    "acquired_after_cutoff": 0,
+    "undated": 69,
+    "per_event": [
+     {
+      "item": "Microsoft Activision Blizzard acquisition closed",
+      "n": 10,
+      "states_outcome": 3,
+      "undated": 9,
+      "outcome_examples": [
+       {
+        "host": "en.wikipedia.org",
+        "title": "Acquisition of Activision Blizzard by Microsoft",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "gamedeveloper.com",
+        "title": "What's happening with Microsoft's Activision Blizzard merger?",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "orbispatches.com",
+        "title": "Is Microsoft paying cash for Activision?",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "Silicon Valley Bank deposit outflows",
+      "n": 10,
+      "states_outcome": 5,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "fdic.gov",
+        "title": "An Analysis of the Spring 2023 Bank Failures",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "fdic.gov",
+        "title": "FDIC Releases Staff Study of Deposit Flows at Three Failed Banks in Spring 2023 | FDIC.gov",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "en.wikipedia.org",
+        "title": "Collapse of Silicon Valley Bank",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "Credit Suisse UBS merger",
+      "n": 10,
+      "states_outcome": 1,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "ubs.com",
+        "title": "UBS to acquire Credit Suisse",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "FTX bankruptcy filing",
+      "n": 10,
+      "states_outcome": 8,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "wehco.media.clients.ellingtoncms.com",
+        "title": "I, John J. Ray III, hereby declare under penalty of perjury as follows:",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "storage.courtlistener.com",
+        "title": "",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "storage.courtlistener.com",
+        "title": "Voluntary Petition for Non-Individuals Filing for Bankruptcy",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "Nvidia market capitalization",
+      "n": 10,
+      "states_outcome": 3,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "stockanalysis.com",
+        "title": "NVIDIA (NVDA) Statistics & Valuation",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "stockanalysis.com",
+        "title": "NVIDIA (NVDA) Market Cap & Net Worth",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "companiesmarketcap.com",
+        "title": "NVIDIA (NVDA) - Market capitalization - Companies Market Cap",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "Sam Bankman-Fried sentenced years prison",
+      "n": 10,
+      "states_outcome": 7,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "apnews.com",
+        "title": "FTX founder Sam Bankman-Fried sentenced to 25 years in prison | AP News",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "cbsnews.com",
+        "title": "Sam Bankman-Fried sentenced to 25 years in prison for his role in collapse of FTX crypto exchange - CBS News",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "cnn.com",
+        "title": "March 28 2024: Sam Bankman-Fried sentenced to 25 years in prison | CNN Business",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "Keenable Baseten partnership",
+      "n": 10,
+      "states_outcome": 4,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "plushcap.com",
+        "title": "Keenable partners with Baseten to make web search native to inference",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "keenable.ai",
+        "title": "Keenable.ai — Independent Web Search API for AI",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "keenable.ai",
+        "title": "Keenable now runs inside Lightpanda",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     }
+    ]
+   },
+   "cost": {
+    "list_per_1k": 17,
+    "floor_per_1k": 17,
+    "note": "$7/1K auto search + $1/1K pages highlights x 10 results (exa.ai/pricing); actual costDollars recorded when returned; $10 free credit/mo",
+    "reported_usd": 0.329,
+    "this_run_list_usd": 0.799,
+    "list_usd_per_verified_answer": 0.017,
+    "per_10m_queries_yr_list_usd": 170000,
+    "per_10m_queries_yr_floor_usd": 170000
+   },
+   "pit_llm": {
+    "model": "anthropic/claude-sonnet-5.5",
+    "results_labelled": 70,
+    "events_labelled": 7,
+    "leaks-outcome": 57,
+    "useful-pre-event-evidence": 9,
+    "related-but-weak": 3,
+    "irrelevant": 1,
+    "leak_share": 0.814,
+    "useful_at_10_mean": 1.29,
+    "events_with_any_useful": 4
+   }
+  },
+  "parallel": {
+   "label": "Parallel Search (fast)",
+   "auth": "key",
+   "fence": "none before a date (source_policy only has after_date) — PIT arm runs unfenced",
+   "calls": 47,
+   "ok": 47,
+   "errors": 0,
+   "error_samples": [],
+   "latency_ms": {
+    "p50": 1120,
+    "p95": 3576,
+    "p99": 5799,
+    "max": 5799,
+    "note": "client wall-clock incl. TLS"
+   },
+   "now": {
+    "queries": 40,
+    "judged": 39,
+    "verified": 35,
+    "verified_rate": 0.897,
+    "on_topic": 39,
+    "gold_top3": 27,
+    "gold_top10": 34,
+    "by_segment": {
+     "research": "9/9",
+     "aml": "8/10",
+     "kyb": "10/10",
+     "agents": "8/10"
+    }
+   },
+   "pit": {
+    "events": 7,
+    "results": 70,
+    "states_outcome": 32,
+    "published_after_cutoff": 34,
+    "acquired_after_cutoff": 0,
+    "undated": 34,
+    "per_event": [
+     {
+      "item": "Microsoft Activision Blizzard acquisition closed",
+      "n": 10,
+      "states_outcome": 4,
+      "undated": 5,
+      "outcome_examples": [
+       {
+        "host": "sec.gov",
+        "title": "",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "cnbc.com",
+        "title": "Microsoft closes Activision Blizzard deal after regulatory review",
+        "published_at": "2023-10-13",
+        "acquired_at": null
+       },
+       {
+        "host": "en.wikipedia.org",
+        "title": "Acquisition of Activision Blizzard by Microsoft - Wikipedia",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "Silicon Valley Bank deposit outflows",
+      "n": 10,
+      "states_outcome": 1,
+      "undated": 5,
+      "outcome_examples": [
+       {
+        "host": "cnn.com",
+        "title": "Big banks experience deposit spike after Silicon Valley Bank collapse | CNN Business",
+        "published_at": "2023-03-15",
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "Credit Suisse UBS merger",
+      "n": 10,
+      "states_outcome": 1,
+      "undated": 4,
+      "outcome_examples": [
+       {
+        "host": "cnbc.com",
+        "title": "UBS buys Credit Suisse for $3.2 billion as regulators look to shore up the global banking system",
+        "published_at": "2023-03-19",
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "FTX bankruptcy filing",
+      "n": 10,
+      "states_outcome": 8,
+      "undated": 4,
+      "outcome_examples": [
+       {
+        "host": "wsj.com",
+        "title": "FTX Files for Bankruptcy, CEO Sam Bankman-Fried Resigns",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "abcnews.com",
+        "title": "What FTX's bankruptcy filing means for the future of digital currency - ABC News",
+        "published_at": "2022-12-22",
+        "acquired_at": null
+       },
+       {
+        "host": "qz.com",
+        "title": "Read the full text of FTX's bankruptcy filing",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "Nvidia market capitalization",
+      "n": 10,
+      "states_outcome": 4,
+      "undated": 9,
+      "outcome_examples": [
+       {
+        "host": "companiesmarketcap.com",
+        "title": "NVIDIA (NVDA) - Market capitalization",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "marketcap.company",
+        "title": "#1 Ranked NVIDIA Corporation (NASDAQ:NVDA) Market Cap & Net Worth Analysis: $5.06 Trillion | Global Leader in USA",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "techtarget.com",
+        "title": "What's going on with Nvidia stock and the booming AI market?",
+        "published_at": "2025-08-15",
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "Sam Bankman-Fried sentenced years prison",
+      "n": 10,
+      "states_outcome": 9,
+      "undated": 1,
+      "outcome_examples": [
+       {
+        "host": "justice.gov",
+        "title": " Southern District of New York |  Samuel Bankman-Fried Sentenced To 25 Years In Prison | United States Department of Jus",
+        "published_at": "2024-04-30",
+        "acquired_at": null
+       },
+       {
+        "host": "abcnews.com",
+        "title": "Disgraced former FTX CEO Sam Bankman-Fried sentenced to 25 years for financial fraud, must forfeit $11 billion for victi",
+        "published_at": "2024-03-28",
+        "acquired_at": null
+       },
+       {
+        "host": "cnn.com",
+        "title": "Sam Bankman-Fried sentenced to 25 years in federal prison | CNN Business",
+        "published_at": "2024-03-28",
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "Keenable Baseten partnership",
+      "n": 10,
+      "states_outcome": 5,
+      "undated": 6,
+      "outcome_examples": [
+       {
+        "host": "keenable.ai",
+        "title": "Keenable partners with Baseten to make web search native to inference - Keenable.ai",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "docs.keenable.ai",
+        "title": "Baseten - Keenable",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "baseten.co",
+        "title": "Introducing Baseten Hosted Tools",
+        "published_at": "2026-09-16",
+        "acquired_at": null
+       }
+      ]
+     }
+    ]
+   },
+   "cost": {
+    "list_per_1k": 1,
+    "floor_per_1k": 1,
+    "note": "fast mode $1/1K, ~700 ms claimed (parallel.ai/pricing); set H2H_PARALLEL_MODE=basic|advanced for $5/1K modes",
+    "reported_usd": null,
+    "this_run_list_usd": 0.047,
+    "list_usd_per_verified_answer": 0.001,
+    "per_10m_queries_yr_list_usd": 10000,
+    "per_10m_queries_yr_floor_usd": 10000
+   },
+   "pit_llm": {
+    "model": "anthropic/claude-sonnet-5.5",
+    "results_labelled": 70,
+    "events_labelled": 7,
+    "leaks-outcome": 61,
+    "useful-pre-event-evidence": 2,
+    "related-but-weak": 2,
+    "irrelevant": 5,
+    "leak_share": 0.871,
+    "useful_at_10_mean": 0.29,
+    "events_with_any_useful": 2
+   }
+  },
+  "linkup": {
+   "label": "Linkup (standard)",
+   "auth": "key",
+   "fence": "published date (toDate)",
+   "calls": 47,
+   "ok": 47,
+   "errors": 0,
+   "error_samples": [],
+   "latency_ms": {
+    "p50": 1908,
+    "p95": 2663,
+    "p99": 3588,
+    "max": 3588,
+    "note": "client wall-clock incl. TLS"
+   },
+   "now": {
+    "queries": 40,
+    "judged": 39,
+    "verified": 25,
+    "verified_rate": 0.641,
+    "on_topic": 37,
+    "gold_top3": 11,
+    "gold_top10": 19,
+    "by_segment": {
+     "research": "5/9",
+     "aml": "8/10",
+     "kyb": "7/10",
+     "agents": "5/10"
+    }
+   },
+   "pit": {
+    "events": 7,
+    "results": 69,
+    "states_outcome": 10,
+    "published_after_cutoff": 0,
+    "acquired_after_cutoff": 0,
+    "undated": 69,
+    "per_event": [
+     {
+      "item": "Microsoft Activision Blizzard acquisition closed",
+      "n": 10,
+      "states_outcome": 0,
+      "undated": 10,
+      "outcome_examples": []
+     },
+     {
+      "item": "Silicon Valley Bank deposit outflows",
+      "n": 10,
+      "states_outcome": 2,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "fsb.org",
+        "title": "2023 Bank Failures Preliminary lessons learnt for resolution 10 October 2023",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "americanbanker.com",
+        "title": "Law and regulation - Latest News | American Banker",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "Credit Suisse UBS merger",
+      "n": 10,
+      "states_outcome": 0,
+      "undated": 10,
+      "outcome_examples": []
+     },
+     {
+      "item": "FTX bankruptcy filing",
+      "n": 9,
+      "states_outcome": 4,
+      "undated": 9,
+      "outcome_examples": [
+       {
+        "host": "avark.agency",
+        "title": "FTX: How a $32 Billion Empire Collapsed in 9 Days | Avark",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "thisweekincrypto.substack.com",
+        "title": "Crypto Weekly 7/2/22 - by Maaria Bajwa - Crypto Weekly",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "thisweekincrypto.substack.com",
+        "title": "Crypto Weekly 7/24/22 - by Maaria Bajwa - Crypto Weekly",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "Nvidia market capitalization",
+      "n": 10,
+      "states_outcome": 3,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "investor10.com",
+        "title": "Nvidia (NVDA): Stock Price, Earnings & Key Metrics - Investor10",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "xm.com",
+        "title": "Nvidia market cap on verge of exceeding Amazon",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "home.saxo",
+        "title": "Nvidia's stock is selling off: Risks, opportunities, and what could be next | Saxo",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "Sam Bankman-Fried sentenced years prison",
+      "n": 10,
+      "states_outcome": 0,
+      "undated": 10,
+      "outcome_examples": []
+     },
+     {
+      "item": "Keenable Baseten partnership",
+      "n": 10,
+      "states_outcome": 1,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "keenable.ai",
+        "title": "Keenable Blog - Notes on Agent Search and Retrieval",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     }
+    ]
+   },
+   "cost": {
+    "list_per_1k": 6,
+    "floor_per_1k": 5,
+    "note": "standard search $0.005-0.006 per request (linkup.so/pricing, read 2026-10-01; currency not stated on page); 4,000 free queries",
+    "reported_usd": null,
+    "this_run_list_usd": 0.282,
+    "list_usd_per_verified_answer": 0.01,
+    "per_10m_queries_yr_list_usd": 60000,
+    "per_10m_queries_yr_floor_usd": 50000
+   },
+   "pit_llm": {
+    "model": "anthropic/claude-sonnet-5.5",
+    "results_labelled": 69,
+    "events_labelled": 7,
+    "leaks-outcome": 15,
+    "useful-pre-event-evidence": 25,
+    "related-but-weak": 23,
+    "irrelevant": 6,
+    "leak_share": 0.217,
+    "useful_at_10_mean": 3.57,
+    "events_with_any_useful": 5
+   }
+  },
+  "firecrawl": {
+   "label": "Firecrawl search",
+   "auth": "key",
+   "fence": "Google-style custom date range (tbs=cdr:1,cd_max) — publish-date based",
+   "calls": 47,
+   "ok": 44,
+   "errors": 3,
+   "error_samples": [
+    "429 Rate limit exceeded. Consumed (req/min): 22, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or please retr",
+    "429 Rate limit exceeded. Consumed (req/min): 25, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or please retr",
+    "429 Rate limit exceeded. Consumed (req/min): 28, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or please retr"
+   ],
+   "latency_ms": {
+    "p50": 1629,
+    "p95": 6614,
+    "p99": 26715,
+    "max": 26715,
+    "note": "client wall-clock incl. TLS"
+   },
+   "now": {
+    "queries": 40,
+    "judged": 36,
+    "verified": 34,
+    "verified_rate": 0.944,
+    "on_topic": 35,
+    "gold_top3": 30,
+    "gold_top10": 35,
+    "by_segment": {
+     "research": "5/6",
+     "aml": "9/10",
+     "kyb": "10/10",
+     "agents": "10/10"
+    }
+   },
+   "pit": {
+    "events": 7,
+    "results": 70,
+    "states_outcome": 37,
+    "published_after_cutoff": 0,
+    "acquired_after_cutoff": 0,
+    "undated": 70,
+    "per_event": [
+     {
+      "item": "Microsoft Activision Blizzard acquisition closed",
+      "n": 10,
+      "states_outcome": 1,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "bbc.com",
+        "title": "Microsoft completes $69bn takeover of Call of Duty maker Activision Blizzard",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "Silicon Valley Bank deposit outflows",
+      "n": 10,
+      "states_outcome": 7,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "simon.rochester.edu",
+        "title": "The Collapse of Silicon Valley Bank (SVB) - Simon Business School",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "en.wikipedia.org",
+        "title": "Collapse of Silicon Valley Bank - Wikipedia",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "every.io",
+        "title": "SVB's collapse explained in 6 steps - Every.io",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "Credit Suisse UBS merger",
+      "n": 10,
+      "states_outcome": 2,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "ubs.com",
+        "title": "UBS to acquire Credit Suisse",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "cnn.com",
+        "title": "UBS completes Credit Suisse takeover | CNN Business",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "FTX bankruptcy filing",
+      "n": 10,
+      "states_outcome": 8,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "restructuring.ra.kroll.com",
+        "title": "FTX Trading Ltd. - Restructuring Administration Cases",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "en.wikipedia.org",
+        "title": "Bankruptcy of FTX - Wikipedia",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "investopedia.com",
+        "title": "FTX Crypto Exchange Collapse: Causes, Consequences, and Lessons",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "Nvidia market capitalization",
+      "n": 10,
+      "states_outcome": 5,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "companiesmarketcap.com",
+        "title": "NVIDIA (NVDA) - Market capitalization - Companies Market Cap",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "youtube.com",
+        "title": "Nvidia Becomes First Company With $5 Trillion Market Capitalization",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "tomshardware.com",
+        "title": "Nvidia becomes the world's most valuable company by market ...",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "Sam Bankman-Fried sentenced years prison",
+      "n": 10,
+      "states_outcome": 10,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "justice.gov",
+        "title": "Samuel Bankman-Fried Sentenced to 25 Years for His Orchestration of ...",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "youtube.com",
+        "title": "Sam Bankman-Fried reacts to 25-year prison sentence - YouTube",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "en.wikipedia.org",
+        "title": "Sam Bankman-Fried - Wikipedia",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "Keenable Baseten partnership",
+      "n": 10,
+      "states_outcome": 4,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "baseten.co",
+        "title": "Introducing Baseten Hosted Tools",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "keenable.ai",
+        "title": "Keenable Blog - Notes on Agent Search and Retrieval",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "linkedin.com",
+        "title": "Baseten Hosted Tools Boosts Open-Source Model Search",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     }
+    ]
+   },
+   "cost": {
+    "list_per_1k": 6.4,
+    "floor_per_1k": 1.66,
+    "note": "2 credits per 10 results; Hobby $16/5K credits = $6.40/1K searches, Standard $83/100K credits = $1.66/1K (firecrawl.dev/pricing, annual billing, read 2026-10-01); free 1,000 credits/mo",
+    "reported_usd": null,
+    "this_run_list_usd": 0.301,
+    "list_usd_per_verified_answer": 0.008,
+    "per_10m_queries_yr_list_usd": 64000,
+    "per_10m_queries_yr_floor_usd": 16600
+   },
+   "pit_llm": {
+    "model": "anthropic/claude-sonnet-5.5",
+    "results_labelled": 70,
+    "events_labelled": 7,
+    "leaks-outcome": 63,
+    "useful-pre-event-evidence": 1,
+    "related-but-weak": 2,
+    "irrelevant": 4,
+    "leak_share": 0.9,
+    "useful_at_10_mean": 0.14,
+    "events_with_any_useful": 1
+   }
+  },
+  "serpapi": {
+   "label": "SerpApi (Google)",
+   "status": "NEEDS KEY: SERPAPI_API_KEY"
+  },
+  "brave": {
+   "label": "Brave Search API",
+   "status": "NEEDS KEY: BRAVE_API_KEY"
+  },
+  "perplexity": {
+   "label": "Perplexity Search API",
+   "status": "NEEDS KEY: PERPLEXITY_API_KEY"
+  },
+  "serper": {
+   "label": "Serper (Google)",
+   "auth": "key",
+   "fence": "Google custom date range (tbs=cdr:1,cd_max) — publish-date based",
+   "calls": 47,
+   "ok": 47,
+   "errors": 0,
+   "error_samples": [],
+   "latency_ms": {
+    "p50": 1085,
+    "p95": 3136,
+    "p99": 7851,
+    "max": 7851,
+    "note": "client wall-clock incl. TLS"
+   },
+   "now": {
+    "queries": 40,
+    "judged": 39,
+    "verified": 38,
+    "verified_rate": 0.974,
+    "on_topic": 38,
+    "gold_top3": 33,
+    "gold_top10": 39,
+    "by_segment": {
+     "research": "8/9",
+     "aml": "10/10",
+     "kyb": "10/10",
+     "agents": "10/10"
+    }
+   },
+   "pit": {
+    "events": 7,
+    "results": 70,
+    "states_outcome": 14,
+    "published_after_cutoff": 0,
+    "acquired_after_cutoff": 0,
+    "undated": 16,
+    "per_event": [
+     {
+      "item": "Microsoft Activision Blizzard acquisition closed",
+      "n": 10,
+      "states_outcome": 1,
+      "undated": 4,
+      "outcome_examples": [
+       {
+        "host": "gamedeveloper.com",
+        "title": "The Rundown: What's happening with Microsoft's Activision ...",
+        "published_at": "Mar 15, 2023",
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "Silicon Valley Bank deposit outflows",
+      "n": 10,
+      "states_outcome": 2,
+      "undated": 3,
+      "outcome_examples": [
+       {
+        "host": "fsb.org",
+        "title": "2023 Bank Failures: Preliminary lessons learnt for resolution",
+        "published_at": "Jun 12, 2022",
+        "acquired_at": null
+       },
+       {
+        "host": "gao.gov",
+        "title": "Actions Related to the Spring 2023 Bank Failures",
+        "published_at": "Mar 1, 2023",
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "Credit Suisse UBS merger",
+      "n": 10,
+      "states_outcome": 0,
+      "undated": 1,
+      "outcome_examples": []
+     },
+     {
+      "item": "FTX bankruptcy filing",
+      "n": 10,
+      "states_outcome": 5,
+      "undated": 2,
+      "outcome_examples": [
+       {
+        "host": "pwc.com",
+        "title": "FTX TRADING LTD., et al.,1 Debtor",
+        "published_at": "Jan 2, 1982",
+        "acquired_at": null
+       },
+       {
+        "host": "youtube.com",
+        "title": "FTX Bankruptcy Filing - How To Protect Your Crypto Assets",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "coinbase.com",
+        "title": "Answering key questions about FTX's collapse",
+        "published_at": "Nov 2, 2022",
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "Nvidia market capitalization",
+      "n": 10,
+      "states_outcome": 3,
+      "undated": 1,
+      "outcome_examples": [
+       {
+        "host": "companiesmarketcap.com",
+        "title": "NVIDIA (NVDA) - Market capitalization",
+        "published_at": "Jun 22, 2020",
+        "acquired_at": null
+       },
+       {
+        "host": "youtube.com",
+        "title": "Josh Brown really does believe Nvidia could hit $1 trillion ...",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "bloomberg.com",
+        "title": "Nvidia's Strong Report Rekindles $1 Trillion Market-Cap Talk",
+        "published_at": "Nov 18, 2021",
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "Sam Bankman-Fried sentenced years prison",
+      "n": 10,
+      "states_outcome": 1,
+      "undated": 3,
+      "outcome_examples": [
+       {
+        "host": "reddit.com",
+        "title": "What did Sam Bankman-Fried do that was so morally ...",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "Keenable Baseten partnership",
+      "n": 10,
+      "states_outcome": 2,
+      "undated": 2,
+      "outcome_examples": [
+       {
+        "host": "keenable.ai",
+        "title": "Keenable Blog - Notes on Agent Search and Retrieval",
+        "published_at": "Aug 25, 2026",
+        "acquired_at": null
+       },
+       {
+        "host": "keenable.ai",
+        "title": "SELECT the tail FROM the web",
+        "published_at": "Sep 3, 2026",
+        "acquired_at": null
+       }
+      ]
+     }
+    ]
+   },
+   "cost": {
+    "list_per_1k": 1,
+    "floor_per_1k": 0.3,
+    "note": "$50 for 50K credits = $1.00/1K, down to $0.30/1K at volume (serper.dev dashboard pricing, read 2026-10-01); 2,500 free queries, no card",
+    "reported_usd": null,
+    "this_run_list_usd": 0.047,
+    "list_usd_per_verified_answer": 0.001,
+    "per_10m_queries_yr_list_usd": 10000,
+    "per_10m_queries_yr_floor_usd": 3000
+   },
+   "pit_llm": {
+    "model": "anthropic/claude-sonnet-5.5",
+    "results_labelled": 70,
+    "events_labelled": 7,
+    "leaks-outcome": 31,
+    "useful-pre-event-evidence": 23,
+    "related-but-weak": 12,
+    "irrelevant": 4,
+    "leak_share": 0.443,
+    "useful_at_10_mean": 3.29,
+    "events_with_any_useful": 5
+   }
+  },
+  "searchapi": {
+   "label": "SearchAPI (Google)",
+   "auth": "key",
+   "fence": "Google custom date range (time_period_max) — publish-date based",
+   "calls": 17,
+   "ok": 17,
+   "errors": 0,
+   "error_samples": [],
+   "latency_ms": {
+    "p50": 3426,
+    "p95": 14147,
+    "p99": 14147,
+    "max": 14147,
+    "note": "client wall-clock incl. TLS"
+   },
+   "now": {
+    "queries": 10,
+    "judged": 9,
+    "verified": 7,
+    "verified_rate": 0.778,
+    "on_topic": 8,
+    "gold_top3": 6,
+    "gold_top10": 7,
+    "by_segment": {
+     "research": "7/9",
+     "aml": "0/0",
+     "kyb": "0/0",
+     "agents": "0/0"
+    }
+   },
+   "pit": {
+    "events": 7,
+    "results": 67,
+    "states_outcome": 15,
+    "published_after_cutoff": 0,
+    "acquired_after_cutoff": 0,
+    "undated": 14,
+    "per_event": [
+     {
+      "item": "Microsoft Activision Blizzard acquisition closed",
+      "n": 9,
+      "states_outcome": 1,
+      "undated": 3,
+      "outcome_examples": [
+       {
+        "host": "gamedeveloper.com",
+        "title": "The Rundown: What's happening with Microsoft's Activision ...",
+        "published_at": "Mar 15, 2023",
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "Silicon Valley Bank deposit outflows",
+      "n": 10,
+      "states_outcome": 3,
+      "undated": 3,
+      "outcome_examples": [
+       {
+        "host": "fsb.org",
+        "title": "2023 Bank Failures: Preliminary lessons learnt for resolution",
+        "published_at": "Jun 12, 2022",
+        "acquired_at": null
+       },
+       {
+        "host": "facebook.com",
+        "title": "The banking sector vulnerable to funding risk arising ...",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "gao.gov",
+        "title": "Actions Related to the Spring 2023 Bank Failures",
+        "published_at": "Mar 1, 2023",
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "Credit Suisse UBS merger",
+      "n": 10,
+      "states_outcome": 0,
+      "undated": 1,
+      "outcome_examples": []
+     },
+     {
+      "item": "FTX bankruptcy filing",
+      "n": 10,
+      "states_outcome": 5,
+      "undated": 2,
+      "outcome_examples": [
+       {
+        "host": "youtube.com",
+        "title": "FTX Bankruptcy Filing - How To Protect Your Crypto Assets",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "coinbase.com",
+        "title": "Answering key questions about FTX's collapse",
+        "published_at": "Nov 2, 2022",
+        "acquired_at": null
+       },
+       {
+        "host": "facebook.com",
+        "title": "FTX co-founder and CEO Sam Bankman-Fried says he's ...",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "Nvidia market capitalization",
+      "n": 9,
+      "states_outcome": 3,
+      "undated": 1,
+      "outcome_examples": [
+       {
+        "host": "companiesmarketcap.com",
+        "title": "NVIDIA (NVDA) - Market capitalization",
+        "published_at": "Jun 22, 2020",
+        "acquired_at": null
+       },
+       {
+        "host": "youtube.com",
+        "title": "Josh Brown really does believe Nvidia could hit $1 trillion ...",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "bloomberg.com",
+        "title": "Nvidia's Strong Report Rekindles $1 Trillion Market-Cap Talk",
+        "published_at": "Nov 18, 2021",
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "Sam Bankman-Fried sentenced years prison",
+      "n": 9,
+      "states_outcome": 1,
+      "undated": 2,
+      "outcome_examples": [
+       {
+        "host": "reddit.com",
+        "title": "What did Sam Bankman-Fried do that was so morally ...",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     {
+      "item": "Keenable Baseten partnership",
+      "n": 10,
+      "states_outcome": 2,
+      "undated": 2,
+      "outcome_examples": [
+       {
+        "host": "keenable.ai",
+        "title": "Keenable Blog - Notes on Agent Search and Retrieval",
+        "published_at": "Aug 25, 2026",
+        "acquired_at": null
+       },
+       {
+        "host": "keenable.ai",
+        "title": "SELECT the tail FROM the web",
+        "published_at": "Sep 3, 2026",
+        "acquired_at": null
+       }
+      ]
+     }
+    ]
+   },
+   "cost": {
+    "list_per_1k": 4,
+    "floor_per_1k": 1,
+    "note": "$40/10K Developer = $4/1K down to $1/1K at 5M/mo (searchapi.io/pricing, read 2026-10-01); 100 free requests",
+    "reported_usd": null,
+    "this_run_list_usd": 0.068,
+    "list_usd_per_verified_answer": 0.006,
+    "per_10m_queries_yr_list_usd": 40000,
+    "per_10m_queries_yr_floor_usd": 10000
+   },
+   "pit_llm": {
+    "model": "anthropic/claude-sonnet-5.5",
+    "results_labelled": 67,
+    "events_labelled": 7,
+    "leaks-outcome": 33,
+    "useful-pre-event-evidence": 20,
+    "related-but-weak": 10,
+    "irrelevant": 4,
+    "leak_share": 0.493,
+    "useful_at_10_mean": 2.86,
+    "events_with_any_useful": 5
+   }
+  }
+ },
+ "verdicts": {
+  "now": [
+   {
+    "item": "q01",
+    "labels": {
+     "A": "searchapi",
+     "B": "keenable",
+     "C": "serper",
+     "D": "tavily",
+     "E": "linkup",
+     "F": "exa",
+     "G": "parallel"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 1,
+      "fact_rank": 2,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 1,
+      "fact_rank": 2,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 1,
+      "fact_rank": 8,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 8,
+      "fact_rank": 2,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q02",
+    "labels": {
+     "A": "searchapi",
+     "B": "parallel",
+     "C": "serper",
+     "D": "exa",
+     "E": "tavily",
+     "F": "linkup",
+     "G": "keenable"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 2,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q03",
+    "labels": {
+     "A": "serper",
+     "B": "exa",
+     "C": "parallel",
+     "D": "tavily",
+     "E": "searchapi",
+     "F": "linkup",
+     "G": "keenable"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 1,
+      "fact_rank": 3,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 2,
+      "fact_rank": 4,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 2,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 7,
+      "fact_rank": 3,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 0,
+      "fact_rank": 6,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q04",
+    "labels": {
+     "A": "tavily",
+     "B": "linkup",
+     "C": "firecrawl",
+     "D": "exa",
+     "E": "keenable",
+     "F": "searchapi",
+     "G": "serper",
+     "H": "parallel"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 6,
+      "fact_rank": 0,
+      "verified": null,
+      "on_topic": null
+     },
+     "B": {
+      "gold_rank": 0,
+      "fact_rank": 0,
+      "verified": null,
+      "on_topic": null
+     },
+     "C": {
+      "gold_rank": 1,
+      "fact_rank": 0,
+      "verified": null,
+      "on_topic": null
+     },
+     "D": {
+      "gold_rank": 9,
+      "fact_rank": 0,
+      "verified": null,
+      "on_topic": null
+     },
+     "E": {
+      "gold_rank": 0,
+      "fact_rank": 0,
+      "verified": null,
+      "on_topic": null
+     },
+     "F": {
+      "gold_rank": 1,
+      "fact_rank": 0,
+      "verified": null,
+      "on_topic": null
+     },
+     "G": {
+      "gold_rank": 1,
+      "fact_rank": 0,
+      "verified": null,
+      "on_topic": null
+     },
+     "H": {
+      "gold_rank": 1,
+      "fact_rank": 0,
+      "verified": null,
+      "on_topic": null
+     }
+    }
+   },
+   {
+    "item": "q05",
+    "labels": {
+     "A": "searchapi",
+     "B": "serper",
+     "C": "linkup",
+     "D": "keenable",
+     "E": "exa",
+     "F": "parallel",
+     "G": "firecrawl",
+     "H": "tavily"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 6,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 4,
+      "fact_rank": 2,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 6,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "H": {
+      "gold_rank": 10,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q06",
+    "labels": {
+     "A": "searchapi",
+     "B": "firecrawl",
+     "C": "tavily",
+     "D": "keenable",
+     "E": "linkup",
+     "F": "serper",
+     "G": "parallel",
+     "H": "exa"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 1,
+      "fact_rank": 2,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 2,
+      "fact_rank": 0,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 4,
+      "fact_rank": 3,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 0,
+      "fact_rank": 3,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 0,
+      "fact_rank": 0,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": false
+     },
+     "F": {
+      "gold_rank": 2,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 6,
+      "fact_rank": 2,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "H": {
+      "gold_rank": 0,
+      "fact_rank": 2,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q07",
+    "labels": {
+     "A": "tavily",
+     "B": "serper",
+     "C": "exa",
+     "D": "linkup",
+     "E": "parallel",
+     "F": "searchapi",
+     "G": "firecrawl",
+     "H": "keenable"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 0,
+      "fact_rank": 7,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 0,
+      "fact_rank": 0,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": false
+     },
+     "C": {
+      "gold_rank": 1,
+      "fact_rank": 2,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 0,
+      "fact_rank": 0,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": false
+     },
+     "E": {
+      "gold_rank": 3,
+      "fact_rank": 3,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 0,
+      "fact_rank": 0,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": false
+     },
+     "G": {
+      "gold_rank": 0,
+      "fact_rank": 0,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": false
+     },
+     "H": {
+      "gold_rank": 0,
+      "fact_rank": 4,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q08",
+    "labels": {
+     "A": "firecrawl",
+     "B": "linkup",
+     "C": "exa",
+     "D": "parallel",
+     "E": "keenable",
+     "F": "searchapi",
+     "G": "serper",
+     "H": "tavily"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 2,
+      "fact_rank": 0,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 3,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 3,
+      "fact_rank": 0,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 2,
+      "fact_rank": 2,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 1,
+      "fact_rank": 2,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 1,
+      "fact_rank": 2,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "H": {
+      "gold_rank": 1,
+      "fact_rank": 0,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q09",
+    "labels": {
+     "A": "linkup",
+     "B": "searchapi",
+     "C": "exa",
+     "D": "firecrawl",
+     "E": "parallel",
+     "F": "keenable",
+     "G": "serper",
+     "H": "tavily"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 10,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 0,
+      "fact_rank": 8,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 10,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "H": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q10",
+    "labels": {
+     "A": "parallel",
+     "B": "searchapi",
+     "C": "tavily",
+     "D": "keenable",
+     "E": "linkup",
+     "F": "exa",
+     "G": "serper",
+     "H": "firecrawl"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 2,
+      "fact_rank": 2,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 7,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 5,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "H": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q11",
+    "labels": {
+     "A": "linkup",
+     "B": "serper",
+     "C": "exa",
+     "D": "keenable",
+     "E": "parallel",
+     "F": "firecrawl",
+     "G": "tavily"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 5,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 1,
+      "fact_rank": 2,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 1,
+      "fact_rank": 8,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 0,
+      "fact_rank": 2,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 1,
+      "fact_rank": 10,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 2,
+      "fact_rank": 3,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q12",
+    "labels": {
+     "A": "exa",
+     "B": "firecrawl",
+     "C": "linkup",
+     "D": "keenable",
+     "E": "serper",
+     "F": "tavily",
+     "G": "parallel"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 0,
+      "fact_rank": 2,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 4,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q13",
+    "labels": {
+     "A": "parallel",
+     "B": "keenable",
+     "C": "tavily",
+     "D": "exa",
+     "E": "firecrawl",
+     "F": "serper",
+     "G": "linkup"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 8,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 3,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 1,
+      "fact_rank": 2,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q14",
+    "labels": {
+     "A": "firecrawl",
+     "B": "exa",
+     "C": "linkup",
+     "D": "tavily",
+     "E": "parallel",
+     "F": "serper",
+     "G": "keenable"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 9,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q15",
+    "labels": {
+     "A": "firecrawl",
+     "B": "serper",
+     "C": "exa",
+     "D": "linkup",
+     "E": "tavily",
+     "F": "parallel",
+     "G": "keenable"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 2,
+      "fact_rank": 2,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 2,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 3,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 4,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q16",
+    "labels": {
+     "A": "firecrawl",
+     "B": "linkup",
+     "C": "serper",
+     "D": "parallel",
+     "E": "exa",
+     "F": "tavily",
+     "G": "keenable"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 6,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 6,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 3,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q17",
+    "labels": {
+     "A": "tavily",
+     "B": "parallel",
+     "C": "firecrawl",
+     "D": "linkup",
+     "E": "exa",
+     "F": "keenable",
+     "G": "serper"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 4,
+      "fact_rank": 2,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 0,
+      "fact_rank": 2,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 9,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 6,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 4,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q18",
+    "labels": {
+     "A": "parallel",
+     "B": "serper",
+     "C": "exa",
+     "D": "keenable",
+     "E": "firecrawl",
+     "F": "tavily",
+     "G": "linkup"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 1,
+      "fact_rank": 2,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 2,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 4,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 2,
+      "fact_rank": 3,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 2,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 3,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q19",
+    "labels": {
+     "A": "exa",
+     "B": "firecrawl",
+     "C": "keenable",
+     "D": "parallel",
+     "E": "serper",
+     "F": "tavily",
+     "G": "linkup"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 0,
+      "fact_rank": 2,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 5,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q20",
+    "labels": {
+     "A": "exa",
+     "B": "linkup",
+     "C": "firecrawl",
+     "D": "keenable",
+     "E": "serper",
+     "F": "parallel",
+     "G": "tavily"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 6,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q21",
+    "labels": {
+     "A": "linkup",
+     "B": "parallel",
+     "C": "firecrawl",
+     "D": "serper",
+     "E": "tavily",
+     "F": "keenable",
+     "G": "exa"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 2,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 8,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 1,
+      "fact_rank": 2,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q22",
+    "labels": {
+     "A": "parallel",
+     "B": "firecrawl",
+     "C": "serper",
+     "D": "tavily",
+     "E": "exa",
+     "F": "keenable",
+     "G": "linkup"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 1,
+      "fact_rank": 2,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 1,
+      "fact_rank": 2,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 1,
+      "fact_rank": 2,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q23",
+    "labels": {
+     "A": "parallel",
+     "B": "exa",
+     "C": "keenable",
+     "D": "serper",
+     "E": "linkup",
+     "F": "firecrawl",
+     "G": "tavily"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q24",
+    "labels": {
+     "A": "firecrawl",
+     "B": "linkup",
+     "C": "tavily",
+     "D": "keenable",
+     "E": "serper",
+     "F": "parallel",
+     "G": "exa"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 2,
+      "fact_rank": 2,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 1,
+      "fact_rank": 2,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q25",
+    "labels": {
+     "A": "serper",
+     "B": "parallel",
+     "C": "keenable",
+     "D": "tavily",
+     "E": "linkup",
+     "F": "firecrawl",
+     "G": "exa"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 4,
+      "fact_rank": 3,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 2,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 3,
+      "fact_rank": 2,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 4,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q26",
+    "labels": {
+     "A": "keenable",
+     "B": "firecrawl",
+     "C": "parallel",
+     "D": "serper",
+     "E": "tavily",
+     "F": "linkup",
+     "G": "exa"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 1,
+      "fact_rank": 2,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 1,
+      "fact_rank": 2,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 5,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q27",
+    "labels": {
+     "A": "firecrawl",
+     "B": "serper",
+     "C": "exa",
+     "D": "parallel",
+     "E": "keenable",
+     "F": "tavily",
+     "G": "linkup"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 1,
+      "fact_rank": 2,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 1,
+      "fact_rank": 2,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 1,
+      "fact_rank": 3,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 0,
+      "fact_rank": 2,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 5,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 8,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q28",
+    "labels": {
+     "A": "firecrawl",
+     "B": "linkup",
+     "C": "exa",
+     "D": "keenable",
+     "E": "parallel",
+     "F": "tavily",
+     "G": "serper"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 4,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 4,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q29",
+    "labels": {
+     "A": "serper",
+     "B": "firecrawl",
+     "C": "tavily",
+     "D": "parallel",
+     "E": "keenable",
+     "F": "linkup",
+     "G": "exa"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 6,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 2,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 2,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 2,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q30",
+    "labels": {
+     "A": "parallel",
+     "B": "linkup",
+     "C": "serper",
+     "D": "keenable",
+     "E": "tavily",
+     "F": "firecrawl",
+     "G": "exa"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 2,
+      "fact_rank": 2,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 2,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q31",
+    "labels": {
+     "A": "exa",
+     "B": "tavily",
+     "C": "keenable",
+     "D": "serper",
+     "E": "firecrawl",
+     "F": "linkup",
+     "G": "parallel"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 2,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 8,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 9,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q32",
+    "labels": {
+     "A": "parallel",
+     "B": "tavily",
+     "C": "keenable",
+     "D": "firecrawl",
+     "E": "linkup",
+     "F": "serper",
+     "G": "exa"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 1,
+      "fact_rank": 2,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 2,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 0,
+      "fact_rank": 2,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 1,
+      "fact_rank": 2,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q33",
+    "labels": {
+     "A": "keenable",
+     "B": "linkup",
+     "C": "exa",
+     "D": "serper",
+     "E": "firecrawl",
+     "F": "parallel",
+     "G": "tavily"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 1,
+      "fact_rank": 2,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 3,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 3,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 7,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q34",
+    "labels": {
+     "A": "serper",
+     "B": "keenable",
+     "C": "firecrawl",
+     "D": "linkup",
+     "E": "tavily",
+     "F": "exa",
+     "G": "parallel"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 1,
+      "fact_rank": 2,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 1,
+      "fact_rank": 2,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q35",
+    "labels": {
+     "A": "parallel",
+     "B": "linkup",
+     "C": "keenable",
+     "D": "tavily",
+     "E": "exa",
+     "F": "serper",
+     "G": "firecrawl"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 1,
+      "fact_rank": 4,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 4,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 4,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 8,
+      "fact_rank": 3,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 1,
+      "fact_rank": 5,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q36",
+    "labels": {
+     "A": "keenable",
+     "B": "parallel",
+     "C": "serper",
+     "D": "linkup",
+     "E": "firecrawl",
+     "F": "tavily",
+     "G": "exa"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 0,
+      "fact_rank": 2,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 4,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q37",
+    "labels": {
+     "A": "exa",
+     "B": "linkup",
+     "C": "parallel",
+     "D": "tavily",
+     "E": "keenable",
+     "F": "serper",
+     "G": "firecrawl"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 2,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 3,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 5,
+      "fact_rank": 2,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q38",
+    "labels": {
+     "A": "keenable",
+     "B": "tavily",
+     "C": "parallel",
+     "D": "serper",
+     "E": "exa",
+     "F": "firecrawl",
+     "G": "linkup"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 6,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 2,
+      "fact_rank": 4,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 1,
+      "fact_rank": 2,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 1,
+      "fact_rank": 2,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q39",
+    "labels": {
+     "A": "serper",
+     "B": "exa",
+     "C": "parallel",
+     "D": "linkup",
+     "E": "firecrawl",
+     "F": "tavily",
+     "G": "keenable"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 1,
+      "fact_rank": 7,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 4,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": true,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 3,
+      "fact_rank": 3,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     }
+    }
+   },
+   {
+    "item": "q40",
+    "labels": {
+     "A": "firecrawl",
+     "B": "parallel",
+     "C": "serper",
+     "D": "exa",
+     "E": "linkup",
+     "F": "tavily",
+     "G": "keenable"
+    },
+    "scored": {
+     "A": {
+      "gold_rank": 1,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "B": {
+      "gold_rank": 1,
+      "fact_rank": 2,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "C": {
+      "gold_rank": 1,
+      "fact_rank": 2,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "D": {
+      "gold_rank": 3,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "E": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     },
+     "F": {
+      "gold_rank": 3,
+      "fact_rank": 1,
+      "gold_top3": true,
+      "verified": true,
+      "on_topic": true
+     },
+     "G": {
+      "gold_rank": 0,
+      "fact_rank": 1,
+      "gold_top3": false,
+      "verified": false,
+      "on_topic": true
+     }
+    }
+   }
+  ],
+  "pit": [
+   {
+    "item": "Microsoft Activision Blizzard acquisition closed",
+    "labels": {
+     "A": "keenable_nofence",
+     "B": "tavily",
+     "C": "firecrawl",
+     "D": "keenable_pubdate",
+     "E": "searchapi",
+     "F": "linkup",
+     "G": "serper",
+     "H": "parallel",
+     "I": "exa",
+     "J": "keenable"
+    },
+    "scored": {
+     "A": {
+      "n": 10,
+      "states_outcome": 6,
+      "published_after_cutoff": 8,
+      "acquired_after_cutoff": 10,
+      "undated": 2,
+      "outcome_examples": [
+       {
+        "host": "medium.com",
+        "title": "How Activision Blizzard Became a Microsoft Subsidiary: What It Teaches Us About Global Business…",
+        "published_at": "2026-07-19T15:27:10Z",
+        "acquired_at": "2026-07-22T09:04:41Z"
+       },
+       {
+        "host": "blog.rottenwifi.com",
+        "title": "Microsoft Settles Gamers’ Antitrust Lawsuit Over $68.7 Billion Activision Blizzard Acquisition",
+        "published_at": "2026-08-16T17:59:57Z",
+        "acquired_at": "2026-09-11T11:18:57Z"
+       },
+       {
+        "host": "ad-hoc-news.de",
+        "title": "Activision Blizzard stock (US00507V1098): Microsoft deal closes and delisting ends an era for gamers",
+        "published_at": "2026-05-17T18:45:29Z",
+        "acquired_at": "2026-05-26T23:22:05Z"
+       }
+      ]
+     },
+     "B": {
+      "n": 10,
+      "states_outcome": 0,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 10,
+      "outcome_examples": []
+     },
+     "C": {
+      "n": 10,
+      "states_outcome": 1,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "bbc.com",
+        "title": "Microsoft completes $69bn takeover of Call of Duty maker Activision Blizzard",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     "D": {
+      "n": 10,
+      "states_outcome": 7,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 10,
+      "undated": 0,
+      "outcome_examples": [
+       {
+        "host": "wikipedia-org.zproxy.org",
+        "title": "business acquisition held from 2022 to 2023",
+        "published_at": "2022-01-21T05:01:41Z",
+        "acquired_at": "2026-05-14T23:15:16Z"
+       },
+       {
+        "host": "en-wikipedia-org.translate.goog",
+        "title": "Acquisition of Activision Blizzard by Microsoft",
+        "published_at": "2022-01-21T05:01:41Z",
+        "acquired_at": "2026-09-21T17:07:04Z"
+       },
+       {
+        "host": "gamedatacrunch.com",
+        "title": "Activision Blizzard Share Price: Why It (Technically) Doesn't Exist Anymore",
+        "published_at": "2021-11-22T19:09:49Z",
+        "acquired_at": "2026-08-15T08:24:10Z"
+       }
+      ]
+     },
+     "E": {
+      "n": 9,
+      "states_outcome": 1,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 3,
+      "outcome_examples": [
+       {
+        "host": "gamedeveloper.com",
+        "title": "The Rundown: What's happening with Microsoft's Activision ...",
+        "published_at": "Mar 15, 2023",
+        "acquired_at": null
+       }
+      ]
+     },
+     "F": {
+      "n": 10,
+      "states_outcome": 0,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 10,
+      "outcome_examples": []
+     },
+     "G": {
+      "n": 10,
+      "states_outcome": 1,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 4,
+      "outcome_examples": [
+       {
+        "host": "gamedeveloper.com",
+        "title": "The Rundown: What's happening with Microsoft's Activision ...",
+        "published_at": "Mar 15, 2023",
+        "acquired_at": null
+       }
+      ]
+     },
+     "H": {
+      "n": 10,
+      "states_outcome": 4,
+      "published_after_cutoff": 5,
+      "acquired_after_cutoff": 0,
+      "undated": 5,
+      "outcome_examples": [
+       {
+        "host": "sec.gov",
+        "title": "",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "cnbc.com",
+        "title": "Microsoft closes Activision Blizzard deal after regulatory review",
+        "published_at": "2023-10-13",
+        "acquired_at": null
+       },
+       {
+        "host": "en.wikipedia.org",
+        "title": "Acquisition of Activision Blizzard by Microsoft - Wikipedia",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     "I": {
+      "n": 10,
+      "states_outcome": 3,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 9,
+      "outcome_examples": [
+       {
+        "host": "en.wikipedia.org",
+        "title": "Acquisition of Activision Blizzard by Microsoft",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "gamedeveloper.com",
+        "title": "What's happening with Microsoft's Activision Blizzard merger?",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "orbispatches.com",
+        "title": "Is Microsoft paying cash for Activision?",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     "J": {
+      "n": 10,
+      "states_outcome": 0,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 5,
+      "outcome_examples": []
+     }
+    }
+   },
+   {
+    "item": "Silicon Valley Bank deposit outflows",
+    "labels": {
+     "A": "keenable_pubdate",
+     "B": "tavily",
+     "C": "linkup",
+     "D": "keenable",
+     "E": "firecrawl",
+     "F": "keenable_nofence",
+     "G": "parallel",
+     "H": "searchapi",
+     "I": "serper",
+     "J": "exa"
+    },
+    "scored": {
+     "A": {
+      "n": 10,
+      "states_outcome": 7,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 10,
+      "undated": 0,
+      "outcome_examples": [
+       {
+        "host": "sciencedirect.com",
+        "title": "Repercussions of the Silicon Valley Bank collapse on global stock markets",
+        "published_at": "2023-01-01T00:00:00Z",
+        "acquired_at": "2026-09-10T21:41:33Z"
+       },
+       {
+        "host": "notthebee.com",
+        "title": "Here's a crash (sorry) course on what happened with the historic collapse of Silicon Valley Bank",
+        "published_at": "2020-03-16T12:10:07Z",
+        "acquired_at": "2026-05-20T12:09:57Z"
+       },
+       {
+        "host": "convextrade.com",
+        "title": "2023 Silicon Valley Bank Collapse",
+        "published_at": "2023-03-08T03:17:05Z",
+        "acquired_at": "2026-05-27T03:17:02Z"
+       }
+      ]
+     },
+     "B": {
+      "n": 10,
+      "states_outcome": 3,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "fsb.org",
+        "title": "2023 Bank Failures: Preliminary lessons learnt for resolution",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "facebook.com",
+        "title": "The banking sector vulnerable to funding risk arising ...",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "gao.gov",
+        "title": "Actions Related to the Spring 2023 Bank Failures",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     "C": {
+      "n": 10,
+      "states_outcome": 2,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "fsb.org",
+        "title": "2023 Bank Failures Preliminary lessons learnt for resolution 10 October 2023",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "americanbanker.com",
+        "title": "Law and regulation - Latest News | American Banker",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     "D": {
+      "n": 10,
+      "states_outcome": 0,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 9,
+      "outcome_examples": []
+     },
+     "E": {
+      "n": 10,
+      "states_outcome": 7,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "simon.rochester.edu",
+        "title": "The Collapse of Silicon Valley Bank (SVB) - Simon Business School",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "en.wikipedia.org",
+        "title": "Collapse of Silicon Valley Bank - Wikipedia",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "every.io",
+        "title": "SVB's collapse explained in 6 steps - Every.io",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     "F": {
+      "n": 10,
+      "states_outcome": 4,
+      "published_after_cutoff": 7,
+      "acquired_after_cutoff": 10,
+      "undated": 3,
+      "outcome_examples": [
+       {
+        "host": "bankingjournal.aba.com",
+        "title": "ABA DataBank: Depositor behavior during the 2023 bank failures | ABA Banking Journal",
+        "published_at": "2026-09-30T13:51:12Z",
+        "acquired_at": "2026-09-30T15:52:06Z"
+       },
+       {
+        "host": "grokipedia.com",
+        "title": "Collapse of Silicon Valley Bank",
+        "published_at": "2026-03-27T19:38:25Z",
+        "acquired_at": "2026-07-14T04:36:04Z"
+       },
+       {
+        "host": "cmsapi.theepochtimes.com",
+        "title": "Fed Chair Powell on SVB Collapse: ‘Management Failed Badly,’ While Speed of Bank Run Surprised Regulators",
+        "published_at": null,
+        "acquired_at": "2026-08-22T06:32:31Z"
+       }
+      ]
+     },
+     "G": {
+      "n": 10,
+      "states_outcome": 1,
+      "published_after_cutoff": 5,
+      "acquired_after_cutoff": 0,
+      "undated": 5,
+      "outcome_examples": [
+       {
+        "host": "cnn.com",
+        "title": "Big banks experience deposit spike after Silicon Valley Bank collapse | CNN Business",
+        "published_at": "2023-03-15",
+        "acquired_at": null
+       }
+      ]
+     },
+     "H": {
+      "n": 10,
+      "states_outcome": 3,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 3,
+      "outcome_examples": [
+       {
+        "host": "fsb.org",
+        "title": "2023 Bank Failures: Preliminary lessons learnt for resolution",
+        "published_at": "Jun 12, 2022",
+        "acquired_at": null
+       },
+       {
+        "host": "facebook.com",
+        "title": "The banking sector vulnerable to funding risk arising ...",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "gao.gov",
+        "title": "Actions Related to the Spring 2023 Bank Failures",
+        "published_at": "Mar 1, 2023",
+        "acquired_at": null
+       }
+      ]
+     },
+     "I": {
+      "n": 10,
+      "states_outcome": 2,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 3,
+      "outcome_examples": [
+       {
+        "host": "fsb.org",
+        "title": "2023 Bank Failures: Preliminary lessons learnt for resolution",
+        "published_at": "Jun 12, 2022",
+        "acquired_at": null
+       },
+       {
+        "host": "gao.gov",
+        "title": "Actions Related to the Spring 2023 Bank Failures",
+        "published_at": "Mar 1, 2023",
+        "acquired_at": null
+       }
+      ]
+     },
+     "J": {
+      "n": 10,
+      "states_outcome": 5,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "fdic.gov",
+        "title": "An Analysis of the Spring 2023 Bank Failures",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "fdic.gov",
+        "title": "FDIC Releases Staff Study of Deposit Flows at Three Failed Banks in Spring 2023 | FDIC.gov",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "en.wikipedia.org",
+        "title": "Collapse of Silicon Valley Bank",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     }
+    }
+   },
+   {
+    "item": "Credit Suisse UBS merger",
+    "labels": {
+     "A": "tavily",
+     "B": "exa",
+     "C": "searchapi",
+     "D": "keenable",
+     "E": "serper",
+     "F": "keenable_nofence",
+     "G": "firecrawl",
+     "H": "linkup",
+     "I": "keenable_pubdate",
+     "J": "parallel"
+    },
+    "scored": {
+     "A": {
+      "n": 9,
+      "states_outcome": 0,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 9,
+      "outcome_examples": []
+     },
+     "B": {
+      "n": 10,
+      "states_outcome": 1,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "ubs.com",
+        "title": "UBS to acquire Credit Suisse",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     "C": {
+      "n": 10,
+      "states_outcome": 0,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 1,
+      "outcome_examples": []
+     },
+     "D": {
+      "n": 10,
+      "states_outcome": 0,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 3,
+      "outcome_examples": []
+     },
+     "E": {
+      "n": 10,
+      "states_outcome": 0,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 1,
+      "outcome_examples": []
+     },
+     "F": {
+      "n": 10,
+      "states_outcome": 3,
+      "published_after_cutoff": 3,
+      "acquired_after_cutoff": 10,
+      "undated": 7,
+      "outcome_examples": [
+       {
+        "host": "m.timesofoman.com",
+        "title": "Switzerland: UBS completes Credit Suisse takeover",
+        "published_at": null,
+        "acquired_at": "2026-05-18T00:32:03Z"
+       },
+       {
+        "host": "p41bgw.atlantafigures.org",
+        "title": "which bank stock is a better buy",
+        "published_at": null,
+        "acquired_at": "2026-09-23T12:39:39Z"
+       },
+       {
+        "host": "legalclarity.org",
+        "title": "Who Owns Credit Suisse? It No Longer Exists - LegalClarity",
+        "published_at": "2026-06-15T04:05:48Z",
+        "acquired_at": "2026-07-26T05:38:17Z"
+       }
+      ]
+     },
+     "G": {
+      "n": 10,
+      "states_outcome": 2,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "ubs.com",
+        "title": "UBS to acquire Credit Suisse",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "cnn.com",
+        "title": "UBS completes Credit Suisse takeover | CNN Business",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     "H": {
+      "n": 10,
+      "states_outcome": 0,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 10,
+      "outcome_examples": []
+     },
+     "I": {
+      "n": 10,
+      "states_outcome": 1,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 10,
+      "undated": 0,
+      "outcome_examples": [
+       {
+        "host": "everything-pr.com",
+        "title": "UBS After Credit Suisse: The $1.7 Trillion Wealth Manager",
+        "published_at": "2011-01-18T10:46:52Z",
+        "acquired_at": "2026-09-20T16:09:19Z"
+       }
+      ]
+     },
+     "J": {
+      "n": 10,
+      "states_outcome": 1,
+      "published_after_cutoff": 5,
+      "acquired_after_cutoff": 0,
+      "undated": 4,
+      "outcome_examples": [
+       {
+        "host": "cnbc.com",
+        "title": "UBS buys Credit Suisse for $3.2 billion as regulators look to shore up the global banking system",
+        "published_at": "2023-03-19",
+        "acquired_at": null
+       }
+      ]
+     }
+    }
+   },
+   {
+    "item": "FTX bankruptcy filing",
+    "labels": {
+     "A": "parallel",
+     "B": "keenable_nofence",
+     "C": "searchapi",
+     "D": "serper",
+     "E": "linkup",
+     "F": "keenable",
+     "G": "keenable_pubdate",
+     "H": "firecrawl",
+     "I": "tavily",
+     "J": "exa"
+    },
+    "scored": {
+     "A": {
+      "n": 10,
+      "states_outcome": 8,
+      "published_after_cutoff": 6,
+      "acquired_after_cutoff": 0,
+      "undated": 4,
+      "outcome_examples": [
+       {
+        "host": "wsj.com",
+        "title": "FTX Files for Bankruptcy, CEO Sam Bankman-Fried Resigns",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "abcnews.com",
+        "title": "What FTX's bankruptcy filing means for the future of digital currency - ABC News",
+        "published_at": "2022-12-22",
+        "acquired_at": null
+       },
+       {
+        "host": "qz.com",
+        "title": "Read the full text of FTX's bankruptcy filing",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     "B": {
+      "n": 10,
+      "states_outcome": 0,
+      "published_after_cutoff": 4,
+      "acquired_after_cutoff": 10,
+      "undated": 6,
+      "outcome_examples": []
+     },
+     "C": {
+      "n": 10,
+      "states_outcome": 5,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 2,
+      "outcome_examples": [
+       {
+        "host": "youtube.com",
+        "title": "FTX Bankruptcy Filing - How To Protect Your Crypto Assets",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "coinbase.com",
+        "title": "Answering key questions about FTX's collapse",
+        "published_at": "Nov 2, 2022",
+        "acquired_at": null
+       },
+       {
+        "host": "facebook.com",
+        "title": "FTX co-founder and CEO Sam Bankman-Fried says he's ...",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     "D": {
+      "n": 10,
+      "states_outcome": 5,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 2,
+      "outcome_examples": [
+       {
+        "host": "pwc.com",
+        "title": "FTX TRADING LTD., et al.,1 Debtor",
+        "published_at": "Jan 2, 1982",
+        "acquired_at": null
+       },
+       {
+        "host": "youtube.com",
+        "title": "FTX Bankruptcy Filing - How To Protect Your Crypto Assets",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "coinbase.com",
+        "title": "Answering key questions about FTX's collapse",
+        "published_at": "Nov 2, 2022",
+        "acquired_at": null
+       }
+      ]
+     },
+     "E": {
+      "n": 9,
+      "states_outcome": 4,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 9,
+      "outcome_examples": [
+       {
+        "host": "avark.agency",
+        "title": "FTX: How a $32 Billion Empire Collapsed in 9 Days | Avark",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "thisweekincrypto.substack.com",
+        "title": "Crypto Weekly 7/2/22 - by Maaria Bajwa - Crypto Weekly",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "thisweekincrypto.substack.com",
+        "title": "Crypto Weekly 7/24/22 - by Maaria Bajwa - Crypto Weekly",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     "F": {
+      "n": 10,
+      "states_outcome": 1,
+      "published_after_cutoff": 1,
+      "acquired_after_cutoff": 0,
+      "undated": 3,
+      "outcome_examples": [
+       {
+        "host": "todaynewspost.com",
+        "title": "Bankman-Fried, founder and CEO of Crypto exchange FTX, says the company has &quot;a few billion&quot; to support the emb",
+        "published_at": "2022-07-07T15:14:29Z",
+        "acquired_at": "2022-10-04T23:03:55Z"
+       }
+      ]
+     },
+     "G": {
+      "n": 10,
+      "states_outcome": 7,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 10,
+      "undated": 0,
+      "outcome_examples": [
+       {
+        "host": "everipedia.org",
+        "title": "FTX",
+        "published_at": "2022-07-19T18:13:50Z",
+        "acquired_at": "2026-04-23T16:32:15Z"
+       },
+       {
+        "host": "iq.wiki",
+        "title": "FTX",
+        "published_at": "2022-07-19T18:13:50Z",
+        "acquired_at": "2026-07-04T07:16:18Z"
+       },
+       {
+        "host": "vanishedbrands.com",
+        "title": "Is FTX Discontinued? What Happened to FTX?",
+        "published_at": "2019-01-01T03:13:48Z",
+        "acquired_at": "2026-05-18T03:13:24Z"
+       }
+      ]
+     },
+     "H": {
+      "n": 10,
+      "states_outcome": 8,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "restructuring.ra.kroll.com",
+        "title": "FTX Trading Ltd. - Restructuring Administration Cases",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "en.wikipedia.org",
+        "title": "Bankruptcy of FTX - Wikipedia",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "investopedia.com",
+        "title": "FTX Crypto Exchange Collapse: Causes, Consequences, and Lessons",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     "I": {
+      "n": 10,
+      "states_outcome": 5,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "coinbase.com",
+        "title": "Coinbase Bytes newsletter",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "avark.agency",
+        "title": "FTX: How a $32 Billion Empire Collapsed in 9 Days | Avark",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "freemanlaw.com",
+        "title": "Holding Digital Assets Through Custodial Wallets",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     "J": {
+      "n": 10,
+      "states_outcome": 8,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "wehco.media.clients.ellingtoncms.com",
+        "title": "I, John J. Ray III, hereby declare under penalty of perjury as follows:",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "storage.courtlistener.com",
+        "title": "",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "storage.courtlistener.com",
+        "title": "Voluntary Petition for Non-Individuals Filing for Bankruptcy",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     }
+    }
+   },
+   {
+    "item": "Nvidia market capitalization",
+    "labels": {
+     "A": "searchapi",
+     "B": "exa",
+     "C": "linkup",
+     "D": "parallel",
+     "E": "keenable_pubdate",
+     "F": "keenable_nofence",
+     "G": "firecrawl",
+     "H": "serper",
+     "I": "tavily",
+     "J": "keenable"
+    },
+    "scored": {
+     "A": {
+      "n": 9,
+      "states_outcome": 3,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 1,
+      "outcome_examples": [
+       {
+        "host": "companiesmarketcap.com",
+        "title": "NVIDIA (NVDA) - Market capitalization",
+        "published_at": "Jun 22, 2020",
+        "acquired_at": null
+       },
+       {
+        "host": "youtube.com",
+        "title": "Josh Brown really does believe Nvidia could hit $1 trillion ...",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "bloomberg.com",
+        "title": "Nvidia's Strong Report Rekindles $1 Trillion Market-Cap Talk",
+        "published_at": "Nov 18, 2021",
+        "acquired_at": null
+       }
+      ]
+     },
+     "B": {
+      "n": 10,
+      "states_outcome": 3,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "stockanalysis.com",
+        "title": "NVIDIA (NVDA) Statistics & Valuation",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "stockanalysis.com",
+        "title": "NVIDIA (NVDA) Market Cap & Net Worth",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "companiesmarketcap.com",
+        "title": "NVIDIA (NVDA) - Market capitalization - Companies Market Cap",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     "C": {
+      "n": 10,
+      "states_outcome": 3,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "investor10.com",
+        "title": "Nvidia (NVDA): Stock Price, Earnings & Key Metrics - Investor10",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "xm.com",
+        "title": "Nvidia market cap on verge of exceeding Amazon",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "home.saxo",
+        "title": "Nvidia's stock is selling off: Risks, opportunities, and what could be next | Saxo",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     "D": {
+      "n": 10,
+      "states_outcome": 4,
+      "published_after_cutoff": 1,
+      "acquired_after_cutoff": 0,
+      "undated": 9,
+      "outcome_examples": [
+       {
+        "host": "companiesmarketcap.com",
+        "title": "NVIDIA (NVDA) - Market capitalization",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "marketcap.company",
+        "title": "#1 Ranked NVIDIA Corporation (NASDAQ:NVDA) Market Cap & Net Worth Analysis: $5.06 Trillion | Global Leader in USA",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "techtarget.com",
+        "title": "What's going on with Nvidia stock and the booming AI market?",
+        "published_at": "2025-08-15",
+        "acquired_at": null
+       }
+      ]
+     },
+     "E": {
+      "n": 10,
+      "states_outcome": 6,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 10,
+      "undated": 0,
+      "outcome_examples": [
+       {
+        "host": "en-wikipedia-org.translate.goog",
+        "title": "American multinational technology company",
+        "published_at": "2002-02-15T02:54:58Z",
+        "acquired_at": "2026-09-12T00:50:58Z"
+       },
+       {
+        "host": "translate.google.com",
+        "title": "American multinational technology company",
+        "published_at": "2002-02-15T02:54:58Z",
+        "acquired_at": "2026-07-11T10:40:01Z"
+       },
+       {
+        "host": "en.wikipedia.org",
+        "title": "Nvidia",
+        "published_at": "2002-02-15T02:54:58Z",
+        "acquired_at": "2026-07-09T03:13:15Z"
+       }
+      ]
+     },
+     "F": {
+      "n": 10,
+      "states_outcome": 6,
+      "published_after_cutoff": 6,
+      "acquired_after_cutoff": 10,
+      "undated": 4,
+      "outcome_examples": [
+       {
+        "host": "companiesmarketcap.com",
+        "title": "NVIDIA (NVDA) - Market capitalization",
+        "published_at": null,
+        "acquired_at": "2026-09-20T01:13:47Z"
+       },
+       {
+        "host": "tradingview.com",
+        "title": "Nvidia's $5.4 Trillion Market Cap 'Seems Crazy' Next to $3.5 Trillion Russell 2000 Total, Says Charlie Bilello",
+        "published_at": "2026-09-28T10:40:01Z",
+        "acquired_at": "2026-09-30T11:18:11Z"
+       },
+       {
+        "host": "newsbreak.com",
+        "title": "Nvidia's $5.4 Trillion Market Cap 'Seems Crazy' Next to $3.5 Trillion Russell 2000 Total, Says Charlie Bilello - NewsBre",
+        "published_at": "2026-09-28T10:40:01Z",
+        "acquired_at": "2026-09-29T19:52:32Z"
+       }
+      ]
+     },
+     "G": {
+      "n": 10,
+      "states_outcome": 5,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "companiesmarketcap.com",
+        "title": "NVIDIA (NVDA) - Market capitalization - Companies Market Cap",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "youtube.com",
+        "title": "Nvidia Becomes First Company With $5 Trillion Market Capitalization",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "tomshardware.com",
+        "title": "Nvidia becomes the world's most valuable company by market ...",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     "H": {
+      "n": 10,
+      "states_outcome": 3,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 1,
+      "outcome_examples": [
+       {
+        "host": "companiesmarketcap.com",
+        "title": "NVIDIA (NVDA) - Market capitalization",
+        "published_at": "Jun 22, 2020",
+        "acquired_at": null
+       },
+       {
+        "host": "youtube.com",
+        "title": "Josh Brown really does believe Nvidia could hit $1 trillion ...",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "bloomberg.com",
+        "title": "Nvidia's Strong Report Rekindles $1 Trillion Market-Cap Talk",
+        "published_at": "Nov 18, 2021",
+        "acquired_at": null
+       }
+      ]
+     },
+     "I": {
+      "n": 10,
+      "states_outcome": 2,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "marketchameleon.com",
+        "title": "NVDA Stock Quote | Price Chart | Volume Chart Nvidia",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "youtube.com",
+        "title": "Josh Brown really does believe Nvidia could hit $1 trillion ...",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     "J": {
+      "n": 10,
+      "states_outcome": 0,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 8,
+      "outcome_examples": []
+     }
+    }
+   },
+   {
+    "item": "Sam Bankman-Fried sentenced years prison",
+    "labels": {
+     "A": "firecrawl",
+     "B": "searchapi",
+     "C": "exa",
+     "D": "keenable",
+     "E": "linkup",
+     "F": "parallel",
+     "G": "keenable_pubdate",
+     "H": "keenable_nofence",
+     "I": "tavily",
+     "J": "serper"
+    },
+    "scored": {
+     "A": {
+      "n": 10,
+      "states_outcome": 10,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "justice.gov",
+        "title": "Samuel Bankman-Fried Sentenced to 25 Years for His Orchestration of ...",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "youtube.com",
+        "title": "Sam Bankman-Fried reacts to 25-year prison sentence - YouTube",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "en.wikipedia.org",
+        "title": "Sam Bankman-Fried - Wikipedia",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     "B": {
+      "n": 9,
+      "states_outcome": 1,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 2,
+      "outcome_examples": [
+       {
+        "host": "reddit.com",
+        "title": "What did Sam Bankman-Fried do that was so morally ...",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     "C": {
+      "n": 10,
+      "states_outcome": 7,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "apnews.com",
+        "title": "FTX founder Sam Bankman-Fried sentenced to 25 years in prison | AP News",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "cbsnews.com",
+        "title": "Sam Bankman-Fried sentenced to 25 years in prison for his role in collapse of FTX crypto exchange - CBS News",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "cnn.com",
+        "title": "March 28 2024: Sam Bankman-Fried sentenced to 25 years in prison | CNN Business",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     "D": {
+      "n": 10,
+      "states_outcome": 0,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 3,
+      "outcome_examples": []
+     },
+     "E": {
+      "n": 10,
+      "states_outcome": 0,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 10,
+      "outcome_examples": []
+     },
+     "F": {
+      "n": 10,
+      "states_outcome": 9,
+      "published_after_cutoff": 8,
+      "acquired_after_cutoff": 0,
+      "undated": 1,
+      "outcome_examples": [
+       {
+        "host": "justice.gov",
+        "title": " Southern District of New York |  Samuel Bankman-Fried Sentenced To 25 Years In Prison | United States Department of Jus",
+        "published_at": "2024-04-30",
+        "acquired_at": null
+       },
+       {
+        "host": "abcnews.com",
+        "title": "Disgraced former FTX CEO Sam Bankman-Fried sentenced to 25 years for financial fraud, must forfeit $11 billion for victi",
+        "published_at": "2024-03-28",
+        "acquired_at": null
+       },
+       {
+        "host": "cnn.com",
+        "title": "Sam Bankman-Fried sentenced to 25 years in federal prison | CNN Business",
+        "published_at": "2024-03-28",
+        "acquired_at": null
+       }
+      ]
+     },
+     "G": {
+      "n": 10,
+      "states_outcome": 3,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 10,
+      "undated": 0,
+      "outcome_examples": [
+       {
+        "host": "sbf.courtdaemon.com",
+        "title": "Sam Bankman-Fried Case Timeline",
+        "published_at": "2022-12-13T00:00:00Z",
+        "acquired_at": "2026-09-19T09:57:29Z"
+       },
+       {
+        "host": "theconversation.com",
+        "title": "Sam Bankman-Fried sentenced to 25 years − how he went from $30B crypto CEO to prison inmate",
+        "published_at": "2023-11-07T00:00:00Z",
+        "acquired_at": "2026-09-11T06:16:28Z"
+       },
+       {
+        "host": "techopedia.com",
+        "title": "The Sam Bankman-Fried Saga: From Crypto Tycoon to Fraudster",
+        "published_at": "2023-08-10T08:55:24Z",
+        "acquired_at": "2026-06-21T17:19:31Z"
+       }
+      ]
+     },
+     "H": {
+      "n": 10,
+      "states_outcome": 10,
+      "published_after_cutoff": 2,
+      "acquired_after_cutoff": 10,
+      "undated": 8,
+      "outcome_examples": [
+       {
+        "host": "en.wikipedia.org",
+        "title": "Sam Bankman-Fried",
+        "published_at": "2026-09-27T04:21:54Z",
+        "acquired_at": "2026-09-28T23:12:59Z"
+       },
+       {
+        "host": "economictimes.indiatimes.com",
+        "title": "Fallen crypto mogul Sam Bankman-Fried sentenced to 25 years in prison",
+        "published_at": null,
+        "acquired_at": "2026-06-17T09:09:57Z"
+       },
+       {
+        "host": "economictimes.indiatimes.com",
+        "title": "Sam Bankman-Fried sentenced to 25 years in prison for multi-billion dollar FTX fraud",
+        "published_at": null,
+        "acquired_at": "2026-06-18T22:10:41Z"
+       }
+      ]
+     },
+     "I": {
+      "n": 10,
+      "states_outcome": 4,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "theguardian.com",
+        "title": "Sam Bankman-Fried | Page 2 of 8",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "facebook.com",
+        "title": "Sam Bankman-Fried, 32, is scheduled to be sentenced on ...",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "fcpa.stanford.edu",
+        "title": "Foreign Corrupt Practices Act: Enforcement Action Dataset",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     "J": {
+      "n": 10,
+      "states_outcome": 1,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 3,
+      "outcome_examples": [
+       {
+        "host": "reddit.com",
+        "title": "What did Sam Bankman-Fried do that was so morally ...",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     }
+    }
+   },
+   {
+    "item": "Keenable Baseten partnership",
+    "labels": {
+     "A": "keenable_pubdate",
+     "B": "tavily",
+     "C": "linkup",
+     "D": "exa",
+     "E": "keenable",
+     "F": "searchapi",
+     "G": "keenable_nofence",
+     "H": "parallel",
+     "I": "firecrawl",
+     "J": "serper"
+    },
+    "scored": {
+     "A": {
+      "n": 10,
+      "states_outcome": 0,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 4,
+      "undated": 1,
+      "outcome_examples": []
+     },
+     "B": {
+      "n": 10,
+      "states_outcome": 2,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "keenable.ai",
+        "title": "SELECT the tail FROM the web - Keenable.ai",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "keenable.ai",
+        "title": "Keenable Blog - Notes on Agent Search and Retrieval",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     "C": {
+      "n": 10,
+      "states_outcome": 1,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "keenable.ai",
+        "title": "Keenable Blog - Notes on Agent Search and Retrieval",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     "D": {
+      "n": 10,
+      "states_outcome": 4,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "plushcap.com",
+        "title": "Keenable partners with Baseten to make web search native to inference",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "keenable.ai",
+        "title": "Keenable.ai — Independent Web Search API for AI",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "keenable.ai",
+        "title": "Keenable now runs inside Lightpanda",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     "E": {
+      "n": 10,
+      "states_outcome": 0,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 3,
+      "outcome_examples": []
+     },
+     "F": {
+      "n": 10,
+      "states_outcome": 2,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 2,
+      "outcome_examples": [
+       {
+        "host": "keenable.ai",
+        "title": "Keenable Blog - Notes on Agent Search and Retrieval",
+        "published_at": "Aug 25, 2026",
+        "acquired_at": null
+       },
+       {
+        "host": "keenable.ai",
+        "title": "SELECT the tail FROM the web",
+        "published_at": "Sep 3, 2026",
+        "acquired_at": null
+       }
+      ]
+     },
+     "G": {
+      "n": 10,
+      "states_outcome": 5,
+      "published_after_cutoff": 9,
+      "acquired_after_cutoff": 9,
+      "undated": 1,
+      "outcome_examples": [
+       {
+        "host": "keenable.ai",
+        "title": "Keenable partners with Baseten to make web search native to inference - Keenable.ai",
+        "published_at": "2026-09-16T00:00:00Z",
+        "acquired_at": "2026-09-16T20:51:53Z"
+       },
+       {
+        "host": "baseten.co",
+        "title": "Introducing Baseten Hosted Tools",
+        "published_at": "2026-09-16T16:52:23Z",
+        "acquired_at": "2026-09-17T07:31:40Z"
+       },
+       {
+        "host": "docs.keenable.ai",
+        "title": "Baseten",
+        "published_at": "2026-09-16T14:41:54Z",
+        "acquired_at": "2026-09-17T15:28:06Z"
+       }
+      ]
+     },
+     "H": {
+      "n": 10,
+      "states_outcome": 5,
+      "published_after_cutoff": 4,
+      "acquired_after_cutoff": 0,
+      "undated": 6,
+      "outcome_examples": [
+       {
+        "host": "keenable.ai",
+        "title": "Keenable partners with Baseten to make web search native to inference - Keenable.ai",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "docs.keenable.ai",
+        "title": "Baseten - Keenable",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "baseten.co",
+        "title": "Introducing Baseten Hosted Tools",
+        "published_at": "2026-09-16",
+        "acquired_at": null
+       }
+      ]
+     },
+     "I": {
+      "n": 10,
+      "states_outcome": 4,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 10,
+      "outcome_examples": [
+       {
+        "host": "baseten.co",
+        "title": "Introducing Baseten Hosted Tools",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "keenable.ai",
+        "title": "Keenable Blog - Notes on Agent Search and Retrieval",
+        "published_at": null,
+        "acquired_at": null
+       },
+       {
+        "host": "linkedin.com",
+        "title": "Baseten Hosted Tools Boosts Open-Source Model Search",
+        "published_at": null,
+        "acquired_at": null
+       }
+      ]
+     },
+     "J": {
+      "n": 10,
+      "states_outcome": 2,
+      "published_after_cutoff": 0,
+      "acquired_after_cutoff": 0,
+      "undated": 2,
+      "outcome_examples": [
+       {
+        "host": "keenable.ai",
+        "title": "Keenable Blog - Notes on Agent Search and Retrieval",
+        "published_at": "Aug 25, 2026",
+        "acquired_at": null
+       },
+       {
+        "host": "keenable.ai",
+        "title": "SELECT the tail FROM the web",
+        "published_at": "Sep 3, 2026",
+        "acquired_at": null
+       }
+      ]
+     }
+    }
+   }
+  ]
+ },
+ "pit_llm_rule": "Blind: one provider's 10 results at a time, numbered, no provider name. Labels and definitions = JEV_CRITERIA (scripts/fence_relevance.py), title + snippet only."
+}

@@ -1,0 +1,22 @@
+/* Client chapter: one preview card per first-meeting deck (mini black cover + three lines + link). */
+.cl-card { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); margin-top: var(--s4); border: 1.5px solid var(--ink); text-decoration: none; color: var(--ink); max-width: none; background: #fff; transition: box-shadow var(--fast) var(--ease); }
+.cl-card:hover { box-shadow: 0 0 0 4px var(--accent); color: var(--ink); }
+.cl-cover { background: var(--black); color: #FAFAF7; padding: var(--s4); display: flex; flex-direction: column; justify-content: flex-end; gap: var(--s3); min-height: 340px; border-bottom: 8px solid var(--accent); }
+.cl-cover small { font: 500 var(--t-label) var(--font-mono); letter-spacing: .06em; text-transform: uppercase; color: var(--accent-on-dark); }
+.cl-cover b { font: 300 clamp(30px, 3.4vw, 60px)/1.05 var(--font-display); letter-spacing: -0.02em; }
+.cl-body { display: flex; flex-direction: column; justify-content: center; gap: var(--s3); padding: var(--s4); }
+.cl-line { font-size: var(--t-small); color: var(--ink-2); line-height: 1.3; display: grid; grid-template-columns: minmax(4.2em, max-content) 1fr; gap: var(--s2); align-items: baseline; }
+.cl-line b { font: 600 var(--t-small) var(--font-mono); color: var(--ink); margin-right: 8px; }
+.cl-meta { font: 500 var(--t-label) var(--font-mono); color: var(--ink); margin-top: var(--s1); padding-top: var(--s2); border-top: 1px solid var(--line); }
+@media (max-width: 700px) {
+  .cl-card { grid-template-columns: 1fr; margin-top: 20px; }
+  .cl-cover { min-height: 0; padding: 16px; gap: 10px; }
+  .cl-cover b { font-size: 26px; }
+  .cl-cover small { font-size: 14px; }
+  .cl-body { padding: 14px 16px; gap: 8px; }
+  .cl-line, .cl-line b { font-size: 15px; }
+  .cl-line { display: block; }
+  .cl-line b { margin-right: 8px; }
+  .cl-meta { font-size: 14px; }
+}
+@media print { .cl-card { margin-top: 28px; } .cl-cover { min-height: 240px; } }

@@ -1,0 +1,2480 @@
+{
+ "source": "data/fintech_run.json",
+ "ran_at": "2026-10-01T11:49:26.698Z",
+ "judge_rule": "Offline judge over data/fintech_run.json (no new API calls).\n\nVerified-correct rule (stated before looking at results):\n  a query passes if, in the top 10, EITHER an expected source domain appears (gold, from the run script)\n  OR the expected fact pattern appears in a result title/snippet.\n  Each fact is tagged 'fact' (a specific number/date/outcome) or 'topic' (on-topic terms only, weaker).\n  Queries whose answer did not exist yet at run time are tagged 'n/a' and excluded from the rate.\nLookahead audit for the six point-in-time pairs: count results whose acquired_at/published_at is after the\ncutoff and results whose text states the post-cutoff outcome, for normal search vs Time Machine (query_time).\nWrites data/fintech_judged.json and data/charts/opt2_*.json.",
+ "summary": {
+  "requests_total": 86,
+  "latency_ms": {
+   "pro": {
+    "n": 40,
+    "p50": 253,
+    "p95": 1099,
+    "p99": 1120,
+    "max": 1120
+   },
+   "realtime": {
+    "n": 40,
+    "p50": 240,
+    "p95": 1064,
+    "p99": 1188,
+    "max": 1188
+   },
+   "pit": {
+    "n": 6,
+    "p50": 251,
+    "p95": 887,
+    "p99": 887,
+    "max": 887
+   }
+  },
+  "verified": {
+   "pro": {
+    "on_topic": {
+     "verified": 39,
+     "judged": 39,
+     "rate": 1.0
+    },
+    "verified_strict": {
+     "verified": 22,
+     "judged": 39,
+     "rate": 0.564
+    },
+    "by_segment_on_topic": {
+     "research": {
+      "verified": 9,
+      "judged": 9,
+      "rate": 1.0
+     },
+     "aml": {
+      "verified": 10,
+      "judged": 10,
+      "rate": 1.0
+     },
+     "kyb": {
+      "verified": 10,
+      "judged": 10,
+      "rate": 1.0
+     },
+     "agents": {
+      "verified": 10,
+      "judged": 10,
+      "rate": 1.0
+     }
+    },
+    "by_segment_strict": {
+     "research": {
+      "verified": 6,
+      "judged": 9,
+      "rate": 0.667
+     },
+     "aml": {
+      "verified": 6,
+      "judged": 10,
+      "rate": 0.6
+     },
+     "kyb": {
+      "verified": 7,
+      "judged": 10,
+      "rate": 0.7
+     },
+     "agents": {
+      "verified": 3,
+      "judged": 10,
+      "rate": 0.3
+     }
+    },
+    "gold_source_top10": 14
+   },
+   "realtime": {
+    "on_topic": {
+     "verified": 39,
+     "judged": 39,
+     "rate": 1.0
+    },
+    "verified_strict": {
+     "verified": 22,
+     "judged": 39,
+     "rate": 0.564
+    },
+    "by_segment_on_topic": {
+     "research": {
+      "verified": 9,
+      "judged": 9,
+      "rate": 1.0
+     },
+     "aml": {
+      "verified": 10,
+      "judged": 10,
+      "rate": 1.0
+     },
+     "kyb": {
+      "verified": 10,
+      "judged": 10,
+      "rate": 1.0
+     },
+     "agents": {
+      "verified": 10,
+      "judged": 10,
+      "rate": 1.0
+     }
+    },
+    "by_segment_strict": {
+     "research": {
+      "verified": 6,
+      "judged": 9,
+      "rate": 0.667
+     },
+     "aml": {
+      "verified": 6,
+      "judged": 10,
+      "rate": 0.6
+     },
+     "kyb": {
+      "verified": 7,
+      "judged": 10,
+      "rate": 0.7
+     },
+     "agents": {
+      "verified": 3,
+      "judged": 10,
+      "rate": 0.3
+     }
+    },
+    "gold_source_top10": 14
+   }
+  },
+  "lookahead": [
+   {
+    "q": "Microsoft Activision Blizzard acquisition closed",
+    "cutoff": "2023-06-01",
+    "event": "closed 2023-10-13",
+    "now": {
+     "acquired_after_cutoff": 10,
+     "published_after_cutoff": 8,
+     "states_outcome": 8
+    },
+    "time_machine": {
+     "acquired_after_cutoff": 0,
+     "published_after_cutoff": 0,
+     "states_outcome": 0
+    },
+    "now_examples": [
+     {
+      "host": "medium.com",
+      "title": "How Activision Blizzard Became a Microsoft Subsidiary: What It Teaches Us About Global Business\u2026",
+      "acquired_at": "2026-07-22T09:04:41Z",
+      "published_at": "2026-07-19T15:27:10Z"
+     },
+     {
+      "host": "blog.rottenwifi.com",
+      "title": "Microsoft Settles Gamers\u2019 Antitrust Lawsuit Over $68.7 Billion Activision Blizzard Acquisition",
+      "acquired_at": "2026-09-11T11:18:57Z",
+      "published_at": "2026-08-16T17:59:57Z"
+     },
+     {
+      "host": "macmyths.com",
+      "title": "Will MS buy Activision?",
+      "acquired_at": "2026-09-07T06:52:56Z",
+      "published_at": "2026-05-11T22:45:57Z"
+     }
+    ],
+    "time_machine_examples": []
+   },
+   {
+    "q": "Silicon Valley Bank deposit outflows",
+    "cutoff": "2023-03-09",
+    "event": "FDIC closed SVB 2023-03-10",
+    "now": {
+     "acquired_after_cutoff": 10,
+     "published_after_cutoff": 8,
+     "states_outcome": 3
+    },
+    "time_machine": {
+     "acquired_after_cutoff": 0,
+     "published_after_cutoff": 0,
+     "states_outcome": 0
+    },
+    "now_examples": [
+     {
+      "host": "bankingjournal.aba.com",
+      "title": "ABA DataBank: Depositor behavior during the 2023 bank failures | ABA Banking Journal",
+      "acquired_at": "2026-09-30T15:52:06Z",
+      "published_at": "2026-09-30T13:51:12Z"
+     },
+     {
+      "host": "grokipedia.com",
+      "title": "Collapse of Silicon Valley Bank",
+      "acquired_at": "2026-07-14T04:36:04Z",
+      "published_at": "2026-03-27T19:38:25Z"
+     },
+     {
+      "host": "api.finexus.net",
+      "title": "Silicon Valley Bank Collapse (2023): Mechanisms of a Regional Banking Crisis and Its Lessons for Portfolio Risk Manageme",
+      "acquired_at": "2026-08-26T22:22:33Z",
+      "published_at": "2026-07-17T18:06:35Z"
+     }
+    ],
+    "time_machine_examples": []
+   },
+   {
+    "q": "Credit Suisse UBS merger",
+    "cutoff": "2023-03-17",
+    "event": "UBS deal 2023-03-19",
+    "now": {
+     "acquired_after_cutoff": 10,
+     "published_after_cutoff": 3,
+     "states_outcome": 2
+    },
+    "time_machine": {
+     "acquired_after_cutoff": 0,
+     "published_after_cutoff": 0,
+     "states_outcome": 0
+    },
+    "now_examples": [
+     {
+      "host": "m.timesofoman.com",
+      "title": "Switzerland: UBS completes Credit Suisse takeover",
+      "acquired_at": "2026-05-18T00:32:03Z",
+      "published_at": null
+     },
+     {
+      "host": "legalclarity.org",
+      "title": "Who Owns Credit Suisse? It No Longer Exists - LegalClarity",
+      "acquired_at": "2026-07-26T05:38:17Z",
+      "published_at": "2026-06-15T04:05:48Z"
+     }
+    ],
+    "time_machine_examples": []
+   },
+   {
+    "q": "FTX bankruptcy filing",
+    "cutoff": "2022-11-08",
+    "event": "Chapter 11 2022-11-11",
+    "now": {
+     "acquired_after_cutoff": 10,
+     "published_after_cutoff": 4,
+     "states_outcome": 3
+    },
+    "time_machine": {
+     "acquired_after_cutoff": 0,
+     "published_after_cutoff": 1,
+     "states_outcome": 1
+    },
+    "now_examples": [
+     {
+      "host": "grokipedia.com",
+      "title": "Bankruptcy of FTX",
+      "acquired_at": "2026-07-17T05:38:03Z",
+      "published_at": "2026-02-23T21:02:15Z"
+     },
+     {
+      "host": "rigorrank.com",
+      "title": "FTX (expired) \u2014 RigorRank",
+      "acquired_at": "2026-06-05T18:07:02Z",
+      "published_at": null
+     },
+     {
+      "host": "qredax.com",
+      "title": "FTX Bankruptcy Explained: What Happened and Will You Get Money Back",
+      "acquired_at": "2026-06-26T08:59:18Z",
+      "published_at": "2026-06-15T08:59:31Z"
+     }
+    ],
+    "time_machine_examples": [
+     {
+      "host": "todaynewspost.com",
+      "title": "Bankman-Fried, founder and CEO of Crypto exchange FTX, says the company has &quot;a few billion&quot; to support the emb",
+      "acquired_at": "2022-10-04T23:03:55Z",
+      "published_at": "2022-07-07T15:14:29Z"
+     }
+    ]
+   },
+   {
+    "q": "Nvidia market capitalization",
+    "cutoff": "2022-12-01",
+    "event": "first $1T close 2023-05-30",
+    "now": {
+     "acquired_after_cutoff": 10,
+     "published_after_cutoff": 6,
+     "states_outcome": 7
+    },
+    "time_machine": {
+     "acquired_after_cutoff": 0,
+     "published_after_cutoff": 0,
+     "states_outcome": 0
+    },
+    "now_examples": [
+     {
+      "host": "companiesmarketcap.com",
+      "title": "NVIDIA (NVDA) - Market capitalization",
+      "acquired_at": "2026-09-20T01:13:47Z",
+      "published_at": null
+     },
+     {
+      "host": "tradingview.com",
+      "title": "Nvidia's $5.4 Trillion Market Cap 'Seems Crazy' Next to $3.5 Trillion Russell 2000 Total, Says Charlie Bilello",
+      "acquired_at": "2026-09-30T11:18:11Z",
+      "published_at": "2026-09-28T10:40:01Z"
+     },
+     {
+      "host": "newsbreak.com",
+      "title": "Nvidia's $5.4 Trillion Market Cap 'Seems Crazy' Next to $3.5 Trillion Russell 2000 Total, Says Charlie Bilello - NewsBre",
+      "acquired_at": "2026-09-29T19:52:32Z",
+      "published_at": "2026-09-28T10:40:01Z"
+     }
+    ],
+    "time_machine_examples": []
+   },
+   {
+    "q": "Sam Bankman-Fried sentenced years prison",
+    "cutoff": "2024-03-27",
+    "event": "sentenced 2024-03-28",
+    "now": {
+     "acquired_after_cutoff": 10,
+     "published_after_cutoff": 1,
+     "states_outcome": 10
+    },
+    "time_machine": {
+     "acquired_after_cutoff": 0,
+     "published_after_cutoff": 0,
+     "states_outcome": 0
+    },
+    "now_examples": [
+     {
+      "host": "en.wikipedia.org",
+      "title": "Sam Bankman-Fried",
+      "acquired_at": "2026-09-28T23:12:59Z",
+      "published_at": "2026-09-27T04:21:54Z"
+     },
+     {
+      "host": "economictimes.indiatimes.com",
+      "title": "Fallen crypto mogul Sam Bankman-Fried sentenced to 25 years in prison",
+      "acquired_at": "2026-06-17T09:09:57Z",
+      "published_at": null
+     },
+     {
+      "host": "economictimes.indiatimes.com",
+      "title": "Sam Bankman-Fried sentenced to 25 years in prison for multi-billion dollar FTX fraud",
+      "acquired_at": "2026-06-18T22:10:41Z",
+      "published_at": null
+     }
+    ],
+    "time_machine_examples": []
+   }
+  ],
+  "lookahead_totals": {
+   "now": {
+    "acquired_after_cutoff": 60,
+    "published_after_cutoff": 30,
+    "states_outcome": 33
+   },
+   "time_machine": {
+    "acquired_after_cutoff": 0,
+    "published_after_cutoff": 1,
+    "states_outcome": 1
+   },
+   "results_per_side": 60
+  }
+ },
+ "rows": [
+  {
+   "seg": "research",
+   "q": "NVIDIA Q2 FY2026 earnings data center revenue",
+   "gold": [
+    "nvidianews.nvidia.com",
+    "investor.nvidia.com",
+    "nvidia.com"
+   ],
+   "fact_strength": "fact",
+   "fact_regex": "46\\.7|41\\.1",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 849,
+     "gold_rank": 1,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "nvidianews.nvidia.com",
+      "aioapex.com",
+      "gate.com"
+     ],
+     "newest_acquired_at": "2026-09-26T05:31:47Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 211,
+     "gold_rank": 1,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "nvidianews.nvidia.com",
+      "aioapex.com",
+      "gate.com"
+     ],
+     "newest_acquired_at": "2026-09-26T05:31:47Z"
+    }
+   ]
+  },
+  {
+   "seg": "research",
+   "q": "FOMC statement September 2026 federal funds rate decision",
+   "gold": [
+    "federalreserve.gov"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "target range",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 195,
+     "gold_rank": 0,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "newyorkfed.org",
+      "pnc.com",
+      "macenews.com"
+     ],
+     "newest_acquired_at": "2026-09-20T14:42:02Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 206,
+     "gold_rank": 0,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "newyorkfed.org",
+      "pnc.com",
+      "macenews.com"
+     ],
+     "newest_acquired_at": "2026-09-20T14:42:02Z"
+    }
+   ]
+  },
+  {
+   "seg": "research",
+   "q": "Apple 10-K fiscal 2025 risk factors",
+   "gold": [
+    "sec.gov",
+    "investor.apple.com"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "risk factors",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 210,
+     "gold_rank": 0,
+     "fact_rank": 5,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "earningsgrade.com",
+      "symbology.online",
+      "jasonandjarvis.org"
+     ],
+     "newest_acquired_at": "2026-09-19T02:36:27Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 205,
+     "gold_rank": 0,
+     "fact_rank": 5,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "earningsgrade.com",
+      "symbology.online",
+      "jasonandjarvis.org"
+     ],
+     "newest_acquired_at": "2026-09-16T13:50:57Z"
+    }
+   ]
+  },
+  {
+   "seg": "research",
+   "q": "Tesla Q3 2026 vehicle deliveries production",
+   "gold": [
+    "ir.tesla.com",
+    "tesla.com"
+   ],
+   "fact_strength": "n/a",
+   "fact_regex": null,
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 228,
+     "gold_rank": 0,
+     "fact_rank": 0,
+     "verified": null,
+     "verified_strict": null,
+     "top3": [
+      "ctol.digital",
+      "investing.com",
+      "investorshub.advfn.com"
+     ],
+     "newest_acquired_at": "2026-10-01T09:43:57Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 568,
+     "gold_rank": 0,
+     "fact_rank": 0,
+     "verified": null,
+     "verified_strict": null,
+     "top3": [
+      "ctol.digital",
+      "investing.com",
+      "investorshub.advfn.com"
+     ],
+     "newest_acquired_at": "2026-10-01T09:43:57Z"
+    }
+   ]
+  },
+  {
+   "seg": "research",
+   "q": "Berkshire Hathaway 13F holdings latest quarter",
+   "gold": [
+    "sec.gov"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "13F",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 659,
+     "gold_rank": 0,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "portfoliosavvy.com",
+      "tenkcalls.com",
+      "whalecreep.com"
+     ],
+     "newest_acquired_at": "2026-09-19T02:48:57Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 791,
+     "gold_rank": 0,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "stockzoa.com",
+      "portfoliosavvy.com",
+      "tenkcalls.com"
+     ],
+     "newest_acquired_at": "2026-09-19T02:48:57Z"
+    }
+   ]
+  },
+  {
+   "seg": "research",
+   "q": "Microsoft Activision Blizzard acquisition closed",
+   "gold": [
+    "news.microsoft.com",
+    "microsoft.com"
+   ],
+   "fact_strength": "fact",
+   "fact_regex": "october 13,? 2023|13 october 2023|oct\\.? 13|completed (its|the) acquisition|has completed",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 319,
+     "gold_rank": 0,
+     "fact_rank": 3,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "en.wikipedia.org",
+      "girlswars.com",
+      "medium.com"
+     ],
+     "newest_acquired_at": "2026-09-20T16:44:56Z",
+     "cutoff": "2023-06-01",
+     "event": "closed 2023-10-13",
+     "acquired_after_cutoff": 10,
+     "published_after_cutoff": 8,
+     "states_outcome": 8,
+     "outcome_examples": [
+      {
+       "host": "medium.com",
+       "title": "How Activision Blizzard Became a Microsoft Subsidiary: What It Teaches Us About Global Business\u2026",
+       "acquired_at": "2026-07-22T09:04:41Z",
+       "published_at": "2026-07-19T15:27:10Z"
+      },
+      {
+       "host": "blog.rottenwifi.com",
+       "title": "Microsoft Settles Gamers\u2019 Antitrust Lawsuit Over $68.7 Billion Activision Blizzard Acquisition",
+       "acquired_at": "2026-09-11T11:18:57Z",
+       "published_at": "2026-08-16T17:59:57Z"
+      },
+      {
+       "host": "macmyths.com",
+       "title": "Will MS buy Activision?",
+       "acquired_at": "2026-09-07T06:52:56Z",
+       "published_at": "2026-05-11T22:45:57Z"
+      }
+     ]
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 264,
+     "gold_rank": 0,
+     "fact_rank": 3,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "en.wikipedia.org",
+      "girlswars.com",
+      "medium.com"
+     ],
+     "newest_acquired_at": "2026-09-20T16:44:56Z",
+     "cutoff": "2023-06-01",
+     "event": "closed 2023-10-13",
+     "acquired_after_cutoff": 10,
+     "published_after_cutoff": 8,
+     "states_outcome": 8,
+     "outcome_examples": [
+      {
+       "host": "medium.com",
+       "title": "How Activision Blizzard Became a Microsoft Subsidiary: What It Teaches Us About Global Business\u2026",
+       "acquired_at": "2026-07-22T09:04:41Z",
+       "published_at": "2026-07-19T15:27:10Z"
+      },
+      {
+       "host": "blog.rottenwifi.com",
+       "title": "Microsoft Settles Gamers\u2019 Antitrust Lawsuit Over $68.7 Billion Activision Blizzard Acquisition",
+       "acquired_at": "2026-09-11T11:18:57Z",
+       "published_at": "2026-08-16T17:59:57Z"
+      },
+      {
+       "host": "macmyths.com",
+       "title": "Will MS buy Activision?",
+       "acquired_at": "2026-09-07T06:52:56Z",
+       "published_at": "2026-05-11T22:45:57Z"
+      }
+     ]
+    },
+    {
+     "kind": "pit",
+     "mode": "pro",
+     "ms": 253,
+     "gold_rank": 0,
+     "fact_rank": 0,
+     "verified": false,
+     "verified_strict": false,
+     "top3": [
+      "ksnt.com",
+      "msn.com",
+      "wreg.com"
+     ],
+     "newest_acquired_at": "2023-05-30T08:50:15Z",
+     "cutoff": "2023-06-01",
+     "event": "closed 2023-10-13",
+     "acquired_after_cutoff": 0,
+     "published_after_cutoff": 0,
+     "states_outcome": 0,
+     "outcome_examples": []
+    }
+   ]
+  },
+  {
+   "seg": "research",
+   "q": "Silicon Valley Bank deposit outflows",
+   "gold": [
+    "svb.com",
+    "fdic.gov"
+   ],
+   "fact_strength": "fact",
+   "fact_regex": "march 10,? 2023|receivership|fdic",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 272,
+     "gold_rank": 0,
+     "fact_rank": 4,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "bankingjournal.aba.com",
+      "grokipedia.com",
+      "grokipedia.com"
+     ],
+     "newest_acquired_at": "2026-09-30T15:52:06Z",
+     "cutoff": "2023-03-09",
+     "event": "FDIC closed SVB 2023-03-10",
+     "acquired_after_cutoff": 10,
+     "published_after_cutoff": 8,
+     "states_outcome": 3,
+     "outcome_examples": [
+      {
+       "host": "bankingjournal.aba.com",
+       "title": "ABA DataBank: Depositor behavior during the 2023 bank failures | ABA Banking Journal",
+       "acquired_at": "2026-09-30T15:52:06Z",
+       "published_at": "2026-09-30T13:51:12Z"
+      },
+      {
+       "host": "grokipedia.com",
+       "title": "Collapse of Silicon Valley Bank",
+       "acquired_at": "2026-07-14T04:36:04Z",
+       "published_at": "2026-03-27T19:38:25Z"
+      },
+      {
+       "host": "api.finexus.net",
+       "title": "Silicon Valley Bank Collapse (2023): Mechanisms of a Regional Banking Crisis and Its Lessons for Portfolio Risk Manageme",
+       "acquired_at": "2026-08-26T22:22:33Z",
+       "published_at": "2026-07-17T18:06:35Z"
+      }
+     ]
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 245,
+     "gold_rank": 0,
+     "fact_rank": 4,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "bankingjournal.aba.com",
+      "grokipedia.com",
+      "grokipedia.com"
+     ],
+     "newest_acquired_at": "2026-09-30T15:52:06Z",
+     "cutoff": "2023-03-09",
+     "event": "FDIC closed SVB 2023-03-10",
+     "acquired_after_cutoff": 10,
+     "published_after_cutoff": 8,
+     "states_outcome": 3,
+     "outcome_examples": [
+      {
+       "host": "bankingjournal.aba.com",
+       "title": "ABA DataBank: Depositor behavior during the 2023 bank failures | ABA Banking Journal",
+       "acquired_at": "2026-09-30T15:52:06Z",
+       "published_at": "2026-09-30T13:51:12Z"
+      },
+      {
+       "host": "grokipedia.com",
+       "title": "Collapse of Silicon Valley Bank",
+       "acquired_at": "2026-07-14T04:36:04Z",
+       "published_at": "2026-03-27T19:38:25Z"
+      },
+      {
+       "host": "api.finexus.net",
+       "title": "Silicon Valley Bank Collapse (2023): Mechanisms of a Regional Banking Crisis and Its Lessons for Portfolio Risk Manageme",
+       "acquired_at": "2026-08-26T22:22:33Z",
+       "published_at": "2026-07-17T18:06:35Z"
+      }
+     ]
+    },
+    {
+     "kind": "pit",
+     "mode": "pro",
+     "ms": 251,
+     "gold_rank": 5,
+     "fact_rank": 0,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "docoh.com",
+      "depositaccounts.com",
+      "usbanklocations.com"
+     ],
+     "newest_acquired_at": "2022-11-26T14:53:07Z",
+     "cutoff": "2023-03-09",
+     "event": "FDIC closed SVB 2023-03-10",
+     "acquired_after_cutoff": 0,
+     "published_after_cutoff": 0,
+     "states_outcome": 0,
+     "outcome_examples": []
+    }
+   ]
+  },
+  {
+   "seg": "research",
+   "q": "Credit Suisse UBS merger",
+   "gold": [
+    "ubs.com",
+    "credit-suisse.com",
+    "snb.ch"
+   ],
+   "fact_strength": "fact",
+   "fact_regex": "3(\\.0)? billion (swiss )?francs|chf ?3|\\$3\\.2 billion|march 19",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 302,
+     "gold_rank": 7,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "m.timesofoman.com",
+      "londondaily.com",
+      "grokipedia.com"
+     ],
+     "newest_acquired_at": "2026-09-20T13:06:29Z",
+     "cutoff": "2023-03-17",
+     "event": "UBS deal 2023-03-19",
+     "acquired_after_cutoff": 10,
+     "published_after_cutoff": 3,
+     "states_outcome": 2,
+     "outcome_examples": [
+      {
+       "host": "m.timesofoman.com",
+       "title": "Switzerland: UBS completes Credit Suisse takeover",
+       "acquired_at": "2026-05-18T00:32:03Z",
+       "published_at": null
+      },
+      {
+       "host": "legalclarity.org",
+       "title": "Who Owns Credit Suisse? It No Longer Exists - LegalClarity",
+       "acquired_at": "2026-07-26T05:38:17Z",
+       "published_at": "2026-06-15T04:05:48Z"
+      }
+     ]
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 193,
+     "gold_rank": 7,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "m.timesofoman.com",
+      "londondaily.com",
+      "grokipedia.com"
+     ],
+     "newest_acquired_at": "2026-09-20T13:06:29Z",
+     "cutoff": "2023-03-17",
+     "event": "UBS deal 2023-03-19",
+     "acquired_after_cutoff": 10,
+     "published_after_cutoff": 3,
+     "states_outcome": 2,
+     "outcome_examples": [
+      {
+       "host": "m.timesofoman.com",
+       "title": "Switzerland: UBS completes Credit Suisse takeover",
+       "acquired_at": "2026-05-18T00:32:03Z",
+       "published_at": null
+      },
+      {
+       "host": "legalclarity.org",
+       "title": "Who Owns Credit Suisse? It No Longer Exists - LegalClarity",
+       "acquired_at": "2026-07-26T05:38:17Z",
+       "published_at": "2026-06-15T04:05:48Z"
+      }
+     ]
+    },
+    {
+     "kind": "pit",
+     "mode": "pro",
+     "ms": 887,
+     "gold_rank": 0,
+     "fact_rank": 0,
+     "verified": false,
+     "verified_strict": false,
+     "top3": [
+      "isp.netscape.com",
+      "reuters.com",
+      "globalcapital.com"
+     ],
+     "newest_acquired_at": "2022-12-06T18:14:38Z",
+     "cutoff": "2023-03-17",
+     "event": "UBS deal 2023-03-19",
+     "acquired_after_cutoff": 0,
+     "published_after_cutoff": 0,
+     "states_outcome": 0,
+     "outcome_examples": []
+    }
+   ]
+  },
+  {
+   "seg": "research",
+   "q": "FTX bankruptcy filing",
+   "gold": [
+    "ftx.com",
+    "sec.gov",
+    "justice.gov"
+   ],
+   "fact_strength": "fact",
+   "fact_regex": "chapter 11|november 11,? 2022",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 288,
+     "gold_rank": 0,
+     "fact_rank": 2,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "morningtopnews.com",
+      "grokipedia.com",
+      "economictimes.indiatimes.com"
+     ],
+     "newest_acquired_at": "2026-09-20T05:51:38Z",
+     "cutoff": "2022-11-08",
+     "event": "Chapter 11 2022-11-11",
+     "acquired_after_cutoff": 10,
+     "published_after_cutoff": 4,
+     "states_outcome": 3,
+     "outcome_examples": [
+      {
+       "host": "grokipedia.com",
+       "title": "Bankruptcy of FTX",
+       "acquired_at": "2026-07-17T05:38:03Z",
+       "published_at": "2026-02-23T21:02:15Z"
+      },
+      {
+       "host": "rigorrank.com",
+       "title": "FTX (expired) \u2014 RigorRank",
+       "acquired_at": "2026-06-05T18:07:02Z",
+       "published_at": null
+      },
+      {
+       "host": "qredax.com",
+       "title": "FTX Bankruptcy Explained: What Happened and Will You Get Money Back",
+       "acquired_at": "2026-06-26T08:59:18Z",
+       "published_at": "2026-06-15T08:59:31Z"
+      }
+     ]
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 416,
+     "gold_rank": 0,
+     "fact_rank": 3,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "en.wikipedia.org",
+      "morningtopnews.com",
+      "grokipedia.com"
+     ],
+     "newest_acquired_at": "2026-09-20T05:51:38Z",
+     "cutoff": "2022-11-08",
+     "event": "Chapter 11 2022-11-11",
+     "acquired_after_cutoff": 10,
+     "published_after_cutoff": 4,
+     "states_outcome": 2,
+     "outcome_examples": [
+      {
+       "host": "grokipedia.com",
+       "title": "Bankruptcy of FTX",
+       "acquired_at": "2026-07-17T05:38:03Z",
+       "published_at": "2026-02-23T21:02:15Z"
+      },
+      {
+       "host": "rigorrank.com",
+       "title": "FTX (expired) \u2014 RigorRank",
+       "acquired_at": "2026-06-05T18:07:02Z",
+       "published_at": null
+      }
+     ]
+    },
+    {
+     "kind": "pit",
+     "mode": "pro",
+     "ms": 238,
+     "gold_rank": 4,
+     "fact_rank": 0,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "blockworks.co",
+      "zawya.com",
+      "todaynewspost.com"
+     ],
+     "newest_acquired_at": "2022-10-07T17:04:55Z",
+     "cutoff": "2022-11-08",
+     "event": "Chapter 11 2022-11-11",
+     "acquired_after_cutoff": 0,
+     "published_after_cutoff": 1,
+     "states_outcome": 1,
+     "outcome_examples": [
+      {
+       "host": "todaynewspost.com",
+       "title": "Bankman-Fried, founder and CEO of Crypto exchange FTX, says the company has &quot;a few billion&quot; to support the emb",
+       "acquired_at": "2022-10-04T23:03:55Z",
+       "published_at": "2022-07-07T15:14:29Z"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "seg": "research",
+   "q": "Nvidia market capitalization",
+   "gold": [
+    "companiesmarketcap.com",
+    "nvidia.com"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "market cap",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 318,
+     "gold_rank": 1,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "companiesmarketcap.com",
+      "tradingview.com",
+      "newsbreak.com"
+     ],
+     "newest_acquired_at": "2026-09-30T11:18:11Z",
+     "cutoff": "2022-12-01",
+     "event": "first $1T close 2023-05-30",
+     "acquired_after_cutoff": 10,
+     "published_after_cutoff": 6,
+     "states_outcome": 7,
+     "outcome_examples": [
+      {
+       "host": "companiesmarketcap.com",
+       "title": "NVIDIA (NVDA) - Market capitalization",
+       "acquired_at": "2026-09-20T01:13:47Z",
+       "published_at": null
+      },
+      {
+       "host": "tradingview.com",
+       "title": "Nvidia's $5.4 Trillion Market Cap 'Seems Crazy' Next to $3.5 Trillion Russell 2000 Total, Says Charlie Bilello",
+       "acquired_at": "2026-09-30T11:18:11Z",
+       "published_at": "2026-09-28T10:40:01Z"
+      },
+      {
+       "host": "newsbreak.com",
+       "title": "Nvidia's $5.4 Trillion Market Cap 'Seems Crazy' Next to $3.5 Trillion Russell 2000 Total, Says Charlie Bilello - NewsBre",
+       "acquired_at": "2026-09-29T19:52:32Z",
+       "published_at": "2026-09-28T10:40:01Z"
+      }
+     ]
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 243,
+     "gold_rank": 1,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "companiesmarketcap.com",
+      "tradingview.com",
+      "newsbreak.com"
+     ],
+     "newest_acquired_at": "2026-09-30T11:18:11Z",
+     "cutoff": "2022-12-01",
+     "event": "first $1T close 2023-05-30",
+     "acquired_after_cutoff": 10,
+     "published_after_cutoff": 6,
+     "states_outcome": 7,
+     "outcome_examples": [
+      {
+       "host": "companiesmarketcap.com",
+       "title": "NVIDIA (NVDA) - Market capitalization",
+       "acquired_at": "2026-09-20T01:13:47Z",
+       "published_at": null
+      },
+      {
+       "host": "tradingview.com",
+       "title": "Nvidia's $5.4 Trillion Market Cap 'Seems Crazy' Next to $3.5 Trillion Russell 2000 Total, Says Charlie Bilello",
+       "acquired_at": "2026-09-30T11:18:11Z",
+       "published_at": "2026-09-28T10:40:01Z"
+      },
+      {
+       "host": "newsbreak.com",
+       "title": "Nvidia's $5.4 Trillion Market Cap 'Seems Crazy' Next to $3.5 Trillion Russell 2000 Total, Says Charlie Bilello - NewsBre",
+       "acquired_at": "2026-09-29T19:52:32Z",
+       "published_at": "2026-09-28T10:40:01Z"
+      }
+     ]
+    },
+    {
+     "kind": "pit",
+     "mode": "pro",
+     "ms": 199,
+     "gold_rank": 0,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "msn.com",
+      "reuters.com",
+      "msn.com"
+     ],
+     "newest_acquired_at": "2022-09-25T19:06:48Z",
+     "cutoff": "2022-12-01",
+     "event": "first $1T close 2023-05-30",
+     "acquired_after_cutoff": 0,
+     "published_after_cutoff": 0,
+     "states_outcome": 0,
+     "outcome_examples": []
+    }
+   ]
+  },
+  {
+   "seg": "aml",
+   "q": "Danske Bank Estonia money laundering investigation",
+   "gold": [
+    "danskebank.com",
+    "justice.gov",
+    "reuters.com"
+   ],
+   "fact_strength": "fact",
+   "fact_regex": "200 billion|\\$2(\\.0)? billion|pleaded guilty|plead guilty",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 584,
+     "gold_rank": 0,
+     "fact_rank": 2,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "occrp.org",
+      "cmsapi.theepochtimes.com",
+      "hksar.org"
+     ],
+     "newest_acquired_at": "2026-09-01T08:08:05Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 240,
+     "gold_rank": 0,
+     "fact_rank": 2,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "occrp.org",
+      "cmsapi.theepochtimes.com",
+      "hksar.org"
+     ],
+     "newest_acquired_at": "2026-09-01T08:08:05Z"
+    }
+   ]
+  },
+  {
+   "seg": "aml",
+   "q": "Changpeng Zhao Binance guilty plea sentence",
+   "gold": [
+    "justice.gov",
+    "reuters.com"
+   ],
+   "fact_strength": "fact",
+   "fact_regex": "four months|4 months|4-month|\\$50 million|pleaded guilty",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 566,
+     "gold_rank": 0,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "securitydone.com",
+      "m.economictimes.com",
+      "whitecollar.blog"
+     ],
+     "newest_acquired_at": "2026-09-29T23:58:39Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 1188,
+     "gold_rank": 0,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "securitydone.com",
+      "m.economictimes.com",
+      "whitecollar.blog"
+     ],
+     "newest_acquired_at": "2026-09-29T23:58:39Z"
+    }
+   ]
+  },
+  {
+   "seg": "aml",
+   "q": "Wirecard Markus Braun fraud trial verdict",
+   "gold": [
+    "reuters.com",
+    "ft.com",
+    "handelsblatt.com"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "braun",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 220,
+     "gold_rank": 0,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "businessmagazine24.com",
+      "thefraudarchive.com",
+      "vixio.com"
+     ],
+     "newest_acquired_at": "2026-09-22T02:21:53Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 178,
+     "gold_rank": 0,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "businessmagazine24.com",
+      "thefraudarchive.com",
+      "vixio.com"
+     ],
+     "newest_acquired_at": "2026-09-22T02:21:53Z"
+    }
+   ]
+  },
+  {
+   "seg": "aml",
+   "q": "OFAC SDN list recent actions September 2026",
+   "gold": [
+    "ofac.treasury.gov",
+    "treasury.gov"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "sanction|designat",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 311,
+     "gold_rank": 7,
+     "fact_rank": 2,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "tetmo.com",
+      "mrsanctions.com",
+      "distributedrisk.com"
+     ],
+     "newest_acquired_at": "2026-10-01T03:01:12Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 1064,
+     "gold_rank": 7,
+     "fact_rank": 2,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "tetmo.com",
+      "mrsanctions.com",
+      "distributedrisk.com"
+     ],
+     "newest_acquired_at": "2026-10-01T03:01:12Z"
+    }
+   ]
+  },
+  {
+   "seg": "aml",
+   "q": "FinCEN enforcement action 2026 money services business",
+   "gold": [
+    "fincen.gov"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "civil money penalty|assess|enforcement",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 224,
+     "gold_rank": 0,
+     "fact_rank": 2,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "reglith.com",
+      "federalstatelaw.com",
+      "thefederalregister.org"
+     ],
+     "newest_acquired_at": "2026-09-19T11:51:10Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 217,
+     "gold_rank": 0,
+     "fact_rank": 2,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "reglith.com",
+      "federalstatelaw.com",
+      "thefederalregister.org"
+     ],
+     "newest_acquired_at": "2026-09-19T11:51:10Z"
+    }
+   ]
+  },
+  {
+   "seg": "aml",
+   "q": "Trevor Milton Nikola fraud conviction pardon",
+   "gold": [
+    "justice.gov",
+    "reuters.com",
+    "sec.gov"
+   ],
+   "fact_strength": "fact",
+   "fact_regex": "pardon",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 205,
+     "gold_rank": 0,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "economictimes.indiatimes.com",
+      "johnmichaelchambers.com",
+      "economictimes.indiatimes.com"
+     ],
+     "newest_acquired_at": "2026-09-19T08:01:25Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 213,
+     "gold_rank": 0,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "economictimes.indiatimes.com",
+      "johnmichaelchambers.com",
+      "economictimes.indiatimes.com"
+     ],
+     "newest_acquired_at": "2026-09-19T08:01:25Z"
+    }
+   ]
+  },
+  {
+   "seg": "aml",
+   "q": "Wirecard Betrug Urteil Landgericht M\u00fcnchen",
+   "gold": [
+    "sueddeutsche.de",
+    "handelsblatt.com",
+    "faz.net",
+    "spiegel.de",
+    "tagesschau.de"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "braun|urteil|prozess",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 252,
+     "gold_rank": 0,
+     "fact_rank": 3,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "sa.marketscreener.com",
+      "lexology.com",
+      "publisher.boersengefluester.de"
+     ],
+     "newest_acquired_at": "2026-09-19T17:35:40Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 540,
+     "gold_rank": 0,
+     "fact_rank": 3,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "justiz.bayern.de",
+      "sa.marketscreener.com",
+      "orf.at"
+     ],
+     "newest_acquired_at": "2026-09-29T15:54:06Z"
+    }
+   ]
+  },
+  {
+   "seg": "aml",
+   "q": "Jho Low 1MDB arrest warrant Malaysia",
+   "gold": [
+    "justice.gov",
+    "thestar.com.my",
+    "reuters.com"
+   ],
+   "fact_strength": "fact",
+   "fact_regex": "1mdb.*(warrant|fugitive)|(warrant|fugitive).*1mdb|\\$4\\.5 billion",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 922,
+     "gold_rank": 0,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "channelnewsasia.com",
+      "coconuts.co",
+      "bangkokpost.com"
+     ],
+     "newest_acquired_at": "2026-08-08T05:27:04Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 327,
+     "gold_rank": 0,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "channelnewsasia.com",
+      "coconuts.co",
+      "bangkokpost.com"
+     ],
+     "newest_acquired_at": "2026-08-08T05:27:04Z"
+    }
+   ]
+  },
+  {
+   "seg": "aml",
+   "q": "FATF grey list countries latest plenary",
+   "gold": [
+    "fatf-gafi.org"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "increased monitoring|grey list|gray list",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 234,
+     "gold_rank": 0,
+     "fact_rank": 3,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "complyadvantage.com",
+      "optima-partners.com",
+      "illicitflows.eu"
+     ],
+     "newest_acquired_at": "2026-09-19T02:43:01Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 187,
+     "gold_rank": 0,
+     "fact_rank": 3,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "complyadvantage.com",
+      "optima-partners.com",
+      "illicitflows.eu"
+     ],
+     "newest_acquired_at": "2026-09-19T02:43:01Z"
+    }
+   ]
+  },
+  {
+   "seg": "aml",
+   "q": "Sam Bankman-Fried sentenced years prison",
+   "gold": [
+    "justice.gov",
+    "reuters.com"
+   ],
+   "fact_strength": "fact",
+   "fact_regex": "25 years|25-year",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 198,
+     "gold_rank": 0,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "en.wikipedia.org",
+      "economictimes.indiatimes.com",
+      "economictimes.indiatimes.com"
+     ],
+     "newest_acquired_at": "2026-09-28T23:12:59Z",
+     "cutoff": "2024-03-27",
+     "event": "sentenced 2024-03-28",
+     "acquired_after_cutoff": 10,
+     "published_after_cutoff": 1,
+     "states_outcome": 10,
+     "outcome_examples": [
+      {
+       "host": "en.wikipedia.org",
+       "title": "Sam Bankman-Fried",
+       "acquired_at": "2026-09-28T23:12:59Z",
+       "published_at": "2026-09-27T04:21:54Z"
+      },
+      {
+       "host": "economictimes.indiatimes.com",
+       "title": "Fallen crypto mogul Sam Bankman-Fried sentenced to 25 years in prison",
+       "acquired_at": "2026-06-17T09:09:57Z",
+       "published_at": null
+      },
+      {
+       "host": "economictimes.indiatimes.com",
+       "title": "Sam Bankman-Fried sentenced to 25 years in prison for multi-billion dollar FTX fraud",
+       "acquired_at": "2026-06-18T22:10:41Z",
+       "published_at": null
+      }
+     ]
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 193,
+     "gold_rank": 0,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "en.wikipedia.org",
+      "economictimes.indiatimes.com",
+      "economictimes.indiatimes.com"
+     ],
+     "newest_acquired_at": "2026-09-28T23:12:59Z",
+     "cutoff": "2024-03-27",
+     "event": "sentenced 2024-03-28",
+     "acquired_after_cutoff": 10,
+     "published_after_cutoff": 1,
+     "states_outcome": 10,
+     "outcome_examples": [
+      {
+       "host": "en.wikipedia.org",
+       "title": "Sam Bankman-Fried",
+       "acquired_at": "2026-09-28T23:12:59Z",
+       "published_at": "2026-09-27T04:21:54Z"
+      },
+      {
+       "host": "economictimes.indiatimes.com",
+       "title": "Fallen crypto mogul Sam Bankman-Fried sentenced to 25 years in prison",
+       "acquired_at": "2026-06-17T09:09:57Z",
+       "published_at": null
+      },
+      {
+       "host": "economictimes.indiatimes.com",
+       "title": "Sam Bankman-Fried sentenced to 25 years in prison for multi-billion dollar FTX fraud",
+       "acquired_at": "2026-06-18T22:10:41Z",
+       "published_at": null
+      }
+     ]
+    },
+    {
+     "kind": "pit",
+     "mode": "pro",
+     "ms": 209,
+     "gold_rank": 0,
+     "fact_rank": 0,
+     "verified": false,
+     "verified_strict": false,
+     "top3": [
+      "cbs19news.com",
+      "wkrg.com",
+      "outkick.com"
+     ],
+     "newest_acquired_at": "2024-03-02T16:58:25Z",
+     "cutoff": "2024-03-27",
+     "event": "sentenced 2024-03-28",
+     "acquired_after_cutoff": 0,
+     "published_after_cutoff": 0,
+     "states_outcome": 0,
+     "outcome_examples": []
+    }
+   ]
+  },
+  {
+   "seg": "kyb",
+   "q": "Ramp Business Corporation headquarters address New York",
+   "gold": [
+    "ramp.com"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "new york",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 233,
+     "gold_rank": 0,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "govchime.com",
+      "formds.com",
+      "bizprofile.net"
+     ],
+     "newest_acquired_at": "2026-09-20T11:18:15Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 189,
+     "gold_rank": 0,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "govchime.com",
+      "formds.com",
+      "bizprofile.net"
+     ],
+     "newest_acquired_at": "2026-09-20T11:18:15Z"
+    }
+   ]
+  },
+  {
+   "seg": "kyb",
+   "q": "Middesk business verification API documentation",
+   "gold": [
+    "middesk.com",
+    "docs.middesk.com"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "\\bapi\\b",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 239,
+     "gold_rank": 1,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "docs.middesk.com",
+      "docs.middesk.com",
+      "mindcloud.co"
+     ],
+     "newest_acquired_at": "2026-09-19T02:45:57Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 289,
+     "gold_rank": 1,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "docs.middesk.com",
+      "docs.middesk.com",
+      "mindcloud.co"
+     ],
+     "newest_acquired_at": "2026-09-19T02:45:57Z"
+    }
+   ]
+  },
+  {
+   "seg": "kyb",
+   "q": "Delaware Division of Corporations entity search",
+   "gold": [
+    "delaware.gov",
+    "icis.corp.delaware.gov"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "entity search|division of corporations",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 279,
+     "gold_rank": 1,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "icis.corp.delaware.gov",
+      "businessrocket.com",
+      "bastionformations.com"
+     ],
+     "newest_acquired_at": "2026-09-20T20:26:42Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 836,
+     "gold_rank": 1,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "icis.corp.delaware.gov",
+      "businessrocket.com",
+      "bastionformations.com"
+     ],
+     "newest_acquired_at": "2026-09-20T20:26:42Z"
+    }
+   ]
+  },
+  {
+   "seg": "kyb",
+   "q": "Joe's Pizza Carmine Street New York reviews hours",
+   "gold": [
+    "joespizzanyc.com",
+    "yelp.com",
+    "tripadvisor.com"
+   ],
+   "fact_strength": "fact",
+   "fact_regex": "carmine",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 527,
+     "gold_rank": 2,
+     "fact_rank": 2,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "local.yahoo.com",
+      "tripadvisor.com",
+      "joe-s-pizza.yoo-restaurants.com"
+     ],
+     "newest_acquired_at": "2026-08-30T20:01:09Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 435,
+     "gold_rank": 2,
+     "fact_rank": 2,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "local.yahoo.com",
+      "tripadvisor.com",
+      "joe-s-pizza.yoo-restaurants.com"
+     ],
+     "newest_acquired_at": "2026-08-30T20:01:09Z"
+    }
+   ]
+  },
+  {
+   "seg": "kyb",
+   "q": "Klarna IPO prospectus NYSE listing",
+   "gold": [
+    "sec.gov",
+    "klarna.com"
+   ],
+   "fact_strength": "fact",
+   "fact_regex": "\\bF-1\\b|\\bKLAR\\b|nyse",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 277,
+     "gold_rank": 2,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "stifel.com",
+      "klarna.com",
+      "klarna.com"
+     ],
+     "newest_acquired_at": "2026-09-27T12:54:14Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 192,
+     "gold_rank": 2,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "stifel.com",
+      "klarna.com",
+      "klarna.com"
+     ],
+     "newest_acquired_at": "2026-09-27T12:54:14Z"
+    }
+   ]
+  },
+  {
+   "seg": "kyb",
+   "q": "Chime Better Business Bureau complaints",
+   "gold": [
+    "bbb.org"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "complaint",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 185,
+     "gold_rank": 3,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "wkyc.com",
+      "checkthat.ai",
+      "bbb.org"
+     ],
+     "newest_acquired_at": "2026-09-10T05:20:33Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 195,
+     "gold_rank": 3,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "wkyc.com",
+      "checkthat.ai",
+      "bbb.org"
+     ],
+     "newest_acquired_at": "2026-09-10T05:20:33Z"
+    }
+   ]
+  },
+  {
+   "seg": "kyb",
+   "q": "SBA PPP loan recipient lookup database",
+   "gold": [
+    "sba.gov",
+    "projects.propublica.org",
+    "federalpay.org"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "ppp.*(search|lookup|database)|(search|lookup|database).*ppp",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 190,
+     "gold_rank": 0,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "ppprecipients.com",
+      "ppprecipients.com",
+      "ppploanmap.com"
+     ],
+     "newest_acquired_at": "2026-09-19T03:04:58Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 204,
+     "gold_rank": 0,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "ppprecipients.com",
+      "ppprecipients.com",
+      "ppploanmap.com"
+     ],
+     "newest_acquired_at": "2026-09-19T03:04:58Z"
+    }
+   ]
+  },
+  {
+   "seg": "kyb",
+   "q": "Big Lots store closures list 2025",
+   "gold": [
+    "biglots.com",
+    "usatoday.com",
+    "reuters.com"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "clos",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 235,
+     "gold_rank": 0,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "finance.yahoo.com",
+      "misryoum.com",
+      "gcn.com"
+     ],
+     "newest_acquired_at": "2026-09-26T05:47:27Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 231,
+     "gold_rank": 0,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "finance.yahoo.com",
+      "misryoum.com",
+      "gcn.com"
+     ],
+     "newest_acquired_at": "2026-09-26T05:47:27Z"
+    }
+   ]
+  },
+  {
+   "seg": "kyb",
+   "q": "California Secretary of State business search Brex Inc",
+   "gold": [
+    "bizfileonline.sos.ca.gov",
+    "sos.ca.gov"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "bizfile|secretary of state",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 197,
+     "gold_rank": 2,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "static.notus.org",
+      "bizfileonline.sos.ca.gov",
+      "businessanywhere.io"
+     ],
+     "newest_acquired_at": "2026-09-20T06:04:51Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 193,
+     "gold_rank": 2,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "static.notus.org",
+      "bizfileonline.sos.ca.gov",
+      "businessanywhere.io"
+     ],
+     "newest_acquired_at": "2026-09-20T06:04:51Z"
+    }
+   ]
+  },
+  {
+   "seg": "kyb",
+   "q": "Companies House Revolut Ltd filing history",
+   "gold": [
+    "company-information.service.gov.uk",
+    "gov.uk"
+   ],
+   "fact_strength": "fact",
+   "fact_regex": "08804411|filing history",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 365,
+     "gold_rank": 1,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "beta.companieshouse.gov.uk",
+      "find-and-update.company-information.service.gov.uk",
+      "find-and-update.company-information.service.gov.uk"
+     ],
+     "newest_acquired_at": "2026-09-15T23:54:58Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 245,
+     "gold_rank": 1,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "beta.companieshouse.gov.uk",
+      "find-and-update.company-information.service.gov.uk",
+      "find-and-update.company-information.service.gov.uk"
+     ],
+     "newest_acquired_at": "2026-09-15T23:54:58Z"
+    }
+   ]
+  },
+  {
+   "seg": "agents",
+   "q": "SOFR rate today",
+   "gold": [
+    "newyorkfed.org"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "sofr",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 1120,
+     "gold_rank": 0,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "sofrrate.com",
+      "bluegamma.io",
+      "global-rates.com"
+     ],
+     "newest_acquired_at": "2026-09-29T03:11:43Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 198,
+     "gold_rank": 0,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "sofrrate.com",
+      "bluegamma.io",
+      "global-rates.com"
+     ],
+     "newest_acquired_at": "2026-09-29T03:11:43Z"
+    }
+   ]
+  },
+  {
+   "seg": "agents",
+   "q": "ECB monetary policy decision September 2026 deposit facility rate",
+   "gold": [
+    "ecb.europa.eu"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "deposit facility",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 197,
+     "gold_rank": 0,
+     "fact_rank": 2,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "embers.news",
+      "worldagencyfinance.com",
+      "2eu.brussels"
+     ],
+     "newest_acquired_at": "2026-09-29T20:28:34Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 174,
+     "gold_rank": 0,
+     "fact_rank": 2,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "embers.news",
+      "worldagencyfinance.com",
+      "2eu.brussels"
+     ],
+     "newest_acquired_at": "2026-09-29T20:28:34Z"
+    }
+   ]
+  },
+  {
+   "seg": "agents",
+   "q": "spot bitcoin ETF net inflows this week",
+   "gold": [
+    "farside.co.uk",
+    "coinshares.com",
+    "bloomberg.com"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "inflow",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 220,
+     "gold_rank": 0,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "cryptonews.net",
+      "newisty.com",
+      "tokenpost.com"
+     ],
+     "newest_acquired_at": "2026-09-30T15:22:20Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 213,
+     "gold_rank": 0,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "cryptonews.net",
+      "newisty.com",
+      "tokenpost.com"
+     ],
+     "newest_acquired_at": "2026-09-30T15:22:20Z"
+    }
+   ]
+  },
+  {
+   "seg": "agents",
+   "q": "US CPI August 2026 release BLS",
+   "gold": [
+    "bls.gov"
+   ],
+   "fact_strength": "fact",
+   "fact_regex": "august 2026|aug(ust)?\\.? 2026",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 237,
+     "gold_rank": 1,
+     "fact_rank": 3,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "stats.bls.gov",
+      "political.org",
+      "dol.gov"
+     ],
+     "newest_acquired_at": "2026-09-29T16:43:30Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 451,
+     "gold_rank": 1,
+     "fact_rank": 3,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "stats.bls.gov",
+      "political.org",
+      "dol.gov"
+     ],
+     "newest_acquired_at": "2026-09-29T16:43:30Z"
+    }
+   ]
+  },
+  {
+   "seg": "agents",
+   "q": "Robinhood Q3 2026 earnings date",
+   "gold": [
+    "investors.robinhood.com",
+    "robinhood.com"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "third quarter|q3",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 245,
+     "gold_rank": 0,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "eathealthy365.com",
+      "stockevents.app",
+      "stockevents.app"
+     ],
+     "newest_acquired_at": "2026-09-14T09:03:52Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 477,
+     "gold_rank": 0,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "eathealthy365.com",
+      "stockevents.app",
+      "stockevents.app"
+     ],
+     "newest_acquired_at": "2026-09-14T09:03:52Z"
+    }
+   ]
+  },
+  {
+   "seg": "agents",
+   "q": "Visa interchange fee changes 2026",
+   "gold": [
+    "usa.visa.com",
+    "visa.com"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "interchange",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 1099,
+     "gold_rank": 0,
+     "fact_rank": 2,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "forbes.com",
+      "liftedpayments.com",
+      "merchantcostconsulting.com"
+     ],
+     "newest_acquired_at": "2026-09-27T11:30:31Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 291,
+     "gold_rank": 0,
+     "fact_rank": 2,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "forbes.com",
+      "liftedpayments.com",
+      "merchantcostconsulting.com"
+     ],
+     "newest_acquired_at": "2026-09-27T11:30:31Z"
+    }
+   ]
+  },
+  {
+   "seg": "agents",
+   "q": "Stripe Radar machine learning fraud detection how it works",
+   "gold": [
+    "stripe.com",
+    "docs.stripe.com"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "radar",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 253,
+     "gold_rank": 5,
+     "fact_rank": 2,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "onlinestorenews.com",
+      "newstide.news",
+      "akshayghalme.com"
+     ],
+     "newest_acquired_at": "2026-09-16T14:01:25Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 185,
+     "gold_rank": 5,
+     "fact_rank": 2,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "onlinestorenews.com",
+      "newstide.news",
+      "akshayghalme.com"
+     ],
+     "newest_acquired_at": "2026-09-16T14:01:25Z"
+    }
+   ]
+  },
+  {
+   "seg": "agents",
+   "q": "CFPB Section 1071 small business lending rule compliance date",
+   "gold": [
+    "consumerfinance.gov"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "compliance date",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 558,
+     "gold_rank": 0,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "jdsupra.com",
+      "rataassociates.com",
+      "skycomcallcenter.com"
+     ],
+     "newest_acquired_at": "2026-09-20T02:50:54Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 244,
+     "gold_rank": 0,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "jdsupra.com",
+      "rataassociates.com",
+      "bakerdonelson.com"
+     ],
+     "newest_acquired_at": "2026-09-20T02:50:54Z"
+    }
+   ]
+  },
+  {
+   "seg": "agents",
+   "q": "Polymarket odds Fed rate cut next meeting",
+   "gold": [
+    "polymarket.com"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "polymarket",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 184,
+     "gold_rank": 4,
+     "fact_rank": 3,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "polymarketflow.com",
+      "polymarketindex.net",
+      "polynter.net"
+     ],
+     "newest_acquired_at": "2026-09-24T09:57:06Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 190,
+     "gold_rank": 4,
+     "fact_rank": 3,
+     "verified": true,
+     "verified_strict": true,
+     "top3": [
+      "polymarketflow.com",
+      "polymarketindex.net",
+      "polynter.net"
+     ],
+     "newest_acquired_at": "2026-09-24T09:57:06Z"
+    }
+   ]
+  },
+  {
+   "seg": "agents",
+   "q": "10 year 2 year treasury yield spread today",
+   "gold": [
+    "fred.stlouisfed.org",
+    "home.treasury.gov",
+    "treasury.gov"
+   ],
+   "fact_strength": "topic",
+   "fact_regex": "t10y2y|spread",
+   "runs": [
+    {
+     "kind": "now",
+     "mode": "pro",
+     "ms": 665,
+     "gold_rank": 0,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "stockmarketwatch.com",
+      "sofrrate.com",
+      "247wallst.com"
+     ],
+     "newest_acquired_at": "2026-09-28T23:46:11Z"
+    },
+    {
+     "kind": "now",
+     "mode": "realtime",
+     "ms": 382,
+     "gold_rank": 0,
+     "fact_rank": 1,
+     "verified": true,
+     "verified_strict": false,
+     "top3": [
+      "stockmarketwatch.com",
+      "sofrrate.com",
+      "247wallst.com"
+     ],
+     "newest_acquired_at": "2026-09-28T23:46:11Z"
+    }
+   ]
+  }
+ ]
+}

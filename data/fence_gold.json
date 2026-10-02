@@ -1,0 +1,306 @@
+{
+ "labelled_by": "Claude (a second model, not a human), blind to Jev labels, 2026-10-01; definitions = JEV_CRITERIA in scripts/fence_relevance.py; snippet+title only",
+ "sampling": "5 results per arm x 6 arms, 5 different events per arm (rotated so all 7 events appear), random.seed(20261001)",
+ "items": [
+  {
+   "n": 0,
+   "row_idx": 93,
+   "gold": "leaks-outcome",
+   "note": null,
+   "arm": "no fence",
+   "cutoff": "2022-11-08",
+   "url": "https://rigorrank.com/profiles/FTX",
+   "title": "FTX (expired) \u2014 RigorRank"
+  },
+  {
+   "n": 1,
+   "row_idx": 125,
+   "gold": "leaks-outcome",
+   "note": null,
+   "arm": "no fence",
+   "cutoff": "2022-12-01",
+   "url": "https://cryptobriefing.com/nvidia-market-cap-5-trillion-russell-2000",
+   "title": "Nvidia\u2019s market cap hits $5.4T, dwarfing the entire Russell 2000"
+  },
+  {
+   "n": 2,
+   "row_idx": 35,
+   "gold": "leaks-outcome",
+   "note": null,
+   "arm": "no fence",
+   "cutoff": "2023-03-09",
+   "url": "https://api.finexus.net/api/news/events/308c88e5-8b48-4e28-aaa6-515a0eb1a328/html",
+   "title": "Silicon Valley Bank Collapse (2023): Mechanisms of a Regional Banking Crisis and Its Lessons for Portfolio Risk Management"
+  },
+  {
+   "n": 3,
+   "row_idx": 68,
+   "gold": "leaks-outcome",
+   "note": null,
+   "arm": "no fence",
+   "cutoff": "2023-03-17",
+   "url": "https://legalclarity.org/who-owns-credit-suisse-it-no-longer-exists",
+   "title": "Who Owns Credit Suisse? It No Longer Exists - LegalClarity"
+  },
+  {
+   "n": 4,
+   "row_idx": 9,
+   "gold": "leaks-outcome",
+   "note": null,
+   "arm": "no fence",
+   "cutoff": "2023-06-01",
+   "url": "https://legalclarity.org/who-owns-blizzard-microsofts-acquisition-explained",
+   "title": "Who Owns Blizzard? Microsoft\u2019s Acquisition Explained - LegalClarity"
+  },
+  {
+   "n": 5,
+   "row_idx": 136,
+   "gold": "leaks-outcome",
+   "note": null,
+   "arm": "published_before",
+   "cutoff": "2022-12-01",
+   "url": "https://wikipedia-org.zproxy.org/wiki/NVIDIA",
+   "title": "American multinational technology company"
+  },
+  {
+   "n": 6,
+   "row_idx": 41,
+   "gold": "leaks-outcome",
+   "note": "borderline: post-collapse retrospective title; snippet itself only discusses outflows",
+   "arm": "published_before",
+   "cutoff": "2023-03-09",
+   "url": "https://bernstein.com/our-insights/podcasts/the-pulse/silicon-valley-bank-and-the-future-of-regional-banking.html",
+   "title": "Silicon Valley Bank and the Future of Regional Banking"
+  },
+  {
+   "n": 7,
+   "row_idx": 79,
+   "gold": "leaks-outcome",
+   "note": null,
+   "arm": "published_before",
+   "cutoff": "2023-03-17",
+   "url": "https://undisputedlegal.com/how-to-serve-legal-papers-on-ubs-financial-services-inc",
+   "title": "How to Serve Legal Papers on UBS Financial Services Inc."
+  },
+  {
+   "n": 8,
+   "row_idx": 12,
+   "gold": "useful-pre-event-evidence",
+   "note": "snippet only covers the Jan-2022 announcement; page itself (acquired 2026) covers the close",
+   "arm": "published_before",
+   "cutoff": "2023-06-01",
+   "url": "https://en-wikipedia-org.translate.goog/wiki/Acquisition_of_Activision_Blizzard_by_Microsoft?_x_tr_hl=th&_x_tr_pto=tc&_x_tr_sl=en&_x_tr_tl=th",
+   "title": "Acquisition of Activision Blizzard by Microsoft"
+  },
+  {
+   "n": 9,
+   "row_idx": 163,
+   "gold": "leaks-outcome",
+   "note": null,
+   "arm": "published_before",
+   "cutoff": "2024-03-27",
+   "url": "https://daedalusproduction.com/sam-bankman-fried-prison-number-explained-what-most-people-get-wrong-ty7",
+   "title": "Sam Bankman-Fried Prison Number Explained: What Most People Get Wrong"
+  },
+  {
+   "n": 10,
+   "row_idx": 51,
+   "gold": "useful-pre-event-evidence",
+   "note": null,
+   "arm": "query_time",
+   "cutoff": "2023-03-09",
+   "url": "https://depositaccounts.com/banks/silicon-valley-bank.html",
+   "title": "Silicon Valley Bank"
+  },
+  {
+   "n": 11,
+   "row_idx": 82,
+   "gold": "related-but-weak",
+   "note": "2020 analyst paper, not the 2023 situation",
+   "arm": "query_time",
+   "cutoff": "2023-03-17",
+   "url": "https://globalcapital.com/article/k3fv47q0c21z/credit-suisse-ubs-ibank-merger-recommended",
+   "title": "Credit Suisse, UBS I-Bank Merger Recommended"
+  },
+  {
+   "n": 12,
+   "row_idx": 20,
+   "gold": "useful-pre-event-evidence",
+   "note": null,
+   "arm": "query_time",
+   "cutoff": "2023-06-01",
+   "url": "https://ksnt.com/business/ap-business/uk-blocks-microsofts-activision-deal-over-competition-fears",
+   "title": "UK blocks Microsoft-Activision gaming deal, biggest in tech"
+  },
+  {
+   "n": 13,
+   "row_idx": 172,
+   "gold": "related-but-weak",
+   "note": null,
+   "arm": "query_time",
+   "cutoff": "2024-03-27",
+   "url": "https://outkick.com/super-fraudster-sam-bankman-fried-caught-using-vpn-under-house-arrest-claims-he-needed-it-to-watch-super-bowl-nfl-game-pass",
+   "title": "Super Fraudster Sam Bankman-Fried Caught Using VPN Under House Arrest, Claims He Needed It To Watch Super Bowl &ndash; OutKick"
+  },
+  {
+   "n": 14,
+   "row_idx": 207,
+   "gold": "related-but-weak",
+   "note": "funding news, not a partnership",
+   "arm": "query_time",
+   "cutoff": "2026-09-15",
+   "url": "https://newstodai.vercel.app/en/news/9f1468a44254df3eb7b1714273f0ad7733e2828e",
+   "title": "Keenable secures $26M from Accel to index the web for AI agents"
+  },
+  {
+   "n": 15,
+   "row_idx": 276,
+   "gold": "related-but-weak",
+   "note": null,
+   "arm": "query_time + period",
+   "cutoff": "2023-03-17",
+   "url": "https://docoh.com/company/1610520/UBS",
+   "title": "UBS Group AG - Registered Shares Filings, News & Portfolio Holdings"
+  },
+  {
+   "n": 16,
+   "row_idx": 213,
+   "gold": "useful-pre-event-evidence",
+   "note": null,
+   "arm": "query_time + period",
+   "cutoff": "2023-06-01",
+   "url": "https://www.reuters.com/technology/activision-blizzard-pay-35mln-settle-workplace-charges-us-sec-says-2023-02-03/",
+   "title": "'Call of Duty' maker Activision Blizzard to pay $35 mln over U.S. SEC charges"
+  },
+  {
+   "n": 17,
+   "row_idx": 365,
+   "gold": "useful-pre-event-evidence",
+   "note": null,
+   "arm": "query_time + period",
+   "cutoff": "2024-03-27",
+   "url": "https://everettpost.com/business/sam-bankman-fried-found-guilty-in-federal-fraud-and-conspiracy-trial-could-face-110-years-in-prison",
+   "title": "Sam Bankman-Fried found guilty in federal fraud and conspiracy trial, could face 110 years in prison - Everett Post"
+  },
+  {
+   "n": 18,
+   "row_idx": 393,
+   "gold": "irrelevant",
+   "note": null,
+   "arm": "query_time + period",
+   "cutoff": "2026-09-15",
+   "url": "https://select.keenable.ai/r/conviction-portfolio-traction-valuations-and-support-strength/W6c0WPUY06HXSe7DMi1AHQ",
+   "title": "Conviction\u2019s portfolio strength is concentrated in high-value AI applications and infrastructure"
+  },
+  {
+   "n": 19,
+   "row_idx": 309,
+   "gold": "related-but-weak",
+   "note": null,
+   "arm": "query_time + period",
+   "cutoff": "2022-11-08",
+   "url": "https://kclu.org/economy/economy/2022-06-19/crypto-billionaire-says-fed-is-driving-current-downturn",
+   "title": "Crypto billionaire says Fed is driving current downturn"
+  },
+  {
+   "n": 20,
+   "row_idx": 224,
+   "gold": "useful-pre-event-evidence",
+   "note": null,
+   "arm": "query_time + pre-event terms",
+   "cutoff": "2023-06-01",
+   "url": "https://mydroll.com/the-ftc-might-file-an-antitrust-lawsuit-to-block-microsofts-activision-purchase",
+   "title": "The FTC might file an antitrust lawsuit to block Microsoft&#8217;s Activision purchase"
+  },
+  {
+   "n": 21,
+   "row_idx": 374,
+   "gold": "related-but-weak",
+   "note": null,
+   "arm": "query_time + pre-event terms",
+   "cutoff": "2024-03-27",
+   "url": "https://cbs17.com/business/ap-business/ap-ftx-founder-bankman-fried-to-make-1st-us-court-appearance",
+   "title": "FTX founder Bankman-Fried allowed $250M bond, house arrest"
+  },
+  {
+   "n": 22,
+   "row_idx": 406,
+   "gold": "related-but-weak",
+   "note": null,
+   "arm": "query_time + pre-event terms",
+   "cutoff": "2026-09-15",
+   "url": "https://neodrop.ai/post/fcc2HWYBVOA",
+   "title": "Keenable indexed the web for agents. The turnstile is the product."
+  },
+  {
+   "n": 23,
+   "row_idx": 313,
+   "gold": "related-but-weak",
+   "note": null,
+   "arm": "query_time + pre-event terms",
+   "cutoff": "2022-11-08",
+   "url": "https://uk.advfn.com/newspaper/azeez-mustapha/52648/ftx-crypto-derivatives-exchange-the-new-trend-in-future-options-trading",
+   "title": "FTX Crypto Derivatives Exchange: The New Trend In Future Options Trading"
+  },
+  {
+   "n": 24,
+   "row_idx": 345,
+   "gold": "useful-pre-event-evidence",
+   "note": "concrete market cap but crawled 2021 (stale)",
+   "arm": "query_time + pre-event terms",
+   "cutoff": "2022-12-01",
+   "url": "https://groww.in/stocks/us/NVDA",
+   "title": "NVDA Stock Price | NVIDIA Corporation Share Price Today - Groww"
+  },
+  {
+   "n": 25,
+   "row_idx": 380,
+   "gold": "useful-pre-event-evidence",
+   "note": null,
+   "arm": "query_time + pre-event terms + period",
+   "cutoff": "2024-03-27",
+   "url": "https://ultrasurfing.com/digital-world/bankman-fried-found-guilty-of-massive-crypto-fraud",
+   "title": "ultrasurfing.com/digital-world/bankman-fried-found-guilty-of-massive-crypto-fraud/"
+  },
+  {
+   "n": 26,
+   "row_idx": 413,
+   "gold": "related-but-weak",
+   "note": null,
+   "arm": "query_time + pre-event terms + period",
+   "cutoff": "2026-09-15",
+   "url": "https://ailistscout.com/ai-tools/keenable-web-search-api-agents",
+   "title": "Keenable: A Web Search API for Agents With 100K Free Requests a Month"
+  },
+  {
+   "n": 27,
+   "row_idx": 328,
+   "gold": "related-but-weak",
+   "note": "FTX bailout activity Aug-2022; indirect",
+   "arm": "query_time + pre-event terms + period",
+   "cutoff": "2022-11-08",
+   "url": "https://fr.advfn.com/bourses/COIN/QNTUSD/crypto-news/88473341/bankman-fried-is-looking-at-secretly-insolvent",
+   "title": "Bankman-Fried Is Looking At 'Secretly insolvent' Small Exchanges & Crypto Miners"
+  },
+  {
+   "n": 28,
+   "row_idx": 353,
+   "gold": "useful-pre-event-evidence",
+   "note": null,
+   "arm": "query_time + pre-event terms + period",
+   "cutoff": "2022-12-01",
+   "url": "https://insidearbitrage.com/symbol-metrics?symbol=NVDA",
+   "title": "Symbol Metrics \u2013 InsideArbitrage"
+  },
+  {
+   "n": 29,
+   "row_idx": 264,
+   "gold": "useful-pre-event-evidence",
+   "note": null,
+   "arm": "query_time + pre-event terms + period",
+   "cutoff": "2023-03-09",
+   "url": "https://ycharts.com/companies/SIVB/key_stats/stats",
+   "title": "SIVB Key Stats | SVB Financial Group"
+  }
+ ]
+}

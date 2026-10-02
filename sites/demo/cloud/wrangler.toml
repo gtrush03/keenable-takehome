@@ -1,0 +1,14 @@
+name = "george-keenable-demo"
+main = "worker.ts"
+compatibility_date = "2026-09-01"
+workers_dev = true
+preview_urls = false
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+run_worker_first = true
+
+[[kv_namespaces]]
+binding = "RL"
+id = "4fd042ead0d241618afe033bf1d80904"

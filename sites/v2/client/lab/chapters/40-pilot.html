@@ -1,0 +1,42 @@
+<section class="slide" id="ladder" data-chapter="pilot" data-title="The pilot" data-src="research/opt1_thesis.md">
+  <div class="inner">
+    <p class="eyebrow">The pilot · 90 days · PROPOSAL</p>
+    <h2 data-reveal>Overlap report, sample shard, then a matched ablation.</h2>
+    <figure class="c-diagram" data-reveal aria-label="Week 0: overlap report on your pool, free. Week 1: 10B-token sample shard. Weeks 2 to 8: matched-compute ablation. Day 90: decide.">
+      <svg class="land" viewBox="0 0 1200 230" aria-hidden="true">
+        <defs><marker id="labChev2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" stroke="#0B0B0B" stroke-width="1.6"/></marker>
+          <marker id="labChev2A" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" style="stroke:var(--accent-deep)" stroke-width="2"/></marker></defs>
+        <g><rect class="box hl" x="1" y="1" width="270" height="228"/><text class="sub hl" x="20" y="44">WEEK 0 · FREE*</text><text class="lab hl" x="20" y="110">Overlap report</text><text class="lab hl" x="20" y="140">on your pool</text></g>
+        <g><rect class="box" x="310" y="1" width="270" height="228"/><text class="sub" x="329" y="44">WEEK 1</text><text class="lab" x="329" y="110">10B-token</text><text class="lab" x="329" y="140">sample shard</text></g>
+        <g><rect class="box" x="619" y="1" width="270" height="228"/><text class="sub" x="638" y="44">WEEKS 2–8</text><text class="lab" x="638" y="110">Matched-compute</text><text class="lab" x="638" y="140">ablation</text></g>
+        <g><rect class="box" x="928" y="1" width="270" height="228"/><text class="sub" x="947" y="44">DAY 90</text><text class="lab" x="947" y="110">Pass the gate,</text><text class="lab" x="947" y="140">or walk away</text></g>
+        <path class="arrow hl" d="M275 115 H302" marker-end="url(#labChev2A)"/>
+        <path class="arrow" d="M584 115 H611" marker-end="url(#labChev2)"/>
+        <path class="arrow" d="M893 115 H920" marker-end="url(#labChev2)"/>
+      </svg>
+      <svg class="portrait" viewBox="0 0 360 500" aria-hidden="true">
+        <defs><marker id="labChev2P" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" stroke="#0B0B0B" stroke-width="1.6"/></marker></defs>
+        <g><rect class="box hl" x="1" y="1" width="358" height="92"/><text class="sub hl" x="18" y="34">WEEK 0 · FREE*</text><text class="lab hl" x="18" y="70">Overlap report</text></g>
+        <g><rect class="box" x="1" y="135" width="358" height="92"/><text class="sub" x="18" y="168">WEEK 1</text><text class="lab" x="18" y="204">10B-token shard</text></g>
+        <g><rect class="box" x="1" y="269" width="358" height="92"/><text class="sub" x="18" y="302">WEEKS 2–8</text><text class="lab" x="18" y="338">Matched ablation</text></g>
+        <g><rect class="box" x="1" y="403" width="358" height="92"/><text class="sub" x="18" y="436">DAY 90</text><text class="lab" x="18" y="472">Pass, or walk away</text></g>
+        <path class="arrow" d="M180 95 V127" marker-end="url(#labChev2P)"/><path class="arrow" d="M180 229 V261" marker-end="url(#labChev2P)"/><path class="arrow" d="M180 363 V395" marker-end="url(#labChev2P)"/>
+      </svg>
+    </figure>
+    <p class="foot">*PROPOSAL: free report and shard. You send MinHash signatures, not data; overlap is computed on your side. Source: <a class="src" href="../../research/opt1_thesis.md">opt1_thesis.md</a> §5</p>
+  </div>
+</section>
+
+<section class="slide c-step" id="gate" data-chapter="pilot" data-title="Pass/fail gate" data-src="research/opt1_thesis.md">
+  <div class="inner">
+    <div class="letter" aria-hidden="true">P<small>Written first</small></div>
+    <div>
+      <h2 data-reveal>Pass if it beats your Common Crawl slice.</h2>
+      <div class="c-gate" data-reveal>
+        <div class="line"><b>PASS IF</b> Keenable shard ≥ your CC slice on your evals, equal tokens and compute<br><b>AND</b> net-new share vs your pool ≥ 45%</div>
+        <div class="meta"><span>PROPOSAL</span><span>45%: under the 48.6% CI floor we measured vs every CC crawl</span><span>missed: first month credited (PROPOSAL)</span></div>
+      </div>
+      <p class="foot">Benchmarks are yours; results reported either way. Sources: <a class="src" href="../../research/opt1_thesis.md">opt1_thesis.md</a> §5 · <a class="src" href="../../data/galactica_estimates.json">galactica_estimates.json</a> (gate_proposal)</p>
+    </div>
+  </div>
+</section>

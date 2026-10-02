@@ -1,0 +1,45 @@
+<section class="slide" id="launch" data-chapter="pilot" data-title="Launch plan" data-src="research/g9_channel.md">
+  <div class="inner">
+    <p class="eyebrow">Launch plan · PROPOSAL · twelve weeks to GA</p>
+    <h2 data-reveal>Blind test first, then shadow traffic, then GA.</h2>
+    <figure class="c-diagram" data-reveal aria-label="Weeks 1 to 3: blind head-to-head on 500 of your queries. Week 4: order form. Weeks 5 to 6: shadow 1 to 5 percent of traffic. Weeks 7 to 8: rate-limited preview. Weeks 11 to 12: GA.">
+      <svg class="land" viewBox="0 0 1200 230" aria-hidden="true">
+        <defs><marker id="fwChev2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" stroke="#0B0B0B" stroke-width="1.6"/></marker>
+          <marker id="fwChev2A" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" style="stroke:var(--accent-deep)" stroke-width="2"/></marker></defs>
+        <g><rect class="box hl" x="1" y="1" width="214" height="228"/><text class="sub hl" x="18" y="44">WEEKS 1–3</text><text class="lab hl" x="18" y="110">Blind test,</text><text class="lab hl" x="18" y="140">500 queries</text></g>
+        <g><rect class="box" x="247" y="1" width="214" height="228"/><text class="sub" x="264" y="44">WEEK 4</text><text class="lab" x="264" y="110">Order form</text><text class="lab" x="264" y="140">or walk away</text></g>
+        <g><rect class="box" x="493" y="1" width="214" height="228"/><text class="sub" x="510" y="44">WEEKS 5–6</text><text class="lab" x="510" y="110">Shadow 1–5%</text><text class="lab" x="510" y="140">of traffic</text></g>
+        <g><rect class="box" x="739" y="1" width="214" height="228"/><text class="sub" x="756" y="44">WEEKS 7–8</text><text class="lab" x="756" y="110">Rate-limited</text><text class="lab" x="756" y="140">preview</text></g>
+        <g><rect class="box" x="985" y="1" width="214" height="228"/><text class="sub" x="1002" y="44">WEEKS 11–12</text><text class="lab" x="1002" y="110">GA, default</text><text class="lab" x="1002" y="140">from data</text></g>
+        <path class="arrow hl" d="M219 115 H241" marker-end="url(#fwChev2A)"/>
+        <path class="arrow" d="M465 115 H487" marker-end="url(#fwChev2)"/>
+        <path class="arrow" d="M711 115 H733" marker-end="url(#fwChev2)"/>
+        <path class="arrow" d="M957 115 H979" marker-end="url(#fwChev2)"/>
+      </svg>
+      <svg class="portrait" viewBox="0 0 360 560" aria-hidden="true">
+        <defs><marker id="fwChev2P" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M1 1 L8 5 L1 9" fill="none" stroke="#0B0B0B" stroke-width="1.6"/></marker></defs>
+        <g><rect class="box hl" x="1" y="1" width="358" height="80"/><text class="sub hl" x="18" y="32">WEEKS 1–3</text><text class="lab hl" x="18" y="64">Blind test, 500 queries</text></g>
+        <g><rect class="box" x="1" y="120" width="358" height="80"/><text class="sub" x="18" y="151">WEEK 4</text><text class="lab" x="18" y="183">Order form</text></g>
+        <g><rect class="box" x="1" y="239" width="358" height="80"/><text class="sub" x="18" y="270">WEEKS 5–6</text><text class="lab" x="18" y="302">Shadow 1–5%</text></g>
+        <g><rect class="box" x="1" y="358" width="358" height="80"/><text class="sub" x="18" y="389">WEEKS 7–8</text><text class="lab" x="18" y="421">Preview</text></g>
+        <g><rect class="box" x="1" y="477" width="358" height="80"/><text class="sub" x="18" y="508">WEEKS 11–12</text><text class="lab" x="18" y="540">GA</text></g>
+        <path class="arrow" d="M180 83 V112" marker-end="url(#fwChev2P)"/><path class="arrow" d="M180 202 V231" marker-end="url(#fwChev2P)"/><path class="arrow" d="M180 321 V350" marker-end="url(#fwChev2P)"/><path class="arrow" d="M180 440 V469" marker-end="url(#fwChev2P)"/>
+      </svg>
+    </figure>
+    <p class="foot">Precedent: Baseten launched Keenable-backed Hosted Tools on 16 Sep 2026, rate-limited. Source: <a class="src" href="../../research/g9_channel.md">g9_channel.md</a> §2.3</p>
+  </div>
+</section>
+
+<section class="slide c-step" id="gate" data-chapter="pilot" data-title="Pass/fail gate" data-src="research/g9_channel.md">
+  <div class="inner">
+    <div class="letter" aria-hidden="true">P<small>Written first</small></div>
+    <div>
+      <h2 data-reveal>Default-on only if it clears your bar.</h2>
+      <div class="c-gate" data-reveal>
+        <div class="line"><b>PASS IF</b> added p95 ≤ 300 ms from your region<br><b>AND</b> error rate ≤ 0.5%<br><b>AND</b> blind quality ≥ your current backend</div>
+        <div class="meta"><span>500 queries · 10 business days</span><span>no volume commitment</span><span>owner: Nexus product lead</span></div>
+      </div>
+      <p class="foot">PROPOSAL, from what we measured: 0 errors in 429 requests, p95 434 ms. Sources: <a class="src" href="../../data/g9_channel.json">g9_channel.json</a> · <a class="src" href="../../data/fintech_stress.json">fintech_stress.json</a> · <a class="src" href="../../data/fintech_run.json">fintech_run.json</a></p>
+    </div>
+  </div>
+</section>
