@@ -29,7 +29,7 @@ body.dk-show .dk, body.dk-on-div .dk, .dk:focus-within { opacity: 1; pointer-eve
 body.dk-film .dk, body.dk-away .dk, body.menu-open .dk, body.ov-open .dk, body.zoomed .dk, body.dk-foot:not(.present) .dk { opacity: 0; pointer-events: none; transform: translate(-50%, 16px); }
 .dk-bar { position: relative; isolation: isolate; display: flex; align-items: flex-end; gap: 8px; height: 64px; padding: 0 10px 10px; }
 .dk-bar::before { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: 20px; background: rgba(255, 255, 255, .92);
-  -webkit-backdrop-filter: blur(18px) saturate(1.6); backdrop-filter: blur(18px) saturate(1.6); box-shadow: 0 0 0 1px rgba(42, 42, 42, .08), 0 14px 36px rgba(0, 0, 0, .18); }
+  box-shadow: 0 0 0 1px rgba(42, 42, 42, .08), 0 14px 36px rgba(0, 0, 0, .18); }
 .dk-it { all: unset; box-sizing: border-box; position: relative; flex: none; width: calc(44px * var(--s, 1)); height: calc(44px * var(--s, 1)); cursor: pointer;
   transition: width .25s cubic-bezier(.2, .7, .2, 1), height .25s cubic-bezier(.2, .7, .2, 1); }
 .dk-bar.dk-mag .dk-it { transition-duration: .09s; }
@@ -52,7 +52,7 @@ body.dk-film .dk, body.dk-away .dk, body.menu-open .dk, body.ov-open .dk, body.z
    44 pt tall, above the slide controls in portrait and beside them in landscape; clear of the notch and home indicator */
 @media (max-width: 700px), (hover: none) and (pointer: coarse) {
   .dk { left: calc(12px + var(--ios-sal, env(safe-area-inset-left))); right: calc(12px + var(--ios-sar, env(safe-area-inset-right))); bottom: calc(64px + var(--ios-sab, env(safe-area-inset-bottom))); transform: none; border-radius: 16px; overflow: hidden; background: #fff;
-    -webkit-backdrop-filter: blur(18px) saturate(1.6); backdrop-filter: blur(18px) saturate(1.6); box-shadow: 0 0 0 1px rgba(42, 42, 42, .08), 0 10px 28px rgba(0, 0, 0, .16); }
+    box-shadow: 0 0 0 1px rgba(42, 42, 42, .08), 0 10px 28px rgba(0, 0, 0, .16); }
   body:not(.present) .dk { bottom: calc(12px + var(--ios-sab, env(safe-area-inset-bottom))); }
   body.dk-film .dk, body.dk-away .dk, body.menu-open .dk, body.ov-open .dk, body.zoomed .dk, body.dk-foot:not(.present) .dk { transform: translateY(16px); }
   .dk-bar { height: auto; padding: 6px; gap: 6px; align-items: center; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x proximity; scrollbar-width: none; }

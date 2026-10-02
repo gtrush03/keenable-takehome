@@ -148,6 +148,38 @@ document.addEventListener("slide:in", e => {
   document.querySelectorAll(".kplayer video").forEach(v => { if (!e.target.contains(v) && !v.paused) v.pause(); });
 });
 
+/* hotfix 3d, every screen: a film never runs off its own slide in presentation mode. Whatever starts it (a late retry,
+   a stray tap), it is paused at once */
+document.addEventListener("play", e => {
+  const v = e.target, s = v.closest && v.closest(".kplayer[data-film]") && v.closest(".slide");
+  if (s && window.Deck && document.body.classList.contains("present") && s !== Deck.slides[Deck.cur]) v.pause();
+}, true);
+
+/* hotfix 3d (2 Oct), touch screens: a film left behind gives back its decoder and buffer (pause, src removed, load()).
+   Its next play() (entering its slide, the player's own ▶) puts the same src back first and picks up where it was, so
+   play-on-entry with sound still works. hls.js players (blob: src) are left alone. */
+(() => {
+  if (!matchMedia("(hover: none) and (pointer: coarse)").matches) return;
+  const away = v => {
+    const s = v.closest(".slide"); if (!s) return false;
+    if (document.body.classList.contains("present")) return !!window.Deck && s !== Deck.slides[Deck.cur];
+    const r = s.getBoundingClientRect(); return r.bottom <= 0 || r.top >= innerHeight;   // website mode: only once fully off screen
+  };
+  const unload = v => {
+    const src = v.getAttribute("src"); if (!src || src.startsWith("blob:")) return;
+    v.pause(); v._k3d = { src, t: v.ended ? 0 : v.currentTime };
+    if (!v._k3dPlay) {
+      const play = v.play; v._k3dPlay = true;
+      v.play = function () { const k = this._k3d; if (k) { this._k3d = null; this.src = k.src; if (k.t > 1) this.currentTime = k.t; } return play.call(this); };
+    }
+    v.removeAttribute("src"); v.load();
+  };
+  document.addEventListener("slide:in", e => {
+    if (document.body.classList.contains("present") && window.Deck && e.target !== Deck.slides[Deck.cur]) return;
+    document.querySelectorAll(".kplayer[data-film] video").forEach(v => { if (away(v)) unload(v); });
+  });
+})();
+
 /* Focus film slides: the film fills the screen, the chrome dims, and it starts with sound when the slide is entered
    (the presenter's keypress is the gesture; without one it starts muted with "Tap for sound").
    ← / → always change slides; J / L seek 10 s, Space pauses, Esc opens the overview. When it ends, "Continue →" appears.
@@ -173,7 +205,9 @@ document.addEventListener("slide:in", e => {
       if (t != null) v.currentTime = t; else if (v.ended) v.currentTime = 0;
       v.muted = false;
       const r = v.play();
-      if (r && r.catch) r.catch(() => { v.muted = true; kp.play(); });
+      // hotfix 3d: the muted retry is only for a refused sound start on the slide still shown. A play() cut short by leaving
+      // the slide (AbortError from the leave-pause) used to land here and restart the film muted, off its slide
+      if (r && r.catch) r.catch(err => { if ((err && err.name === "AbortError") || (isP() ? curSlide() !== s : !s._inView)) return; v.muted = true; kp.play(); });
     });
   };
   const setOn = (on) => document.body.classList.toggle("film-on", !!on);

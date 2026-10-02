@@ -52,7 +52,8 @@
     slides.forEach((s, j) => { s.classList.toggle("cur", j === cur); s.classList.toggle("prev", j < cur); });
     slides[cur].classList.add("in"); slides[cur].scrollTop = 0;
     slides[cur].dispatchEvent(new CustomEvent("slide:in", { bubbles: true }));
-    history.replaceState(null, "", "#" + slides[cur].id);
+    // hotfix 3d: WebKit throws after 100 replaceState calls in 10 s; skip when the hash is already this slide
+    if (decodeURIComponent(location.hash.slice(1)) !== slides[cur].id) try { history.replaceState(null, "", "#" + slides[cur].id); } catch (_) {}
   };
   const go = (d) => {
     if (document.body.classList.contains("present")) show(cur + d);

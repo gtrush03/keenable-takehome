@@ -746,3 +746,9 @@ body.present #fx-flip .fx-rows > li:nth-child(n+3) { display: none; }
   .slide .fx-ctl:not(.fx-fence) > button { scroll-snap-align: start; }
   .slide .fx-ctl.fx-more { -webkit-mask-image: linear-gradient(to right, #000 85%, transparent); mask-image: linear-gradient(to right, #000 85%, transparent); }
 }
+
+/* iPhone stability (2 Oct): no backdrop blur on touch screens. Every frosted layer (top bar, film controls, Contents, the rotate
+   note) stays alive over full-screen slide transitions, and iOS Safari can drop the page for graphics memory. Plain tints instead. */
+@media (hover: none) and (pointer: coarse) {
+  *, *::before, *::after { -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
+}
