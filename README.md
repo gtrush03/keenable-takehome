@@ -4,7 +4,7 @@
 
 I didn't pitch the product. I ran it on Keenable's live API against seven rival search APIs, measured where it wins and where it loses, found a bug, and built the first-meeting demo. I did both options: **Option 2, web search for fintech**, leads; **Option 1, the Galactica pretraining corpus**, runs off the same timestamp.
 
-### ▶ [Open the presentation](https://founding-gtm.trusynth.com)
+### ▶ [Open the presentation](https://founding-gtm.trusynth.com/hub/)
 
 Press **Play presentation**: 19 slides with three short films inside. Works on a phone.
 
