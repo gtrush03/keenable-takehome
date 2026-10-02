@@ -32,7 +32,7 @@
   const LABEL = { "leaks-outcome": ["reveals outcome", "bad"], "useful-pre-event-evidence": ["useful", "good"], "related-but-weak": ["weak", ""], "irrelevant": ["off-topic", ""] };
   const row = (r, cut) => {
     const [lab, cls] = LABEL[r.jev_adj] || [r.jev_adj, ""], late = isLate(r.acquired_at, cut);
-    return `<li><span class="t">${esc(r.title || host(r.url))}</span><span class="m"><span class="tag ${cls}">${esc(lab)}</span><span class="${late ? "late" : ""}">acquired ${esc(day(r.acquired_at))}</span><span>${esc(host(r.url))}</span></span></li>`;
+    return `<li><a class="t" href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.title || host(r.url))}</a><span class="m"><span class="tag ${cls}">${esc(lab)}</span><span class="${late ? "late" : ""}">acquired ${esc(day(r.acquired_at))}</span><a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(host(r.url))}</a></span></li>`;
   };
 
   /* ---------- R: TRY IT, pick an event, switch the fence ---------- */
@@ -76,7 +76,7 @@
       const cut = st.tm ? st.date : null, list = results.slice(0, 10);
       const late = cut ? list.filter(r => isLate(r.acquired_at, cut)).length : null;
       const unk = cut ? list.filter(r => !r.acquired_at).length : 0;
-      out.innerHTML = list.slice(0, narrow() ? 1 : 4).map(r => `<li><a class="t" href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.title || host(r.url))}</a><span class="m"><span class="${cut && isLate(r.acquired_at, cut) ? "late" : ""}">acquired ${esc(day(r.acquired_at))}</span><span>${esc(host(r.url))}</span></span></li>`).join("") || `<li>No results.</li>`;
+      out.innerHTML = list.slice(0, narrow() ? 1 : 4).map(r => `<li><a class="t" href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.title || host(r.url))}</a><span class="m"><span class="${cut && isLate(r.acquired_at, cut) ? "late" : ""}">acquired ${esc(day(r.acquired_at))}</span><a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(host(r.url))}</a></span></li>`).join("") || `<li>No results.</li>`;
       meter.innerHTML = `<span class="fx-pill ${cls || ""}">${esc(label)}</span>` + (cut ? `<span class="${late ? "bad" : unk ? "" : "us"}"><b>${late}</b>/${list.length} acquired after ${esc(cut)}</span>` : `<span>no fence: ${list.length} results</span>`)
         + (unk ? `<span class="bad"><b>${unk}</b> acquired_at unknown, not checked</span>` : "") + (ms != null ? `<span>${ms} ms from your browser</span>` : "");
     };
@@ -87,7 +87,7 @@
       const s = d.searches.find(x => x.cutoff === PRESET.cutoff && x.arm === PRESET.arm), when = s ? s.fetched_at.slice(0, 10) : "2026-10-01";
       if (!busy && !liveShown) show(recorded, narrow() ? `Recorded ${when}` : `Recorded ${when} · press Search to go live`, null, { tm: true, date: PRESET.cutoff }, "mute");
       $("livePrint").innerHTML = `<p class="fx-pev mono">${esc(q.defaultValue)} · query_time ${PRESET.cutoff}</p><div class="fx-meter"><span class="us"><b>${recorded.filter(r => r.acq_after).length}</b>/${recorded.length} acquired after the cutoff</span><span>recorded ${esc(when)}</span></div><ol class="fx-rows">${
-        recorded.slice(0, 3).map(r => `<li><span class="t">${esc(r.title || host(r.url))}</span><span class="m"><span>acquired ${esc(day(r.acquired_at))}</span><span>${esc(host(r.url))}</span></span></li>`).join("")}</ol><p class="ix-printed-note">Printed state: recorded run. On the web this box queries the live index.</p>`;
+        recorded.slice(0, 3).map(r => `<li><a class="t" href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.title || host(r.url))}</a><span class="m"><span>acquired ${esc(day(r.acquired_at))}</span><a href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(host(r.url))}</a></span></li>`).join("")}</ol><p class="ix-printed-note">Printed state: recorded run. On the web this box queries the live index.</p>`;
     }).catch(() => {
       if (!busy && !liveShown) meter.innerHTML = `<span class="fx-pill warn">Recorded run unavailable</span><span>press Search to go live</span>`;
       $("livePrint").innerHTML = `<p class="ix-printed-note">Could not load data/fence_relevance.json.</p>`;

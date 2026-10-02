@@ -136,8 +136,12 @@
   num.addEventListener("click", () => DeckTocOpen());
   let hideT, mx = innerWidth / 2, my = innerHeight / 2;
   const poke = () => { body.classList.add("sc-on"); clearTimeout(hideT); hideT = setTimeout(() => body.classList.remove("sc-on"), 2200); };
-  addEventListener("mousemove", e => { mx = e.clientX; my = e.clientY; if (isP()) poke(); }, { passive: true });
-  addEventListener("touchstart", () => { if (isP()) poke(); }, { passive: true });
+  // iPhone (2 Oct): a tap must not fade the controls in while it lands on a link or button. iOS reads a tap that makes clickable
+  // content appear as a hover and drops its click (first tap dead, second works). So a touch on a link, button or field leaves
+  // the controls as they are, and the mouse events iOS sends after a tap are ignored.
+  let touchAt = -1e9;
+  addEventListener("mousemove", e => { mx = e.clientX; my = e.clientY; if (isP() && performance.now() - touchAt > 1200) poke(); }, { passive: true });
+  addEventListener("touchstart", e => { touchAt = performance.now(); if (isP() && !(e.target.closest && e.target.closest("a[href], button, input, select, textarea, label, summary, [role=button]"))) poke(); }, { passive: true });
 
   // zoom: CSS transform on the current slide, origin at the cursor, drag to pan
   let z = 1, tx = 0, ty = 0, zs = null;

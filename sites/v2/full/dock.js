@@ -94,15 +94,17 @@
     // main deck on a touch screen (George, 2 Oct): the Dock rises only on a tap in the bottom band (.dk-band) or on the Dock itself; never on
     // a swipe, a tap elsewhere, the slide controls or page load, so it does not sit on the slides. Mouse events there are ignored: iOS sends them
     // after each tap and WebKit again after a scroll (at the last tap point), which would hold the Dock up.
-    const touchUI = MODE === "main" && matchMedia("(hover: none) and (pointer: coarse)").matches;
+    const touchUI = matchMedia("(hover: none) and (pointer: coarse)").matches;   // both decks (George, 2 Oct: nothing tappable under the Dock)
     const band = touchUI ? body.appendChild(Object.assign(document.createElement("div"), { className: "dk-band" })) : null;
     let t0 = null;
     dock.addEventListener("mouseenter", () => { if (touchUI) return; hold = true; poke(); });        // stays up while the pointer (or a Peek) is on it
     dock.addEventListener("mouseleave", () => { if (touchUI) return; hold = false; poke(); });
-    addEventListener("mousemove", () => { if (!touchUI) poke(); }, { passive: true });
+    let touchAt = -1e9;   // iPhone: the mouse events sent after a tap, and a tap on a link or button, never fade the Dock in (iOS would drop the click)
+    addEventListener("mousemove", () => { if (!touchUI && performance.now() - touchAt > 1200) poke(); }, { passive: true });
     addEventListener("touchstart", e => {
       if (e.target.closest(".dk")) return;
-      if (!touchUI) return poke(3200);
+      touchAt = performance.now();
+      if (!touchUI) { if (!e.target.closest("a[href], button, input, select, textarea, label, summary, [role=button]")) poke(3200); return; }
       const t = e.touches[0]; t0 = t && !e.target.closest(".sc, a, button, input, select, label, summary") && t.clientY >= band.getBoundingClientRect().top ? [t.clientX, t.clientY, !body.classList.contains("dk-show")] : null;
     }, { passive: true });
     // a tap that raises a hidden Dock must not also click it: WebKit sends the click after touchend, at the same point, onto the risen Dock.

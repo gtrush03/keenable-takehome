@@ -76,13 +76,14 @@
   });
   // swipe in presentation mode
   let tx = null;
-  addEventListener("touchstart", e => { tx = e.target.closest("input, select, textarea, button, .tablewrap, [data-noswipe]") ? null : e.touches[0].clientX; }, { passive: true });
+  let touchAt = -1e9;   // the mouse events iOS sends after a tap must not slide the top bar in (that would drop the tap's click)
+  addEventListener("touchstart", e => { touchAt = performance.now(); tx = e.target.closest("input, select, textarea, button, .tablewrap, [data-noswipe]") ? null : e.touches[0].clientX; }, { passive: true });
   addEventListener("touchend", e => {
     if (!document.body.classList.contains("present") || tx === null) return;
     const dx = e.changedTouches[0].clientX - tx; if (Math.abs(dx) > 50) go(dx < 0 ? 1 : -1); tx = null;
   }, { passive: true });
   let hideT; addEventListener("mousemove", e => {
-    if (!document.body.classList.contains("present")) return;
+    if (!document.body.classList.contains("present") || performance.now() - touchAt < 1200) return;
     document.body.classList.toggle("show-ui", e.clientY < 70); clearTimeout(hideT);
     hideT = setTimeout(() => document.body.classList.remove("show-ui"), 1800);
   });
