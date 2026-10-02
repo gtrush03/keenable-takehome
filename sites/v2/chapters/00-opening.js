@@ -134,7 +134,7 @@ function heroMotion(root) {
   if ("ResizeObserver" in window) new ResizeObserver(later).observe(root);
 }
 
-/* Films: the cinematic hero (muted loop + "Watch the film") and the full-bleed film slides, on higgs-ad's KPlayer. */
+/* Films: the cinematic hero (muted loop + "Watch the film") and the full-bleed film slides, on the KPlayer. */
 (() => {
   if (!window.KPlayer) return;
   const M = KPlayer.media;

@@ -54,7 +54,7 @@ def reorder(body: str, spec: str) -> str:
 
 
 def sections(spec: str) -> list:
-    """The "## Name" headings of order-v3.txt as (key, label, ids): key = slug of the name before " · " (team-lead, 1 Oct 00:40Z)."""
+    """The "## Name" headings of order-v3.txt as (key, label, ids): key = slug of the name before " · "."""
     out = []
     for l in spec.splitlines():
         l = l.strip()

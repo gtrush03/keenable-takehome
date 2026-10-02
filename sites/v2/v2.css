@@ -565,7 +565,7 @@ body.zoomed .slide.cur:active { cursor: grabbing; }
 .hero-links a:hover { color: #fff; text-decoration-color: #fff; }
 @media (max-width: 700px) { .hero-start { height: 48px; font-size: 16px; padding: 0 18px; } .hero-links { font-size: 14px; gap: 6px 16px; } }
 
-/* counter = Contents (film-fintech's TOC, else the overview); film slides use KPlayer's own ‹ › */
+/* counter = Contents (the TOC, else the overview); film slides use KPlayer's own ‹ › */
 button.sc-n { all: unset; box-sizing: border-box; display: inline-flex; align-items: center; height: 42px; padding: 0 12px; border-radius: 12px; background: rgba(255,255,255,.92); font: 400 15px/1 "Stack Sans Text", var(--font-text); letter-spacing: 0; color: #646464; font-variant-numeric: tabular-nums; cursor: pointer; }
 button.sc-n:hover { color: #005CFF; }
 button.sc-n:focus-visible { outline: 2px solid #005CFF; outline-offset: 2px; }
@@ -714,7 +714,7 @@ body.present #fx-flip .fx-rows > li:nth-child(n+3) { display: none; }
 .hero-sound .hs-ico { flex: none; }
 .hero-links { margin-top: 10px; }
 @media (max-width: 700px) { .hero-sound { font-size: 14px; } }
-/* QA (georget-ea, 1 Oct): CSS-only, because full.html keeps its frozen markup and JS but loads this live CSS */
+/* QA (1 Oct): CSS-only, because full.html keeps its frozen markup and JS but loads this live CSS */
 /* fd-weak: the "Fix" caption sits on its own line on phones (it ran into its text: "FixAn authority…") */
 @media (max-width: 700px) { .slide .fd-fix b { display: block; margin: 0 0 4px !important; } }
 /* fx-order: the bar labels fit their column on phones (they were 18px in a ~120px column, clipped at the left edge) */

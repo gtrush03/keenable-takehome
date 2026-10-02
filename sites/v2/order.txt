@@ -1,5 +1,4 @@
-# One-case slide order (George 23:08Z). build.py reorders sections by id and sets data-chapter to the group key.
-# Slides not listed follow the slide they followed in the chapter files.
+# Slide order for build.py. "## Section" lines set data-chapter on the slides below them.
 ## opening
 hero agenda task tk-grid
 ## fintech

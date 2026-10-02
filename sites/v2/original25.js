@@ -3,7 +3,7 @@
 (() => {
   const a = document.querySelector('[data-brief-rows="a"]'), b = document.querySelector('[data-brief-rows="b"]');
   if (!a && !b) return;
-  const PRIVATE = /li_network|li_outreach|data\/li\/|_g5|\/g5\/|candidacy|drafts\/|goals\/|chief|\.env|memory-sweep|review_|audit_/;
+  const PRIVATE = /\.env/;
   const esc = t => String(t ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
   const num = id => { const s = window.Deck ? Deck.slides : [...document.querySelectorAll("section.slide")]; const i = s.findIndex(x => x.id === id); return i < 0 ? 0 : i + 1; };
   const row = r => {

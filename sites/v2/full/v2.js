@@ -131,7 +131,7 @@
   const upd = () => { num.textContent = `${Deck.cur + 1} / ${N}`; bPrev.disabled = Deck.cur === 0; bNext.disabled = Deck.cur === N - 1; };
   document.addEventListener("slide:in", upd); upd();
   ctl.addEventListener("click", e => { const b = e.target.closest("[data-sc]"); if (b) Deck.go(+b.dataset.sc); });
-  // Contents: film-fintech's TOC takes "toc:open" (preventDefault = handled); otherwise the overview grid
+  // Contents: the TOC takes "toc:open" (preventDefault = handled); otherwise the overview grid
   window.DeckTocOpen = () => { const ev = new CustomEvent("toc:open", { cancelable: true }); if (document.dispatchEvent(ev)) openOv(); };
   num.addEventListener("click", () => DeckTocOpen());
   let hideT, mx = innerWidth / 2, my = innerHeight / 2;

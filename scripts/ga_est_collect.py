@@ -3,7 +3,7 @@
 
 Two labelled samples, both drawn through the keyless search API (so: a search-results sample, NOT a random draw
 of the index):
-  search_biased  the 200 pages of the G7 Jev proof (20 topical queries, education-heavy)
+  search_biased  the 200 pages of the pilot Jev proof (20 topical queries, education-heavy)
   broad          ~100 deliberately non-topical queries across 9 query types (navigational, long-tail, multilingual,
                  code, forums, news, reference, commerce, docs/misc), 10 results each
 
@@ -79,7 +79,7 @@ def main():
             docs.append({"sample": sample, "query_type": cat, "query": q, "rank": rank + 1, "url": u,
                          "title": r.get("title", ""), "snippet": r.get("snippet", ""),
                          "published_at": r.get("published_at"), "acquired_at": r.get("acquired_at")})
-    # The G7 sample used the first 200 unique URLs; keep exactly those as search_biased.
+    # The pilot sample used the first 200 unique URLs; keep exactly those as search_biased.
     sb = [d for d in docs if d["sample"] == "search_biased"][:200]
     br = [d for d in docs if d["sample"] == "broad"]
     docs = sb + br

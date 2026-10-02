@@ -18,7 +18,7 @@ const measure = () => [...document.querySelectorAll("main > .slide")].map(s => {
   const visible = (el) => { const cs = getComputedStyle(el); return cs.display !== "none" && cs.visibility !== "hidden" && el.getClientRects().length; };
   s.querySelectorAll("*").forEach(el => {
     if (!visible(el)) return;
-    if (el.closest(".kp, .kp-hero")) return;  // KPlayer chrome (higgs-ad's film player), not slide copy
+    if (el.closest(".kp, .kp-hero")) return;  // KPlayer chrome (the film player), not slide copy
     const own = [...el.childNodes].some(n => n.nodeType === 3 && n.textContent.trim());
     if (!own) return;
     let px = parseFloat(getComputedStyle(el).fontSize);

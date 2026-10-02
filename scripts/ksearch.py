@@ -4,7 +4,7 @@ out=[]
 for q in sys.argv[2:]:
     url="https://api.keenable.ai/v1/search/public?"+urllib.parse.urlencode({"query":q})
     try:
-        r=urllib.request.urlopen(urllib.request.Request(url,headers={"User-Agent":"keenable-g5","X-Keenable-Title":"george-g5-targets"}),timeout=30)
+        r=urllib.request.urlopen(urllib.request.Request(url,headers={"User-Agent":"keenable-takehome","X-Keenable-Title":"george-targets"}),timeout=30)
         d=json.load(r)
     except Exception as e:
         d={"error":str(e)}

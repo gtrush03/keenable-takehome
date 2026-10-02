@@ -20,7 +20,7 @@
 /* #whoami: the two usage claims stay hidden unless the page is opened with ?claims=1 (one flag, default off). */
 (() => { try { if (new URLSearchParams(location.search).get("claims") === "1") document.body.classList.add("claims"); } catch (e) {} })();
 
-/* Films: the cinematic hero (muted loop + "Watch the film") and the full-bleed film slides, on higgs-ad's KPlayer. */
+/* Films: the cinematic hero (muted loop + "Watch the film") and the full-bleed film slides, on the KPlayer. */
 (() => {
   if (!window.KPlayer) return;
   const M = KPlayer.media;

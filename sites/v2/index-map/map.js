@@ -275,7 +275,7 @@
     document.getElementById("legend").innerHTML = lines + `<span><b></b>Interchange</span><span><em></em>Slide</span>`;
   }
 
-  // ---------- previews (film-fintech's Peek, optional) ----------
+  // ---------- previews (Peek, optional) ----------
   function attachPeek() {
     if (!window.Peek || typeof Peek.attach !== "function") return;
     document.querySelectorAll("#map a.st[data-deck]").forEach((a) => {

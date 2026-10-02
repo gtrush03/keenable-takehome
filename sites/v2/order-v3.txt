@@ -1,6 +1,4 @@
-# v3 spine (George ruling #5; cut to the main flow by ruling #16, 1 Oct 00:47Z). Only these slides are in /v2/; every other
-# slide stays on disk and lives in the Extended version (full.html). In-page links to them point at full.html#id.
-# "## Section" lines (team-lead, 1 Oct 00:40Z) set data-chapter on the flow slides below them; keep them on any edit.
+# Slide order for build.py. "## Section" lines set data-chapter on the slides below them.
 
 ## Start
 hero

@@ -7,7 +7,7 @@ query-construction rules and judges those too.
 Labels (one live Jev Choice per result, plus a transparent rule-based check):
   useful-pre-event-evidence | related-but-weak | irrelevant | leaks-outcome
 
-Run:  cd ~/Genie/scratch/keenable && set -a; . ./.env.jev; set +a; python3 scripts/fence_relevance.py
+Run:  cd keenable-takehome && set -a; . ./.env.jev; set +a; python3 scripts/fence_relevance.py
       add --dry-run to skip Jev (rule labels only).
       add --from-cache to rebuild metrics from the rows already in data/fence_relevance.json (no API calls).
 """

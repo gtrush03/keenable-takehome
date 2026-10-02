@@ -2,8 +2,8 @@
 """Galactica estimates, step 3: extend the live Jev FineWeb-Edu scores to the broad sample.
 
 Same three questions as jev/galactica_edu.py (edu Score 0-5, page_type Choice, boilerplate Noul) plus one MODEL
-question (machine_generated Noul). Content = first 8,000 chars of Keenable's indexed text, as in the G7 proof.
-The 200 search_biased docs keep their G7 scores (data/jev_galactica_scores.json); only broad docs are sent.
+question (machine_generated Noul). Content = first 8,000 chars of Keenable's indexed text, as in the pilot proof.
+The 200 search_biased docs keep their pilot scores (data/jev_galactica_scores.json); only broad docs are sent.
 Budget: <= 600 live Jev requests (seeded random draw of broad docs with >= 200 chars of text).
 
     set -a; . ./.env.jev; set +a; python3 scripts/ga_est_jev.py
@@ -59,8 +59,8 @@ def main():
                  "requests": jev.usage["requests"], "input_tokens": jev.usage["input_tokens"],
                  "output_tokens": jev.usage["output_tokens"], "budget": BUDGET,
                  "eligible_broad_docs": len(broad), "scored": sum(1 for o in out if "error" not in o),
-                 "note": ("Questions = G7 QUESTIONS + machine_generated (MODEL, not a validated AI-text detector). "
-                          "G7 ablation A showed fan-out extras move the edu score by 0.027 on average.")},
+                 "note": ("Questions = pilot QUESTIONS + machine_generated (MODEL, not a validated AI-text detector). "
+                          "pilot ablation A showed fan-out extras move the edu score by 0.027 on average.")},
         "questions": QS, "docs": out})
 
 

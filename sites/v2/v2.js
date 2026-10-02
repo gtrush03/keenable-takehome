@@ -134,7 +134,7 @@
   const upd = () => { num.textContent = lab(Deck.cur); bPrev.disabled = Deck.cur === 0; bNext.disabled = Deck.cur === N - 1; };
   document.addEventListener("slide:in", upd); upd();
   ctl.addEventListener("click", e => { const b = e.target.closest("[data-sc]"); if (b) Deck.go(+b.dataset.sc); });
-  // Contents: film-fintech's TOC takes "toc:open" (preventDefault = handled); otherwise the overview grid
+  // Contents: the TOC takes "toc:open" (preventDefault = handled); otherwise the overview grid
   window.DeckTocOpen = () => { const ev = new CustomEvent("toc:open", { cancelable: true }); if (document.dispatchEvent(ev)) openOv(); };
   num.addEventListener("click", () => DeckTocOpen());
   let hideT, mx = innerWidth / 2, my = innerHeight / 2;
@@ -271,14 +271,14 @@
 })();
 
 // Ruling #9, condensed by #16: the brief's 9 top-level requirements → our answer → proof → slide, from toc/brief-map.json.
-// The 20 detailed lines stay in Contents. A row's answer is its first line's top_answer (keen-research's) when present,
+// The 20 detailed lines stay in Contents. A row's answer is its first line's top_answer when present,
 // else the condensed line below, built only from the map's own answers.
 (() => {
   const tb = document.querySelector('[data-brief-rows="top"]'); if (!tb || !window.Deck) return;
   const num = id => { const i = Deck.slides.findIndex(s => s.id === id); return i < 0 ? 0 : i + 1; };
   const esc = t => String(t ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
   // private notes never get a link, even locally (the files bundle_v2.py blocks); a group with a "partly" line shows ◐
-  const PRIVATE = /li_network|li_outreach|data\/li\/|_g5|\/g5\/|candidacy|drafts\/|goals\/|chief|\.env|memory-sweep|review_|audit_/;
+  const PRIVATE = /\.env/;
   const TOP = [
     ["Pick Option 1 or Option 2", ["choice"], "Both answered. Lead with fintech; Galactica is the second product."],
     ["Ground it with real feedback", ["grounding-data", "grounding-product", "grounding-people"], "Live API and seven rivals measured; a product bug found; no practitioner conversations yet."],

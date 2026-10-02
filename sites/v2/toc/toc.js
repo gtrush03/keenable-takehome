@@ -8,7 +8,7 @@
   // icons: nav/icons/<name>.svg as a currentColor mask (no emoji or glyph characters anywhere)
   const ic = (name, cls = "") => `<i class="tic ${cls}" style="--ic:url('${at("../nav/icons/" + name + ".svg")}')" aria-hidden="true"></i>`;
   // private notes never open from the TOC: v2.js PRIVATE plus research/li_*; a matching proof shows as plain text
-  const PRIVATE = /research\/li_|li_network|li_outreach|data\/li\/|_g5|\/g5\/|candidacy|drafts\/|goals\/|chief|\.env|memory-sweep|review_|audit_/;
+  const PRIVATE = /\.env/;
 
   ready(() => {
     const D = window.Deck, body = document.body;
@@ -146,7 +146,7 @@
       }
       if ((e.key === "t" || e.key === "T") && !body.classList.contains("menu-open")) { open(); e.preventDefault(); e.stopImmediatePropagation(); }
     }, true);
-    document.addEventListener("toc:open", e => { e.preventDefault(); open(e.detail && e.detail.id); });   // site-elevate's counter + Menu → Contents
+    document.addEventListener("toc:open", e => { e.preventDefault(); open(e.detail && e.detail.id); });   // the counter + Menu → Contents
     document.addEventListener("click", e => {
       const t = e.target.closest("[data-toc], .sc-n"); if (!t || ov.contains(t)) return;
       e.preventDefault(); open(t.dataset.toc || undefined);

@@ -1,8 +1,8 @@
-// Local preview: http://127.0.0.1:7950/<site>/  (galactica, fintech, warroom, candidacy)
+// Local preview: http://127.0.0.1:7950/<site>/  (galactica, fintech)
 // Per site, /<site>/shared → sites/shared, /<site>/assets → assets/keenable, /<site>/data → data, /<site>/media → assets
 import { join, normalize } from "node:path";
 const ROOT = join(import.meta.dir, "..");
-const SITES = ["galactica", "fintech", "warroom", "candidacy", "v2"];
+const SITES = ["galactica", "fintech", "v2"];
 const map = (site: string, rest: string) => {
   const [head, ...tail] = rest.split("/"); const t = tail.join("/");
   if (head === "shared") return join(ROOT, "sites/shared", t);

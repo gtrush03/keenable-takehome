@@ -3,7 +3,7 @@
 
 Inputs (all produced by earlier steps, no network here):
   data/galactica_sample.json      search_biased (200) + broad docs, full indexed text, acquired_at
-  data/jev_galactica_scores.json  live Jev edu scores for the 200 search_biased docs (G7)
+  data/jev_galactica_scores.json  live Jev edu scores for the 200 search_biased docs (pilot)
   data/galactica_jev_broad.json   live Jev scores for <= 600 broad docs (step 3)
   data/ga_robots_cache/           robots.txt / ai.txt / tdmrep.json per host (step 2)
   data/ga_contam_probe.json       targeted Keenable searches for benchmark items (step 2b)
@@ -511,7 +511,7 @@ def main():
                 row["by_query_type"][qt] = {"n": len(v), "mean": round(statistics.mean(v), 2),
                                             "share_ge3": round(sum(x >= 3 for x in v) / len(v), 3)}
         q[g] = row
-    q["method"] = ("Live Jev jev-1.13.0, FineWeb-Edu additive rubric 0-5 (same prompt as the G7 proof), first 8,000 chars of "
+    q["method"] = ("Live Jev jev-1.13.0, FineWeb-Edu additive rubric 0-5 (same prompt as the pilot proof), first 8,000 chars of "
                    "Keenable's indexed text. Broad docs: seeded random draw. Token shares weight each doc by its full cl100k tokens.")
     q["jev_broad_meta"] = jb.get("meta", {})
     q["fineweb_edu_reference"] = "FineWeb-Edu threshold 3 removed 92% of FineWeb (HF card); i.e. ~8% of a CC-derived pool scores >= 3"

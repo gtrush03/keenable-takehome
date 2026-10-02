@@ -5,7 +5,7 @@ Every reachable provider gets the same 40 fintech queries (research / AML / KYB 
 ## Re-run with your keys (one command)
 
 ```bash
-cd ~/Genie/scratch/keenable
+cd keenable-takehome
 TAVILY_API_KEY=… EXA_API_KEY=… BRAVE_API_KEY=… SERPAPI_API_KEY=… PARALLEL_API_KEY=… node scripts/h2h/run.mjs
 ```
 
@@ -24,7 +24,7 @@ bun --env-file=.env.keys scripts/h2h/pit_judge.mjs           # blind LLM judge o
 bun scripts/h2h/summary.mjs                                   # data/h2h/SUMMARY.md
 bun sites/demo/build.ts && bun sites/demo/server.ts
 ```
-- `node` is blocked in this shell; everything runs under bun. `--merge` keeps providers from the previous `latest_raw.json` (each keeps its own `ran_at`). `--charts` is now opt-in (data/charts belongs to the site lane).
+- Everything runs under bun. `--merge` keeps providers from the previous `latest_raw.json` (each keeps its own `ran_at`). `--charts` is now opt-in.
 - New arms: `keenable_nofence` (control), `linkup` (toDate), `firecrawl` (tbs cd_max; free tier ≈10 req/min, paced at 0.15 rps), `perplexity` (search_before_date_filter; not run, needs a card).
 - `pit_judge.mjs` caches labels in `data/h2h/pit_llm_cache.json` (OpenRouter new-account cap: 20 req/min on Sonnet 5.5). `qa_demo.mjs` / `qa_sections.mjs` take headless screenshots into `data/h2h/qa/`; `leakscan.mjs` checks no key value landed in any output file.
 

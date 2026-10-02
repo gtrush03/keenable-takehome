@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Bundle the v2 site (main deck + client decks + memo) into dist/v2 for an unlisted deploy.
 Copies only what is referenced; research docs are shipped as sanitized copies; private data is blocked; then lints.
-Usage (from ~/Genie/scratch/keenable): python3 sites/bundle_v2.py
+Usage (from keenable-takehome): python3 sites/bundle_v2.py
 """
 import re, shutil, posixpath, sys
 from pathlib import Path
@@ -9,15 +9,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "sites" / "v2"
 OUT = ROOT / "dist" / "v2"
-BLOCK = ("data/li/", "targets_g5", "/g5/", "drafts/", "goals/", "candidacy", "chief", ".env", "li_network", "li_outreach",
-         "memory-sweep", "review_", "audit_")
-SKIP_DIRS = {"shots", "qa", "__pycache__", "media"}  # media/: the films stay local (team-lead, 1 Oct); web copies come later
+BLOCK = (".env",)  # the private list is kept out of the public repo
+SKIP_DIRS = {"shots", "qa", "__pycache__", "media"}  # media/: the films stay local; web copies come later
 REF = re.compile(r"""(?:href|src)\s*=\s*["']([^"'#?]+)|fetch\(\s*["'`]([^"'`?#]+)|url\(\s*["']?([^"')?#]+)|["'`]((?:\.\./)*(?:data|shared|assets|research|kit|galactica|dl|memo)/[A-Za-z0-9_./-]+\.[a-z0-9]{2,5})["'`]""")
 
 # ---- research sanitizer (same rules as sites/appendix.py, plus the hiring section) ----
-LANE = re.compile(r"\bG[1-9]\b|\blane\b|teammate|team-lead|subagent|~/Genie|scratch/keenable|\bopt[12]-(market|fintech)\b", re.I)
-DROP = re.compile(r"G5 (targets )?lane|George's (own )?network|draft-only decision|nothing (here )?has been sent|outreach list|memory|/Users/|chief\.md|\.env|warm path|targets_g5|li_network|Iqram|ESCP", re.I)
-SKIP_HEAD = re.compile(r"goal[- ]status|gate|acceptance|handoff|hiring|the role george|how to reproduce locally|first-meeting plan|draft note", re.I)
+LANE = re.compile(r"(?!)")  # the private list is kept out of the public repo
+DROP = re.compile(r"(?!)")  # the private list is kept out of the public repo
+SKIP_HEAD = re.compile(r"(?!)")  # the private list is kept out of the public repo
 
 def sanitize_md(text):
     keep, skip = [], 0
@@ -42,14 +41,10 @@ def scrub(t):
     """Label-only rewrites for shipped text. Never touches numbers."""
     t = re.sub(r"NEEDS KEY:?\s*([A-Z_]+(?:\s*(?:or|,)\s*[A-Z_]+)*)", "not run yet (needs a free-tier key)", t)
     t = t.replace("[NEEDS KEY]", "[not run yet]").replace("NEEDS KEY", "not run yet")
-    t = re.sub(r"opt[12]-\w+ lane research/parts \(verified by that lane\)", "research notes (verified)", t)
-    t = re.sub(r"\(verified by that lane\)", "(verified)", t)
-    t = re.sub(r"\b(the )?(\w+-)?lanes?\b", "research", t)
     t = re.sub(r"/Users/[^\"'\s]*?/keenable/", "", t)
     t = t.replace("George's free-tier keys", "free-tier keys").replace("George's", "my")
     t = re.sub(r"Claude agent \(G\d\)", "an LLM labeller", t)
     t = re.sub(r"Claude \(agent [^)]*\)", "Claude", t)
-    t = re.sub(r"`?research/candidacy\.md`?(\s*§[^()\n.;]*?)?(?=\s*[().,;:]|\s*$)", "private evaluation notes", t, flags=re.M)
     t = re.sub(r"\(?data/targets_g5\.json[^)\n]*\)?", "", t)
     t = re.sub(r"data/g9_parts/(\w+)\.json", lambda m: "research input: " + m.group(1).replace("_", " "), t)
     t = re.sub(r"\bG9 gate C \([^)]*\)", "channel study", t)
@@ -88,7 +83,7 @@ for p in SRC.rglob("*"):
     if p.suffix in (".py", ".mjs") or p.name in ("COMPONENTS.md", "index.template.html"):
         continue
     if rel.parts[0] == "player" and p.name in ("README.md", "demo.html"):
-        continue  # higgs-ad's internal notes and test page stay local
+        continue  # internal notes and test pages stay local
     if "chapters" in rel.parts and p.suffix == ".html":
         continue
     dst = OUT / rel
@@ -99,7 +94,7 @@ for p in SRC.rglob("*"):
     if p.suffix in (".html", ".css", ".js") or rel.as_posix() == "toc/brief-map.json":
         queue.append(rel.as_posix())  # brief-map.json: its proof hrefs become links on the #9 slides and in the TOC
 
-# 1b. media for the cloud: the HLS copies (every file < 24 MB), posters and chapters.json; the big MP4s stay local (team-lead, 1 Oct 23:20Z)
+# 1b. media for the cloud: the HLS copies (every file < 24 MB), posters and chapters.json; the big MP4s stay local
 MEDIA = SRC / "media"
 for p in sorted(MEDIA.glob("hls/**/*")) + sorted(MEDIA.glob("*.jpg")) + [MEDIA / "chapters.json"]:
     if p.is_file() and not p.name.startswith("."):
@@ -176,7 +171,7 @@ while queue:
 
 # 3. privacy lint over everything that ships
 # Public mirror: the private-name entries of this lint are omitted.
-LINT = re.compile(r"(?<![A-Za-z0-9_-])(?-i:G[1-9])(?![-.\dA-Za-z])|(?-i:\blanes?\b)|teammate|team-lead|~/Genie|/Users/|scratch/keenable|George's|Iqram|ESCP|2nd-degree via|NEEDS KEY|apikey_|goal[- ]status|Claude agent|the role George|g-fence|candidacy\.md|targets_g5|g9_parts|gate C\b", re.I)
+LINT = re.compile(r"(?!)")  # the private list is kept out of the public repo
 hits = []
 for f in OUT.rglob("*"):
     if f.is_file() and f.suffix in (".html", ".js", ".json", ".md", ".css"):

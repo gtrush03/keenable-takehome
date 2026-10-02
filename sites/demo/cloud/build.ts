@@ -16,7 +16,7 @@ for (const dir of [OUT, join(OUT, "test")]) {
   for (const f of ["keenable-wordmark-ink.svg", "keenable-mark-ee.svg"]) copyFileSync(join(DEMO, f), join(dir, f));
 }
 
-// the 1:1 keenable.ai kit (film-fintech's sites/v2/kit) styles the "Test your own event" page
+// the 1:1 keenable.ai kit (sites/v2/kit) styles the "Test your own event" page
 mkdirSync(join(OUT, "kit"), { recursive: true });
 copyFileSync(join(DEMO, "../v2/kit/keenable.css"), join(OUT, "kit/keenable.css"));
 writeFileSync(join(OUT, "index.html"), must(readFileSync(join(HERE, "own.html"), "utf8"), "__PROPOSAL__", PROPOSAL));

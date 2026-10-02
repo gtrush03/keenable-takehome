@@ -116,7 +116,7 @@
     });
     bar.addEventListener("mouseleave", () => { base = null; bar.classList.remove("dk-mag"); its.forEach(b => b.style.setProperty("--s", 1)); });
     addEventListener("resize", () => { base = null; its.forEach(b => b.style.setProperty("--s", 1)); });
-    // Peek (ruling #10): hover or long-press a tile to preview the section's first slides. nav/peek.js is film-fintech's shared
+    // Peek (ruling #10): hover or long-press a tile to preview the section's first slides. nav/peek.js is the shared
     // module; attach whenever it is present (now, on load, on "peek:ready", or within 15 s) and stay a plain Dock without it.
     const peekIds = x => all.slice(x.i).filter(s => s.dataset.chapter === x.id && !s.classList.contains("dk-div")).slice(0, 4).map(s => s.id);
     let peeked = false;
