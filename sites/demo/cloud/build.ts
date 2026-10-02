@@ -28,7 +28,11 @@ t = must(t, '<div class="right">', '<div class="right">\n    <a class="btn blue"
 t = must(t, "</style>", "#bLive,#bFull{display:none!important}\n</style>");
 t = must(t, 'toast("Live runs need the demo server: bun sites/demo/server.ts")', 'location.href = "../"');
 t = must(t, 'toast("The full live test needs the demo server: bun sites/demo/server.ts")', 'location.href = "../"');
+t = must(t, '<a class="brand" href="#home" aria-label="Keenable — demo home">', `<a class="brand" href="${PROPOSAL}hub/" aria-label="Keenable: home of the take-home" title="Home: everything in one place">`);   // George: the logo goes to the hub, even on the demo
 t = must(t, "<title>Time Machine Head-to-Head</title>", "<title>Our test · George’s Keenable take-home</title>");
 t = must(t, "</main>", `</main>\n<p class="wrap" style="font-size:12.5px;color:var(--muted);padding-top:18px;padding-bottom:28px;border-top:1px solid var(--line);margin-top:24px">A take-home by George Trushevskiy for Keenable. Not an official Keenable site.</p>`);
 writeFileSync(join(OUT, "test/index.html"), t);
 console.log("built", OUT, "proposal →", PROPOSAL);
+// final privacy lint, shared with the site build (cloud-site/lint_final.py): private names block the build here too
+const lint = Bun.spawnSync(["python3", join(DEMO, "cloud-site/lint_final.py"), OUT, join(DEMO, "../bundle_v2.py"), "demo"], { stdout: "inherit", stderr: "inherit" });
+if (lint.exitCode !== 0) throw new Error("build: final lint failed (see above)");

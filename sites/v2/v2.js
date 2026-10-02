@@ -36,7 +36,7 @@
   const menuBtn = document.querySelector("[data-menu]");
   if (menuBtn) {
     const ov = document.createElement("div"); ov.className = "menu-ov"; ov.hidden = true; ov.setAttribute("role", "dialog"); ov.setAttribute("aria-label", "Menu");
-    ov.innerHTML = `<div class="menu-in"><p class="menu-k">Menu</p><ol class="menu-big"><li><button type="button" data-go-case><i>1</i><b>The case</b><span>The deck from the start, about 17 minutes.</span></button></li><li><a href="films/"><i>2</i><b>The films</b><span>Fintech, Galactica and the ad, full screen.</span></a></li><li><a href="#" data-demo-link target="_blank" rel="noopener"><i>3</i><b>Try the demo <em>↗</em></b><span>Pick a day. See what search knew before it happened.</span></a></li></ol><p class="menu-more menu-quiet"><a href="#" data-toc>Contents</a><a href="original25.html">Original 25</a><a href="full.html">Extended version</a><a href="memo/">Memo</a><a href="v2.pdf" download>PDF</a></p><button class="menu-x" type="button" aria-label="Close menu">Close ✕</button></div>`;
+    ov.innerHTML = `<div class="menu-in"><p class="menu-k">Menu</p><ol class="menu-big"><li><button type="button" data-go-case><i>1</i><b>The case</b><span>The deck from the start, about 17 minutes.</span></button></li><li><a href="films/"><i>2</i><b>The films</b><span>Fintech, Galactica and the ad, full screen.</span></a></li><li><a href="#" data-demo-link target="_blank" rel="noopener"><i>3</i><b>Try the demo <em>↗</em></b><span>Pick a day. See what search knew before it happened.</span></a></li></ol><p class="menu-more menu-quiet"><a href="#" data-toc>Contents</a><a href="full.html?present=1">Extended version</a><a href="memo/">Memo</a><a href="v2.pdf" download>PDF</a></p><button class="menu-x" type="button" aria-label="Close menu">Close ✕</button></div>`;
     document.body.append(ov);
     const mol = ov.querySelector(".menu-ch");
     const close = () => { ov.hidden = true; document.body.classList.remove("menu-open"); };
@@ -261,11 +261,12 @@
   }, { passive: false });
 })();
 
-// Ruling #7/#16/#20: #ask and #sources link to the Original 25 and to the Extended version (full.html; sources → its source list)
+// Ruling #7/#16: #ask and #sources link to the Extended version (full.html; sources → its source list). George, 2 Oct: two decks only (main + Extended)
 (() => {
-  [["ask", "full.html"], ["sources", "full.html#sources"]].forEach(([id, href]) => {
+  const at = h => new URL(h, (document.currentScript && document.currentScript.src) || location.href).href;   // from v2.js's folder, so the client decks (../../v2.js) reach the deck's full.html too
+  [["ask", at("full.html?present=1")], ["sources", at("full.html?present=1#sources")]].forEach(([id, href]) => {
     const s = document.getElementById(id); if (!s || s.querySelector(".ext-link")) return;
-    const p = document.createElement("p"); p.className = "ext-link"; p.innerHTML = `<a class="ext-o25" href="original25.html">Original 25</a><a href="${href}">Extended version →</a>`;
+    const p = document.createElement("p"); p.className = "ext-link"; p.innerHTML = `<a href="${href}">Extended version →</a>`;
     (s.querySelector(".inner") || s).append(p);
   });
 })();
@@ -296,7 +297,7 @@
       const rs = ids.map(i => by[i]).filter(Boolean); if (!rs.length) return "";
       const sl = rs.flatMap(r => [r.slide, ...(r.slides || [])]).filter(Boolean), sid = sl.find(num) || sl[0], n = num(sid);
       const pf = rs.flatMap(r => r.proof || []).find(x => x.href && !PRIVATE.test(x.href)), part = rs.some(r => r.status === "partly");
-      const go = n ? `<a href="#${esc(sid)}">${n}</a>` : sid ? `<a href="full.html#${esc(sid)}" title="In the Extended version">Ext.</a>` : "";
+      const go = n ? `<a href="#${esc(sid)}">${n}</a>` : sid ? `<a href="full.html?present=1#${esc(sid)}" title="In the Extended version">Ext.</a>` : "";
       return `<tr${part ? ' class="partly"' : ""}><td>${esc(rs[0].top_requirement || req)}</td><td>${part ? '<span class="pt" title="Partly done">◐</span> ' : ""}${esc(rs[0].top_answer || fallback)}</td><td>${pf ? `<a class="src" href="${esc(pf.href)}" title="${esc(pf.label)}" target="_blank" rel="noopener">proof ↗</a>` : ""}</td><td>${go}</td></tr>`;
     }).join("");
   }).catch(() => { tb.innerHTML = '<tr><td colspan="4">The map loads from toc/brief-map.json.</td></tr>'; });

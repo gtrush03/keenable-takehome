@@ -1,6 +1,5 @@
 /* Index: the whole submission as a subway map, drawn at runtime from the deck itself.
    ../index.html  → lines = runs of data-chapter in deck order (names from .c-path[data-chapters]); stations = slides (data-title)
-   ../original25.html → the Original 25 line (the 25-slide first cut), one station per chapter
    ../full.html   → the Extended version line, one station per chapter
    ../config.js   → DEMO_URL (live demo interchange) and MEDIA_BASE (film downloads fallback)
    ../dl/downloads.json → the Downloads panel (falls back to the files we know exist)
@@ -15,13 +14,12 @@
   const esc = (t) => String(t ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
   // kit blue/ink first, then quiet companions that stay readable on white
   const COLORS = ["#005CFF", "#2A2A2A", "#FF7E38", "#6FA4FF", "#0B2E6F", "#00A889", "#7C5CFF", "#9AA4B8", "#E8A33D", "#5E6B7D"];
-  const EXT_COLOR = "#0091B3", O25_COLOR = "#7C5CFF", DL_COLOR = "#2A2A2A";   // the Extended line gets a hue no section uses
+  const EXT_COLOR = "#0091B3", DL_COLOR = "#2A2A2A";   // the Extended line gets a hue no section uses
   const FALLBACK_LABELS = { opening: "Intro", fun: "For fun", ask: "Close", appendix: "Appendix" };
   // interchange glyphs, 24×24 with a 1.5 stroke (drawn for the map, same family as nav/icons)
   const GLYPH = {
     film: '<rect x="3.5" y="5" width="17" height="14" rx="1.5"/><path d="M7.5 5v14M16.5 5v14M3.5 9.5h4M3.5 14.5h4M16.5 9.5h4M16.5 14.5h4"/>',
     demo: '<rect x="3" y="4.5" width="18" height="15" rx="1.5"/><path d="M3 8.5h18M9.5 16 14.5 11M10.5 11h4v4"/>',
-    original: '<rect x="3" y="8" width="14.5" height="11" rx="1.5"/><path d="M6.5 5h12.5a1.5 1.5 0 0 1 1.5 1.5V15M8.75 11.25v4.5L12.5 13.5z"/>',
     extended: '<circle cx="6.5" cy="5.5" r="2"/><circle cx="6.5" cy="18.5" r="2"/><circle cx="17.5" cy="7.5" r="2"/><path d="M6.5 7.5v9M17.5 9.5c0 4.5-11 3-11 7"/>',
     appendix: '<rect x="4.5" y="7" width="12" height="14" rx="1.5"/><path d="M8 3.5h10a1.5 1.5 0 0 1 1.5 1.5v12.5M8 11.5h5M8 15h5"/>',
     datasets: '<ellipse cx="12" cy="6" rx="7" ry="2.75"/><path d="M5 6v12c0 1.5 3.1 2.75 7 2.75s7-1.25 7-2.75V6M5 12c0 1.5 3.1 2.75 7 2.75s7-1.25 7-2.75"/>',
@@ -116,7 +114,6 @@
     await loadBrands();
     const main = await readDeck("index.html");
     let full = null; try { full = await readDeck("full.html"); } catch {}
-    let o25 = null; try { o25 = await readDeck("original25.html"); } catch {}
     const flow = main.slides.filter((s) => s.ch !== "appendix"), app = main.slides.filter((s) => s.ch === "appendix");
     const secs = runs(flow).map((r, i) => ({ key: r.ch, name: secName(main.labels, r.ch), color: COLORS[i % COLORS.length], slides: r.slides }));
     const nodes = [];
@@ -127,15 +124,6 @@
     if (app.length) {
       const si = secs.push({ key: "appendix", name: "Appendix", color: COLORS[secs.length % COLORS.length], slides: app }) - 1;
       nodes.push({ id: app[0].id, title: `Appendix · ${app.length} slides`, label: `Appendix · ${app.length}`, x: true, glyph: "appendix", sec: si, first: true, junction: true, href: at(`?present=1#${encodeURIComponent(app[0].id)}`), deck: "main" });
-    }
-    if (o25 && o25.slides.length) {   // the 25-slide original: a branch next to the Extended; previews come from whichever deck has that slide's thumbnail
-      const mainIds = new Set(main.slides.map((s) => s.id)), fullIds = new Set((full?.slides || []).map((s) => s.id));
-      const si = secs.push({ key: "original25", name: "Original 25", color: O25_COLOR, slides: o25.slides }) - 1;
-      runs(o25.slides).forEach((r, k) => { const id = r.slides[0].id; nodes.push({
-        id, title: `Original 25 · ${secName(o25.labels, r.ch)} · ${r.slides.length} slide${r.slides.length > 1 ? "s" : ""}`, label: secName(o25.labels, r.ch),
-        x: k === 0, glyph: k === 0 ? "original" : "", sec: si, first: k === 0, branch: true, href: at(`original25.html?present=1#${encodeURIComponent(id)}`),
-        deck: mainIds.has(id) ? "main" : fullIds.has(id) ? "full" : "",
-      }); });
     }
     if (full && full.slides.length) {
       const si = secs.push({ key: "extended", name: "Extended version", color: EXT_COLOR, slides: full.slides }) - 1;

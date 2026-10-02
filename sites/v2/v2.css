@@ -739,7 +739,6 @@ body.present #fx-flip .fx-rows > li:nth-child(n+3) { display: none; }
   body.present #proof .eyebrow, body.present #proof .foot { display: none; }
   body.present #proof .c-diagram svg.portrait { max-height: calc(100svh - 240px); }
 }
-.ext-link .ext-o25 { margin-right: 24px; color: #646464; }
 
 /* fx-flip event chips on phones: whole chips snap into place; the right edge fades while more chips sit off-screen (v2.js toggles .fx-more). No height added. */
 @media (max-width: 700px) {

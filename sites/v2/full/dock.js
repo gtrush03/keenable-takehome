@@ -1,8 +1,11 @@
 /* Extended deck: full-page section dividers + an Apple-style Dock (ruling #8). A layer only; no slide is changed.
    Load BEFORE full/shared/deck.js: the dividers must be in <main> when deck.js collects its slides.
    The Dock builds after every script has run (DOMContentLoaded) and drives window.Deck.
-   Sections and labels come from .c-path[data-chapters]; each divider's line is read from the section's own slides. */
+   Sections and labels come from .c-path[data-chapters]; each divider's line is read from the section's own slides.
+   Main deck (George, 2 Oct): <script src="full/dock.js" data-dock="main"> gives the 19-slide deck the Dock and its Peek previews only;
+   no dividers, no new slides, main thumbnails, and it keeps clear of the hero and the film slides. */
 (() => {
+  const me = document.currentScript, MODE = (me && me.dataset.dock) || "full";
   const main = document.querySelector("main"), path = document.querySelector(".c-path");
   if (!main || !path || !path.dataset.chapters) return;
   const CH = path.dataset.chapters.split(",").map(p => p.split(":").map(t => t.trim()));
@@ -31,7 +34,7 @@
   const slides = [...main.querySelectorAll(":scope > .slide")];
   const total = CH.length;
   let prevTone = "";
-  CH.forEach(([id, label], k) => {
+  if (MODE === "full") CH.forEach(([id, label], k) => {
     if (id === "opening") return;                              // the hero opens the deck; no divider in front of it
     const first = slides.find(s => s.dataset.chapter === id); if (!first) return;
     const a = tone(first.previousElementSibling), b = tone(first);
@@ -52,8 +55,9 @@
       .filter(x => x.i >= 0).sort((p, q) => p.i - q.i);
     const dock = document.createElement("nav");
     dock.className = "dk screen-only"; dock.setAttribute("aria-label", "Sections"); dock.setAttribute("data-noswipe", "");
+    const short = l => MODE === "main" ? l.split(" · ")[0] : l;   // main's chapters read "Fintech · Option 2": the tile keeps "Fintech"
     dock.innerHTML = `<div class="dk-bar">${items.map(x =>
-      `<button type="button" class="dk-it" data-i="${x.i}" data-ch="${x.id}" aria-label="${pad(x.k + 1)} ${esc(x.label)}"><span class="dk-ic">${pad(x.k + 1)}</span><span class="dk-lb">${esc(x.label)}</span></button>`).join("")}</div>`;
+      `<button type="button" class="dk-it" data-i="${x.i}" data-ch="${x.id}" aria-label="${pad(x.k + 1)} ${esc(x.label)}"><span class="dk-ic">${pad(x.k + 1)}</span><span class="dk-lb">${esc(short(x.label))}</span></button>`).join("")}</div>`;
     body.append(dock);
     const bar = dock.firstChild, its = [...bar.children];
 
@@ -62,7 +66,7 @@
     bar.addEventListener("click", e => {
       const b = e.target.closest(".dk-it"); if (!b || e.defaultPrevented) return;
       const i = +b.dataset.i, id = all[i].id;
-      if (D.cur !== i && location.hash !== "#" + id) history.pushState({ deck: "full", id }, "", "#" + id);
+      if (D.cur !== i && location.hash !== "#" + id) history.pushState({ deck: MODE, id }, "", "#" + id);
       if (body.classList.contains("present")) D.show(i); else all[i].scrollIntoView({ behavior: "smooth", block: "start" });
       if (e.detail) b.blur();                                   // mouse/touch: Space and arrows go back to the slides
       poke();
@@ -73,6 +77,7 @@
     const update = () => {
       const c = D.cur; let k = -1; items.forEach((x, j) => { if (x.i <= c) k = j; });
       body.classList.toggle("dk-on-div", !!(all[c] && all[c].classList.contains("dk-div")));
+      if (MODE === "main") body.classList.toggle("dk-away", !!(all[c] && (all[c].id === "hero" || all[c].querySelector(".film-full"))));   // the hero and the films own the screen
       if (k === last) return; last = k;
       its.forEach((b, j) => { b.classList.toggle("on", j === k); if (j === k) b.setAttribute("aria-current", "true"); else b.removeAttribute("aria-current"); });
       const on = its[k];
@@ -86,14 +91,27 @@
     // show on movement, hide when idle (like the slide controls); always up on a divider
     let hideT, hold = false;
     const poke = (ms = 2400) => { body.classList.add("dk-show"); clearTimeout(hideT); hideT = setTimeout(() => hold ? poke(ms) : body.classList.remove("dk-show"), ms); };
-    dock.addEventListener("mouseenter", () => { hold = true; poke(); });        // stays up while the pointer (or a Peek) is on it
-    dock.addEventListener("mouseleave", () => { hold = false; poke(); });
-    addEventListener("mousemove", () => poke(), { passive: true });
-    addEventListener("touchstart", e => { if (!e.target.closest(".dk")) poke(3200); }, { passive: true });
-    addEventListener("scroll", () => { if (!body.classList.contains("present")) poke(); }, { passive: true });
-    dock.addEventListener("touchstart", () => poke(4000), { passive: true });
-    dock.addEventListener("scroll", () => poke(4000), { passive: true, capture: true });
-    poke(3600);
+    // main deck on a touch screen (George, 2 Oct): the Dock rises only on a tap in the bottom band (.dk-band) or on the Dock itself; never on
+    // a swipe, a tap elsewhere, the slide controls or page load, so it does not sit on the slides. Mouse events there are ignored: iOS sends them
+    // after each tap and WebKit again after a scroll (at the last tap point), which would hold the Dock up.
+    const touchUI = MODE === "main" && matchMedia("(hover: none) and (pointer: coarse)").matches;
+    const band = touchUI ? body.appendChild(Object.assign(document.createElement("div"), { className: "dk-band" })) : null;
+    let t0 = null;
+    dock.addEventListener("mouseenter", () => { if (touchUI) return; hold = true; poke(); });        // stays up while the pointer (or a Peek) is on it
+    dock.addEventListener("mouseleave", () => { if (touchUI) return; hold = false; poke(); });
+    addEventListener("mousemove", () => { if (!touchUI) poke(); }, { passive: true });
+    addEventListener("touchstart", e => {
+      if (e.target.closest(".dk")) return;
+      if (!touchUI) return poke(3200);
+      const t = e.touches[0]; t0 = t && !e.target.closest(".sc, a, button") && t.clientY >= band.getBoundingClientRect().top ? [t.clientX, t.clientY] : null;
+    }, { passive: true });
+    if (touchUI) addEventListener("touchend", e => { const t = e.changedTouches[0];
+      if (t0 && t && Math.hypot(t.clientX - t0[0], t.clientY - t0[1]) < 12) poke(3200); t0 = null; }, { passive: true });
+    addEventListener("scroll", () => { if (!touchUI && !body.classList.contains("present")) poke(); }, { passive: true });
+    let dockAt = -1e9;   // on main touch screens only a finger on the Dock counts as its scroll, not update() centring the current tile
+    dock.addEventListener("touchstart", () => { dockAt = performance.now(); poke(4000); }, { passive: true });
+    dock.addEventListener("scroll", () => { if (!touchUI || performance.now() - dockAt < 1500) poke(4000); }, { passive: true, capture: true });
+    if (!touchUI) poke(3600);
 
     // hide while a film plays (the hero's muted background loop does not count)
     const film = () => body.classList.toggle("dk-film", [...document.querySelectorAll("video")].some(v => !v.paused && !v.ended && !v.classList.contains("kp-hero-bg")));
@@ -123,7 +141,7 @@
     const attachPeek = () => {
       const P = window.Peek; if (peeked || !P || typeof P.attach !== "function") return peeked;
       peeked = true; dock.classList.add("dk-peek");
-      its.forEach((b, j) => { const x = items[j]; try { P.attach(b, { deck: "full", ids: peekIds(x), title: `${pad(x.k + 1)} · ${x.label}`, place: "above" }); } catch (err) { /* a Dock without Peek */ } });
+      its.forEach((b, j) => { const x = items[j]; try { P.attach(b, { deck: MODE, ids: peekIds(x), title: `${pad(x.k + 1)} · ${x.label}`, place: "above" }); } catch (err) { /* a Dock without Peek */ } });
       return true;
     };
     if (!attachPeek()) {

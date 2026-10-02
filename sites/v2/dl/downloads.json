@@ -14,7 +14,7 @@
           "what": "The presentation as a PDF, one slide per page.",
           "format": "PDF",
           "pages": 19,
-          "bytes": 503394,
+          "bytes": 501931,
           "href_local": "v2.pdf",
           "href_cloud": "v2.pdf",
           "filename": "Keenable take-home · Deck.pdf",
@@ -30,18 +30,6 @@
           "href_local": "dl/keenable-extended.pdf",
           "href_cloud": "dl/keenable-extended.pdf",
           "filename": "Keenable take-home · Extended deck.pdf",
-          "icon": "deck"
-        },
-        {
-          "id": "deck-original25",
-          "label": "Original 25 · PDF",
-          "what": "The original 25-slide presentation, kept as it was shown.",
-          "format": "PDF",
-          "pages": 25,
-          "bytes": 591317,
-          "href_local": "dl/keenable-original25.pdf",
-          "href_cloud": "dl/keenable-original25.pdf",
-          "filename": "Keenable take-home · Original 25.pdf",
           "icon": "deck"
         },
         {
@@ -86,7 +74,7 @@
           "what": "First-meeting PROOF deck for a pretraining data lead.",
           "format": "PDF",
           "pages": 11,
-          "bytes": 127001,
+          "bytes": 126252,
           "href_local": "client/lab/lab.pdf",
           "href_cloud": "client/lab/lab.pdf",
           "filename": "Keenable take-home · Client deck, Pretraining Data, Monthly.pdf",

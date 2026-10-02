@@ -1,7 +1,7 @@
 /* "Continue where you left off" (ruling #19) and "Return to main presentation" (#20/#21). Self-injecting; load after shared/deck.js on a deck,
-   or on any other page (hub, full.html, original25.html, films/, map/, index-map/, memo/).
+   or on any other page (hub, full.html, films/, map/, index-map/, memo/).
    SAVE (decks only): each slide:in stores {deck, id, title, section, n, N, t} in localStorage, one key per deck ("main" = /v2/, "full" = full.html;
-   original25.html and every other page save nothing, so "main" only ever tracks the main deck);
+   every other page saves nothing, so "main" only ever tracks the main deck);
    a playing film also stores {film, time} every ~2 s, read from its <video> (player.js is untouched). Slide 1 is never saved.
    SHOW: the hub's primary button becomes "Continue · …" (the old start button becomes a small "Start over" link); the deck Menu gets one quiet
    "Continue: …" row. RESUME: a real link (or Deck.show inside the same deck), so Back works; a film is sought to its time and left paused.

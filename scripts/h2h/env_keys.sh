@@ -10,7 +10,8 @@ kc() { security find-generic-password -s "$1" -w 2>/dev/null; }
               LINKUP_API_KEY:keenable-h2h-linkup FIRECRAWL_API_KEY:keenable-h2h-firecrawl SERPAPI_API_KEY:keenable-h2h-serpapi \
               BRAVE_API_KEY:keenable-h2h-brave PERPLEXITY_API_KEY:keenable-h2h-perplexity \
               SERPER_API_KEY:keenable-h2h-serper YOUCOM_API_KEY:keenable-h2h-youcom VALYU_API_KEY:keenable-h2h-valyu \
-              JINA_API_KEY:keenable-h2h-jina SEARCHAPI_API_KEY:keenable-h2h-searchapi; do
+              JINA_API_KEY:keenable-h2h-jina SEARCHAPI_API_KEY:keenable-h2h-searchapi \
+              OPENREWARD_API_KEY:keenable-h2h-openreward; do
     var=${pair%%:*}; svc=${pair#*:}; val=$(kc "$svc")
     [[ -n "$val" ]] && print -r -- "$var=$val"
   done

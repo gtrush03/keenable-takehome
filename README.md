@@ -19,11 +19,10 @@ Press **Play presentation**: 19 slides with three short films inside. Works on a
 | **Home** | [/hub](https://founding-gtm.trusynth.com/hub/) | Start, Continue where you left off, and the Index. |
 | **Index map** | [/index-map](https://founding-gtm.trusynth.com/index-map/) | Every slide on one subway map, with the downloads. |
 | **Films** | [/films](https://founding-gtm.trusynth.com/films/) | Fintech (6:11), Galactica (5:19), and a 41-second ad. |
-| **Original 25** | [/original25](https://founding-gtm.trusynth.com/original25) | The original 25-slide cut. |
 | **Extended version** | [/full](https://founding-gtm.trusynth.com/full) | 98 slides with the full depth and the section dividers. |
 | **One-page memo** | [/memo](https://founding-gtm.trusynth.com/memo/) · [PDF](https://founding-gtm.trusynth.com/memo/memo.pdf) | The claim, three measured numbers, the method and the ask. |
 
-**Downloads:** [Deck PDF (19)](https://founding-gtm.trusynth.com/v2.pdf) · [Original 25 PDF](https://founding-gtm.trusynth.com/dl/keenable-original25.pdf) · [Extended PDF (98)](https://founding-gtm.trusynth.com/dl/keenable-extended.pdf) · [All datasets (zip)](https://founding-gtm.trusynth.com/dl/keenable-takehome-datasets.zip) · [Kit (zip)](https://founding-gtm.trusynth.com/dl/keenable-kit.zip)
+**Downloads:** [Deck PDF (19)](https://founding-gtm.trusynth.com/v2.pdf) · [Extended PDF (98)](https://founding-gtm.trusynth.com/dl/keenable-extended.pdf) · [All datasets (zip)](https://founding-gtm.trusynth.com/dl/keenable-takehome-datasets.zip) · [Kit (zip)](https://founding-gtm.trusynth.com/dl/keenable-kit.zip)
 
 **First-meeting client decks:** [Backtests Without Lookahead](https://founding-gtm.trusynth.com/client/fintech/) (a fintech head of data) · [Web Search Backend](https://founding-gtm.trusynth.com/client/fireworks/) (a platform team) · [Pretraining Data, Monthly](https://founding-gtm.trusynth.com/client/lab/) (a pretraining data lead)
 
@@ -78,7 +77,7 @@ Each slide link opens that slide in the presentation.
 
 | Folder | What it is |
 |---|---|
-| [`sites/v2/`](sites/v2/) | The presentation: the 19-slide main flow (`index.html`), `original25.html`, and `full.html` (the Extended version). The films are hosted on the live site, not in the repo. |
+| [`sites/v2/`](sites/v2/) | The presentation: the 19-slide main flow (`index.html`) and `full.html` (the Extended version). The films are hosted on the live site, not in the repo. |
 | [`sites/demo/`](sites/demo/) | The time-machine demo: set a date, then search only what Keenable had acquired by then. The Cloudflare Worker is in `sites/demo/cloud/`. |
 | [`kit/`](kit/) | A drop-in kit that adds Keenable search with `query_time` as an OpenAI tool, Anthropic tool use, an MCP server, the Vercel AI SDK and LangChain.js. |
 | [`scripts/`](scripts/) | The measurement scripts: the head-to-head against seven rivals, fence relevance, replay and stress runs, the Galactica estimates and the Common Crawl overlap. |

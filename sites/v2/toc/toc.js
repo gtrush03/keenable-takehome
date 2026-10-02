@@ -26,7 +26,7 @@
     const chapOf = i => chapters.find(c => c.idx.includes(i));
     // numbering matches the deck counter, "n / N" (ruling #16: /v2/ is the flow only; everything else lives in full.html)
     const numRow = i => `${i + 1} / ${N}`;
-    const FULL = at("../full.html");
+    const FULL = at("../full.html"), FULLP = FULL + "?present=1";   // links open the Extended in present mode (George, 2 Oct)
 
     const jump = i => { close(); if (D && isP()) D.show(i); else slides[i].scrollIntoView({ behavior: "smooth", block: "start" }); };
 
@@ -65,16 +65,14 @@
           <span class="toc-bq" role="cell">${esc(r.req || r.title)}</span>
           <span class="toc-ba" role="cell">${esc(r.note || r.title)}${r.done ? "" : ` <em class="toc-partly">partly</em>`}</span>
           <span class="toc-bp" role="cell">${r.proof.filter(p => p.label || p.href).map(p => p.href ? `<a href="${esc(p.href)}" target="_blank" rel="noopener">${esc(p.label)} ${ic("arrow-up-right")}</a>` : `<span class="toc-bpx">${esc(p.label)}</span>`).join("") || "—"}</span>
-          <span class="toc-bs" role="cell">${m !== undefined ? `<button type="button" data-i="${m}" title="${esc(numRow(m))} · ${esc(title(m))}">slide ${m + 1}</button>` : x ? `<a class="toc-bx" href="${FULL}#${encodeURIComponent(x)}" data-x="${esc(x)}" title="Extended version">Ext.</a>` : "—"}</span></div>`; }).join("")}</div>`;
+          <span class="toc-bs" role="cell">${m !== undefined ? `<button type="button" data-i="${m}" title="${esc(numRow(m))} · ${esc(title(m))}">slide ${m + 1}</button>` : x ? `<a class="toc-bx" href="${FULLP}#${encodeURIComponent(x)}" data-x="${esc(x)}" title="Extended version">Ext.</a>` : "—"}</span></div>`; }).join("")}</div>`;
     }
     // (a) the frozen 102-slide deck: "Extended version →" plus its chapter list, read from full.html
     const extEl = document.createElement("section"); extEl.className = "toc-ext";
     const FALLBACK = [["opening", "hero"], ["fintech", "film-fintech"], ["bridge", "two-buyers"], ["galactica", "film-galactica"], ["findings", "findings"], ["fun", "film-ad"], ["sell", "proof-ch"], ["why", "why"], ["ask", "ask-found"], ["sources", "sources"]];
     const renderExt = (list, labels) => {
-      // #21: "Original 25" sits next to "Extended version"; on original25.html itself that slot returns to the main presentation instead
-      const o25 = /original25(\.html)?$/.test(location.pathname);
-      const second = o25 ? `<a class="toc-ext-h" data-rs-main href="${at("../")}?present=1">Main presentation ${ic("arrow-right", "tic-blue")}</a>` : `<a class="toc-ext-h" href="${at("../original25.html")}">Original 25 ${ic("arrow-right", "tic-blue")}</a>`;
-      extEl.innerHTML = `<p class="toc-ext-hs"><a class="toc-ext-h" href="${FULL}">Extended version ${ic("arrow-right", "tic-blue")}</a>${second}</p><p class="toc-ext-sub">Extended: the full ${list.n || 102}-slide deck, frozen. Original 25: the 25-slide original. Every chapter of the extended version:</p><ol class="toc-ext-ch">${list.map(([ch, id], k) => `<li><a href="${FULL}#${encodeURIComponent(id)}" data-ch="${esc(ch)}"><i>${k + 1}</i>${esc(labels[ch] || label(ch))}</a></li>`).join("")}</ol>`;
+      // George, 2 Oct: two decks only (the main presentation and the Extended version), so this is the one link
+      extEl.innerHTML = `<p class="toc-ext-hs"><a class="toc-ext-h" href="${FULLP}">Extended version ${ic("arrow-right", "tic-blue")}</a></p><p class="toc-ext-sub">The full ${list.n || 102}-slide deck, frozen. Every chapter of the extended version:</p><ol class="toc-ext-ch">${list.map(([ch, id], k) => `<li><a href="${FULLP}#${encodeURIComponent(id)}" data-ch="${esc(ch)}"><i>${k + 1}</i>${esc(labels[ch] || label(ch))}</a></li>`).join("")}</ol>`;
     };
     renderExt(FALLBACK, {});
     fetch(FULL, { cache: "no-store" }).then(r => r.ok ? r.text() : Promise.reject()).then(html => {

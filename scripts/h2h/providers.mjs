@@ -231,6 +231,45 @@ export const PROVIDERS = {
       return { results: (json.organic_results || []).slice(0, 10).map((x) => ({ title: x.title || "", url: x.link, snippet: T(x.snippet), published_at: x.date || null, acquired_at: null })) };
     },
   },
+
+  // Exa Snapshot. https://exa.ai/docs/search/snapshot (read 2026-10-02): `snapshotAsOf` goes "inside `contents`" of a /search
+  // request and accepts "ISO 8601 date-time (`2026-06-01T00:00:00Z`) or date (`2026-06-01`, midnight UTC)". "Exa returns the
+  // newest stored version at or before this instant." The cutoff "bounds content, not ranking" (discovery uses "current
+  // retrieval signals"), and "Pages without an eligible version in the 5-month window are omitted". "Pay as you go includes
+  // 10 QPS and a rolling 5 months of index access. A `snapshotAsOf` older than that window is rejected." livecrawl,
+  // livecrawlTimeout, maxAgeHours and subpages must be omitted ("rejected with `INVALID_REQUEST`"). "After 100 requests, talk
+  // to sales to continue." The page states no Snapshot price; costDollars is recorded when the response returns it.
+  // Same instant as Keenable's query_time: the cutoff date, midnight UTC.
+  exa_snapshot: {
+    label: "Exa Snapshot (snapshotAsOf)", envKey: "EXA_API_KEY", rps: 1, pit_only: true,
+    price_per_1k: null, price_floor_per_1k: null, price_note: "Snapshot price not stated on exa.ai/docs/search/snapshot (read 2026-10-02); 'After 100 requests, talk to sales to continue'; costDollars recorded when returned",
+    fence: "content version at contents.snapshotAsOf (newest stored version at or before the instant); ranking uses current signals; rolling 5-month window on pay-as-you-go",
+    async search({ query, cutoff }) {
+      const body = { query, type: "auto", numResults: 10, contents: { highlights: { maxCharacters: 300 }, ...(cutoff && { snapshotAsOf: cutoff }) } };
+      const { json } = await http("https://api.exa.ai/search", { method: "POST", headers: { "content-type": "application/json", "x-api-key": env("EXA_API_KEY") }, body: JSON.stringify(body) });
+      return { cost_usd: json.costDollars?.total, server_ms: json.searchTime, raw_keys: Object.keys((json.results || [])[0] || {}),
+        results: (json.results || []).map((x) => ({ title: x.title, url: x.url, snippet: T((x.highlights || []).join(" … ") || x.text), published_at: x.publishedDate || null, acquired_at: x.snapshotDate || x.crawlDate || x.crawledAt || null })) };
+    },
+  },
+
+  // General Reasoning BackSearch. https://gr.inc/releases/introducing-backsearch (page updated 13 Sep 2026) and
+  // https://docs.openreward.ai/api-reference/backdated-search (read 2026-10-02): POST https://search.openreward.ai/search,
+  // "Authenticate with your existing OpenReward or_... key in the x-api-key header". `as_of` is required ("YYYY-MM-DD"), and
+  // "as_of gates on crawl_date, not on the article's own stated publish date"; `k` 1–100 (default 10). Coverage: cc_news
+  // "2025-12-01 → 2026-09-04", cc_sec "2023-01-03 → 2026-09-09", cc_arxiv "1991-08-14 → 2026-09-08", cc_wiki
+  // "2026-02-01 → 2026-08-01", cc_web "2025-06-12 → 2026-09-13". Response hits[]: url, title, snippet, crawl_date, publish_date,
+  // corpus, host, score. "$10 per 1,000 searches and $2 per 1,000 fetches. Only successful requests are billed."; 402 = balance
+  // exhausted. as_of = the day before the cutoff, so a crawl on the cutoff day itself cannot pass whether as_of is inclusive or not.
+  backsearch: {
+    label: "BackSearch (as_of)", envKey: "OPENREWARD_API_KEY", rps: 1, pit_only: true,
+    price_per_1k: 10, price_floor_per_1k: 10, price_note: "$10/1K searches, $2/1K fetches; only successful requests billed (gr.inc/releases/introducing-backsearch, updated 13 Sep 2026)",
+    fence: "crawl date (as_of gates on crawl_date, not publish date); archive starts 2025-06-12 (web), 2025-12-01 (news), 2023-01-03 (SEC)",
+    async search({ query, cutoff }) {
+      const body = { query, k: 10, ...(cutoff && { as_of: dayBefore(cutoff) }) };
+      const { json } = await http("https://search.openreward.ai/search", { method: "POST", headers: { "content-type": "application/json", "x-api-key": env("OPENREWARD_API_KEY") }, body: JSON.stringify(body) });
+      return { results: (json.hits || []).slice(0, 10).map((x) => ({ title: x.title || "", url: x.url, snippet: T(x.snippet), published_at: x.publish_date || null, acquired_at: x.crawl_date || null, corpus: x.corpus || null })) };
+    },
+  },
 };
 
 export function availability(id) {

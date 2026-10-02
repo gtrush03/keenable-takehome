@@ -55,7 +55,84 @@
     .hub { padding-top: 16px; padding-bottom: 32px; }
     .hub-lead { margin: 10px 0 14px; }
     .hub-sound { margin-top: 10px; }
+    .hub-start { margin-top: 16px; }
   }
+
+  /* the whole presentation as the Index map's main line: one preview window per slide, sectioned like the map (its labels and colours,
+     7px line, 6.5/3.5 dots, 15/3 interchange rings). Collapsed: one row that scrolls sideways (snap, touch, trackpad, wheel);
+     "Show the whole line": one row per section. The legend above jumps to a section. */
+  .hub-start { margin: 40px 0 0; --w: 184px; --g: 12px; }
+  .hub-legend { display: flex; flex-wrap: wrap; gap: 0 18px; margin: 0 0 4px; }
+  .hub-legend button { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0; border: 0; background: none; cursor: pointer; font-family: var(--k-text); font-weight: 300; font-size: 14px; line-height: 18px; letter-spacing: 0; color: var(--k-muted); white-space: nowrap; }
+  .hub-legend button:hover, .hub-legend button:focus-visible { color: var(--k-ink); }
+  .hub-legend i { display: inline-block; width: 22px; height: 6px; border-radius: 3px; background: var(--c); }
+  .hub-secs { list-style: none; margin: 0; padding: 0; position: relative; display: flex; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x proximity; scrollbar-width: none; }
+  .hub-secs::-webkit-scrollbar, .hub-sts::-webkit-scrollbar { display: none; }
+  .hub-sec { flex: none; min-width: 0; }
+  .hub-sec > .sec { display: block; height: 20px; font-family: var(--k-mono); font-size: 11px; line-height: 20px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--c); white-space: nowrap; }
+  .hub-sts { list-style: none; margin: 0; padding: 0; display: flex; }
+  .hub-sts li { flex: none; width: var(--w); padding-right: var(--g); scroll-snap-align: start; }
+  .hub-sts a { display: block; color: var(--k-ink); text-decoration: none; }
+  .hub-sts .ln { position: relative; display: block; height: 34px; }
+  .hub-sts .ln::before, .hub-sts .ln::after { content: ""; position: absolute; top: 13.5px; height: 7px; }
+  .hub-sts .ln::before { left: 0; width: calc(var(--w) / 2); background: var(--c); }                                   /* into this station, in its part's colour (as on the map) */
+  .hub-sts .ln::after { left: calc(var(--w) / 2); right: calc(-1 * var(--g)); background: var(--n, transparent); }      /* on to the next, in the next one's */
+  .hub-secs > .hub-sec:first-child li:first-child .ln::before { display: none; }
+  .hub-sts .d, .hub-sts .r { position: absolute; left: calc(var(--w) / 2); top: 17px; transform: translate(-50%, -50%); z-index: 1; box-sizing: border-box; border-radius: 50%; background: #fff; }
+  .hub-sts .d { width: 16.5px; height: 16.5px; border: 3.5px solid var(--c); }
+  .hub-sts .r { width: 33px; height: 33px; border: 3px solid var(--k-ink); display: grid; place-items: center; color: var(--k-ink); }
+  .hub-sts .r svg { display: block; width: 20px; height: 20px; }
+  .hub-sts img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; margin-top: 8px; border-radius: var(--k-r-card); background: var(--k-card); box-shadow: 0 0 0 1px var(--k-rule); transition: box-shadow var(--k-fast) var(--k-ease); }
+  .hub-sts .ic { display: grid; place-items: center; aspect-ratio: 16 / 10; margin-top: 8px; border-radius: var(--k-r-card); background: var(--k-card); color: var(--k-ink); transition: box-shadow var(--k-fast) var(--k-ease), color var(--k-fast) var(--k-ease); }
+  .hub-sts .ic svg { width: 40px; height: 40px; }
+  .hub-sts a:hover .ic, .hub-sts a:focus-visible .ic { box-shadow: 0 0 0 2px var(--k-blue); color: var(--k-blue); }
+  .hub-sts .t { display: block; margin-top: 8px; font-family: var(--k-text); font-weight: 300; font-size: 14px; line-height: 18px; letter-spacing: 0; }
+  .hub-sts a.x .t { font-weight: 500; color: var(--k-strong); }
+  .hub-sts a:hover .t, .hub-sts a:focus-visible .t { color: var(--k-blue); }
+  .hub-sts a:hover img, .hub-sts a:focus-visible img { box-shadow: 0 0 0 2px var(--k-blue); }
+  .hub-sts a:focus-visible { outline: none; }
+  .hub-sts a:hover .r, .hub-sts a:focus-visible .r { border-color: var(--k-blue); color: var(--k-blue); }
+  /* the whole line: one row per part, each row still scrolls sideways when it is wider than the column */
+  .hub-start.is-open .hub-secs { display: block; overflow: visible; }
+  .hub-start.is-open .hub-sec + .hub-sec { margin-top: 20px; }
+  .hub-start.is-open .hub-sts { overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x proximity; scrollbar-width: none; }
+  .hub-start.is-open .hub-sts li:last-child .ln::after { display: none; }
+  .hub-start.is-open .hub-sec li:first-child .ln::before { display: none; }
+  @supports (animation-timeline: scroll()) {   /* a soft edge while there is more to the right (the kit nav's own fade) */
+    .hub-secs, .hub-start.is-open .hub-sts { animation: hub-more linear both; animation-timeline: scroll(self inline); }
+    .hub-start.is-open .hub-secs { animation: none; }
+  }
+  @keyframes hub-more { from, 97% { -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 48px), transparent); mask-image: linear-gradient(to right, #000 calc(100% - 48px), transparent); } to { -webkit-mask-image: none; mask-image: none; } }
+  .hub-more { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin: 8px 0 0; padding: 0; border: 0; background: none; cursor: pointer; font-family: var(--k-text); font-weight: 300; font-size: 15px; line-height: 20px; letter-spacing: 0; color: var(--k-link); }
+  .hub-more:hover { color: var(--k-blue-hover); }
+  .hub-more svg { transition: transform var(--k-fast) var(--k-ease); }
+  .hub-more[aria-expanded="true"] svg { transform: rotate(180deg); }
+  @media (prefers-reduced-motion: no-preference) { .hub-start.is-open .hub-sec { animation: hub-in var(--k-base) var(--k-ease) both; } }
+  @keyframes hub-in { from { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .hub-more svg { transition: none; } }
+  @media (max-width: 560px) {
+    .hub-start { --w: 152px; --g: 10px; margin-top: 32px; }
+    .hub-legend { gap: 0 14px; }
+  }
+
+  /* Index opens in place: the map in a sheet over this page */
+  html.hub-ix-on { overflow: hidden; }
+  .hub-ix { box-sizing: border-box; width: min(1240px, calc(100vw - 48px)); max-width: none; height: calc(100dvh - 48px); max-height: none; margin: auto; padding: 0; border: 0; border-radius: var(--k-r-card); background: var(--k-white); color: var(--k-ink); overflow: hidden; }
+  .hub-ix[open] { display: flex; flex-direction: column; }
+  .hub-ix:focus { outline: none; }   /* focus sits on the sheet itself, so a tap does not ring the × */
+  .hub-ix::backdrop { background: rgba(14, 14, 14, 0.45); }
+  .hub-ix__head { flex: none; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 8px 8px 24px; border-bottom: 1px solid var(--k-rule); }
+  .hub-ix__t { margin: 0; font-family: var(--k-text); font-weight: 400; font-size: 16px; line-height: 22px; letter-spacing: 0; }
+  .hub-ix__x { width: 44px; height: 44px; padding: 0; justify-content: center; }
+  .hub-ix__f { flex: 1 1 auto; display: block; width: 100%; min-height: 0; border: 0; background: var(--k-white); opacity: 0; transition: opacity var(--k-fast) var(--k-ease); }
+  .hub-ix__f.on { opacity: 1; }   /* shown once the map page has dropped its own header and footer */
+  @media (max-width: 700px), (orientation: landscape) and (max-height: 500px) {
+    .hub-ix { width: 100vw; height: 100dvh; border-radius: 0; }
+    .hub-ix__head { padding: calc(4px + env(safe-area-inset-top)) calc(12px + env(safe-area-inset-right)) 4px calc(16px + env(safe-area-inset-left)); }
+  }
+  @media (prefers-reduced-motion: no-preference) { .hub-ix[open] { animation: hub-ix-in var(--k-base) var(--k-ease); } }
+  @keyframes hub-ix-in { from { opacity: 0; transform: translateY(12px); } }
+  @media print { .hub-start, .hub-ix { display: none !important; } }
 </style>
 <style>/* type rule: no negative tracking under 28px (overrides the kit's measured values on this page) */ :root { --k-ls-14: 0; --k-ls-16: 0; --k-ls-18: 0; --k-ls-mono: 0; }</style>
 <link rel="stylesheet" href="../nav/peek.css">
@@ -71,11 +148,104 @@
   <p class="k-lead hub-lead">One case: fintech search first, the same timestamp for labs second.</p>
   <div class="k-cta-row hub-cta"><a class="k-btn k-btn--dark hub-go1" href="../?present=1"><svg class="hub-ico" viewBox="0 0 20 20" width="18" height="18" aria-hidden="true"><path d="M6.5 4.6c0-.8.9-1.3 1.6-.9l7.6 4.6c.7.4.7 1.4 0 1.8l-7.6 4.6c-.7.4-1.6-.1-1.6-.9z" fill="currentColor"/></svg>Play presentation</a><a class="k-btn k-btn--soft hub-go1" href="../index-map/">Index</a></div>
   <p class="k-small hub-sound"><svg class="hub-ico" viewBox="0 0 20 20" width="16" height="16" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.6h2.7L10 4.6v10.8l-3.8-3H3.5z"/><path d="M13 7.3a3.8 3.8 0 0 1 0 5.4M15.3 5.2a6.8 6.8 0 0 1 0 9.6"/></svg>Sound on · 3 narrated films · about 17 min</p>
+  <nav class="hub-start" aria-label="The presentation, slide by slide">
+    <div class="hub-legend" aria-label="Jump to a part" hidden><button type="button" data-sec="hs-start" style="--c:#005CFF"><i aria-hidden="true"></i>Start</button><button type="button" data-sec="hs-fintech" style="--c:#2A2A2A"><i aria-hidden="true"></i>Fintech</button><button type="button" data-sec="hs-timestamp" style="--c:#FF7E38"><i aria-hidden="true"></i>One timestamp</button><button type="button" data-sec="hs-galactica" style="--c:#6FA4FF"><i aria-hidden="true"></i>Galactica</button><button type="button" data-sec="hs-close" style="--c:#0B2E6F"><i aria-hidden="true"></i>Close</button><button type="button" data-sec="hs-extended" style="--c:#0091B3"><i aria-hidden="true"></i>Extended version</button></div>
+    <ol class="hub-secs" id="hubLine">
+      <li class="hub-sec" id="hs-start" style="--c:#005CFF"><span class="sec">Start</span><ol class="hub-sts"><li style="--c:#005CFF;--n:#005CFF"><a href="../?present=1#hero"><span class="ln"><i class="d" aria-hidden="true"></i></span><img src="../nav/thumbs/main/hero.webp" width="400" height="250" alt="" decoding="async"><span class="t">Opening</span></a></li><li style="--c:#005CFF;--n:#005CFF"><a class="x" href="../?present=1#film-fintech"><span class="ln"><i class="r" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="14" rx="1.5"/><path d="M7.5 5v14M16.5 5v14M3.5 9.5h4M3.5 14.5h4M16.5 9.5h4M16.5 14.5h4"/></svg></i></span><img src="../nav/thumbs/main/film-fintech.webp" width="400" height="250" alt="" decoding="async"><span class="t">Film 1 · Fintech</span></a></li><li style="--c:#005CFF;--n:#2A2A2A"><a href="../?present=1#tk-answers"><span class="ln"><i class="d" aria-hidden="true"></i></span><img src="../nav/thumbs/main/tk-answers.webp" width="400" height="250" alt="" decoding="async"><span class="t">The brief, answered</span></a></li></ol></li>
+      <li class="hub-sec" id="hs-fintech" style="--c:#2A2A2A"><span class="sec">Fintech</span><ol class="hub-sts"><li style="--c:#2A2A2A;--n:#2A2A2A"><a href="../?present=1#tk-f-thesis"><span class="ln"><i class="d" aria-hidden="true"></i></span><img src="../nav/thumbs/main/tk-f-thesis.webp" width="400" height="250" alt="" decoding="async"><span class="t">Option 2 · Sales thesis</span></a></li><li style="--c:#2A2A2A;--n:#2A2A2A"><a href="../?present=1#fx-h2h"><span class="ln"><i class="d" aria-hidden="true"></i></span><img src="../nav/thumbs/main/fx-h2h.webp" width="400" height="250" alt="" decoding="async"><span class="t">Head-to-head, seven rivals</span></a></li><li class="ix" style="--c:#2A2A2A;--n:#2A2A2A"><a class="x" href="#" data-demo-link target="_blank" rel="noopener"><span class="ln"><i class="r" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="15" rx="1.5"/><path d="M3 8.5h18M9.5 16 14.5 11M10.5 11h4v4"/></svg></i></span><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="15" rx="1.5"/><path d="M3 8.5h18M9.5 16 14.5 11M10.5 11h4v4"/></svg></span><span class="t">Live demo ↗</span></a></li><li style="--c:#2A2A2A;--n:#2A2A2A"><a href="../?present=1#fx-flip"><span class="ln"><i class="d" aria-hidden="true"></i></span><img src="../nav/thumbs/main/fx-flip.webp" width="400" height="250" alt="" decoding="async"><span class="t">Try it: switch the fence</span></a></li><li style="--c:#2A2A2A;--n:#2A2A2A"><a href="../?present=1#tk-f-targets"><span class="ln"><i class="d" aria-hidden="true"></i></span><img src="../nav/thumbs/main/tk-f-targets.webp" width="400" height="250" alt="" decoding="async"><span class="t">Option 2 · Five targets</span></a></li><li style="--c:#2A2A2A;--n:#FF7E38"><a href="../?present=1#fd-bug"><span class="ln"><i class="d" aria-hidden="true"></i></span><img src="../nav/thumbs/main/fd-bug.webp" width="400" height="250" alt="" decoding="async"><span class="t">Finding #1</span></a></li></ol></li>
+      <li class="hub-sec" id="hs-timestamp" style="--c:#FF7E38"><span class="sec">One timestamp</span><ol class="hub-sts"><li style="--c:#FF7E38;--n:#6FA4FF"><a href="../?present=1#tk-bridge"><span class="ln"><i class="d" aria-hidden="true"></i></span><img src="../nav/thumbs/main/tk-bridge.webp" width="400" height="250" alt="" decoding="async"><span class="t">My recommendation: one field, two products</span></a></li></ol></li>
+      <li class="hub-sec" id="hs-galactica" style="--c:#6FA4FF"><span class="sec">Galactica</span><ol class="hub-sts"><li style="--c:#6FA4FF;--n:#6FA4FF"><a class="x" href="../?present=1#film-galactica"><span class="ln"><i class="r" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="14" rx="1.5"/><path d="M7.5 5v14M16.5 5v14M3.5 9.5h4M3.5 14.5h4M16.5 9.5h4M16.5 14.5h4"/></svg></i></span><img src="../nav/thumbs/main/film-galactica.webp" width="400" height="250" alt="" decoding="async"><span class="t">Film 2 · Galactica</span></a></li><li style="--c:#6FA4FF;--n:#6FA4FF"><a href="../?present=1#tk-g-thesis"><span class="ln"><i class="d" aria-hidden="true"></i></span><img src="../nav/thumbs/main/tk-g-thesis.webp" width="400" height="250" alt="" decoding="async"><span class="t">Option 1 · Sales thesis</span></a></li><li style="--c:#6FA4FF;--n:#6FA4FF"><a href="../?present=1#ga-card"><span class="ln"><i class="d" aria-hidden="true"></i></span><img src="../nav/thumbs/main/ga-card.webp" width="400" height="250" alt="" decoding="async"><span class="t">Ten unknowns, estimated</span></a></li><li style="--c:#6FA4FF;--n:#0B2E6F"><a href="../?present=1#tk-g-targets"><span class="ln"><i class="d" aria-hidden="true"></i></span><img src="../nav/thumbs/main/tk-g-targets.webp" width="400" height="250" alt="" decoding="async"><span class="t">Option 1 · Five targets</span></a></li></ol></li>
+      <li class="hub-sec" id="hs-close" style="--c:#0B2E6F"><span class="sec">Close</span><ol class="hub-sts"><li style="--c:#0B2E6F;--n:#0B2E6F"><a class="x" href="../?present=1#film-ad"><span class="ln"><i class="r" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="14" rx="1.5"/><path d="M7.5 5v14M16.5 5v14M3.5 9.5h4M3.5 14.5h4M16.5 9.5h4M16.5 14.5h4"/></svg></i></span><img src="../nav/thumbs/main/film-ad.webp" width="400" height="250" alt="" decoding="async"><span class="t">40 seconds, for fun</span></a></li><li style="--c:#0B2E6F;--n:#0B2E6F"><a href="../?present=1#proof"><span class="ln"><i class="d" aria-hidden="true"></i></span><img src="../nav/thumbs/main/proof.webp" width="400" height="250" alt="" decoding="async"><span class="t">The PROOF method</span></a></li><li style="--c:#0B2E6F;--n:#0B2E6F"><a href="../?present=1#oc-days"><span class="ln"><i class="d" aria-hidden="true"></i></span><img src="../nav/thumbs/main/oc-days.webp" width="400" height="250" alt="" decoding="async"><span class="t">Day 30 / 60 / 90</span></a></li><li style="--c:#0B2E6F;--n:#0B2E6F"><a href="../?present=1#why"><span class="ln"><i class="d" aria-hidden="true"></i></span><img src="../nav/thumbs/main/why.webp" width="400" height="250" alt="" decoding="async"><span class="t">Why George</span></a></li><li style="--c:#0B2E6F;--n:#0B2E6F"><a href="../?present=1#ask"><span class="ln"><i class="d" aria-hidden="true"></i></span><img src="../nav/thumbs/main/ask.webp" width="400" height="250" alt="" decoding="async"><span class="t">The one next step</span></a></li><li style="--c:#0B2E6F;--n:#0091B3"><a href="../?present=1#sources"><span class="ln"><i class="d" aria-hidden="true"></i></span><img src="../nav/thumbs/main/sources.webp" width="400" height="250" alt="" decoding="async"><span class="t">Evidence and sources</span></a></li></ol></li>
+      <li class="hub-sec" id="hs-extended" style="--c:#0091B3"><span class="sec">Extended version</span><ol class="hub-sts"><li class="ix" style="--c:#0091B3"><a class="x" href="../full.html#hero"><span class="ln"><i class="r" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6.5" cy="5.5" r="2"/><circle cx="6.5" cy="18.5" r="2"/><circle cx="17.5" cy="7.5" r="2"/><path d="M6.5 7.5v9M17.5 9.5c0 4.5-11 3-11 7"/></svg></i></span><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="6.5" cy="5.5" r="2"/><circle cx="6.5" cy="18.5" r="2"/><circle cx="17.5" cy="7.5" r="2"/><path d="M6.5 7.5v9M17.5 9.5c0 4.5-11 3-11 7"/></svg></span><span class="t">Intro</span></a></li></ol></li>
+    </ol>
+    <button class="hub-more" type="button" aria-expanded="false" aria-controls="hubLine" hidden><span>Show the whole line</span><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  </nav>
 </main>
 <footer class="k-footer"><div class="k-col"><p class="k-small hub-fine">Targets are people and companies I would approach. None has been contacted, and none is presented as a Keenable customer.</p><p class="k-footer__legal">A take-home by George Trushevskiy for Keenable. Not an official Keenable site.</p></div></footer>
 </div>
+<dialog class="hub-ix" id="hubIx" aria-labelledby="hubIxT" tabindex="-1">
+  <div class="hub-ix__head"><h2 class="hub-ix__t" id="hubIxT">Index</h2><button class="k-btn k-btn--soft hub-ix__x" type="button" aria-label="Close the index"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true" focusable="false"><path d="M6.5 6.5l11 11M17.5 6.5l-11 11"/></svg></button></div>
+</dialog>
 <script src="../nav/peek.js"></script>
 <script src="../nav/history.js"></script>
 <script src="../nav/resume.js"></script>
+<script>
+/* The line: one sideways row (collapsed) or one row per part ("Show the whole line"), in place; the legend jumps to a part.
+   A vertical wheel over the collapsed row moves it sideways until it reaches an end. Without JS the row scrolls as it is. */
+(() => {
+  const nav = document.querySelector(".hub-start"), row = document.getElementById("hubLine"), b = nav && nav.querySelector(".hub-more"), lg = nav && nav.querySelector(".hub-legend");
+  if (!nav || !row || !b) return;
+  const t = b.querySelector("span"), calm = matchMedia("(prefers-reduced-motion: reduce)");
+  const set = (open) => { nav.classList.toggle("is-open", open); b.setAttribute("aria-expanded", String(open)); t.textContent = open ? "Show less" : "Show the whole line"; };
+  set(false); b.hidden = false; if (lg) lg.hidden = false;
+  const kg = document.querySelector(".k-ground");   // the kit sheet clips its grid lines (overflow: hidden), so scrolling a wide row into view could slide the sheet sideways: keep it put
+  if (kg) kg.addEventListener("scroll", () => { if (kg.scrollLeft) kg.scrollLeft = 0; }, { passive: true });
+  b.addEventListener("click", () => { const open = !nav.classList.contains("is-open"); set(open); if (!open) { row.scrollLeft = 0; b.scrollIntoView({ block: "nearest" }); } });
+  if (lg) lg.addEventListener("click", (e) => {
+    const k = e.target.closest("button[data-sec]"), g = k && document.getElementById(k.dataset.sec); if (!g) return;
+    const how = calm.matches ? "auto" : "smooth";
+    if (nav.classList.contains("is-open")) g.scrollIntoView({ block: "nearest", behavior: how });
+    else row.scrollTo({ left: g.offsetLeft - row.firstElementChild.offsetLeft, behavior: how });
+  });
+  if (window.Peek) row.querySelectorAll('a[href^="../?present=1#"]').forEach((a) => { try { Peek.attach(a, { deck: "main", ids: [a.getAttribute("href").split("#")[1]], title: a.textContent.trim() }); } catch (e) {} });
+  row.addEventListener("wheel", (e) => {
+    if (nav.classList.contains("is-open") || e.ctrlKey || Math.abs(e.deltaX) >= Math.abs(e.deltaY)) return;   // trackpads swipe sideways on their own
+    const max = row.scrollWidth - row.clientWidth, d = e.deltaMode === 1 ? e.deltaY * 16 : e.deltaY;
+    if ((d > 0 && row.scrollLeft >= max - 1) || (d < 0 && row.scrollLeft <= 0)) return;   // at an end: the page scrolls
+    e.preventDefault(); row.scrollLeft += d;
+  }, { passive: false });
+})();
+</script>
+<script>
+/* Index opens in place: ../index-map/ in a sheet over the hub; a station opens in this window; Esc, × or the backdrop closes.
+   Without <dialog> (or with a modifier key) the Index link opens the page as before. */
+(() => {
+  const btn = document.querySelector('.hub-cta a[href="../index-map/"]'), dlg = document.getElementById("hubIx");
+  if (!btn || !dlg || typeof dlg.showModal !== "function") return;
+  const MAP = new URL("../index-map/", location.href).href, x = dlg.querySelector(".hub-ix__x"), root = document.documentElement;
+  const bare = (u) => u.split(/[?#]/)[0].replace(/index\.html$/, "");
+  const EMBED = "body.k{background:#fff}.k-ground{border-radius:0}.k-announce,.k-header-bar,.k-footer,.rs-ret{display:none!important}.im-hero{padding-top:16px}";
+  const go = (u) => { location.href = u; };
+  let f = null, tick = 0;
+  const inner = () => { try { return f && f.contentDocument; } catch (e) { return null; } };
+  function wire() {
+    let w, d; try { w = f.contentWindow; d = f.contentDocument; } catch (e) { d = null; }
+    if (!d || !d.body || w.location.href === "about:blank") return;
+    if (bare(w.location.href) !== bare(MAP)) return go(w.location.href);   // something inside left the map: follow it out here
+    if (d.documentElement.dataset.inHub) return; d.documentElement.dataset.inHub = "1";
+    clearInterval(tick);
+    const s = d.createElement("style"); s.textContent = EMBED; d.head.append(s); f.classList.add("on");
+    const peekOut = () => d.querySelectorAll(".peek-on").forEach((a) => {   // a Peek card tap goes to location.href in the map; send it here
+      const o = a._peek; if (o && !o.inHub && a.dataset.href) { o.inHub = 1; o.go = () => go(new URL(a.dataset.href, d.baseURI).href); }
+    });
+    d.addEventListener("click", peekOut, true); d.addEventListener("keydown", peekOut, true);
+    d.addEventListener("click", (e) => {
+      if (e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      const a = e.target.closest && e.target.closest("a[href]"); if (!a || a.getAttribute("target")) return;
+      const u = new URL(a.getAttribute("href"), d.baseURI).href; if (bare(u) === bare(MAP)) return;   // #downloads stays in the map
+      e.preventDefault(); go(u);
+    });
+    w.addEventListener("keydown", (e) => { if (e.key === "Escape" && !e.defaultPrevented && !d.querySelector("dialog[open], .peek:not([hidden])")) { e.preventDefault(); close(); } });
+  }
+  function close() { if (dlg.open) dlg.close(); }
+  btn.addEventListener("click", (e) => {
+    if (e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    e.preventDefault();
+    if (!f) {
+      f = document.createElement("iframe"); f.className = "hub-ix__f"; f.title = "Index: the whole submission as a map"; f.src = MAP; f.addEventListener("load", wire); dlg.append(f);
+      tick = setInterval(() => { const d = inner(); if (d && d.readyState !== "loading") wire(); }, 30);   // as soon as the map's DOM is parsed; load waits for every logo
+    }
+    root.classList.add("hub-ix-on"); dlg.showModal(); dlg.focus();
+  });
+  x.addEventListener("click", close);
+  dlg.addEventListener("keydown", (e) => {   // Esc with focus out here: a preview or Downloads open in the map closes first
+    const d = inner(); if (e.key !== "Escape" || !d) return;
+    const dl = d.querySelector("dialog[open]"), pk = d.querySelector(".peek:not([hidden])");
+    if (dl) { e.preventDefault(); dl.close(); } else if (pk) { e.preventDefault(); f.contentWindow.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true })); }
+  });
+  dlg.addEventListener("click", (e) => { if (e.target === dlg) close(); });   // the backdrop
+  dlg.addEventListener("close", () => { root.classList.remove("hub-ix-on"); btn.focus({ preventScroll: true }); });
+})();
+</script>
 </body>
 </html>
